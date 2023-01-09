@@ -1,3 +1,5 @@
+# Babylon
+Babylon@git+https://github.com/Cosmo-Tech/Babylon.git@1.2.0#egg=Babylon
 # Documentation generation requirements
 mkdocs
 mkdocs-gen-files

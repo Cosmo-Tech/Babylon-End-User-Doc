@@ -1,17 +1,16 @@
-
-from setuptools import setup, find_packages
-from src import VERSION
+from setuptools import find_packages
+from setuptools import setup
 
 with open('requirements.txt') as f:
     required = f.read().splitlines()
 
 setup(
-    name='Documentation Template',
-    version=VERSION,
+    name='Babylon End User Documentation',
+    version='1.0.0',
     author='Alexis Fossart',
     author_email='alexis.fossart@cosmotech.com',
     url="https://github.com/Cosmo-Tech/Babylon",
-    description='Template repository for python with automated documentation',
+    description='Simple setup.py for the build of the Babylon end user documentation',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
