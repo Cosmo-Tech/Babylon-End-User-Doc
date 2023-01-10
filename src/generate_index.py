@@ -14,4 +14,4 @@ with mkdocs_gen_files.open("index.md", "w") as _md_file, \
         if "--README--" in _line:
             _md_file.writelines(_readme_content[1:])
             continue
-        _md_file.write(_line.replace("VERSION", VERSION))
+        _md_file.write(_line.replace("%%VERSION%%", VERSION))

@@ -14,27 +14,38 @@ theme:
     - navigation.expand
     - navigation.top
     - navigation.indexes
+    - navigation.instant
   custom_dir: overrides
   icon:
+    repo: fontawesome/brands/github
     tag:
-      disc: "material/lightbulb-on-20"
+      lightbulb: "material/lightbulb-on-20"
+      floppy: "material/floppy"
 
 extra:
   version:
     provider: mike
   tags:
-    Discover: disc
-
+    Discover: lightbulb
+    Guides: lightbulb
+    Installation: floppy
+repo_url: https://github.com/Cosmo-Tech/Babylon
+repo_name: Cosmo-Tech/Babylon
 nav:
   - Home:
     - 'index.md'
     - Discover Babylon: 'DiscoverBabylon.md'
+  - Guides:
+      - Installation: 'guides/installation.md'
 
 markdown_extensions:
     - attr_list
     - tables
     - footnotes
     - pymdownx.snippets
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+        alternate_style: true
 
 plugins:
     - search
