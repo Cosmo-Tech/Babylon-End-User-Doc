@@ -236,6 +236,8 @@
           
             
               
+                
+              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -416,6 +418,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get-babylon-from-docker" class="md-nav__link">
+    Get Babylon from docker
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -439,7 +448,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -464,6 +475,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get-babylon-from-docker" class="md-nav__link">
+    Get Babylon from docker
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -478,6 +496,8 @@
                 
                   
   
+  
+
 
   <nav class="md-tags" >
     
@@ -514,19 +534,22 @@
 <p>Great ! You chose to use Babylon, I'm sure you won't regret it.</p>
 <p>Now we will guide you through the installation process so you can get your hands on Babylon as fast as possible.</p>
 <p>So the installation is a fairly simple process which can be separated in 2 parts : get a version of Babylon, and install this version.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Install Babylon from sources</label><label for="__tabbed_1_2">Install Babylon using Docker</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <h2 id="get-babylon-sources">Get Babylon sources</h2>
 <p>We will go through the process of getting a version of Babylon before the installation.</p>
 <p>You can make your choice on how you may want to process :</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Get official releases</label><label for="__tabbed_1_2">Use latest version from git</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Get official releases</label><label for="__tabbed_2_2">Use latest version from git</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>So you choose to use releases, very well, 
 go on the following page to get one of the releases<br />
 <a href="https://github.com/Cosmo-Tech/Babylon/releases"><img alt="Releases" src="https://img.shields.io/badge/-Releases-informational?style=for-the-badge" /></a></p>
 <p>Then you can select a type of compressed folder you want (<code>.zip</code> or <code>.tar.gz</code>) and download the file.</p>
-<p><img alt="Download from release gif" src="../../assets/Download_from_release.gif" /></p>
+<p><img alt="Download from release gif" src="/assets/Download_from_release.gif" /></p>
 <p>Now you can decompress the file you downloaded.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Decompress a .zip</label><label for="__tabbed_2_2">Decompress a .tar.gz</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Decompress a .zip</label><label for="__tabbed_3_2">Decompress a .tar.gz</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>Babylon-1.2.0.zip
@@ -542,7 +565,7 @@ go on the following page to get one of the releases<br />
 </div>
 <div class="tabbed-block">
 <p>You can download the latest version of Babylon using git with the following command</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Get sources from git</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Get sources from git</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:Cosmo-Tech/Babylon.git<span class="w"> </span>Babylon-Sources
@@ -552,7 +575,7 @@ go on the following page to get one of the releases<br />
 </div>
 <p>You now have a folder called <code>Babylon-Sources</code> which we will refer to as "Babylon Installation Folder" for the rest of the guide</p>
 <p>If you want a specific version of Babylon you can check which version number you want (for example <code>1.2.0</code>) and to the following</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Change the source version from git</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Change the source version from git</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>Babylon-Source
@@ -565,8 +588,35 @@ git<span class="w"> </span>checkout<span class="w"> </span><span class="m">1</sp
 </div>
 </div>
 </div>
+</div>
+<div class="tabbed-block">
+<h2 id="get-babylon-from-docker">Get Babylon from docker</h2>
+<p>Choosing the version of Babylon you want to use you can run the following command (here for version <code>1.2.0</code>) </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Download docker image</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/cosmo-tech/babylon:1.2.0
+docker<span class="w"> </span>tag<span class="w"> </span>ghcr.io/cosmo-tech/babylon:1.2.0<span class="w"> </span>babylon
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>It will download for you the required docker image, and rename it to <code>babylon</code></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Start Babylon docker image</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>babylon
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
+
+  
 
 
 
@@ -605,7 +655,7 @@ git<span class="w"> </span>checkout<span class="w"> </span><span class="m">1</sp
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "tags": {"Discover": "lightbulb", "Guides": "lightbulb", "Installation": "floppy"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "tags": {"Discover": "lightbulb", "Guides": "lightbulb", "Installation": "floppy"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
