@@ -13,6 +13,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.expand
     - navigation.top
+    - navigation.indexes
   custom_dir: overrides
   icon:
     tag:
@@ -25,8 +26,9 @@ extra:
     Discover: disc
 
 nav:
-  - Home: 'index.md'
-  - Discover: 'DiscoverBabylon.md'
+  - Home:
+    - 'index.md'
+    - Discover Babylon: 'DiscoverBabylon.md'
 
 markdown_extensions:
     - attr_list
