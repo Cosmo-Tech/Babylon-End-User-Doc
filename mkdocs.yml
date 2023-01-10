@@ -1,4 +1,4 @@
-site_name: Doc template
+site_name: Babylon User Documentation
 
 theme:
   name: material
@@ -14,21 +14,30 @@ theme:
     - navigation.expand
     - navigation.top
   custom_dir: overrides
+  icon:
+    tag:
+      disc: "material/lightbulb-on-20"
 
 extra:
   version:
     provider: mike
+  tags:
+    Discover: disc
 
 nav:
   - Home: 'index.md'
+  - Discover: 'DiscoverBabylon.md'
 
 markdown_extensions:
     - attr_list
     - tables
+    - footnotes
     - pymdownx.snippets
 
 plugins:
     - search
+    - tags:
+        tags_file: tags.md
     - mkdocstrings:
         default_handler: python
         handlers:
@@ -38,6 +47,6 @@ plugins:
               line_lenth: 120
     - gen-files:
         scripts:
-          - scripts/generate_index.py
+          - src/generate_index.py
     - literate-nav
     - mike
