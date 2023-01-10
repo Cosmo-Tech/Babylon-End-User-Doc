@@ -9,6 +9,7 @@ theme:
     scheme: slate
     primary: orange
   features:
+    - content.code.copy
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.expand
