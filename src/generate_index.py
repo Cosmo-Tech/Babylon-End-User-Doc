@@ -2,7 +2,7 @@ from typing import IO
 
 import mkdocs_gen_files
 
-from src import VERSION
+from Babylon.version import VERSION
 
 _md_file: IO
 with mkdocs_gen_files.open("index.md", "w") as _md_file, \

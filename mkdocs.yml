@@ -1,4 +1,6 @@
 site_name: Babylon User Documentation
+repo_url: https://github.com/Cosmo-Tech/Babylon
+repo_name: Cosmo-Tech/Babylon
 
 theme:
   name: material
@@ -23,6 +25,9 @@ theme:
       lightbulb: "material/lightbulb-on-20"
       floppy: "material/floppy"
 
+extra_css:
+  - stylesheets/extra.css
+
 extra:
   version:
     provider: mike
@@ -30,8 +35,7 @@ extra:
     Discover: lightbulb
     Guides: lightbulb
     Installation: floppy
-repo_url: https://github.com/Cosmo-Tech/Babylon
-repo_name: Cosmo-Tech/Babylon
+
 nav:
   - Home:
     - 'index.md'
@@ -40,9 +44,12 @@ nav:
       - Installation: 'guides/installation.md'
 
 markdown_extensions:
+    - admonition
     - attr_list
-    - tables
     - footnotes
+    - md_in_html
+    - tables
+    - pymdownx.details
     - pymdownx.snippets
     - pymdownx.superfences
     - pymdownx.tabbed:

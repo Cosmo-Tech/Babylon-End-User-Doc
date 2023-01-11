@@ -1,5 +1,5 @@
 You can download the latest version of Babylon using git with the following command
-=== "Get sources from git"
+???+ example "Get sources from git"
     ```bash
     git clone git@github.com:Cosmo-Tech/Babylon.git Babylon-Sources
     ```
@@ -8,7 +8,7 @@ You now have a folder called `Babylon-Sources` which we will refer to as "Babylo
 
 If you want a specific version of Babylon you can check which version number you want (for example `1.2.0`) and to the following
 
-=== "Change the source version from git"
+???+ example "Change the source version from git"
     ```bash
     cd Babylon-Source
     git checkout 1.2.0

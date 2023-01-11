@@ -14,7 +14,7 @@ Now we will guide you through the installation process so you can get your hands
 So the installation is a fairly simple process which can be separated in 2 parts : get a version of Babylon, and install this version.
 
 === "Install Babylon from sources"
-    --8<-- 'partials/Installation/InstallFromSources.md'
+    --8<-- 'docs/partials/Installation/InstallFromSources.md'
 
 === "Install Babylon using Docker"
-    --8<-- 'partials/Installation/InstallFromDocker.md'
+    --8<-- 'docs/partials/Installation/InstallFromDocker.md'
