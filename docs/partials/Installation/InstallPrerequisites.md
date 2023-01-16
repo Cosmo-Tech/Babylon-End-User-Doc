@@ -1,0 +1,5 @@
+| Requirement                               | <!-- -->                                                                                                                                                              |
+|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Python 3.9+**                           | [![Python guide](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://wiki.python.org/moin/BeginnersGuide/Download)   | 
+| **Pip 22.2+**                             | [![Get pip](https://img.shields.io/badge/Get_pip-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://pip.pypa.io/en/stable/installation/)                |
+| **Git** <br>*required for latest version* | [![Install GIT](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) |

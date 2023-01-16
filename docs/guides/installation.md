@@ -18,3 +18,5 @@ So the installation is a fairly simple process which can be separated in 2 parts
 
 === "Install Babylon using Docker"
     --8<-- 'docs/partials/Installation/InstallFromDocker.md'
+
+And now you have a fully functional installation of Babylon, you can now check other guides to learn how to configure it and start running commands.
