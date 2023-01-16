@@ -11,7 +11,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6b71719e.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.558e4712.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
@@ -157,7 +157,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -419,6 +419,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#install-babylon" class="md-nav__link">
+    Install Babylon
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -444,6 +451,31 @@
   <h1>InstallFromSources</h1>
 
 <h2 id="get-babylon-sources">Get Babylon sources</h2>
+<details class="warning" open="open">
+<summary>Prerequisites</summary>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th><!-- --></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Python 3.9+</strong></td>
+<td><a href="https://wiki.python.org/moin/BeginnersGuide/Download"><img alt="Python guide" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" /></a></td>
+</tr>
+<tr>
+<td><strong>Pip 22.2+</strong></td>
+<td><a href="https://pip.pypa.io/en/stable/installation/"><img alt="Get pip" src="https://img.shields.io/badge/Get_pip-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" /></a></td>
+</tr>
+<tr>
+<td><strong>Git</strong> <br><em>required for latest version</em></td>
+<td><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"><img alt="Install GIT" src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&amp;logo=git&amp;logoColor=white" /></a></td>
+</tr>
+</tbody>
+</table>
+</details>
 <p>We will go through the process of getting a version of Babylon before the installation.</p>
 <p>You can make your choice on how you may want to process :</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Get official releases</label><label for="__tabbed_1_2">Use latest version from git</label></div>
@@ -494,6 +526,62 @@ git<span class="w"> </span>checkout<span class="w"> </span><span class="m">1</sp
 </div>
 </div>
 </div>
+<h2 id="install-babylon">Install Babylon</h2>
+<p>Now that you have a "Babylon Installation Folder" ready we can move to the installation process</p>
+<details>
+<summary>Use a <code>venv</code></summary>
+<p>If you want you can set up a virtual environment in python using the library <code>venv</code> to keep your babylon dependencies in a single location.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Set up a <code>venv</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1"># Make sure you have the library venv installed</span>
+pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>venv
+<span class="c1"># Create a venv in the folder `.venv`</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Now you can activate your venv (created in the folder <code>.venv</code>) and follow the rest of this tutorial.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Activate on unix systems</label><label for="__tabbed_4_2">Activate on windows (<code>cmd.exe</code>)</label><label for="__tabbed_4_3">Activate on windows (<code>PowerShell</code>)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>.venv\Scripts\activate.bat
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Once you install babylon in a venv you will need to activate this venv every time you want to use babylon.</p>
+</div>
+</details>
+<p>The setup is fairy direct, the following command will allow a full install of Babylon</p>
+<div class="admonition example">
+<p class="admonition-title">Setup babylon</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>&lt;Babylon<span class="w"> </span>Installation<span class="w"> </span>Folder&gt;
+</code></pre></div>
+</div>
+<details class="tip">
+<summary>Enable autocompletion</summary>
+<p>On some systems autocompletion can be enabled for babylon, more information on autocompletion can be found on the <a href="https://click.palletsprojects.com/en/8.1.x/shell-completion/">click documentation</a> (since babylon is basd on <code>click</code>)</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Example of click autocompletion command for <code>bash</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;eval &quot;$(_BABYLON_COMPLETE=bash_source babylon)&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+</details>
 
 
 
@@ -537,7 +625,7 @@ git<span class="w"> </span>checkout<span class="w"> </span><span class="m">1</sp
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "tags": {"Discover": "lightbulb", "Guides": "lightbulb", "Installation": "floppy"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
     
   </body>

@@ -11,7 +11,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6b71719e.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.558e4712.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
@@ -157,7 +157,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -446,7 +446,20 @@
 <h2 id="get-babylon-from-docker">Get Babylon from docker</h2>
 <details class="warning" open="open">
 <summary>Prerequisites</summary>
-<p>You need to set-up a fully functionnal docker : <a href="https://docs.docker.com/get-docker/">Docker setup guide</a></p>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th><!-- --></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Docker</strong></td>
+<td><a href="https://docs.docker.com/get-docker//"><img alt="Install docker" src="https://img.shields.io/badge/Docker-3776AB?style=for-the-badge&amp;logo=docker&amp;logoColor=white" /></a></td>
+</tr>
+</tbody>
+</table>
 </details>
 <p>Choosing the version of Babylon you want to use you can run the following command (here for version <code>1.2.0</code>) </p>
 <details class="example" open="open">
@@ -461,29 +474,48 @@ docker<span class="w"> </span>tag<span class="w"> </span>ghcr.io/cosmo-tech/baby
 <p>Using the following command you get in a working Babylon environment, allowing you to run any command you will like
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>--rm<span class="w"> </span>babylon
 </code></pre></div></p>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p><strong>In this environment your changes to the files won't be persisted when you leave it.</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>In this environment your changes to the files won't be persisted when you leave it.</strong><br />
+The following tips will help you set up persitance for your config, but will use knowledge of Babylon explained in future guides.</p>
 </div>
 </details>
 <details class="tip" open="open">
 <summary>Persist configurations and use local content as a working dir</summary>
-<details class="info">
+<details class="info" open="open">
 <summary>Info</summary>
 <p>This tip concern some principle of Babylon explained is other guides, you can skip it for now if you want to understand those principles before running commands using them.</p>
 </details>
 <p>To persist configuration we will use the <code>--mount</code> option of Docker to persist our data across runs</p>
-<p><div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>babylon_config
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Persist configuration</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>babylon_config
 docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>--rm<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>/babylon_config,target<span class="o">=</span>/opt/babylon<span class="w"> </span>babylon
 </code></pre></div>
-This command will persist your babylon configuration in a local <code>/babylon_config</code> folder allowing you to keep it across runs (in the same folder)</p>
+</div>
+</div>
+</div>
+<p>This command will persist your babylon configuration in a local <code>/babylon_config</code> folder allowing you to keep it across runs (in the same folder)</p>
 <p>Now if you want to use your local files as a working directory for your commands you can do the following</p>
-<p><div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>--rm<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>,target<span class="o">=</span>/etc/babylon/workingdir<span class="w"> </span>babylon
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Use local folder as working dir</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>--rm<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>,target<span class="o">=</span>/etc/babylon/workingdir<span class="w"> </span>babylon
 </code></pre></div>
-This command will use your current folder as a working directory for your babylon commands</p>
+</div>
+</div>
+</div>
+<p>This command will use your current folder as a working directory for your babylon commands</p>
 <p>Combining both options allows for a persistent content and config across runs</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Combine both for persitence</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>--rm<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>/babylon_config,target<span class="o">=</span>/opt/babylon<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>,target<span class="o">=</span>/etc/babylon/workingdir<span class="w"> </span>babylon
 </code></pre></div>
+</div>
+</div>
+</div>
 </details>
 <details class="tip">
 <summary>Use aliases to make a babylon command using docker</summary>
@@ -494,9 +526,14 @@ This command will use your current folder as a working directory for your babylo
 <li>Won't allow you to use auto-completion</li>
 </ul>
 </div>
-<p>The following command will create a command <code>babylon</code> having the same use as the one you would get by installing the sources but by using docker.
+<p>The following command will create a command <code>babylon</code> having the same use as the one you would get by installing the sources but by using docker.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1"><code>babylon</code> alias command</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">babylon</span><span class="o">=</span><span class="s2">&quot;docker run -ti --rm --mount type=bind,source=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/babylon_config,target=/opt/babylon --mount type=bind,source=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">,target=/etc/babylon/workingdir --entrypoint babylon babylon&quot;</span>
-</code></pre></div></p>
+</code></pre></div>
 </details>
 
 
@@ -541,7 +578,7 @@ This command will use your current folder as a working directory for your babylo
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "tags": {"Discover": "lightbulb", "Guides": "lightbulb", "Installation": "floppy"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
     
   </body>
