@@ -1,6 +1,6 @@
 So you choose to use releases, very well, 
 go on the following page to get one of the releases  
-[![Releases](https://img.shields.io/badge/-Releases-informational?style=for-the-badge)](https://github.com/Cosmo-Tech/Babylon/releases)
+[![Official releases page](https://img.shields.io/badge/-Official_releases_page-informational?style=for-the-badge&logo=github)](https://github.com/Cosmo-Tech/Babylon/releases)
 
 Then you can select a type of compressed folder you want (`.zip` or `.tar.gz`) and download the file.
 
