@@ -15,7 +15,7 @@
     
     
       
-        <title>InstallFromSources - Babylon User Documentation</title>
+        <title>ErrorMessageDescription - Babylon User Documentation</title>
       
     
     
@@ -95,11 +95,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#get-babylon-sources" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -134,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              InstallFromSources
+              ErrorMessageDescription
             
           </span>
         </div>
@@ -446,28 +441,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#get-babylon-sources" class="md-nav__link">
-    Get Babylon sources
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-babylon" class="md-nav__link">
-    Install Babylon
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -488,140 +461,126 @@
 
 
 
-  <h1>InstallFromSources</h1>
-
-<h2 id="get-babylon-sources">Get Babylon sources</h2>
-<details class="warning" open="open">
-<summary>Prerequisites</summary>
-<table>
-<thead>
-<tr>
-<th>Requirement</th>
-<th><!-- --></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Python 3.9+</strong></td>
-<td><a href="https://wiki.python.org/moin/BeginnersGuide/Download"><img alt="Python guide" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" /></a></td>
-</tr>
-<tr>
-<td><strong>Pip 22.2+</strong></td>
-<td><a href="https://pip.pypa.io/en/stable/installation/"><img alt="Get pip" src="https://img.shields.io/badge/Get_pip-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" /></a></td>
-</tr>
-<tr>
-<td><strong>Git</strong> <br><em>required for latest version</em></td>
-<td><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"><img alt="Install GIT" src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&amp;logo=git&amp;logoColor=white" /></a></td>
-</tr>
-</tbody>
-</table>
-</details>
-<p>We will go through the process of getting a version of Babylon before the installation.</p>
-<p>You can make your choice on how you may want to process :</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Get official releases</label><label for="__tabbed_1_2">Use latest version from git</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>So you choose to use releases, very well, 
-go on the following page to get one of the releases<br />
-<a href="https://github.com/Cosmo-Tech/Babylon/releases"><img alt="Official releases page" src="https://img.shields.io/badge/-Official_releases_page-informational?style=for-the-badge&amp;logo=github" /></a></p>
-<p>Then you can select a type of compressed folder you want (<code>.zip</code> or <code>.tar.gz</code>) and download the file.</p>
+<p>The message can be separated in 3 parts</p>
 <details class="info" open="open">
-<summary>Download a release</summary>
-<p><img alt="Download from release gif" src="../assets/Download_from_release.gif" /></p>
-</details>
-<p>Now you can decompress the file you downloaded.</p>
-<details class="example" open="open">
-<summary>Decompress a file</summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">zip</label><label for="__tabbed_2_2">tar.gz</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>Babylon-1.2.0.zip
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>Babylon-1.2.0.tar.gz
-</code></pre></div>
-</div>
-</div>
-</div>
-</details>
-<p>After run you now have a folder named <code>Babylon-1.2.0</code> which we will refer to as "Babylon Installation Folder" for the rest of the guide</p>
-</div>
-<div class="tabbed-block">
-<p>You can download the latest version of Babylon using git with the following command</p>
-<details class="example" open="open">
-<summary>Get sources from git</summary>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:Cosmo-Tech/Babylon.git<span class="w"> </span>Babylon-Sources
+<summary>The Logs</summary>
+<div class="highlight"><pre><span></span><code>2023/01/20 - 14:59:09 ERROR    Key storage_account_name can not be found in platform config file
+2023/01/20 - 14:59:09 ERROR    storage won&#39;t run without it.
 </code></pre></div>
 </details>
-<p>You now have a folder called <code>Babylon-Sources</code> which we will refer to as "Babylon Installation Folder" for the rest of the guide</p>
-<p>If you want a specific version of Babylon you can check which version number you want (for example <code>1.2.0</code>) and to the following</p>
-<details class="example" open="open">
-<summary>Change the source version from git</summary>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>Babylon-Source
-git<span class="w"> </span>checkout<span class="w"> </span><span class="m">1</span>.2.0
+<details class="failure">
+<summary>The Trace</summary>
+<div class="highlight"><pre><span></span><code>╭─────────────────────────────── Traceback (most recent call last) ────────────────────────────────────╮
+│ /home/afossart/git_repos/Babylon/.venv/bin/babylon:11 in &lt;module&gt;                                    │
+│                                                                                                      │
+│    8 if __name__ == &#39;__main__&#39;:                                                                      │
+│    9 │   sys.argv[0] = re.sub(r&#39;(-script\.pyw?|\.exe)?$&#39;, &#39;&#39;, sys.argv[0])                           │
+│   10 │   sys.exit(                                                                                   │
+│ ❱ 11 │   │   load_entry_point(&#39;Babylon&#39;, &#39;console_scripts&#39;, &#39;babylon&#39;)()                             │
+│   12 │   )                                                                                           │
+│   13                                                                                                 │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:1130 in __call__    │
+│                                                                                                      │
+│   1127 │                                                                                             │
+│   1128 │   def __call__(self, *args: t.Any, **kwargs: t.Any) -&gt; t.Any:                               │
+│   1129 │   │   &quot;&quot;&quot;Alias for :meth:`main`.&quot;&quot;&quot;                                                         │
+│ ❱ 1130 │   │   return self.main(*args, **kwargs)                                                     │
+│   1131                                                                                               │
+│   1132                                                                                               │
+│   1133 class Command(BaseCommand):                                                                   │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:1055 in main        │
+│                                                                                                      │
+│   1052 │   │   try:                                                                                  │
+│   1053 │   │   │   try:                                                                              │
+│   1054 │   │   │   │   with self.make_context(prog_name, args, **extra) as ctx:                      │
+│ ❱ 1055 │   │   │   │   │   rv = self.invoke(ctx)                                                     │
+│   1056 │   │   │   │   │   if not standalone_mode:                                                   │
+│   1057 │   │   │   │   │   │   return rv                                                             │
+│   1058 │   │   │   │   │   # it&#39;s not safe to `ctx.exit(rv)` here!                                   │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:1657 in invoke      │
+│                                                                                                      │
+│   1654 │   │   │   │   super().invoke(ctx)                                                           │
+│   1655 │   │   │   │   sub_ctx = cmd.make_context(cmd_name, args, parent=ctx)                        │
+│   1656 │   │   │   │   with sub_ctx:                                                                 │
+│ ❱ 1657 │   │   │   │   │   return _process_result(sub_ctx.command.invoke(sub_ctx))                   │
+│   1658 │   │                                                                                         │
+│   1659 │   │   # In chain mode we create the contexts step by step, but after the                    │
+│   1660 │   │   # base command has been invoked.  Because at that point we do not                     │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:1657 in invoke      │
+│                                                                                                      │
+│   1654 │   │   │   │   super().invoke(ctx)                                                           │
+│   1655 │   │   │   │   sub_ctx = cmd.make_context(cmd_name, args, parent=ctx)                        │
+│   1656 │   │   │   │   with sub_ctx:                                                                 │
+│ ❱ 1657 │   │   │   │   │   return _process_result(sub_ctx.command.invoke(sub_ctx))                   │
+│   1658 │   │                                                                                         │
+│   1659 │   │   # In chain mode we create the contexts step by step, but after the                    │
+│   1660 │   │   # base command has been invoked.  Because at that point we do not                     │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:1654 in invoke      │
+│                                                                                                      │
+│   1651 │   │   │   │   cmd_name, cmd, args = self.resolve_command(ctx, args)                         │
+│   1652 │   │   │   │   assert cmd is not None                                                        │
+│   1653 │   │   │   │   ctx.invoked_subcommand = cmd_name                                             │
+│ ❱ 1654 │   │   │   │   super().invoke(ctx)                                                           │
+│   1655 │   │   │   │   sub_ctx = cmd.make_context(cmd_name, args, parent=ctx)                        │
+│   1656 │   │   │   │   with sub_ctx:                                                                 │
+│   1657 │   │   │   │   │   return _process_result(sub_ctx.command.invoke(sub_ctx))                   │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:1404 in invoke      │
+│                                                                                                      │
+│   1401 │   │   │   echo(style(message, fg=&quot;red&quot;), err=True)                                          │
+│   1402 │   │                                                                                         │
+│   1403 │   │   if self.callback is not None:                                                         │
+│ ❱ 1404 │   │   │   return ctx.invoke(self.callback, **ctx.params)                                    │
+│   1405 │                                                                                             │
+│   1406 │   def shell_complete(self, ctx: Context, incomplete: str) -&gt; t.List[&quot;CompletionItem&quot;]:      │
+│   1407 │   │   &quot;&quot;&quot;Return a list of completions for the incomplete value. Looks                       │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:760 in invoke       │
+│                                                                                                      │
+│    757 │   │                                                                                         │
+│    758 │   │   with augment_usage_errors(__self):                                                    │
+│    759 │   │   │   with ctx:                                                                         │
+│ ❱  760 │   │   │   │   return __callback(*args, **kwargs)                                            │
+│    761 │                                                                                             │
+│    762 │   def forward(                                                                              │
+│    763 │   │   __self, __cmd: &quot;Command&quot;, *args: t.Any, **kwargs: t.Any  # noqa: B902                 │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/decorators.py:26 in new_func│
+│                                                                                                      │
+│    23 │   &quot;&quot;&quot;                                                                                        │
+│    24 │                                                                                              │
+│    25 │   def new_func(*args, **kwargs):  # type: ignore                                             │
+│ ❱  26 │   │   return f(get_current_context(), *args, **kwargs)                                       │
+│    27 │                                                                                              │
+│    28 │   return update_wrapper(t.cast(F, new_func), f)                                              │
+│    29                                                                                                │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/Babylon/utils/decorators.py:209 in wrapper                          │
+│                                                                                                      │
+│   206 │   │   │   │   if value in [None, &quot;&quot;] and required:                                           │
+│   207 │   │   │   │   │   logger.error(f&quot;Key {yaml_key} can not be found in {getter.__doc__}&quot;)       │
+│   208 │   │   │   │   │   logger.error(f&quot;{click.get_current_context().command.name} won&#39;t run        │
+│ ❱ 209 │   │   │   │   │   raise KeyError(f&quot;Key {yaml_key} can not be found in {getter.__doc__}       │
+│   210 │   │   │   │   return func(*args, **kwargs)                                                   │
+│   211 │   │   │                                                                                      │
+│   212 │   │   │   if not required:                                                                   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────╯
 </code></pre></div>
 </details>
-<p>Now your installation folder will have the code of the version <code>1.2.0</code> ready to be used</p>
-</div>
-</div>
-</div>
-<h2 id="install-babylon">Install Babylon</h2>
-<p>Now that you have a "Babylon Installation Folder" ready we can move to the installation process</p>
-<details>
-<summary>Use a <code>venv</code></summary>
-<p>If you want you can set up a virtual environment in python using the library <code>venv</code> to keep your babylon dependencies in a single location.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Set up a <code>venv</code></label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="c1"># Make sure you have the library venv installed</span>
-pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>venv
-<span class="c1"># Create a venv in the folder `.venv`</span>
-python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
-</code></pre></div>
-</div>
-</div>
-</div>
-<p>Now you can activate your venv (created in the folder <code>.venv</code>) and follow the rest of this tutorial.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Activate on unix systems</label><label for="__tabbed_4_2">Activate on windows (<code>cmd.exe</code>)</label><label for="__tabbed_4_3">Activate on windows (<code>PowerShell</code>)</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>.venv\Scripts\activate.bat
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Once you install babylon in a venv you will need to activate this venv every time you want to use babylon.</p>
-</div>
-</details>
-<p>The setup is fairy direct, the following command will allow a full install of Babylon</p>
-<div class="admonition example">
-<p class="admonition-title">Setup babylon</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>&lt;Babylon<span class="w"> </span>Installation<span class="w"> </span>Folder&gt;
-</code></pre></div>
-</div>
-<details class="tip">
-<summary>Enable autocompletion</summary>
-<p>On some systems autocompletion can be enabled for babylon, more information on autocompletion can be found on the <a href="https://click.palletsprojects.com/en/8.1.x/shell-completion/">click documentation</a> (since babylon is basd on <code>click</code>)</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Example of click autocompletion command for <code>bash</code></label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;eval &quot;$(_BABYLON_COMPLETE=bash_source babylon)&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-<span class="nb">source</span><span class="w"> </span>~/.bashrc
+<details class="warning">
+<summary>The Error</summary>
+<div class="highlight"><pre><span></span><code>KeyError: &#39;Key storage_account_name can not be found in platform config file&#39;
 </code></pre></div>
 </details>
+<p>In most of the case you can focus on the logs at the beginning of the message, 
+if this is a known error it should give you enough information on how to solve it.<br />
+Here we can see that the key <code>storage_account_name</code> is not found in the <code>platform config file</code> and that the command won't run without it.</p>
+<p>In case the logs are not enough you can look at the error, which should help you, and if neither helps you can start an issue on the Babylon repository by sending the command you ran and the trace.</p>
 
 
 

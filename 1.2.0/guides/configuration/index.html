@@ -1,0 +1,946 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../installation/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Configuration - Babylon User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+  
+  
+    
+    
+      
+    
+    
+  
+    
+    
+      
+    
+    
+  
+    
+    
+      
+    
+    
+  
+    
+    
+      
+    
+    
+  
+  
+  <style>.md-tag-icon--lightbulb{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1 11h3v2H1v-2m3.9-7.5L3.5 4.9 5.6 7 7 5.6 4.9 3.5M13 1h-2v3h2V1m7 10v2h3v-2h-3M10 22c0 .6.4 1 1 1h2c.6 0 1-.4 1-1v-1h-4v1m9.1-18.5L17 5.6 18.4 7l2.1-2.1-1.4-1.4M18 12c0 2.2-1.2 4.2-3 5.2V19c0 .6-.4 1-1 1h-4c-.6 0-1-.4-1-1v-1.8c-1.8-1-3-3-3-5.2 0-3.3 2.7-6 6-6s6 2.7 6 6m-2 0c0-2.21-1.79-4-4-4s-4 1.79-4 4 1.79 4 4 4 4-1.79 4-4Z"/></svg>');}.md-tag-icon--floppy{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5.5L18.5 3H17v6a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V3H5m7 1v5h3V4h-3m-5 8h10a1 1 0 0 1 1 1v6H6v-6a1 1 0 0 1 1-1Z"/></svg>');}.md-tag-icon--note{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 10V4.5l5.5 5.5M5 3c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9l-6-6H5Z"/></svg>');}.md-tag-icon--guide{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>');}</style>
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Babylon User Documentation" class="md-header__button md-logo" aria-label="Babylon User Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Babylon User Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Cosmo-Tech/Babylon" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Cosmo-Tech/Babylon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Guides
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Babylon User Documentation" class="md-nav__button md-logo" aria-label="Babylon User Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Babylon User Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Cosmo-Tech/Babylon" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Cosmo-Tech/Babylon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../..">Home</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DiscoverBabylon/" class="md-nav__link">
+        Discover Babylon
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Guides</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Configuration
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#different-type-of-configuration-files" class="md-nav__link">
+    Different type of configuration files
+  </a>
+  
+    <nav class="md-nav" aria-label="Different type of configuration files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform-configuration-file" class="md-nav__link">
+    Platform configuration file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-configuration-file" class="md-nav__link">
+    Deployment configuration file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-configuration-values" class="md-nav__link">
+    Set configuration values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switch-configuration" class="md-nav__link">
+    Switch configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#different-type-of-configuration-files" class="md-nav__link">
+    Different type of configuration files
+  </a>
+  
+    <nav class="md-nav" aria-label="Different type of configuration files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform-configuration-file" class="md-nav__link">
+    Platform configuration file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-configuration-file" class="md-nav__link">
+    Deployment configuration file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-configuration-values" class="md-nav__link">
+    Set configuration values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switch-configuration" class="md-nav__link">
+    Switch configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+  <nav class="md-tags" >
+    
+      
+        
+        
+          
+        
+      
+      
+        <a href="../../tags/#guides" class="md-tag md-tag-icon md-tag-icon--guide">Guides</a>
+      
+    
+      
+        
+        
+          
+        
+      
+      
+        <a href="../../tags/#configuration" class="md-tag md-tag-icon md-tag-icon--note">Configuration</a>
+      
+    
+  </nav>
+
+
+
+  
+  
+
+
+
+<h1 id="configuration">Configuration</h1>
+<p>Now that you have installed Babylon we can learn about how it works.  </p>
+<p>Let's begin by running a few commands to see some elements.</p>
+<details class="example" open="open">
+<summary>First commands</summary>
+<p>You can start by looking around some of the first commands you could run in Babylon</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Simple commands</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1"># You can start by looking at the basic help</span>
+babylon<span class="w"> </span>--help
+<span class="c1"># Next you can take a look at the version of babylon you installed</span>
+babylon<span class="w"> </span>--version
+<span class="c1"># Now you can look at the state of your configuration</span>
+babylon<span class="w"> </span>config<span class="w"> </span>display
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>As you can see in the final command, your current configuration has a lot of keys defined but most of them are empty.</p>
+</details>
+<p>Now that your ran a few working commands lets try one that require some configuration</p>
+<details class="example" open="open">
+<summary>Run command without configuration</summary>
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>storage<span class="w"> </span>container<span class="w"> </span>get-all
+</code></pre></div>
+<img alt="Run command without configuration gif" src="../../assets/Command_without_configuration.gif" /></p>
+</details>
+<p>Without configuration this command will fail and you should see an error message telling you why.</p>
+<details class="example" open="open">
+<summary>Error message description</summary>
+<p>The message can be separated in 3 parts</p>
+<details class="info" open="open">
+<summary>The Logs</summary>
+<div class="highlight"><pre><span></span><code>2023/01/20 - 14:59:09 ERROR    Key storage_account_name can not be found in platform config file
+2023/01/20 - 14:59:09 ERROR    storage won&#39;t run without it.
+</code></pre></div>
+</details>
+<details class="failure">
+<summary>The Trace</summary>
+<div class="highlight"><pre><span></span><code>╭─────────────────────────────── Traceback (most recent call last) ────────────────────────────────────╮
+│ /home/afossart/git_repos/Babylon/.venv/bin/babylon:11 in &lt;module&gt;                                    │
+│                                                                                                      │
+│    8 if __name__ == &#39;__main__&#39;:                                                                      │
+│    9 │   sys.argv[0] = re.sub(r&#39;(-script\.pyw?|\.exe)?$&#39;, &#39;&#39;, sys.argv[0])                           │
+│   10 │   sys.exit(                                                                                   │
+│ ❱ 11 │   │   load_entry_point(&#39;Babylon&#39;, &#39;console_scripts&#39;, &#39;babylon&#39;)()                             │
+│   12 │   )                                                                                           │
+│   13                                                                                                 │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:1130 in __call__    │
+│                                                                                                      │
+│   1127 │                                                                                             │
+│   1128 │   def __call__(self, *args: t.Any, **kwargs: t.Any) -&gt; t.Any:                               │
+│   1129 │   │   &quot;&quot;&quot;Alias for :meth:`main`.&quot;&quot;&quot;                                                         │
+│ ❱ 1130 │   │   return self.main(*args, **kwargs)                                                     │
+│   1131                                                                                               │
+│   1132                                                                                               │
+│   1133 class Command(BaseCommand):                                                                   │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:1055 in main        │
+│                                                                                                      │
+│   1052 │   │   try:                                                                                  │
+│   1053 │   │   │   try:                                                                              │
+│   1054 │   │   │   │   with self.make_context(prog_name, args, **extra) as ctx:                      │
+│ ❱ 1055 │   │   │   │   │   rv = self.invoke(ctx)                                                     │
+│   1056 │   │   │   │   │   if not standalone_mode:                                                   │
+│   1057 │   │   │   │   │   │   return rv                                                             │
+│   1058 │   │   │   │   │   # it&#39;s not safe to `ctx.exit(rv)` here!                                   │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:1657 in invoke      │
+│                                                                                                      │
+│   1654 │   │   │   │   super().invoke(ctx)                                                           │
+│   1655 │   │   │   │   sub_ctx = cmd.make_context(cmd_name, args, parent=ctx)                        │
+│   1656 │   │   │   │   with sub_ctx:                                                                 │
+│ ❱ 1657 │   │   │   │   │   return _process_result(sub_ctx.command.invoke(sub_ctx))                   │
+│   1658 │   │                                                                                         │
+│   1659 │   │   # In chain mode we create the contexts step by step, but after the                    │
+│   1660 │   │   # base command has been invoked.  Because at that point we do not                     │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:1657 in invoke      │
+│                                                                                                      │
+│   1654 │   │   │   │   super().invoke(ctx)                                                           │
+│   1655 │   │   │   │   sub_ctx = cmd.make_context(cmd_name, args, parent=ctx)                        │
+│   1656 │   │   │   │   with sub_ctx:                                                                 │
+│ ❱ 1657 │   │   │   │   │   return _process_result(sub_ctx.command.invoke(sub_ctx))                   │
+│   1658 │   │                                                                                         │
+│   1659 │   │   # In chain mode we create the contexts step by step, but after the                    │
+│   1660 │   │   # base command has been invoked.  Because at that point we do not                     │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:1654 in invoke      │
+│                                                                                                      │
+│   1651 │   │   │   │   cmd_name, cmd, args = self.resolve_command(ctx, args)                         │
+│   1652 │   │   │   │   assert cmd is not None                                                        │
+│   1653 │   │   │   │   ctx.invoked_subcommand = cmd_name                                             │
+│ ❱ 1654 │   │   │   │   super().invoke(ctx)                                                           │
+│   1655 │   │   │   │   sub_ctx = cmd.make_context(cmd_name, args, parent=ctx)                        │
+│   1656 │   │   │   │   with sub_ctx:                                                                 │
+│   1657 │   │   │   │   │   return _process_result(sub_ctx.command.invoke(sub_ctx))                   │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:1404 in invoke      │
+│                                                                                                      │
+│   1401 │   │   │   echo(style(message, fg=&quot;red&quot;), err=True)                                          │
+│   1402 │   │                                                                                         │
+│   1403 │   │   if self.callback is not None:                                                         │
+│ ❱ 1404 │   │   │   return ctx.invoke(self.callback, **ctx.params)                                    │
+│   1405 │                                                                                             │
+│   1406 │   def shell_complete(self, ctx: Context, incomplete: str) -&gt; t.List[&quot;CompletionItem&quot;]:      │
+│   1407 │   │   &quot;&quot;&quot;Return a list of completions for the incomplete value. Looks                       │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/core.py:760 in invoke       │
+│                                                                                                      │
+│    757 │   │                                                                                         │
+│    758 │   │   with augment_usage_errors(__self):                                                    │
+│    759 │   │   │   with ctx:                                                                         │
+│ ❱  760 │   │   │   │   return __callback(*args, **kwargs)                                            │
+│    761 │                                                                                             │
+│    762 │   def forward(                                                                              │
+│    763 │   │   __self, __cmd: &quot;Command&quot;, *args: t.Any, **kwargs: t.Any  # noqa: B902                 │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/.venv/lib/python3.9/site-packages/click/decorators.py:26 in new_func│
+│                                                                                                      │
+│    23 │   &quot;&quot;&quot;                                                                                        │
+│    24 │                                                                                              │
+│    25 │   def new_func(*args, **kwargs):  # type: ignore                                             │
+│ ❱  26 │   │   return f(get_current_context(), *args, **kwargs)                                       │
+│    27 │                                                                                              │
+│    28 │   return update_wrapper(t.cast(F, new_func), f)                                              │
+│    29                                                                                                │
+│                                                                                                      │
+│ /home/afossart/git_repos/Babylon/Babylon/utils/decorators.py:209 in wrapper                          │
+│                                                                                                      │
+│   206 │   │   │   │   if value in [None, &quot;&quot;] and required:                                           │
+│   207 │   │   │   │   │   logger.error(f&quot;Key {yaml_key} can not be found in {getter.__doc__}&quot;)       │
+│   208 │   │   │   │   │   logger.error(f&quot;{click.get_current_context().command.name} won&#39;t run        │
+│ ❱ 209 │   │   │   │   │   raise KeyError(f&quot;Key {yaml_key} can not be found in {getter.__doc__}       │
+│   210 │   │   │   │   return func(*args, **kwargs)                                                   │
+│   211 │   │   │                                                                                      │
+│   212 │   │   │   if not required:                                                                   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────╯
+</code></pre></div>
+</details>
+<details class="warning">
+<summary>The Error</summary>
+<div class="highlight"><pre><span></span><code>KeyError: &#39;Key storage_account_name can not be found in platform config file&#39;
+</code></pre></div>
+</details>
+<p>In most of the case you can focus on the logs at the beginning of the message, 
+if this is a known error it should give you enough information on how to solve it.<br />
+Here we can see that the key <code>storage_account_name</code> is not found in the <code>platform config file</code> and that the command won't run without it.</p>
+<p>In case the logs are not enough you can look at the error, which should help you, and if neither helps you can start an issue on the Babylon repository by sending the command you ran and the trace.</p>
+</details>
+<p>Now we know that we need to set up some configuration to use our commands.</p>
+<h2 id="different-type-of-configuration-files">Different type of configuration files</h2>
+<p>Two main configuration files exists on Babylon: platform and deployment</p>
+<h3 id="platform-configuration-file"><code>Platform</code> configuration file</h3>
+<p>This file contains the variables necessary to connect to a cosmotech platform deployed on a given cloud.</p>
+<h3 id="deployment-configuration-file"><code>Deployment</code> configuration file</h3>
+<p>A Deployment is a single application made available on a platform.</p>
+<p>Using terms of the cosmotech api, a deployment is equivalent to a <code>Workspace</code></p>
+<h2 id="set-configuration-values">Set configuration values</h2>
+<p>3 main ways exists to work on configuration values.<br />
+In the following part we will only work on <code>platform</code>, but those 3 ways are identical for <code>platform</code> and <code>deployment</code> </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Use <code>set-variable</code> command</label><label for="__tabbed_2_2">Use <code>edit</code> command</label><label for="__tabbed_2_3">Use a file editor</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The following command exists : <code>babylon config platform set-variable</code></p>
+<details class="info" open="open">
+<summary>Help of the command</summary>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>config<span class="w"> </span>platform<span class="w"> </span>set-variable<span class="w"> </span>--help
+<span class="c1"># Usage: babylon config platform set-variable [OPTIONS] VARIABLE_KEY</span>
+<span class="c1">#                                             VARIABLE_VALUE</span>
+<span class="c1">#</span>
+<span class="c1">#   Set a platform variable with a new value</span>
+<span class="c1">#  </span>
+<span class="c1"># Options:</span>
+<span class="c1">#   -h, --help  Show this message and exit.</span>
+</code></pre></div>
+</details>
+<p>2 positional parameters are required : <code>VARIABLE_KEY</code> and <code>VARIABLE_VALUE</code></p>
+<details class="example" open="open">
+<summary>Set a first variable</summary>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>config<span class="w"> </span>platform<span class="w"> </span>set-variable<span class="w"> </span>VARIABLE_KEY<span class="w"> </span>VARIABLE_VALUE
+<span class="c1"># Now our variable &quot;VARIABLE_KEY&quot; will have the value &quot;VARIABLE_VALUE&quot; in our config file, we can check it by displaying the config</span>
+babylon<span class="w"> </span>config<span class="w"> </span>display
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<p>The following command exists : <code>babylon config platform edit</code></p>
+<p>It will allow you to open your configuration file directly in a file editor.</p>
+<details class="info" open="open">
+<summary>Help of the command</summary>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>config<span class="w"> </span>platform<span class="w"> </span>edit<span class="w"> </span>--help
+<span class="c1"># &lt;Usage: babylon config platform edit [OPTIONS] [PLATFORM]</span>
+<span class="c1">#</span>
+<span class="c1"># Open editor to edit variables in given platform</span>
+<span class="c1">#</span>
+<span class="c1"># will open default platform if no argument is passed</span>
+<span class="c1">#  </span>
+<span class="c1"># Options:</span>
+<span class="c1">#   -h, --help  Show this message and exit.</span>
+</code></pre></div>
+</details>
+<p>1 positional parameter is optional : <code>PLATFORM</code></p>
+<p><code>PLATFORM</code> can be replace by the path to a platform file to open, if not present your current platform file will be opened.</p>
+<details class="example" open="open">
+<summary>Set a first variable</summary>
+<p>Running the command will open a text editor of the file you can then add the values you want to each keys
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>config<span class="w"> </span>platform<span class="w"> </span>edit
+</code></pre></div>
+<img alt="Screenshot of nano with file content" src="../../assets/PlatformConfigFileNano.png" /></p>
+</details>
+</div>
+<div class="tabbed-block">
+<p>By running the following command you can see a lot of information</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Config display</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>--bare<span class="w"> </span>config<span class="w"> </span>display
+<span class="c1"># Configuration:</span>
+<span class="c1">#   dir: /home/user/.config/babylon</span>
+<span class="c1">#   deployment: /home/user/.config/babylon/deployments/deploy.yaml</span>
+<span class="c1">#       ...</span>
+<span class="c1">#  platform: /home/user/.config/babylon/platforms/platform.yaml</span>
+<span class="c1">#       ...</span>
+<span class="c1">#  plugins: </span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Here we will focus on one line : <code>platform: /home/user/.config/babylon/platforms/platform.yaml</code></p>
+<p>This is the path to your local config file for your platform. You can just open it using you favorite text editor to be able to update your configuration values.</p>
+</div>
+</div>
+</div>
+<p>Now you know how to set a specific configuration variable.</p>
+<h2 id="switch-configuration">Switch configuration</h2>
+<p>Now that we can set the configuration variables we want to be able to switch between configuration. Some systems exist inside babylon to simplify those switch.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Use <code>create</code> and <code>select</code> commands</label><label for="__tabbed_4_2">Use environment variables to override the configuration</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Just like the <code>edit</code> and <code>set-variable</code> commands you can use the <code>create</code> and <code>select</code> commands to switch between platform/deployment configuration.</p>
+<details class="example" open="open">
+<summary><code>create</code> command</summary>
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>config<span class="w"> </span>platform<span class="w"> </span>create<span class="w"> </span>NewPlatform
+</code></pre></div>
+This command will create a new platform file called NewPlatform in your configuration folder</p>
+</details>
+<details class="example" open="open">
+<summary>Use of the <code>select</code> command</summary>
+<p><img alt="Platform select gif" src="../../assets/Platform_Select.gif" /></p>
+<p>you can see that we selected the platform <code>NewPlatform</code> and after the select the correct one was selected</p>
+</details>
+</div>
+<div class="tabbed-block">
+<p>You can use the following environment variable to replace your default configuration folder by a custom one : <code>BABYLON_CONFIG_DIRECTORY</code></p>
+<p>By setting that value to an absolute path you will access it wherever you are in your system, 
+but if you want to keep a simple configuration change depending on the folder you are, 
+you can instead set it to a relative path, 
+which will allow you to change your configuration everytime you move to another folder.</p>
+<details class="tip" open="open">
+<summary>use <code>direnv</code></summary>
+<p>You can use tools like <a href="https://github.com/direnv/direnv"><img alt="direnv" src="https://img.shields.io/badge/direnv-%23121011?style=for-the-badge&amp;logo=github&amp;logoColor=white" /></a> to set alternate values for your envvar and easily switch while moving around folders</p>
+</details>
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  Made by
+  <a href="https://cosmotech.com/" target="_blank" rel="noopener">
+    Cosmotech
+  </a>
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "tags": {"Configuration": "note", "Discover": "lightbulb", "Guides": "guide", "Installation": "floppy"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>
