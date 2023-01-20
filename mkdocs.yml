@@ -24,6 +24,8 @@ theme:
     tag:
       lightbulb: "material/lightbulb-on-20"
       floppy: "material/floppy"
+      note: "material/note"
+      guide: "material/magnify"
 
 extra_css:
   - stylesheets/extra.css
@@ -33,15 +35,18 @@ extra:
     provider: mike
   tags:
     Discover: lightbulb
-    Guides: lightbulb
+    Guides: guide
     Installation: floppy
+    Configuration: note
 
 nav:
   - Home:
     - 'index.md'
     - Discover Babylon: 'DiscoverBabylon.md'
   - Guides:
+      - 'guides/index.md'
       - Installation: 'guides/installation.md'
+      - Configuration: 'guides/configuration.md'
 
 markdown_extensions:
     - admonition
@@ -54,6 +59,9 @@ markdown_extensions:
     - pymdownx.superfences
     - pymdownx.tabbed:
         alternate_style: true
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
 
 plugins:
     - search
