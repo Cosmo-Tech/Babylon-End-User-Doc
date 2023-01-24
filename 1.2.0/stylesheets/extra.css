@@ -37,3 +37,12 @@
     right: 0;
     padding: 0 20px 10px 0;
 }
+
+.grid > article .text .example {
+    display: flex;
+    position: absolute;
+    padding: 0 20px 0 0;
+    top: -40px;
+    right: 0;
+    max-width: 40%;
+}
