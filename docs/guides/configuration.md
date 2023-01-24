@@ -1,7 +1,4 @@
 ---
-tags:
-  - Guides
-  - Configuration
 hide:
   - toc
 ---

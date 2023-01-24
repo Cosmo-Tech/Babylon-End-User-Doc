@@ -1,0 +1,66 @@
+organization_id:
+  description: "The id of the organization in the cosmotech API"
+  howto: "Can be found using `babylon api organization get-all`"
+  example: "O-XXXXXXXXXX"
+solution_id:
+  description: "The id of the solution in the cosmotech API"
+  howto: "Can be found using `babylon api solution get-all`"
+  example: "Sol-XXXXXXXXXX"
+workspace_id :
+  description: "the id of the workspace on the API"
+  howto: "XXX"
+  example: "XXX"
+workspace_key :
+  description: "the key of the workspace on the API shared with Terraform configuration"
+  howto: "XXX"
+  example: "XXX"
+api_url :
+  description: "the url of the API (used for validation)"
+  howto: "XXX"
+  example: "XXX"
+resource_group_name :
+  description: "The name fo the resource group used for users deployment (function apps, webapp)"
+  howto: "XXX"
+  example: "XXX"
+resources_location :
+  description: "azure resource location for users deployment ex: westeurope"
+  howto: "XXX"
+  example: "XXX"
+adx_database_name :
+  description: "the name of the database used in Azure Data Explorer"
+  howto: "XXX"
+  example: "XXX"
+digital_twin_url :
+  description: "URL of the digital twin to use"
+  howto: "XXX"
+  example: "XXX"
+csm_simulator_repository :
+  description: "the solution simulator source repository"
+  howto: "XXX"
+  example: "XXX"
+simulator_repository :
+  description: "the solution simulator repository destination (repository value in Solution.yaml)"
+  howto: "XXX"
+  example: "XXX"
+simulator_version :
+  description: "the solution simulator version (version value in Solution.yaml)"
+  howto: "XXX"
+  example: "XXX"
+# send_scenario_metadata_to_event_hub:
+# The Event Hub Namespace must be named \'<organization_id\>-<workspace_id\>\' (in lower case).
+# This Namespace must also contain two Event Hubs named \'probesmeasures\' and \'scenariorun\'.
+send_scenario_metadata_to_event_hub :
+  description: "Set this property to false to not send scenario metada to Azure Event Hub Namespace for this Workspace."
+  howto: "XXX"
+  example: "XXX"
+# use_dedicated_event_hub_namespace:
+# The Event Hub Namespace must be named \'<organization_id\>-<workspace_id\>\' (in lower case).
+# This Namespace must also contain two Event Hubs named \'scenariometadata\' and \'scenariorunmetadata\'.
+use_dedicated_event_hub_namespace :
+  description: "Set this property to false to not to use a dedicated Azure Event Hub Namespace for this Workspace."
+  howto: "XXX"
+  example: "XXX"
+powerbi_workspace_id :
+  description: "PowerBI workspace id"
+  howto: "XXX"
+  example: "XXX"

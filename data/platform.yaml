@@ -1,0 +1,41 @@
+api_url :
+  description: "the url of the API"
+  howto: "XXX"
+  example: "XXX"
+api_scope :
+  description: "the default scope used by the API"
+  howto: "XXX"
+  example: "XXX"
+azure_subscription :
+  description: "The azure subscription used to contain the platform"
+  howto: "XXX"
+  example: "XXX"
+adx_cluster_name :
+  description: "The name of the Azure Data Explorer Cluster"
+  howto: "XXX"
+  example: "XXX"
+resource_group_name :
+  description: "The name fo the resource group used on the platform"
+  howto: "XXX"
+  example: "XXX"
+csm_acr_registry_name :
+  description: "ACR source registry name source_registry.azurecr.io"
+  howto: "XXX"
+  example: "XXX"
+acr_registry_name :
+  description: "ACR destination registry name dest_registry.azurecr.io"
+  howto: "XXX"
+  example: "XXX"
+resources_location :
+  description: "azure resource location used on the platform"
+  howto: "XXX"
+  example: "westeurope"
+storage_account_name :
+  description: "Storage account name"
+  howto: "XXX"
+  example: "XXX"
+powerbi_api_scope:
+  description: "PowerBI api scope"
+  howto: "XXX"
+  example: "https://analysis.windows.net/powerbi/api/.default"
+

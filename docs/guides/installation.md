@@ -1,7 +1,4 @@
 ---
-tags:
-  - Guides
-  - Installation
 hide:
   - toc
 ---

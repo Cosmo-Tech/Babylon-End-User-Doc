@@ -21,11 +21,6 @@ theme:
   custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
-    tag:
-      lightbulb: "material/lightbulb-on-20"
-      floppy: "material/floppy"
-      note: "material/note"
-      guide: "material/magnify"
 
 extra_css:
   - stylesheets/extra.css
@@ -33,12 +28,6 @@ extra_css:
 extra:
   version:
     provider: mike
-  tags:
-    Discover: lightbulb
-    Guides: guide
-    Installation: floppy
-    Configuration: note
-
 nav:
   - Home:
     - 'index.md'
@@ -47,6 +36,8 @@ nav:
       - 'guides/index.md'
       - Installation: 'guides/installation.md'
       - Configuration: 'guides/configuration.md'
+      - Deployment Values: 'guides/deployment.md'
+      - Platform Values: 'guides/platform.md'
 
 markdown_extensions:
     - admonition
@@ -54,6 +45,7 @@ markdown_extensions:
     - footnotes
     - md_in_html
     - tables
+    - def_list
     - pymdownx.details
     - pymdownx.snippets
     - pymdownx.superfences
@@ -65,8 +57,6 @@ markdown_extensions:
 
 plugins:
     - search
-    - tags:
-        tags_file: tags.md
     - mkdocstrings:
         default_handler: python
         handlers:
@@ -77,5 +67,6 @@ plugins:
     - gen-files:
         scripts:
           - src/generate_index.py
+          - src/generate_description_file.py
     - literate-nav
     - mike

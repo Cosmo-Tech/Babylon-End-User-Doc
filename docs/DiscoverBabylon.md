@@ -1,7 +1,3 @@
----
-tags:
-  - Discover
----
 # Discover Babylon
 
 ## What is Babylon ?
