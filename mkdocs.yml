@@ -18,6 +18,7 @@ theme:
     - navigation.top
     - navigation.indexes
     - navigation.instant
+    - navigation.footer
   custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
@@ -30,10 +31,10 @@ extra:
     provider: mike
 nav:
   - Home:
-    - 'index.md'
+    - Home: 'index.md'
     - Discover Babylon: 'DiscoverBabylon.md'
   - Guides:
-      - 'guides/index.md'
+      - Guides: 'guides/index.md'
       - Installation: 'guides/installation.md'
       - Configuration: 'guides/configuration.md'
       - Deployment Values: 'guides/deployment.md'
