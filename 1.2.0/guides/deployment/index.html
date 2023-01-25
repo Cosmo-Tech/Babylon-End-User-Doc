@@ -763,10 +763,10 @@
 <dt>What is this value ?</dt>
 <dd>the id of the workspace on the API</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>Can be found using <code>babylon api workspace get-all</code>  </dd>
 </dl>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>W-XXXXXXXXXX</code></p>
 </div>
 </div>
 </article>
@@ -778,10 +778,10 @@
 <dt>What is this value ?</dt>
 <dd>the key of the workspace on the API shared with Terraform configuration</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>Can be found using <code>babylon api workspace get</code>  </dd>
 </dl>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>workspacekey</code></p>
 </div>
 </div>
 </article>
@@ -793,10 +793,11 @@
 <dt>What is this value ?</dt>
 <dd>the url of the API (used for validation)</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>In the azure portal, navigate to your app registration for your api.
+Then look at the value in <code>Application ID URI</code>  </dd>
 </dl>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>https://dev.api.cosmotech.com</code></p>
 </div>
 </div>
 </article>
@@ -808,10 +809,10 @@
 <dt>What is this value ?</dt>
 <dd>The name fo the resource group used for users deployment (function apps, webapp)</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>Can be found in your azure portal in the resource group category  </dd>
 </dl>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>azure_ressource_group</code></p>
 </div>
 </div>
 </article>
@@ -821,12 +822,15 @@
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>azure resource location for users deployment ex: westeurope</dd>
+<dd>The azure resource location for users deployment</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>You could use the same resource location as your api<br />
+In case you want a full list of the available locations you can use the <code>az</code> cli and run the following command<br />
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>account<span class="w"> </span>list-locations
+</code></pre></div></dd>
 </dl>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>westeurope</code></p>
 </div>
 </div>
 </article>
