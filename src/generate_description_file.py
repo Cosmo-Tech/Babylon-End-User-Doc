@@ -1,4 +1,3 @@
-import pprint
 from typing import IO
 
 import mkdocs_gen_files
@@ -32,7 +31,6 @@ How to get a value to set here ?
 </article>""".split('\n'))
         content.append("")
         content.append('</main>')
-        pprint.pprint(content)
         _md_file.writelines("\n".join(content))
 
 
