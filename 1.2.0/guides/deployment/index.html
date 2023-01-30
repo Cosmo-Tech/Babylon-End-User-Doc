@@ -15,7 +15,7 @@
         <link rel="next" href="../platform/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.8">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0d440cfe.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
@@ -270,7 +270,7 @@
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
       
       
         
@@ -293,7 +293,7 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Home" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Home
@@ -337,7 +337,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
         
@@ -366,7 +366,7 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Guides
@@ -412,7 +412,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
@@ -840,12 +840,13 @@ In case you want a full list of the available locations you can use the <code>az
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>the name of the database used in Azure Data Explorer</dd>
+<dd>The name of the database used in Azure Data Explorer</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>Can be found in your azure portal in you Azure Data Explorer Clusters.<br />
+Inside the cluster configuration you can check in <code>Databases</code> to find the name of the one you want to use  </dd>
 </dl>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>o-xxxxxxxxxx-workspacename</code></p>
 </div>
 </div>
 </article>
@@ -855,12 +856,12 @@ In case you want a full list of the available locations you can use the <code>az
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>URL of the digital twin to use</dd>
+<dd>URL of the Azure Digital Twin instance to use</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>Can be found in the Azure portal of your ADT instance next to <code>Host name</code>  </dd>
 </dl>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>https://mydigitaltwin.api.weu.digitaltwins.azure.net</code></p>
 </div>
 </div>
 </article>
@@ -870,12 +871,12 @@ In case you want a full list of the available locations you can use the <code>az
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>the solution simulator source repository</dd>
+<dd>The solution simulator docker origin repository</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>This is the name of the solution source repository for its docker image, it is given by the solution integration team  </dd>
 </dl>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>solution_simulator</code></p>
 </div>
 </div>
 </article>
@@ -885,12 +886,12 @@ In case you want a full list of the available locations you can use the <code>az
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>the solution simulator repository destination (repository value in Solution.yaml)</dd>
+<dd>The solution simulator docker target repository (repository value in Solution.yaml)</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>This is the name of the solution target repository for its docker image, it should be the same as in your Solution.yaml  </dd>
 </dl>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>solution_simulator</code></p>
 </div>
 </div>
 </article>
@@ -902,10 +903,10 @@ In case you want a full list of the available locations you can use the <code>az
 <dt>What is this value ?</dt>
 <dd>the solution simulator version (version value in Solution.yaml)</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>The version of the simulator you want to use, as communicated by the solution developpers.  </dd>
 </dl>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>1.0.0</code></p>
 </div>
 </div>
 </article>
@@ -917,10 +918,14 @@ In case you want a full list of the available locations you can use the <code>az
 <dt>What is this value ?</dt>
 <dd>Set this property to false to not send scenario metada to Azure Event Hub Namespace for this Workspace.</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>Boolean property allowing to send metadata of the scenario runs to the event hub.</dd>
 </dl>
+<ul>
+<li>The Event Hub Namespace must be named <code>&lt;organization_id&gt;-&lt;workspace_id&gt;</code> (in lower case).</li>
+<li>This Namespace must also contain two Event Hubs named <code>probesmeasures</code> and <code>scenariorun</code>.  </li>
+</ul>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>true</code></p>
 </div>
 </div>
 </article>
@@ -932,10 +937,14 @@ In case you want a full list of the available locations you can use the <code>az
 <dt>What is this value ?</dt>
 <dd>Set this property to false to not to use a dedicated Azure Event Hub Namespace for this Workspace.</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>Boolean property allowing to use dedicated event hub namespace.</dd>
 </dl>
+<ul>
+<li>The Event Hub Namespace must be named <code>&lt;organization_id&gt;-&lt;workspace_id&gt;</code> (in lower case).</li>
+<li>This Namespace must also contain two Event Hubs named <code>probesmeasures</code> and <code>scenariorun</code>.  </li>
+</ul>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>true</code></p>
 </div>
 </div>
 </article>
@@ -945,12 +954,12 @@ In case you want a full list of the available locations you can use the <code>az
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>PowerBI workspace id</dd>
+<dd>ID of the power BI workspace to keep dashboard for this deployment</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>XXX  </dd>
+<dd>You can find the id of the workspace in the <a href="https://app.powerbi.com">wep app of powerbi</a>  </dd>
 </dl>
 <div class="example">
-<p><code>XXX</code></p>
+<p><code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code></p>
 </div>
 </div>
 </article>
@@ -1033,10 +1042,10 @@ In case you want a full list of the available locations you can use the <code>az
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.footer"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.footer"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a00a7c5e.min.js"></script>
       
     
   </body>
