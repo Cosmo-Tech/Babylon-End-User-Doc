@@ -655,81 +655,132 @@
 <main class="grid">
 <article>
 <div class="text">
-<h3 id="api_url">api_url</h3>
+<h3 id="api_url"><a id="api_url"></a><code>api_url</code><br/>Cosmotech API URL</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>the url of the API</dd>
+<dd>The url of the cosmotech API</dd>
+<dt>How to get a value to set here ?</dt>
+<dd>In the azure portal, navigate to your app registration for your api.
+Then look at the value in <code>Application ID URI</code>  </dd>
 </dl>
+<div class="example">
+<p><code>https://dev.api.cosmotech.com</code></p>
+</div>
 </div>
 </article>
 <article>
 <div class="text">
-<h3 id="api_scope">api_scope</h3>
+<h3 id="api_scope"><a id="api_scope"></a><code>api_scope</code><br/>Cosmotech API Scope</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>the default scope used by the API</dd>
+<dd>The scope used to authenticate to the cosmotech API</dd>
+<dt>How to get a value to set here ?</dt>
+<dd>Depending on your authentication to azure, the format of the scope can change </dd>
 </dl>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Using <code>az cli</code></label><label for="__tabbed_1_2">Using an app registration</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Your scope should finish in <code>/.default</code> like in the example</p>
+</div>
+<div class="tabbed-block">
+<p>You need to use the scope defined in your Azure Portal, under <code>App registrations &gt; &lt;your api registration&gt; &gt; Expose an API</code>  </p>
+</div>
+</div>
+</div>
+<div class="example">
+<p><code>https://dev.api.cosmotech.com/.default</code></p>
+</div>
 </div>
 </article>
 <article>
 <div class="text">
-<h3 id="azure_subscription">azure_subscription</h3>
+<h3 id="azure_subscription"><a id="azure_subscription"></a><code>azure_subscription</code><br/>Azure Subscription ID</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>The azure subscription used to contain the platform</dd>
+<dd>The id of the azure subscription used to contain the platform</dd>
+<dt>How to get a value to set here ?</dt>
+<dd>Can be found in your azure portal, under Subscriptions  </dd>
 </dl>
+<div class="example">
+<p><code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code></p>
+</div>
 </div>
 </article>
 <article>
 <div class="text">
-<h3 id="adx_cluster_name">adx_cluster_name</h3>
+<h3 id="adx_cluster_name"><a id="adx_cluster_name"></a><code>adx_cluster_name</code><br/>Azure Data Explorer Cluster Name</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>The name of the Azure Data Explorer Cluster</dd>
+<dd>The name of the Azure Data Explorer Cluster of your platform</dd>
+<dt>How to get a value to set here ?</dt>
+<dd>Can be found in your azure portal, under Azure Data Explorer Clusters  </dd>
 </dl>
+<div class="example">
+<p><code>platformcluster</code></p>
+</div>
 </div>
 </article>
 <article>
 <div class="text">
-<h3 id="resource_group_name">resource_group_name</h3>
+<h3 id="resource_group_name"><a id="resource_group_name"></a><code>resource_group_name</code><br/>Resource Group Name</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
 <dd>The name fo the resource group used on the platform</dd>
+<dt>How to get a value to set here ?</dt>
+<dd>Can be found in your azure portal, under Resource Groups  </dd>
 </dl>
+<div class="example">
+<p><code>Platform Resource Group</code></p>
+</div>
 </div>
 </article>
 <article>
 <div class="text">
-<h3 id="csm_acr_registry_name">csm_acr_registry_name</h3>
+<h3 id="csm_acr_registry_name"><a id="csm_acr_registry_name"></a><code>csm_acr_registry_name</code><br/>Cosmo ACR Registery Name</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>ACR source registry name source_registry.azurecr.io</dd>
+<dd>ACR registry name used as source for your containers</dd>
+<dt>How to get a value to set here ?</dt>
+<dd>Can be found in your Azure Portal under Container Registeries &gt; <code>&lt;your registery&gt;</code> &gt; Login server  </dd>
 </dl>
+<div class="example">
+<p><code>source_registry.azurecr.io</code></p>
+</div>
 </div>
 </article>
 <article>
 <div class="text">
-<h3 id="acr_registry_name">acr_registry_name</h3>
+<h3 id="acr_registry_name"><a id="acr_registry_name"></a><code>acr_registry_name</code><br/>ACR Registery Name</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>ACR destination registry name dest_registry.azurecr.io</dd>
+<dd>ACR registry name used as target for your containers</dd>
+<dt>How to get a value to set here ?</dt>
+<dd>Can be found in your Azure Portal under Container Registeries &gt; <code>&lt;your registery&gt;</code> &gt; Login server  </dd>
 </dl>
+<div class="example">
+<p><code>dest_registry.azurecr.io</code></p>
+</div>
 </div>
 </article>
 <article>
 <div class="text">
-<h3 id="resources_location">resources_location</h3>
+<h3 id="resources_location"><a id="resources_location"></a><code>resources_location</code><br/>Resources Location</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
 <dd>azure resource location used on the platform</dd>
+<dt>How to get a value to set here ?</dt>
+<dd>You could use the same resource location as your api<br />
+In case you want a full list of the available locations you can use the <code>az</code> cli and run the following command<br />
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>account<span class="w"> </span>list-locations
+</code></pre></div></dd>
 </dl>
 <div class="example">
 <p><code>westeurope</code></p>
@@ -738,21 +789,28 @@
 </article>
 <article>
 <div class="text">
-<h3 id="storage_account_name">storage_account_name</h3>
+<h3 id="storage_account_name"><a id="storage_account_name"></a><code>storage_account_name</code><br/>Storage Account Name</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>Storage account name</dd>
+<dd>Name of the main storage account tied to your platform</dd>
+<dt>How to get a value to set here ?</dt>
+<dd>Can be found in your Azure Portal under Storage Accounts  </dd>
 </dl>
+<div class="example">
+<p><code>mystorageaccount</code></p>
+</div>
 </div>
 </article>
 <article>
 <div class="text">
-<h3 id="powerbi_api_scope">powerbi_api_scope</h3>
+<h3 id="powerbi_api_scope"><a id="powerbi_api_scope"></a><code>powerbi_api_scope</code><br/>Power BI API Scope</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>PowerBI api scope</dd>
+<dd>Api scope to identify to PowerBI</dd>
+<dt>How to get a value to set here ?</dt>
+<dd>Unless you use specific versions of Power BI you can use the default value that is set as example here  </dd>
 </dl>
 <div class="example">
 <p><code>https://analysis.windows.net/powerbi/api/.default</code></p>
