@@ -2,73 +2,92 @@
 #   - "|-" : every newline will be doubled : allowing to keep the format in markdown
 #   - "-" : the trailing white spaces are striped
 api_url :
+  display_name: Cosmotech API URL
   description: |-
-    the url of the API
+    The url of the cosmotech API
   howto: |-
-    XXX
+    In the azure portal, navigate to your app registration for your api.
+    Then look at the value in `Application ID URI`
   example: |-
-    XXX
+    https://dev.api.cosmotech.com
 api_scope :
+  display_name: Cosmotech API Scope
   description: |-
-    the default scope used by the API
+    The scope used to authenticate to the cosmotech API
   howto: |-
-    XXX
+    Depending on your authentication to azure, the format of the scope can change 
+    === "Using `az cli`"
+        Your scope should finish in `/.default` like in the example
+    === "Using an app registration"
+        You need to use the scope defined in your Azure Portal, under `App registrations > <your api registration> > Expose an API`
   example: |-
-    XXX
+    https://dev.api.cosmotech.com/.default
 azure_subscription :
+  display_name: Azure Subscription ID
   description: |-
-    The azure subscription used to contain the platform
+    The id of the azure subscription used to contain the platform
   howto: |-
-    XXX
+    Can be found in your azure portal, under Subscriptions
   example: |-
-    XXX
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 adx_cluster_name :
+  display_name: Azure Data Explorer Cluster Name
   description: |-
-    The name of the Azure Data Explorer Cluster
+    The name of the Azure Data Explorer Cluster of your platform
   howto: |-
-    XXX
+    Can be found in your azure portal, under Azure Data Explorer Clusters
   example: |-
-    XXX
+    platformcluster
 resource_group_name :
+  display_name: Resource Group Name
   description: |-
     The name fo the resource group used on the platform
   howto: |-
-    XXX
+    Can be found in your azure portal, under Resource Groups
   example: |-
-    XXX
+    Platform Resource Group
 csm_acr_registry_name :
+  display_name: Cosmo ACR Registery Name
   description: |-
-    ACR source registry name source_registry.azurecr.io
+    ACR registry name used as source for your containers
   howto: |-
-    XXX
+    Can be found in your Azure Portal under Container Registeries > `<your registery>` > Login server
   example: |-
-    XXX
+    source_registry.azurecr.io
 acr_registry_name :
+  display_name: ACR Registery Name
   description: |-
-    ACR destination registry name dest_registry.azurecr.io
+    ACR registry name used as target for your containers
   howto: |-
-    XXX
+    Can be found in your Azure Portal under Container Registeries > `<your registery>` > Login server
   example: |-
-    XXX
+    dest_registry.azurecr.io
 resources_location :
+  display_name: Resources Location
   description: |-
     azure resource location used on the platform
   howto: |-
-    XXX
+    You could use the same resource location as your api  
+    In case you want a full list of the available locations you can use the `az` cli and run the following command  
+    ```bash
+    az account list-locations
+    ```
   example: |-
     westeurope
 storage_account_name :
+  display_name: Storage Account Name
   description: |-
-    Storage account name
+    Name of the main storage account tied to your platform
   howto: |-
-    XXX
+    Can be found in your Azure Portal under Storage Accounts
   example: |-
-    XXX
+    mystorageaccount
 powerbi_api_scope:
+  display_name: Power BI API Scope
   description: |-
-    PowerBI api scope
+    Api scope to identify to PowerBI
   howto: |-
-    XXX
+    Unless you use specific versions of Power BI you can use the default value that is set as example here
   example: |-
     https://analysis.windows.net/powerbi/api/.default
     

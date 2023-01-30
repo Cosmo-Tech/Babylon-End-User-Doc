@@ -2,6 +2,7 @@
 #   - "|-" : every newline will be doubled : allowing to keep the format in markdown
 #   - "-" : the trailing white spaces are striped
 organization_id:
+  display_name: Organization ID
   description: |-
     The id of the organization in the cosmotech API
   howto: |-
@@ -9,6 +10,7 @@ organization_id:
   example: |-
     O-XXXXXXXXXX
 solution_id:
+  display_name: Solution ID
   description: |-
     The id of the solution in the cosmotech API
   howto: |-
@@ -16,6 +18,7 @@ solution_id:
   example: |-
     Sol-XXXXXXXXXX
 workspace_id :
+  display_name: Workspace ID
   description: |-
     the id of the workspace on the API
   howto: |-
@@ -23,6 +26,7 @@ workspace_id :
   example: |-
     W-XXXXXXXXXX
 workspace_key :
+  display_name: Workspace Key
   description: |-
     the key of the workspace on the API shared with Terraform configuration
   howto: |-
@@ -30,6 +34,7 @@ workspace_key :
   example: |-
     workspacekey
 api_url :
+  display_name: Cosmotech API URL
   description: |-
     the url of the API (used for validation)
   howto: |-
@@ -38,6 +43,7 @@ api_url :
   example: |-
     https://dev.api.cosmotech.com
 resource_group_name :
+  display_name: Resource Group Name
   description: |-
     The name fo the resource group used for users deployment (function apps, webapp)
   howto: |-
@@ -45,6 +51,7 @@ resource_group_name :
   example: |-
     azure_ressource_group
 resources_location :
+  display_name: Resources Location
   description: |-
     The azure resource location for users deployment
   howto: |-
@@ -56,6 +63,7 @@ resources_location :
   example: |-
     westeurope
 adx_database_name :
+  display_name: Azure Data Explorer Database Name
   description: |-
     The name of the database used in Azure Data Explorer
   howto: |-
@@ -64,6 +72,7 @@ adx_database_name :
   example: |-
     o-xxxxxxxxxx-workspacename
 digital_twin_url :
+  display_name: Digital Twin URL
   description: |-
     URL of the Azure Digital Twin instance to use
   howto: |-
@@ -71,6 +80,7 @@ digital_twin_url :
   example: |-
     https://mydigitaltwin.api.weu.digitaltwins.azure.net
 csm_simulator_repository :
+  display_name: Cosmo Simulator Repository
   description: |-
     The solution simulator docker origin repository
   howto: |-
@@ -78,6 +88,7 @@ csm_simulator_repository :
   example: |-
     solution_simulator
 simulator_repository :
+  display_name: Simulator Repository
   description: |-
     The solution simulator docker target repository (repository value in Solution.yaml)
   howto: |-
@@ -85,6 +96,7 @@ simulator_repository :
   example: |-
     solution_simulator
 simulator_version :
+  display_name: Simulator Version
   description: |-
     the solution simulator version (version value in Solution.yaml)
   howto: |-
@@ -92,6 +104,7 @@ simulator_version :
   example: |-
     1.0.0
 send_scenario_metadata_to_event_hub :
+  display_name: Send scenario metadata to Event Hub
   description: |-
     Set this property to false to not send scenario metada to Azure Event Hub Namespace for this Workspace.
   howto: |-
@@ -102,6 +115,7 @@ send_scenario_metadata_to_event_hub :
   example: |-
     true
 use_dedicated_event_hub_namespace :
+  display_name: Use dedicated Event Hub Namespace
   description: |-
     Set this property to false to not to use a dedicated Azure Event Hub Namespace for this Workspace.
   howto: |-
@@ -112,6 +126,7 @@ use_dedicated_event_hub_namespace :
   example: |-
     true
 powerbi_workspace_id :
+  display_name: Power BI workspace ID
   description: |-
     ID of the power BI workspace to keep dashboard for this deployment
   howto: |-

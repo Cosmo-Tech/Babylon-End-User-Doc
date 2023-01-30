@@ -17,7 +17,10 @@ def generate_file(file_type: str):
         for key, values in _items.items():
             content.append("<article markdown>")
             content.append("<div class=\"text\" markdown>")
-            content.append(f"### {key}")
+            if _display_name := values.get('display_name'):
+                content.append(f"### <a id=\"{key}\"></a>`{key}`<br/>{_display_name} {{ #{key} data-toc-label='{key}' }}")
+            else:
+                content.append(f"### {key}")
             content.append("---")
             if values.get('description') not in ['XXX', None]:
                 content.append("What is this value ?")
