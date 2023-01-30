@@ -57,63 +57,64 @@ resources_location :
     westeurope
 adx_database_name :
   description: |-
-    the name of the database used in Azure Data Explorer
+    The name of the database used in Azure Data Explorer
   howto: |-
-    XXX
+    Can be found in your azure portal in you Azure Data Explorer Clusters.  
+    Inside the cluster configuration you can check in `Databases` to find the name of the one you want to use
   example: |-
-    XXX
+    o-xxxxxxxxxx-workspacename
 digital_twin_url :
   description: |-
-    URL of the digital twin to use
+    URL of the Azure Digital Twin instance to use
   howto: |-
-    XXX
+    Can be found in the Azure portal of your ADT instance next to `Host name`
   example: |-
-    XXX
+    https://mydigitaltwin.api.weu.digitaltwins.azure.net
 csm_simulator_repository :
   description: |-
-    the solution simulator source repository
+    The solution simulator docker origin repository
   howto: |-
-    XXX
+    This is the name of the solution source repository for its docker image, it is given by the solution integration team
   example: |-
-    XXX
+    solution_simulator
 simulator_repository :
   description: |-
-    the solution simulator repository destination (repository value in Solution.yaml)
+    The solution simulator docker target repository (repository value in Solution.yaml)
   howto: |-
-    XXX
+    This is the name of the solution target repository for its docker image, it should be the same as in your Solution.yaml
   example: |-
-    XXX
+    solution_simulator
 simulator_version :
   description: |-
     the solution simulator version (version value in Solution.yaml)
   howto: |-
-    XXX
+    The version of the simulator you want to use, as communicated by the solution developpers.
   example: |-
-    XXX
-# send_scenario_metadata_to_event_hub:
-# The Event Hub Namespace must be named \'<organization_id\>-<workspace_id\>\' (in lower case).
-# This Namespace must also contain two Event Hubs named \'probesmeasures\' and \'scenariorun\'.
+    1.0.0
 send_scenario_metadata_to_event_hub :
   description: |-
     Set this property to false to not send scenario metada to Azure Event Hub Namespace for this Workspace.
   howto: |-
-    XXX
+    Boolean property allowing to send metadata of the scenario runs to the event hub.
+    
+    - The Event Hub Namespace must be named `<organization_id>-<workspace_id>` (in lower case).
+    - This Namespace must also contain two Event Hubs named `probesmeasures` and `scenariorun`.
   example: |-
-    XXX
-# use_dedicated_event_hub_namespace:
-# The Event Hub Namespace must be named \'<organization_id\>-<workspace_id\>\' (in lower case).
-# This Namespace must also contain two Event Hubs named \'scenariometadata\' and \'scenariorunmetadata\'.
+    true
 use_dedicated_event_hub_namespace :
   description: |-
     Set this property to false to not to use a dedicated Azure Event Hub Namespace for this Workspace.
   howto: |-
-    XXX
+    Boolean property allowing to use dedicated event hub namespace.
+    
+    - The Event Hub Namespace must be named `<organization_id>-<workspace_id>` (in lower case).
+    - This Namespace must also contain two Event Hubs named `probesmeasures` and `scenariorun`.
   example: |-
-    XXX
+    true
 powerbi_workspace_id :
   description: |-
-    PowerBI workspace id
+    ID of the power BI workspace to keep dashboard for this deployment
   howto: |-
-    XXX
+    You can find the id of the workspace in the [wep app of powerbi](https://app.powerbi.com)
   example: |-
-    XXX
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

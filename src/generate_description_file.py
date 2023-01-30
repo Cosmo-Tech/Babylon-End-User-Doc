@@ -15,20 +15,23 @@ def generate_file(file_type: str):
         content.append("")
         content.append('<main class="grid" markdown>')
         for key, values in _items.items():
-            content.extend(f"""<article markdown>
-<div class="text" markdown>
-### {key}
----
-What is this value ?
-:    {values.get('description')}
-
-How to get a value to set here ?  
-:    {values.get('howto')}  
-<div class="example" markdown>
-`{values.get('example')}`
-</div>
-</div>
-</article>""".split('\n'))
+            content.append("<article markdown>")
+            content.append("<div class=\"text\" markdown>")
+            content.append(f"### {key}")
+            content.append("---")
+            if values.get('description') not in ['XXX', None]:
+                content.append("What is this value ?")
+                content.append(f":    {values.get('description')}")
+                content.append("")
+            if values.get('howto') not in ['XXX', None]:
+                content.append("How to get a value to set here ?")
+                content.append(f":    {values.get('howto')}  ")
+            if values.get('example') not in ['XXX', None]:
+                content.append("<div class=\"example\" markdown>")
+                content.append(f"`{values.get('example')}`")
+                content.append("</div>")
+            content.append("</div>")
+            content.append("</article>")
         content.append("")
         content.append('</main>')
         _md_file.writelines("\n".join(content))
