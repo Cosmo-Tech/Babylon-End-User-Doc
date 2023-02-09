@@ -22,6 +22,21 @@ Learn how to install `babylon` like a pro
 
 <article markdown>
 <div class="text" markdown>
+:material-microsoft-azure: __Azure Requirements__
+
+---
+This guide will help you with the required steps to use Babylon with Azure
+
+---
+<footer markdown>
+[:octicons-arrow-right-24: Azure Requirements](./az_requirements.md)
+</footer>
+</div>
+
+</article>
+
+<article markdown>
+<div class="text" markdown>
 :material-note: __Configuration__
 
 ---
