@@ -46,6 +46,7 @@ nav:
   - Guides:
       - Guides: 'guides/index.md'
       - Installation: 'guides/installation.md'
+      - Azure Requirements: 'guides/az_requirements.md'
       - Configuration: 'guides/configuration.md'
       - Deployment Values: 'guides/deployment.md'
       - Platform Values: 'guides/platform.md'
@@ -63,6 +64,11 @@ markdown_extensions:
     - pymdownx.details
     - pymdownx.snippets
     - pymdownx.superfences
+    - pymdownx.critic
+    - pymdownx.caret
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
     - pymdownx.tabbed:
         alternate_style: true
     - pymdownx.emoji:
