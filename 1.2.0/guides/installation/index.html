@@ -15,7 +15,7 @@
         <link rel="next" href="../configuration/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
     
     
       
@@ -563,15 +563,15 @@
 
 
 <h1 id="installation-of-babylon">Installation of Babylon</h1>
-<p>Great ! You chose to use Babylon, I'm sure you won't regret it.</p>
-<p>Now we will guide you through the installation process so you can get your hands on Babylon as fast as possible.</p>
-<p>So the installation is a fairly simple process which can be separated in 2 parts : get a version of Babylon, and install this version.</p>
+<p>Great ! You chose to use Babylon, I am sure you will not regret it.</p>
+<p>Now we will guide you through the installation process, so you can get your hands on Babylon as fast as possible.</p>
+<p>The installation is a fairly simple process which can be separated in 2 parts: get a version of Babylon, and install this version.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Install Babylon from sources</label><label for="__tabbed_1_2">Install Babylon using Docker</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h2 id="get-babylon-sources">Get Babylon sources</h2>
 <details class="warning" open="open">
-<summary>Prerequisites</summary>
+<summary>Requirements</summary>
 <table>
 <thead>
 <tr>
@@ -596,19 +596,18 @@
 </table>
 </details>
 <p>We will go through the process of getting a version of Babylon before the installation.</p>
-<p>You can make your choice on how you may want to process :</p>
+<p>You can make your choice on how you may want to process:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Get official releases</label><label for="__tabbed_2_2">Use latest version from git</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>So you choose to use releases, very well, 
-go on the following page to get one of the releases<br />
+<p>If you choose to use releases, get one of the releases on the following page:<br />
 <a href="https://github.com/Cosmo-Tech/Babylon/releases"><img alt="Official releases page" src="https://img.shields.io/badge/-Official_releases_page-informational?style=for-the-badge&amp;logo=github" /></a></p>
-<p>Then you can select a type of compressed folder you want (<code>.zip</code> or <code>.tar.gz</code>) and download the file.</p>
+<p>Then select the type of compressed folder you want (<code>.zip</code> or <code>.tar.gz</code>) and download the file.</p>
 <details class="info" open="open">
 <summary>Download a release</summary>
 <p><img alt="Download from release gif" src="../../assets/Download_from_release.gif" /></p>
 </details>
-<p>Now you can decompress the file you downloaded.</p>
+<p>Decompress the file you downloaded.</p>
 <details class="example" open="open">
 <summary>Decompress a file</summary>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">zip</label><label for="__tabbed_3_2">tar.gz</label></div>
@@ -624,7 +623,7 @@ go on the following page to get one of the releases<br />
 </div>
 </div>
 </details>
-<p>After run you now have a folder named <code>Babylon-1.2.0</code> which we will refer to as "Babylon Installation Folder" for the rest of the guide</p>
+<p>After run you now have a new folder named <code>Babylon-1.2.0</code> which we will refer to as "Babylon Installation Folder" for the rest of the guide</p>
 </div>
 <div class="tabbed-block">
 <p>You can download the latest version of Babylon using git with the following command</p>
@@ -634,7 +633,7 @@ go on the following page to get one of the releases<br />
 </code></pre></div>
 </details>
 <p>You now have a folder called <code>Babylon-Sources</code> which we will refer to as "Babylon Installation Folder" for the rest of the guide</p>
-<p>If you want a specific version of Babylon you can check which version number you want (for example <code>1.2.0</code>) and to the following</p>
+<p>If you want a specific version of Babylon you can check which version number you want (for example <code>1.2.0</code>) and to the following command</p>
 <details class="example" open="open">
 <summary>Change the source version from git</summary>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>Babylon-Source
@@ -649,7 +648,7 @@ git<span class="w"> </span>checkout<span class="w"> </span><span class="m">1</sp
 <p>Now that you have a "Babylon Installation Folder" ready we can move to the installation process</p>
 <details>
 <summary>Use a <code>venv</code></summary>
-<p>If you want you can set up a virtual environment in python using the library <code>venv</code> to keep your babylon dependencies in a single location.</p>
+<p>If you want you can set up a virtual environment in python using the library <code>venv</code> to keep your Babylon dependencies in a single location.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Set up a <code>venv</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -680,18 +679,18 @@ python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </s
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Once you install babylon in a venv you will need to activate this venv every time you want to use babylon.</p>
+<p>Once you install Babylon in a venv you will need to activate this venv every time you want to use Babylon.</p>
 </div>
 </details>
-<p>The setup is fairy direct, the following command will allow a full install of Babylon</p>
+<p>The setup is fairly direct, the following command will allow a full install of Babylon</p>
 <div class="admonition example">
-<p class="admonition-title">Setup babylon</p>
+<p class="admonition-title">Setup Babylon</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>&lt;Babylon<span class="w"> </span>Installation<span class="w"> </span>Folder&gt;
 </code></pre></div>
 </div>
 <details class="tip">
 <summary>Enable autocompletion</summary>
-<p>On some systems autocompletion can be enabled for babylon, more information on autocompletion can be found on the <a href="https://click.palletsprojects.com/en/8.1.x/shell-completion/">click documentation</a> (since babylon is basd on <code>click</code>)</p>
+<p>On some systems autocompletion can be enabled for Babylon, more information on autocompletion can be found on the <a href="https://click.palletsprojects.com/en/8.1.x/shell-completion/">click documentation</a> (since Babylon is based on <code>click</code>)</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Example of click autocompletion command for <code>bash</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
@@ -756,7 +755,7 @@ docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </s
 </div>
 </div>
 </div>
-<p>This command will persist your babylon configuration in a local <code>/babylon_config</code> folder allowing you to keep it across runs (in the same folder)</p>
+<p>This command will persist your Babylon configuration in a local <code>/babylon_config</code> folder allowing you to keep it across runs (in the same folder)</p>
 <p>Now if you want to use your local files as a working directory for your commands you can do the following</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Use local folder as working dir</label></div>
 <div class="tabbed-content">
@@ -798,7 +797,7 @@ docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </s
 </div>
 </div>
 </div>
-<p>And now you have a fully functional installation of Babylon, you can now check other guides to learn how to configure it and start running commands.</p>
+<p>Now that you have a fully functional installation of Babylon, you can check the other guides to learn how to configure it and start running commands.</p>
 
 
 
@@ -884,7 +883,7 @@ docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </s
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.footer"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6df46069.min.js"></script>
       
     
   </body>

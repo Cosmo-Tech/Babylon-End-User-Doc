@@ -13,7 +13,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
     
     
       
@@ -655,13 +655,13 @@
 <main class="grid">
 <article>
 <div class="text">
-<h3 id="api_url"><a id="api_url"></a><code>api_url</code><br/>Cosmotech API URL</h3>
+<h3 id="api_url"><a id="api_url"></a><code>api_url</code><br/>Cosmo Tech API URL</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>The url of the cosmotech API</dd>
+<dd>The URL of the Cosmo Tech API</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>In the azure portal, navigate to your app registration for your api.
+<dd>In the Azure Portal, navigate to your app registration for your API.
 Then look at the value in <code>Application ID URI</code>  </dd>
 </dl>
 <div class="example">
@@ -671,13 +671,13 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 </article>
 <article>
 <div class="text">
-<h3 id="api_scope"><a id="api_scope"></a><code>api_scope</code><br/>Cosmotech API Scope</h3>
+<h3 id="api_scope"><a id="api_scope"></a><code>api_scope</code><br/>Cosmo Tech API Scope</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>The scope used to authenticate to the cosmotech API</dd>
+<dd>The scope used to authenticate to the Cosmo Tech API</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Depending on your authentication to azure, the format of the scope can change </dd>
+<dd>Depending on your authentication to Azure, the format of the scope can change </dd>
 </dl>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Using <code>az cli</code></label><label for="__tabbed_1_2">Using an app registration</label></div>
 <div class="tabbed-content">
@@ -685,7 +685,7 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <p>Your scope should finish in <code>/.default</code> like in the example</p>
 </div>
 <div class="tabbed-block">
-<p>You need to use the scope defined in your Azure Portal, under <code>App registrations &gt; &lt;your api registration&gt; &gt; Expose an API</code>  </p>
+<p>You need to use the scope defined in your Azure Portal, under <code>App registrations &gt; &lt;your API registration&gt; &gt; Expose an API</code>  </p>
 </div>
 </div>
 </div>
@@ -700,9 +700,9 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>The id of the azure subscription used to contain the platform</dd>
+<dd>The ID of the Azure subscription used to contain the platform</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found in your azure portal, under Subscriptions  </dd>
+<dd>Can be found in your Azure Portal, under Subscriptions  </dd>
 </dl>
 <div class="example">
 <p><code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code></p>
@@ -717,7 +717,7 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <dt>What is this value ?</dt>
 <dd>The name of the Azure Data Explorer Cluster of your platform</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found in your azure portal, under Azure Data Explorer Clusters  </dd>
+<dd>Can be found in your Azure Portal, under Azure Data Explorer Clusters  </dd>
 </dl>
 <div class="example">
 <p><code>platformcluster</code></p>
@@ -732,7 +732,7 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <dt>What is this value ?</dt>
 <dd>The name fo the resource group used on the platform</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found in your azure portal, under Resource Groups  </dd>
+<dd>Can be found in your Azure Portal, under Resource Groups  </dd>
 </dl>
 <div class="example">
 <p><code>Platform Resource Group</code></p>
@@ -775,10 +775,10 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>azure resource location used on the platform</dd>
+<dd>Azure resource location used on the platform</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>You could use the same resource location as your api<br />
-In case you want a full list of the available locations you can use the <code>az</code> cli and run the following command<br />
+<dd>You could use the same resource location as your API<br />
+In case you want a full list of the available locations you can use the <code>az</code> CLI and run the following command<br />
 <div class="highlight"><pre><span></span><code>az<span class="w"> </span>account<span class="w"> </span>list-locations
 </code></pre></div></dd>
 </dl>
@@ -808,7 +808,7 @@ In case you want a full list of the available locations you can use the <code>az
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>Api scope to identify to PowerBI</dd>
+<dd>Api scope to identify to Power BI</dd>
 <dt>How to get a value to set here ?</dt>
 <dd>Unless you use specific versions of Power BI you can use the default value that is set as example here  </dd>
 </dl>
@@ -884,7 +884,7 @@ In case you want a full list of the available locations you can use the <code>az
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.footer"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6df46069.min.js"></script>
       
     
   </body>

@@ -15,7 +15,7 @@
         <link rel="next" href="../platform/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
     
     
       
@@ -731,7 +731,7 @@
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>The id of the organization in the cosmotech API</dd>
+<dd>The ID of the organization in the Cosmo Tech API</dd>
 <dt>How to get a value to set here ?</dt>
 <dd>Can be found using <code>babylon api organization get-all</code>  </dd>
 </dl>
@@ -746,7 +746,7 @@
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>The id of the solution in the cosmotech API</dd>
+<dd>The ID of the solution in the Cosmo Tech API</dd>
 <dt>How to get a value to set here ?</dt>
 <dd>Can be found using <code>babylon api solution get-all</code>  </dd>
 </dl>
@@ -761,7 +761,7 @@
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>the id of the workspace on the API</dd>
+<dd>The ID of the workspace on the API</dd>
 <dt>How to get a value to set here ?</dt>
 <dd>Can be found using <code>babylon api workspace get-all</code>  </dd>
 </dl>
@@ -776,7 +776,7 @@
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>the key of the workspace on the API shared with Terraform configuration</dd>
+<dd>The key of the workspace on the API shared with Terraform configuration</dd>
 <dt>How to get a value to set here ?</dt>
 <dd>Can be found using <code>babylon api workspace get</code>  </dd>
 </dl>
@@ -787,13 +787,13 @@
 </article>
 <article>
 <div class="text">
-<h3 id="api_url"><a id="api_url"></a><code>api_url</code><br/>Cosmotech API URL</h3>
+<h3 id="api_url"><a id="api_url"></a><code>api_url</code><br/>Cosmo Tech API URL</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
 <dd>the url of the API (used for validation)</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>In the azure portal, navigate to your app registration for your api.
+<dd>In the Azure Portal, navigate to your app registration for your API.
 Then look at the value in <code>Application ID URI</code>  </dd>
 </dl>
 <div class="example">
@@ -809,7 +809,7 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <dt>What is this value ?</dt>
 <dd>The name fo the resource group used for users deployment (function apps, webapp)</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found in your azure portal in the resource group category  </dd>
+<dd>Can be found in your Azure Portal in the resource group category  </dd>
 </dl>
 <div class="example">
 <p><code>azure_ressource_group</code></p>
@@ -822,10 +822,10 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>The azure resource location for users deployment</dd>
+<dd>The Azure resource location for users deployment</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>You could use the same resource location as your api<br />
-In case you want a full list of the available locations you can use the <code>az</code> cli and run the following command<br />
+<dd>You could use the same resource location as your API<br />
+In case you want a full list of the available locations you can use the <code>az</code> CLI and run the following command<br />
 <div class="highlight"><pre><span></span><code>az<span class="w"> </span>account<span class="w"> </span>list-locations
 </code></pre></div></dd>
 </dl>
@@ -842,7 +842,7 @@ In case you want a full list of the available locations you can use the <code>az
 <dt>What is this value ?</dt>
 <dd>The name of the database used in Azure Data Explorer</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found in your azure portal in you Azure Data Explorer Clusters.<br />
+<dd>Can be found in your Azure Portal in you Azure Data Explorer Clusters.<br />
 Inside the cluster configuration you can check in <code>Databases</code> to find the name of the one you want to use  </dd>
 </dl>
 <div class="example">
@@ -858,7 +858,7 @@ Inside the cluster configuration you can check in <code>Databases</code> to find
 <dt>What is this value ?</dt>
 <dd>URL of the Azure Digital Twin instance to use</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found in the Azure portal of your ADT instance next to <code>Host name</code>  </dd>
+<dd>Can be found in the Azure Portal of your ADT instance next to <code>Host name</code>  </dd>
 </dl>
 <div class="example">
 <p><code>https://mydigitaltwin.api.weu.digitaltwins.azure.net</code></p>
@@ -903,7 +903,7 @@ Inside the cluster configuration you can check in <code>Databases</code> to find
 <dt>What is this value ?</dt>
 <dd>the solution simulator version (version value in Solution.yaml)</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>The version of the simulator you want to use, as communicated by the solution developpers.  </dd>
+<dd>The version of the simulator you want to use, as communicated by the solution developers.  </dd>
 </dl>
 <div class="example">
 <p><code>1.0.0</code></p>
@@ -935,7 +935,7 @@ Inside the cluster configuration you can check in <code>Databases</code> to find
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>Set this property to false to not to use a dedicated Azure Event Hub Namespace for this Workspace.</dd>
+<dd>Set this property to false to not use a dedicated Azure Event Hub Namespace for this Workspace.</dd>
 <dt>How to get a value to set here ?</dt>
 <dd>Boolean property allowing to use dedicated event hub namespace.</dd>
 </dl>
@@ -954,9 +954,9 @@ Inside the cluster configuration you can check in <code>Databases</code> to find
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>ID of the power BI workspace to keep dashboard for this deployment</dd>
+<dd>ID of the power BI workspace to keep the dashboards for this deployment.</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>You can find the id of the workspace in the <a href="https://app.powerbi.com">wep app of powerbi</a>  </dd>
+<dd>You can find the ID of the workspace in the <a href="https://app.powerbi.com">wep app of Power BI</a>  </dd>
 </dl>
 <div class="example">
 <p><code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code></p>
@@ -1045,7 +1045,7 @@ Inside the cluster configuration you can check in <code>Databases</code> to find
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.footer"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6df46069.min.js"></script>
       
     
   </body>
