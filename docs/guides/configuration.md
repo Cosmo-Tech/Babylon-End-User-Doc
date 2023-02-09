@@ -11,7 +11,7 @@ Let's begin by running a few commands to see some elements.
 ???+ example "First commands"
     --8<-- 'docs/partials/Configuration/FirstCommands.md'
 
-Now that your ran a few working commands lets try one that require some configuration
+Now that you ran a few working commands, let's try one that requires some configuration.
 
 ???+ example "Run command without configuration"
     ```bash
@@ -28,21 +28,21 @@ Now we know that we need to set up some configuration to use our commands.
 
 ## Different type of configuration files
 
-Two main configuration files exists on Babylon: platform and deployment
+Two main configuration files exist on Babylon: platform and deployment
 
 ### `Platform` configuration file
 
-This file contains the variables necessary to connect to a cosmotech platform deployed on a given cloud.
+This file contains the variables necessary to connect to a Cosmo Tech platform deployed on a given cloud.
 
 ### `Deployment` configuration file
 
 A Deployment is a single application made available on a platform.
 
-Using terms of the cosmotech api, a deployment is equivalent to a `Workspace`
+Using terms of the Cosmo Tech API, a deployment is equivalent to a `Workspace`
 
 ## Set configuration values
 
-3 main ways exists to work on configuration values.  
+3 main ways exist to work on configuration values.  
 In the following part we will only work on `platform`, but those 3 ways are identical for `platform` and `deployment` 
 
 === "Use `set-variable` command"
@@ -56,7 +56,7 @@ Now you know how to set a specific configuration variable.
 
 ## Switch configuration
 
-Now that we can set the configuration variables we want to be able to switch between configuration. Some systems exist inside babylon to simplify those switch.
+Now that we can set the configuration variables we want to be able to switch between configuration. Some systems exist inside Babylon to simplify those switches.
 
 === "Use `create` and `select` commands"
     --8<-- 'docs/partials/Configuration/2-Commands.md'

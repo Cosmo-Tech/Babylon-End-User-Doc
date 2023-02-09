@@ -4,7 +4,7 @@
 organization_id:
   display_name: Organization ID
   description: |-
-    The id of the organization in the cosmotech API
+    The ID of the organization in the Cosmo Tech API
   howto: |-
     Can be found using `babylon api organization get-all`
   example: |-
@@ -12,7 +12,7 @@ organization_id:
 solution_id:
   display_name: Solution ID
   description: |-
-    The id of the solution in the cosmotech API
+    The ID of the solution in the Cosmo Tech API
   howto: |-
     Can be found using `babylon api solution get-all`
   example: |-
@@ -20,7 +20,7 @@ solution_id:
 workspace_id :
   display_name: Workspace ID
   description: |-
-    the id of the workspace on the API
+    The ID of the workspace on the API
   howto: |-
     Can be found using `babylon api workspace get-all`
   example: |-
@@ -28,17 +28,17 @@ workspace_id :
 workspace_key :
   display_name: Workspace Key
   description: |-
-    the key of the workspace on the API shared with Terraform configuration
+    The key of the workspace on the API shared with Terraform configuration
   howto: |-
     Can be found using `babylon api workspace get`
   example: |-
     workspacekey
 api_url :
-  display_name: Cosmotech API URL
+  display_name: Cosmo Tech API URL
   description: |-
     the url of the API (used for validation)
   howto: |-
-    In the azure portal, navigate to your app registration for your api.
+    In the Azure Portal, navigate to your app registration for your API.
     Then look at the value in `Application ID URI`
   example: |-
     https://dev.api.cosmotech.com
@@ -47,16 +47,16 @@ resource_group_name :
   description: |-
     The name fo the resource group used for users deployment (function apps, webapp)
   howto: |-
-    Can be found in your azure portal in the resource group category
+    Can be found in your Azure Portal in the resource group category
   example: |-
     azure_ressource_group
 resources_location :
   display_name: Resources Location
   description: |-
-    The azure resource location for users deployment
+    The Azure resource location for users deployment
   howto: |-
-    You could use the same resource location as your api  
-    In case you want a full list of the available locations you can use the `az` cli and run the following command  
+    You could use the same resource location as your API  
+    In case you want a full list of the available locations you can use the `az` CLI and run the following command  
     ```bash
     az account list-locations
     ```
@@ -67,7 +67,7 @@ adx_database_name :
   description: |-
     The name of the database used in Azure Data Explorer
   howto: |-
-    Can be found in your azure portal in you Azure Data Explorer Clusters.  
+    Can be found in your Azure Portal in you Azure Data Explorer Clusters.  
     Inside the cluster configuration you can check in `Databases` to find the name of the one you want to use
   example: |-
     o-xxxxxxxxxx-workspacename
@@ -76,7 +76,7 @@ digital_twin_url :
   description: |-
     URL of the Azure Digital Twin instance to use
   howto: |-
-    Can be found in the Azure portal of your ADT instance next to `Host name`
+    Can be found in the Azure Portal of your ADT instance next to `Host name`
   example: |-
     https://mydigitaltwin.api.weu.digitaltwins.azure.net
 csm_simulator_repository :
@@ -100,7 +100,7 @@ simulator_version :
   description: |-
     the solution simulator version (version value in Solution.yaml)
   howto: |-
-    The version of the simulator you want to use, as communicated by the solution developpers.
+    The version of the simulator you want to use, as communicated by the solution developers.
   example: |-
     1.0.0
 send_scenario_metadata_to_event_hub :
@@ -117,7 +117,7 @@ send_scenario_metadata_to_event_hub :
 use_dedicated_event_hub_namespace :
   display_name: Use dedicated Event Hub Namespace
   description: |-
-    Set this property to false to not to use a dedicated Azure Event Hub Namespace for this Workspace.
+    Set this property to false to not use a dedicated Azure Event Hub Namespace for this Workspace.
   howto: |-
     Boolean property allowing to use dedicated event hub namespace.
     
@@ -128,8 +128,8 @@ use_dedicated_event_hub_namespace :
 powerbi_workspace_id :
   display_name: Power BI workspace ID
   description: |-
-    ID of the power BI workspace to keep dashboard for this deployment
+    ID of the power BI workspace to keep the dashboards for this deployment.
   howto: |-
-    You can find the id of the workspace in the [wep app of powerbi](https://app.powerbi.com)
+    You can find the ID of the workspace in the [wep app of Power BI](https://app.powerbi.com)
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

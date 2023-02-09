@@ -37,7 +37,7 @@ It will download for you the required docker image, and rename it to `babylon`
         mkdir babylon_config
         docker run -ti --rm --mount type=bind,source="$(pwd)"/babylon_config,target=/opt/babylon babylon
         ```
-    This command will persist your babylon configuration in a local `/babylon_config` folder allowing you to keep it across runs (in the same folder)
+    This command will persist your Babylon configuration in a local `/babylon_config` folder allowing you to keep it across runs (in the same folder)
 
     Now if you want to use your local files as a working directory for your commands you can do the following
 

@@ -9,4 +9,4 @@ Just like the `edit` and `set-variable` commands you can use the `create` and `s
 ???+ example "Use of the `select` command"
     ![Platform select gif](../assets/Platform_Select.gif)
 
-    you can see that we selected the platform `NewPlatform` and after the select the correct one was selected
+    You can see that we selected the platform NewPlatform and after the selection, the correct element was selected.

@@ -6,7 +6,7 @@ You can download the latest version of Babylon using git with the following comm
 
 You now have a folder called `Babylon-Sources` which we will refer to as "Babylon Installation Folder" for the rest of the guide
 
-If you want a specific version of Babylon you can check which version number you want (for example `1.2.0`) and to the following
+If you want a specific version of Babylon you can check which version number you want (for example `1.2.0`) and to the following command
 
 ???+ example "Change the source version from git"
     ```bash

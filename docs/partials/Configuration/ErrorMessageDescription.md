@@ -115,8 +115,8 @@ The message can be separated in 3 parts
     KeyError: 'Key storage_account_name can not be found in platform config file'
     ```
 
-In most of the case you can focus on the logs at the beginning of the message, 
+In most cases, you can focus on the logs at the beginning of the message, 
 if this is a known error it should give you enough information on how to solve it.  
-Here we can see that the key `storage_account_name` is not found in the `platform config file` and that the command won't run without it.
+Here we can see that the key `storage_account_name` is not found in the `platform config file` and that the command will not run without it.
 
 In case the logs are not enough you can look at the error, which should help you, and if neither helps you can start an issue on the Babylon repository by sending the command you ran and the trace.

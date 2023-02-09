@@ -1,4 +1,4 @@
-The following command exists : `babylon config platform set-variable`
+The following command exists: `babylon config platform set-variable`
 
 ???+ info "Help of the command"
     ```bash
@@ -12,7 +12,7 @@ The following command exists : `babylon config platform set-variable`
     #   -h, --help  Show this message and exit.
     ```
 
-2 positional parameters are required : `VARIABLE_KEY` and `VARIABLE_VALUE`
+2 positional parameters are required: `VARIABLE_KEY` and `VARIABLE_VALUE`
 
 ???+ example "Set a first variable"
     ```bash

@@ -1,11 +1,11 @@
 ## Get Babylon sources
 
-???+ warning "Prerequisites"
+???+ warning "Requirements"
     --8<-- 'docs/partials/Installation/InstallPrerequisites.md'
 
 We will go through the process of getting a version of Babylon before the installation.
 
-You can make your choice on how you may want to process :
+You can make your choice on how you may want to process:
 
 === "Get official releases"
     --8<-- 'docs/partials/Installation/GetOfficialRelease.md'
@@ -20,15 +20,15 @@ Now that you have a "Babylon Installation Folder" ready we can move to the insta
 ??? "Use a `venv`"
     --8<-- 'docs/partials/Installation/VenvSetup.md'
 
-The setup is fairy direct, the following command will allow a full install of Babylon
+The setup is fairly direct, the following command will allow a full install of Babylon
 
-!!! Example "Setup babylon"
+!!! Example "Setup Babylon"
     ```bash
     pip install <Babylon Installation Folder>
     ```
 
 ??? tip "Enable autocompletion"
-    On some systems autocompletion can be enabled for babylon, more information on autocompletion can be found on the [click documentation](https://click.palletsprojects.com/en/8.1.x/shell-completion/) (since babylon is basd on `click`)
+    On some systems autocompletion can be enabled for Babylon, more information on autocompletion can be found on the [click documentation](https://click.palletsprojects.com/en/8.1.x/shell-completion/) (since Babylon is based on `click`)
     === "Example of click autocompletion command for `bash`"
     ```bash
     echo 'eval "$(_BABYLON_COMPLETE=bash_source babylon)"' >> ~/.bashrc

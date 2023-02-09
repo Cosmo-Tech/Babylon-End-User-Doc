@@ -10,6 +10,6 @@ By running the following command you can see a lot of information
     #       ...
     #  plugins: 
     ```
-Here we will focus on one line : `platform: /home/user/.config/babylon/platforms/platform.yaml`
+Here we will focus on one line: `platform: /home/user/.config/babylon/platforms/platform.yaml`
 
 This is the path to your local config file for your platform. You can just open it using you favorite text editor to be able to update your configuration values.

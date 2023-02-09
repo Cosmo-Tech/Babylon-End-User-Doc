@@ -1,4 +1,4 @@
-The following command exists : `babylon config platform edit`
+The following command exists: `babylon config platform edit`
 
 It will allow you to open your configuration file directly in a file editor.
 
@@ -15,12 +15,12 @@ It will allow you to open your configuration file directly in a file editor.
     #   -h, --help  Show this message and exit.
     ```
 
-1 positional parameter is optional : `PLATFORM`
+1 positional parameter is optional: `PLATFORM`
 
-`PLATFORM` can be replace by the path to a platform file to open, if not present your current platform file will be opened.
+`PLATFORM` by the path to a platform file to open, if it is not present your current platform file will be opened.
 
 ???+ example "Set a first variable"
-    Running the command will open a text editor of the file you can then add the values you want to each keys
+    Running the command will open a text editor of the file, you can then add the values you want to each keys
     ```bash
     babylon config platform edit
     ```

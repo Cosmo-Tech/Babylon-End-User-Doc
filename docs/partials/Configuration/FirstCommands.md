@@ -1,4 +1,4 @@
-You can start by looking around some of the first commands you could run in Babylon
+You can start by taking a look at some of the first commands you could run in Babylon
 
 === "Simple commands"
     ```bash
