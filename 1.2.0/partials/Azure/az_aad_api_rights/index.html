@@ -15,7 +15,7 @@
     
     
       
-        <title>2 EnvVars - Babylon User Documentation</title>
+        <title>Az aad api rights - Babylon User Documentation</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2 EnvVars
+              Az aad api rights
             
           </span>
         </div>
@@ -477,15 +477,11 @@
 
 
 
-<p>You can use the following environment variable to replace your default configuration folder by a custom one: <code>BABYLON_CONFIG_DIRECTORY</code></p>
-<p>By setting that value to an absolute path you will access it wherever you are in your system, 
-but if you want to keep a simple configuration change depending on the folder where you are, 
-you can instead set it to a relative path, 
-which will allow you to change your configuration everytime you move to another folder.</p>
-<details class="tip" open="open">
-<summary>use <code>direnv</code></summary>
-<p>You can use tools like <a href="https://github.com/direnv/direnv"><img alt="direnv" src="https://img.shields.io/badge/direnv-%23121011?style=for-the-badge&amp;logo=github&amp;logoColor=white" /></a> to set alternate values for your envvar and easily switch while moving around folders</p>
-</details>
+<p>To be able to connect to the API, a user requires to have rights to it in Azure Active Directory.</p>
+<p>To check the user rights for your API, you can access the Enterprise Application page for your API in the Azure Portal, and check the section <code>Users and groups</code></p>
+<p>On this page you will see all the authorizations for your users and will be able to give roles to Users, Services Principals and Groups.</p>
+<p>You just need to make sure that your user has permissions to access your API from here.</p>
+<p>The list of roles and their description can be found in the App Registration of your platform under the <code>App roles</code> section</p>
 
 
 
