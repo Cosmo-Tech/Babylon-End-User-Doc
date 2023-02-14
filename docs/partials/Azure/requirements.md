@@ -1,0 +1,3 @@
+| Requirement           | <!-- -->                                                                                                                                                                                             |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Azure CLI 2.45.0+** | [![Install Azure CLI](https://img.shields.io/badge/Install_Azure_CLI-3776AB?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) |
