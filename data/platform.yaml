@@ -30,6 +30,31 @@ azure_subscription :
     Can be found in your Azure Portal, under Subscriptions
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+azure_tenant_id:
+  display_name: Azure Tenant ID
+  description: |-
+    Azure Tenant id used to contain the platform
+  howto: |-
+    Can be found using `az account tenant list`
+  example: |-
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+csm_platform_app_id:
+  display_name: Azure App Registration ID of cosmotech platform
+  description: |-
+    Azure Active Directory App Registration ID of the cosmotech platform
+  howto: |-
+    Can be found using `babylon azure ad app get-all -o app_registrations.json`
+  example: |-
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+csm_platform_scope_id:
+  display_name: Azure App Registration scope of cosmotech platform
+  description: |-
+    Azure Active Directory App Registration scope of the cosmotech platform
+  howto: |-
+    Can be found using `babylon azure ad app get-all -o app_registrations.json`
+  example: |-
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+csm_platform_scope_id: ""
 adx_cluster_name :
   display_name: Azure Data Explorer Cluster Name
   description: |-
@@ -90,4 +115,11 @@ powerbi_api_scope:
     Unless you use specific versions of Power BI you can use the default value that is set as example here
   example: |-
     https://analysis.windows.net/powerbi/api/.default
-    
+azure_powerbi_group_id:
+  display_name: Azure PowerBI group ID
+  description: |-
+    ID of the Azure Active Directory group `PowerBI`
+  howto: |-
+    Find it using `babylon azure ad group get-all -o ad_groups.json`
+  example: |-
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

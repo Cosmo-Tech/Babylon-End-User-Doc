@@ -133,3 +133,57 @@ powerbi_workspace_id :
     You can find the ID of the workspace in the [wep app of Power BI](https://app.powerbi.com)
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+webapp_domain :
+  display_name: WebApp URL domain
+  description: |-
+    URL of the custom domain used for the Web App
+  howto: |-
+    This url is created by creating a new [DNS Record for app.cosmotech.com](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FdnsZones)
+  example: |-
+    https://mycustomer.app.cosmotech.com
+webapp_location :
+  display_name: WebApp Azure location
+  description: |-
+    Azure Location at which the static web app resource will be created.
+  howto: |-
+    You can access a list of location names with `az account list-locations -o table`
+  example: |-
+    westeurope
+webapp_repository :
+  display_name: WebApp Github repository url
+  description: |-
+    Github repository where the WebApp source code is stored
+  howto: |-
+    Create a [new github repository](https://github.com/new/import) and import Babylon Sample WebApp source code
+  example: |-
+    https://github.com/Cosmo-Tech/customer-webapp
+webapp_repository_branch :
+  display_name: WebApp Github branch
+  description: |-
+    Github branch used to store the Static Web App source code
+  example: |-
+    `main`
+webapp_registration_id :
+  display_name: WebApp App Registration ID
+  description: |-
+    Azure Active Directory App Registration ID used to give permissions to the Static Web App
+  howto: |-
+    Create the App Registration with `babylon azure ad app create [myapp]` and copy the returned ID.
+    This will be filled automatically when `babylon webapp deploy` is used.
+  example: |-
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+webapp_insights_instrumentation_key :
+  display_name: WebApp Insights instrumentation key
+  description: |-
+    Azure Application Insights instrumentation key used to send logs from the Static Web App
+  howto: |-
+    Create the Application Insights with `babylon azure appinsight create [myapp]` and copy the returned instrumentation key.
+    This will be filled automatically when `babylon webapp deploy` is used.
+  example: |-
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+webapp_enable_insights : 
+  display_name: WebApp Insights enabling
+  description: |-
+    Weither to enable Azure Application Insights for the static WebApp
+  example: |-
+    True
