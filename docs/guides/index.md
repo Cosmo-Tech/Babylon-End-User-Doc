@@ -3,7 +3,7 @@ hide:
   - path
   - toc
 ---
-  
+
 <main class="grid" markdown>
 
 <article markdown>
@@ -78,5 +78,3 @@ This guide will explain all the platform values to you, and how to get them.
 </footer>
 </div>
 </article>
-
-</main>
