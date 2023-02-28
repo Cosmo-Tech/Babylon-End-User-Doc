@@ -2,7 +2,7 @@
 hide:
 - toc
 ---
-# Power BI Deploy Workspace
+# WebApp Deploy
 
 `babylon webapp deploy` will create a static webapp and configure it with the sample webapp source code.
 
