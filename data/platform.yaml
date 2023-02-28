@@ -15,7 +15,7 @@ api_scope :
   description: |-
     The scope used to authenticate to the Cosmo Tech API
   howto: |-
-    Depending on your authentication to Azure, the format of the scope can change
+    Depending on your authentication to Azure, the format of the scope can change 
     === "Using `az cli`"
         Your scope should finish in `/.default` like in the example
     === "Using an app registration"
@@ -91,8 +91,8 @@ resources_location :
   description: |-
     Azure resource location used on the platform
   howto: |-
-    You could use the same resource location as your API
-    In case you want a full list of the available locations you can use the `az` CLI and run the following command
+    You could use the same resource location as your API  
+    In case you want a full list of the available locations you can use the `az` CLI and run the following command  
     ```bash
     az account list-locations
     ```
