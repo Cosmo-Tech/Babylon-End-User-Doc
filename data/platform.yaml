@@ -54,7 +54,6 @@ csm_platform_scope_id:
     Can be found using `babylon azure ad app get-all -o app_registrations.json`
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-csm_platform_scope_id: ""
 adx_cluster_name :
   display_name: Azure Data Explorer Cluster Name
   description: |-
