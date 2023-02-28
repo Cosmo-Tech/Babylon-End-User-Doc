@@ -8,8 +8,18 @@ theme:
   font:
     code: Fira Mono
   palette:
-    scheme: slate
-    primary: orange
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
   features:
     - content.code.copy
     - navigation.tabs
@@ -40,6 +50,10 @@ nav:
       - Configuration: 'guides/configuration.md'
       - Deployment Values: 'guides/deployment.md'
       - Platform Values: 'guides/platform.md'
+  - Commands:
+      - Macro List: 'commands/index.md'
+      - Power BI deploy-workspace: 'commands/powerbi_deploy_workspace.md'
+      - WebApp Deploy: 'commands/webapp_deploy.md'
 
 markdown_extensions:
     - admonition
