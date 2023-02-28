@@ -53,6 +53,7 @@ nav:
   - Commands:
       - Macro List: 'commands/index.md'
       - Power BI deploy-workspace: 'commands/powerbi_deploy_workspace.md'
+      - WebApp Deploy: 'commands/webapp_deploy.md'
 
 markdown_extensions:
     - admonition
