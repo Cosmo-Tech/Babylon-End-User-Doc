@@ -50,6 +50,7 @@ nav:
       - Configuration: 'guides/configuration.md'
       - Deployment Values: 'guides/deployment.md'
       - Platform Values: 'guides/platform.md'
+      - PowerBI reports configuration: 'guides/powerbi_report_config.md'
   - Commands:
       - Macro List: 'commands/index.md'
       - Power BI deploy-workspace: 'commands/powerbi_deploy_workspace.md'

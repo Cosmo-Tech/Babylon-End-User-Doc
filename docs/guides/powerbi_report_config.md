@@ -43,7 +43,8 @@ Create and tune your Power BI Dashboards.
 Once your Power BI report is ready, publish it to the Power BI Web Portal.
 
 ### With Babylon
-- [babylon powerbi report upload](https://cosmo-tech.github.io/Babylon/2.0.0/cli/#upload_2)
+???+ abstract "Steps"
+    - [babylon powerbi report upload](https://cosmo-tech.github.io/Babylon/2.0.0/cli/#upload_2)
 
 ### With PowerBI web portal
 
@@ -55,8 +56,9 @@ If you want to plug your Power BI report to a new environment you can do it easi
 
 ### With Babylon
 
-- [babylon powerbi dataset parameters update](https://cosmo-tech.github.io/Babylon/2.0.0/cli/#update_8)
-- [babylon powerbi dataset update-credentials](https://cosmo-tech.github.io/Babylon/2.0.0/cli/#update-credentials)
+???+ abstract "Steps"
+    - [babylon powerbi dataset parameters update](https://cosmo-tech.github.io/Babylon/2.0.0/cli/#update_8)
+    - [babylon powerbi dataset update-credentials](https://cosmo-tech.github.io/Babylon/2.0.0/cli/#update-credentials)
 
 ### With PowerBI web portal
 
