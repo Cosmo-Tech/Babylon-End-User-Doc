@@ -79,4 +79,18 @@ This guide will explain all the platform values to you, and how to get them.
 </div>
 </article>
 
+<article markdown>
+<div class="text" markdown>
+:material-note: __PowerBI reports configuration__
+
+---
+This guide will help you to configure your PowerBI reports to ensure Babylon compatibility.
+
+---
+<footer markdown>
+[:octicons-arrow-right-24: PowerBI reports configuration](./powerbi_report_config.md)
+</footer>
+</div>
+
+</article>
 </main>
