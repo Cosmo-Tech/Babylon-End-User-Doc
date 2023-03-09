@@ -6,6 +6,8 @@ hide:
 
 In order to facilitate the creation of Power BI reports and the migration of reports between environments, a few guidelines should be followed.
 
+This guidelines will also ensure that your PowerBI report is compatible with **Babylon**.
+
 ## Create Power BI reports in Power BI desktop
 - Create a new Power BI report and go to **Transform Data** section in order to manage data sources.
 
@@ -13,7 +15,8 @@ In order to facilitate the creation of Power BI reports and the migration of rep
 
 ### Create parameters in the report
 
-Create 2 parameters :
+Create 2 parameters:
+
 - **ADX_cluster**: URL of the ADX cluster (e.g.: phoenixdev.westeurope.kusto.windows.net)
 - **ADX_database**: Name of the ADX database (e.g.: o-xxxxxxxx-brewerydemo)
 
