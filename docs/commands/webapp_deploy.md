@@ -14,29 +14,48 @@ This includes:
   - Configuring the Sample WebApp source code
   - Adding access to the PowerBI Workspace
 
-???+ abstract "Command"
+!!! note ""
     ```bash
-    babylon webapp deploy --help
+    babylon powerbi deploy-workspace --help
     # Usage: babylon webapp deploy [OPTIONS]
     #
     #   Macro command that deploys a new webapp
     #
-    #   Requires `webapp_enable_insights` in deploy config file.
-    #   Requires `azure_powerbi_group_id` in platform config file.
-    #   Requires `deployment_name` in deploy config file.
     # Options:
+    #   --enable-powerbi  Enable PowerBI configuration
     #   -h, --help                      Show this message and exit.
     ```
 
+???+ warning "Requirements"
+    This macro requires a github repository with the destination branch already created
+    
+    1. [import a project](https://github.com/new/import) in Github
+    2. Choose to clone the project azure-sample-webapp by setting the repository URL to https://github.com/Cosmo-Tech/azure-sample-webapp
+    3. clone & configure
+    ```bash
+      git clone git@github.com:<GITHUB_REPOSITORY_URL>  # Replace by the URL of your own repository (e.g. Cosmo-Tech/azure-supplychain-webapp.git)
+      cd <YOUR REPOSITORY_NAME> # Replace by the name of the folder created by "git clone"
+      git remote add upstream git@github.com:Cosmo-Tech/azure-sample-webapp.git
+      git remote set-url upstream --push "NO"
+      git fetch upstream
+    ```
+
+???+ note "Options"
+    === "`--enable-powerbi`"
+        This option will enable powerbi configuration steps.
+        ???+ example
+            ```bash
+            ... --report-folder ./myfolder/mypowerbifolder
+   
 ???+ abstract "Steps"
-    - [babylon azure staticwebapp create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_10)
-    - [babylon azure staticwebapp custom-domain create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_11) - Optional
-    - [babylon azure ad app create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_5)
-    - [babylon azure ad group member add](https://cosmo-tech.github.io/Babylon/latest/cli/#add) - Optional
-    - [babylon azure appinsight create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_8) - Optional
-    - [babylon webapp download](https://cosmo-tech.github.io/Babylon/latest/cli/#download_2)
-    - [babylon webapp update-workflow](https://cosmo-tech.github.io/Babylon/latest/cli/#update-workflow)
-    - [babylon webapp export-config](https://cosmo-tech.github.io/Babylon/latest/cli/#export-config)
-    - [babylon azure ad app password create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_6) - Optional
-    - [babylon powerbi workspace user add](https://cosmo-tech.github.io/Babylon/latest/cli/#add_2) - Optional
-    - [babylon azure staticwebapp app-settings update](https://cosmo-tech.github.io/Babylon/latest/cli/#update_5)
+    1. [babylon azure staticwebapp create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_10)
+    2. [babylon azure staticwebapp custom-domain create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_11) - Optional
+    3. [babylon azure ad app create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_5)
+    4. [babylon azure ad group member add](https://cosmo-tech.github.io/Babylon/latest/cli/#add) - Optional
+    5. [babylon azure appinsight create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_8) - Optional
+    6. [babylon webapp download](https://cosmo-tech.github.io/Babylon/latest/cli/#download_2)
+    7. [babylon webapp update-workflow](https://cosmo-tech.github.io/Babylon/latest/cli/#update-workflow)
+    8. [babylon webapp export-config](https://cosmo-tech.github.io/Babylon/latest/cli/#export-config)
+    9. [babylon azure ad app password create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_6) - Optional
+    10. [babylon powerbi workspace user add](https://cosmo-tech.github.io/Babylon/latest/cli/#add_2) - Optional
+    11. [babylon azure staticwebapp app-settings update](https://cosmo-tech.github.io/Babylon/latest/cli/#update_5)
