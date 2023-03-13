@@ -650,35 +650,92 @@
 <li>Configuring the Sample WebApp source code</li>
 <li>Adding access to the PowerBI Workspace</li>
 </ul>
-<details class="abstract" open="open">
-<summary>Command</summary>
-<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>webapp<span class="w"> </span>deploy<span class="w"> </span>--help
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>powerbi<span class="w"> </span>deploy-workspace<span class="w"> </span>--help
 <span class="c1"># Usage: babylon webapp deploy [OPTIONS]</span>
 <span class="c1">#</span>
 <span class="c1">#   Macro command that deploys a new webapp</span>
 <span class="c1">#</span>
-<span class="c1">#   Requires `webapp_enable_insights` in deploy config file.</span>
-<span class="c1">#   Requires `azure_powerbi_group_id` in platform config file.</span>
-<span class="c1">#   Requires `deployment_name` in deploy config file.</span>
 <span class="c1"># Options:</span>
+<span class="c1">#   --enable-powerbi  Enable PowerBI configuration</span>
 <span class="c1">#   -h, --help                      Show this message and exit.</span>
 </code></pre></div>
+</div>
+<details class="warning" open="open">
+<summary>Requirements</summary>
+<p>This macro requires a github repository with the destination branch already created</p>
+<ol>
+<li><a href="https://github.com/new/import">import a project</a> in Github</li>
+<li>Choose to clone the project azure-sample-webapp by setting the repository URL to https://github.com/Cosmo-Tech/azure-sample-webapp</li>
+<li>clone &amp; configure
+<div class="highlight"><pre><span></span><code><span class="w">  </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:&lt;GITHUB_REPOSITORY_URL&gt;<span class="w">  </span><span class="c1"># Replace by the URL of your own repository (e.g. Cosmo-Tech/azure-supplychain-webapp.git)</span>
+<span class="w">  </span><span class="nb">cd</span><span class="w"> </span>&lt;YOUR<span class="w"> </span>REPOSITORY_NAME&gt;<span class="w"> </span><span class="c1"># Replace by the name of the folder created by &quot;git clone&quot;</span>
+<span class="w">  </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>git@github.com:Cosmo-Tech/azure-sample-webapp.git
+<span class="w">  </span>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>upstream<span class="w"> </span>--push<span class="w"> </span><span class="s2">&quot;NO&quot;</span>
+<span class="w">  </span>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+</code></pre></div></li>
+</ol>
+</details>
+<div class="admonition info">
+<p class="admonition-title">DNS Record</p>
+<p>DNS Record creation is intently not supported by Babylon.<br />
+If you want a DNS of the form <code>[deployment_name].app.cosmotech.com</code> you should</p>
+<ol>
+<li>
+<p>Create a new DNS record for the webapp domain name:</p>
+<blockquote>
+<p>Azure Portal &gt; DNS Zones &gt; app.cosmotech.com &gt; "+ Record set"</p>
+</blockquote>
+</li>
+<li>
+<p>Configure the DNS as below:
+    <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;DOMAIN_NAME_PREFIX&gt; (the prefix of the domain name that will be used in front of app.cosmotech.com; e.g.  lorealppc.dev for lorealppc.dev.app.cosmotech)</span><span class="w">  </span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CNAME</span><span class="w">  </span>
+<span class="nt">alias record set</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">No</span><span class="w">  </span>
+<span class="nt">TTL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5 minutes</span><span class="w">  </span>
+<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AZURE_STATIC_APPS_DOMAIN&gt; (automatically generated when you created the static web app; e.g icy-island-123456789.0.azurestaticapps.net)</span><span class="w">  </span>
+</code></pre></div>
+    <img alt="Screenshot of creating a DNS record" src="../../assets/webapp_prequisite_2.png" /></p>
+</li>
+</ol>
+</div>
+<details class="note" open="open">
+<summary>Options</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><code>--enable-powerbi</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>This option will enable powerbi configuration steps <strong>4</strong>,<strong>9</strong>,<strong>10</strong> and <strong>11</strong>.</p>
+</div>
+</div>
+</div>
 </details>
 <details class="abstract" open="open">
 <summary>Steps</summary>
-<ul>
-<li><a href="https://cosmo-tech.github.io/Babylon/latest/cli/#create_10">babylon azure staticwebapp create</a></li>
-<li><a href="https://cosmo-tech.github.io/Babylon/latest/cli/#create_11">babylon azure staticwebapp custom-domain create</a> - Optional</li>
-<li><a href="https://cosmo-tech.github.io/Babylon/latest/cli/#create_5">babylon azure ad app create</a></li>
-<li><a href="https://cosmo-tech.github.io/Babylon/latest/cli/#add">babylon azure ad group member add</a> - Optional</li>
-<li><a href="https://cosmo-tech.github.io/Babylon/latest/cli/#create_8">babylon azure appinsight create</a> - Optional</li>
-<li><a href="https://cosmo-tech.github.io/Babylon/latest/cli/#download_2">babylon webapp download</a></li>
-<li><a href="https://cosmo-tech.github.io/Babylon/latest/cli/#update-workflow">babylon webapp update-workflow</a></li>
-<li><a href="https://cosmo-tech.github.io/Babylon/latest/cli/#export-config">babylon webapp export-config</a></li>
-<li><a href="https://cosmo-tech.github.io/Babylon/latest/cli/#create_6">babylon azure ad app password create</a> - Optional</li>
-<li><a href="https://cosmo-tech.github.io/Babylon/latest/cli/#add_2">babylon powerbi workspace user add</a> - Optional</li>
-<li><a href="https://cosmo-tech.github.io/Babylon/latest/cli/#update_5">babylon azure staticwebapp app-settings update</a></li>
-</ul>
+<p>Please follow the links to each command to check if all configuration variables are set.</p>
+<ol>
+<li>Creation of a Static WebApp resource <code>Azure[deployment_name]WebApp</code><br />
+<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#create_10">babylon azure staticwebapp create</a></li>
+<li>Adding a DNS domain to the Static WebApp (Optional)<br />
+<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#create_11">babylon azure staticwebapp custom-domain create</a>  </li>
+<li>Creation of an Active Directory App Registration <code>Azure[deployment_name]WebApp</code><br />
+<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#create_5">babylon azure ad app create</a>  </li>
+<li>Adding the App Registration to the PowerBI Active Directory group (Optional)<br />
+<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#add">babylon azure ad group member add</a>  </li>
+<li>Creation of the Application Insight ressource (Optional)<br />
+<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#create_8">babylon azure appinsight create</a>  </li>
+<li>Download the WebApp source code from github<br />
+<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#download_2">babylon webapp download</a>  </li>
+<li>Update the workflow file generated by Azure to read a <code>config.json</code> file and set environment variables<br />
+<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#update-workflow">babylon webapp update-workflow</a>  </li>
+<li>Export data from Babylon configuration in a <code>config.json</code> file to configure the WebApp<br />
+<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#export-config">babylon webapp export-config</a>  </li>
+<li>Create a secret to grant access to PowerBI (Optional) <br />
+<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#create_6">babylon azure ad app password create</a>  </li>
+<li>Add the App Registration to the PowerBI workspace (Optional)<br />
+<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#add_2">babylon powerbi workspace user add</a></li>
+<li>Update the StaticWebApp settings to link with the PowerBI workspace<br />
+<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#update_5">babylon azure staticwebapp app-settings update</a></li>
+</ol>
 </details>
 
 
