@@ -535,33 +535,6 @@
     Create Power BI reports in Power BI desktop
   </a>
   
-    <nav class="md-nav" aria-label="Create Power BI reports in Power BI desktop">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-parameters-in-the-report" class="md-nav__link">
-    Create parameters in the report
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-a-data-source-using-parameters-in-direct-query" class="md-nav__link">
-    Create a Data source using parameters in Direct Query
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-a-dashboard" class="md-nav__link">
-    Create a dashboard
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -569,52 +542,12 @@
     Publish report to Power BI web portal
   </a>
   
-    <nav class="md-nav" aria-label="Publish report to Power BI web portal">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#with-babylon" class="md-nav__link">
-    With Babylon
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with-powerbi-web-portal" class="md-nav__link">
-    With PowerBI web portal
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
   <a href="#move-report-to-a-new-environment" class="md-nav__link">
     Move report to a new environment
   </a>
-  
-    <nav class="md-nav" aria-label="Move report to a new environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#with-babylon_1" class="md-nav__link">
-    With Babylon
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with-powerbi-web-portal_1" class="md-nav__link">
-    With PowerBI web portal
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -749,33 +682,6 @@
     Create Power BI reports in Power BI desktop
   </a>
   
-    <nav class="md-nav" aria-label="Create Power BI reports in Power BI desktop">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-parameters-in-the-report" class="md-nav__link">
-    Create parameters in the report
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-a-data-source-using-parameters-in-direct-query" class="md-nav__link">
-    Create a Data source using parameters in Direct Query
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-a-dashboard" class="md-nav__link">
-    Create a dashboard
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -783,52 +689,12 @@
     Publish report to Power BI web portal
   </a>
   
-    <nav class="md-nav" aria-label="Publish report to Power BI web portal">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#with-babylon" class="md-nav__link">
-    With Babylon
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with-powerbi-web-portal" class="md-nav__link">
-    With PowerBI web portal
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
   <a href="#move-report-to-a-new-environment" class="md-nav__link">
     Move report to a new environment
   </a>
-  
-    <nav class="md-nav" aria-label="Move report to a new environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#with-babylon_1" class="md-nav__link">
-    With Babylon
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with-powerbi-web-portal_1" class="md-nav__link">
-    With PowerBI web portal
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -851,70 +717,85 @@
 
 
 <h1 id="configuring-powerbi-reports">Configuring PowerBI reports</h1>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>To follow this guide you should be familiar with <a href="https://learn.microsoft.com/en-us/power-bi/">PowerBI</a></p>
+</div>
 <p>In order to facilitate the creation of Power BI reports and the migration of reports between environments, a few guidelines should be followed.</p>
 <p>This guidelines will also ensure that your PowerBI report is compatible with <strong>Babylon</strong>.</p>
+<div class="admonition note">
+<p>The whole process is automated along with PowerBI workspace creation in <a href="../../commands/powerbi_deploy_workspace/">PowerBI deploy-workspace</a></p>
+</div>
 <h2 id="create-power-bi-reports-in-power-bi-desktop">Create Power BI reports in Power BI desktop</h2>
-<ul>
-<li>Create a new Power BI report and go to <strong>Transform Data</strong> section in order to manage data sources.</li>
-</ul>
-<p><img alt="Screenshot of transform data" src="../../assets/pbi_step_1.png" /></p>
-<h3 id="create-parameters-in-the-report">Create parameters in the report</h3>
-<p>Create 2 parameters:</p>
-<ul>
-<li><strong>ADX_cluster</strong>: URL of the ADX cluster (e.g.: phoenixdev.westeurope.kusto.windows.net)</li>
-<li><strong>ADX_database</strong>: Name of the ADX database (e.g.: o-xxxxxxxx-brewerydemo)</li>
-</ul>
-<p><img alt="Screenshot of adding powerBI parameters" src="../../assets/pbi_step_2a.png" />
-<img alt="Screenshot of adding powerBI parameters" src="../../assets/pbi_step_2b.png" /></p>
-<h3 id="create-a-data-source-using-parameters-in-direct-query">Create a Data source using parameters in Direct Query</h3>
-<ul>
-<li>Create a new Data Source of type Azure &gt; Azure Data Explorer (Kusto)</li>
-</ul>
-<p><img alt="Screenshot of adding powerBI parameters" src="../../assets/pbi_step_3a.png" /></p>
-<ul>
-<li>Enter the exact value for ADX Cluster, ADX Database and ADX Table (e.g. ScenarioMetadata), select DirectQuery as the Data Connectivity Mode.</li>
-</ul>
-<p><img alt="Screenshot of entering powerBI parameters" src="../../assets/pbi_step_3b.png" /></p>
-<ul>
-<li>In the query formula, replace ADX cluster and database with the parameter value. Then replace the query name with the table name.</li>
-</ul>
-<p><img alt="Screenshot of entering powerBI parameters" src="../../assets/pbi_step_3c.png" /></p>
-<ul>
-<li>Perform some data transformation if needed.</li>
-</ul>
-<h3 id="create-a-dashboard">Create a dashboard</h3>
-<p>Create and tune your Power BI Dashboards.</p>
+<div class="admonition info">
+<p class="admonition-title">Within PowerBI Desktop</p>
+<ol>
+<li>Create a new Power BI report</li>
+<li>Go to section <a href="https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-query-overview">Transform Data</a> for managing data sources.
+<img alt="Screenshot of transform data" src="../../assets/pbi_step_1.png" /></li>
+<li>Create parameters in the report  <ol>
+<li>Create parameter <strong>ADX_cluster</strong>: URL of the ADX cluster (e.g.: phoenixdev.westeurope.kusto.windows.net)</li>
+<li>Create parameter <strong>ADX_database</strong>: Name of the ADX database (e.g.: o-xxxxxxxx-brewerydemo)
+<img alt="Screenshot of adding powerBI parameters" src="../../assets/pbi_step_2a.png" />
+<img alt="Screenshot of adding powerBI parameters" src="../../assets/pbi_step_2b.png" /></li>
+</ol>
+</li>
+<li>Create a new Data Source of type Azure &gt; Azure Data Explorer (Kusto).
+<img alt="Screenshot of adding powerBI parameters" src="../../assets/pbi_step_3a.png" /></li>
+<li>Enter the exact value for ADX Cluster, ADX Database and ADX Table (e.g. ScenarioMetadata).</li>
+<li>Select DirectQuery as the Data Connectivity Mode.
+<img alt="Screenshot of entering powerBI parameters" src="../../assets/pbi_step_3b.png" /></li>
+<li>In the query formula, replace ADX cluster and database with the parameter value.
+<img alt="Screenshot of replacing parameter value" src="../../assets/pbi_step_3c.png" /></li>
+<li>Rename the Query (in the query list on the left) after the table name.</li>
+<li>Perform <a href="https://learn.microsoft.com/en-us/power-bi/transform-model/">data transformation</a> as needed.</li>
+<li>Create and tune your Power BI Dashboards.</li>
+</ol>
+</div>
 <h2 id="publish-report-to-power-bi-web-portal">Publish report to Power BI web portal</h2>
 <p>Once your Power BI report is ready, publish it to the Power BI Web Portal.</p>
-<h3 id="with-babylon">With Babylon</h3>
 <details class="abstract" open="open">
-<summary>Steps</summary>
-<ul>
-<li><a href="https://cosmo-tech.github.io/Babylon/2.0.0/cli/#upload_2">babylon powerbi report upload</a></li>
-</ul>
+<summary>With Babylon</summary>
+<ol>
+<li>Get your workspace id<br />
+<a href="https://cosmo-tech.github.io/Babylon/2.0.0/cli/#get-all_13">babylon powerbi workspace get-all</a></li>
+<li>Upload your report<br />
+<code>babylon powerbi report upload -w [workspace_id] [myfile.pbix]</code><br />
+<a href="https://cosmo-tech.github.io/Babylon/2.0.0/cli/#upload_2">babylon powerbi report upload</a></li>
+</ol>
 </details>
-<h3 id="with-powerbi-web-portal">With PowerBI web portal</h3>
-<p><img alt="Screenshot of entering powerBI parameters" src="../../assets/pbi_step_4a.png" /></p>
+<details class="abstract" open="open">
+<summary>With PowerBI Web Portal</summary>
+<p><img alt="Screenshot of publishing report" src="../../assets/pbi_step_4a.png" /></p>
+</details>
 <h2 id="move-report-to-a-new-environment">Move report to a new environment</h2>
-<p>If you want to plug your Power BI report to a new environment you can do it easily by changing its parameters in the Power BI Web Portal (app.powerbi.com) or with <strong>Babylon</strong>.</p>
-<h3 id="with-babylon_1">With Babylon</h3>
+<p>If you want to plug your Power BI report to a new environment you can do it easily by changing its parameters in the PowerBI Web Portal (app.powerbi.com) or with <strong>Babylon</strong>.</p>
 <details class="abstract" open="open">
-<summary>Steps</summary>
-<ul>
-<li><a href="https://cosmo-tech.github.io/Babylon/2.0.0/cli/#update_8">babylon powerbi dataset parameters update</a></li>
-<li><a href="https://cosmo-tech.github.io/Babylon/2.0.0/cli/#update-credentials">babylon powerbi dataset update-credentials</a></li>
-</ul>
+<summary>With Babylon</summary>
+<ol>
+<li>Get your workspace id<br />
+<a href="https://cosmo-tech.github.io/Babylon/2.0.0/cli/#get-all_13">babylon powerbi workspace get-all</a></li>
+<li>Get your dataset id<br />
+<a href="https://cosmo-tech.github.io/Babylon/2.0.0/cli/#get-all_11">babylon powerbi dataset get-all</a></li>
+<li>Update parameters<br />
+<code>babylon dataset parameters update -w [workspace_id] -p ADX_cluster [adx_cluster] -p ADX_database [adx_database] [dataset_id]</code><br />
+<a href="https://cosmo-tech.github.io/Babylon/2.0.0/cli/#update_8">babylon powerbi dataset parameters update</a></li>
+<li>Update dataset credentials
+  <code>babylon powerbi dataset update-credentials -w [workspace_id] [dataset_id]</code><br />
+<a href="https://cosmo-tech.github.io/Babylon/2.0.0/cli/#update-credentials">babylon powerbi dataset update-credentials</a></li>
+<li>The data sources will automatically be updated to read the new environment's data. </li>
+</ol>
 </details>
-<h3 id="with-powerbi-web-portal_1">With PowerBI web portal</h3>
-<ul>
-<li>Go to the Power BI workspace and access the settings of your report’s Dataset.</li>
-</ul>
-<p><img alt="Screenshot of entering powerBI parameters" src="../../assets/pbi_step_4b.png" /></p>
-<ul>
-<li>Update the parameters values (ADX_cluster and ADX_database) with your target environment data. </li>
-</ul>
-<p><img alt="Screenshot of entering powerBI parameters" src="../../assets/pbi_step_4c.png" /></p>
-<p>The data sources will automatically be updated to read the new environment's data. </p>
+<details class="abstract" open="open">
+<summary>With PowerBI web portal</summary>
+<ol>
+<li>Go to the Power BI workspace and access the settings of your report’s Dataset.
+<img alt="Screenshot of entering powerBI parameters" src="../../assets/pbi_step_4b.png" /></li>
+<li>Update the parameters values (ADX_cluster and ADX_database) with your target environment data. 
+<img alt="Screenshot of entering powerBI parameters" src="../../assets/pbi_step_4c.png" /></li>
+<li>The data sources will automatically be updated to read the new environment's data. </li>
+</ol>
+</details>
 
 
 
