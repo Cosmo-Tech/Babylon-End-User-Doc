@@ -40,12 +40,26 @@ This includes:
       git fetch upstream
     ```
 
+!!! info "DNS Record"
+    DNS Record creation is intently not supported by Babylon.  
+    If you want a DNS of the form `[deployment_name].app.cosmotech.com` you should
+
+    1. Create a new DNS record for the webapp domain name:
+      > Azure Portal > DNS Zones > app.cosmotech.com > "+ Record set"
+
+    2. Configure the DNS as below:
+        ```yaml
+        name: <DOMAIN_NAME_PREFIX> (the prefix of the domain name that will be used in front of app.cosmotech.com; e.g.  lorealppc.dev for lorealppc.dev.app.cosmotech)  
+        type: CNAME  
+        alias record set: No  
+        TTL: 5 minutes  
+        alias: <AZURE_STATIC_APPS_DOMAIN> (automatically generated when you created the static web app; e.g icy-island-123456789.0.azurestaticapps.net)  
+        ```
+        ![Screenshot of creating a DNS record](../assets/webapp_prequisite_2.png)
+
 ???+ note "Options"
     === "`--enable-powerbi`"
-        This option will enable powerbi configuration steps.
-        ???+ example
-            ```bash
-            ... --report-folder ./myfolder/mypowerbifolder
+        This option will enable powerbi configuration steps **9**, **10** and **11**.
    
 ???+ abstract "Steps"
     1. [babylon azure staticwebapp create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_10)

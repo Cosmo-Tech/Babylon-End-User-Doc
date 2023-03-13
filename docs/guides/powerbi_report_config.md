@@ -18,12 +18,12 @@ This guidelines will also ensure that your PowerBI report is compatible with **B
 
 !!! info "Within PowerBI Desktop"
     1. Create a new Power BI report
-    2. Go to section [Transform Data](https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-query-overview) for managing data sources.
+    2. Go to section [Transform Data](https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-query-overview) for managing data sources.  
     ![Screenshot of transform data](../assets/pbi_step_1.png)
     3. Create parameters in the report  
+    ![Screenshot of adding powerBI parameters](../assets/pbi_step_2a.png)
         1. Create parameter **ADX_cluster**: URL of the ADX cluster (e.g.: phoenixdev.westeurope.kusto.windows.net)
         2. Create parameter **ADX_database**: Name of the ADX database (e.g.: o-xxxxxxxx-brewerydemo)
-    ![Screenshot of adding powerBI parameters](../assets/pbi_step_2a.png)
     ![Screenshot of adding powerBI parameters](../assets/pbi_step_2b.png)
     4. Create a new Data Source of type Azure > Azure Data Explorer (Kusto).
     ![Screenshot of adding powerBI parameters](../assets/pbi_step_3a.png)
