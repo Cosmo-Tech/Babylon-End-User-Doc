@@ -32,7 +32,7 @@ This guidelines will also ensure that your PowerBI report is compatible with **B
     ![Screenshot of entering powerBI parameters](../assets/pbi_step_3b.png)
     7. In the query formula, replace ADX cluster and database with the parameter value.
     ![Screenshot of replacing parameter value](../assets/pbi_step_3c.png)
-    8. Replace the query name with the table name.
+    8. Rename the Query (in the query list on the left) after the table name.
     9. Perform [data transformation](https://learn.microsoft.com/en-us/power-bi/transform-model/) as needed.
     10. Create and tune your Power BI Dashboards.
 
