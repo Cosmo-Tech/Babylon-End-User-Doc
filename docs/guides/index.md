@@ -81,6 +81,20 @@ This guide will explain all the platform values to you, and how to get them.
 
 <article markdown>
 <div class="text" markdown>
+:material-view-grid: __Secrets values__
+
+---
+This guide will explain all secrets values to you, and how to get them.
+
+---
+<footer markdown>
+[:octicons-arrow-right-24: Secrets](./secrets.md)
+</footer>
+</div>
+</article>
+
+<article markdown>
+<div class="text" markdown>
 :material-note: __PowerBI reports configuration__
 
 ---

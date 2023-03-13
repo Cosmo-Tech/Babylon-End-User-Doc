@@ -42,3 +42,4 @@ def generate_file(file_type: str):
 
 generate_file("deployment")
 generate_file("platform")
+generate_file("secrets")
