@@ -63,7 +63,7 @@ If you want to plug your Power BI report to a new environment you can do it easi
       `babylon dataset parameters update -w [workspace_id] -p ADX_cluster [adx_cluster] -p ADX_database [adx_database] [dataset_id]`  
       [babylon powerbi dataset parameters update](https://cosmo-tech.github.io/Babylon/2.0.0/cli/#update_8)
     2. Update dataset credentials
-      `babylon powerbi dataset update-credentials -w [workspace_id] [dataset_id]`
+      `babylon powerbi dataset update-credentials -w [workspace_id] [dataset_id]`  
       [babylon powerbi dataset update-credentials](https://cosmo-tech.github.io/Babylon/2.0.0/cli/#update-credentials)
     3. The data sources will automatically be updated to read the new environment's data. 
     
