@@ -13,10 +13,8 @@ This includes:
   - Updating dataset parameters
   - Updating dataset azure credentials
 
-???+ warning "Requirements"
-    By default this macro command require a folder called `powerbi-reports` containing all your `.pbix` files in your current folder.
 
-???+ abstract "Command"
+!!! note ""
     ```bash
     babylon powerbi deploy-workspace --help
     # Usage: babylon powerbi deploy-workspace [OPTIONS] WORKSPACE_NAME
@@ -31,6 +29,9 @@ This includes:
     #   -p, --report-parameter <FILETYPE FILETYPE>...
     #   -h, --help                      Show this message and exit.
     ```
+
+???+ warning "Requirements"
+    By default this macro command require a folder called `powerbi-reports` containing all your `.pbix` files in your current folder.
 
 ???+ success "Arguments"
     === "`WORKSPACE_NAME`"
@@ -62,7 +63,11 @@ This includes:
     You will need an user with the correct permissions to `take-over` the dataset, and then to upgrade the credentials.
 
 ???+ abstract "Steps"
-    - [babylon powerbi workspace create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_15)
-    - [babylon powerbi report upload](https://cosmo-tech.github.io/Babylon/latest/cli/#upload_2)
-    - [babylon powerbi dataset parameters update](https://cosmo-tech.github.io/Babylon/latest/cli/#update_8)
-    - [babylon powerbi dataset update-credentials](https://cosmo-tech.github.io/Babylon/latest/cli/#update-credentials)
+    1. Create a PowerBI workspace  
+    [babylon powerbi workspace create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_15)  
+    2. Upload a directory of `.pbix` reports to PowerBI Web  
+    [babylon powerbi report upload](https://cosmo-tech.github.io/Babylon/latest/cli/#upload_2)  
+    3. Update uploaded PowerBI report parameters `ADX_cluster` and `ADX_database`  
+    [babylon powerbi dataset parameters update](https://cosmo-tech.github.io/Babylon/latest/cli/#update_8)  
+    4. Refresh Azure credentials used to access data from `ADX`  
+    [babylon powerbi dataset update-credentials](https://cosmo-tech.github.io/Babylon/latest/cli/#update-credentials)  
