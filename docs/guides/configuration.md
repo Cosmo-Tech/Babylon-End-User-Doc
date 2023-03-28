@@ -53,12 +53,3 @@ In the following part we will only work on `platform`, but those 3 ways are iden
     --8<-- 'docs/partials/Configuration/1-UseEditor.md'
 
 Now you know how to set a specific configuration variable.
-
-## Switch configuration
-
-Now that we can set the configuration variables we want to be able to switch between configuration. Some systems exist inside Babylon to simplify those switches.
-
-=== "Use `create` and `select` commands"
-    --8<-- 'docs/partials/Configuration/2-Commands.md'
-=== "Use environment variables to override the configuration"
-    --8<-- 'docs/partials/Configuration/2-EnvVars.md'

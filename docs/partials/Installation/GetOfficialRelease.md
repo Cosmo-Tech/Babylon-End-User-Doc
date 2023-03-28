@@ -11,10 +11,10 @@ Decompress the file you downloaded.
 ???+ example "Decompress a file"
     === "zip"
         ```bash
-        unzip Babylon-1.2.0.zip
+        unzip Babylon-2.1.0.zip
         ```
     === "tar.gz"
         ```bash
-        tar -xf Babylon-1.2.0.tar.gz
+        tar -xf Babylon-2.1.0.tar.gz
         ```
-After run you now have a new folder named `Babylon-1.2.0` which we will refer to as "Babylon Installation Folder" for the rest of the guide
+After run you now have a new folder named `Babylon-2.1.0` which we will refer to as "Babylon Installation Folder" for the rest of the guide
