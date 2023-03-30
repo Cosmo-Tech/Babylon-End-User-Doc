@@ -503,6 +503,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#deployment_name" class="md-nav__link">
+    deployment_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#organization_id" class="md-nav__link">
     organization_id
   </a>
@@ -652,6 +659,20 @@
         <li class="md-nav__item">
   <a href="#webapp_enable_insights" class="md-nav__link">
     webapp_enable_insights
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform_cloud_workspace_id" class="md-nav__link">
+    terraform_cloud_workspace_id
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powerbi_api_scope" class="md-nav__link">
+    powerbi_api_scope
   </a>
   
 </li>
@@ -823,6 +844,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#deployment_name" class="md-nav__link">
+    deployment_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#organization_id" class="md-nav__link">
     organization_id
   </a>
@@ -976,6 +1004,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#terraform_cloud_workspace_id" class="md-nav__link">
+    terraform_cloud_workspace_id
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powerbi_api_scope" class="md-nav__link">
+    powerbi_api_scope
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -993,6 +1035,20 @@
 
 <h1 id="deployment-configuration-values">Deployment configuration values</h1>
 <main class="grid">
+<article>
+<div class="text">
+<h3 id="deployment_name"><a id="deployment_name"></a><code>deployment_name</code><br/>Deployment Name</h3>
+<hr />
+<dl>
+<dt>What is this value ?</dt>
+<dd>Name of the current deployment, used to identify some resources</dd>
+</dl>
+<div class="example">
+<p><code>AssetDev  
+SupplyStaging</code></p>
+</div>
+</div>
+</article>
 <article>
 <div class="text">
 <h3 id="organization_id"><a id="organization_id"></a><code>organization_id</code><br/>Organization ID</h3>
@@ -1331,6 +1387,34 @@ This will be filled automatically when <code>babylon webapp deploy</code> is use
 </dl>
 <div class="example">
 <p><code>True</code></p>
+</div>
+</div>
+</article>
+<article>
+<div class="text">
+<h3 id="terraform_cloud_workspace_id"><a id="terraform_cloud_workspace_id"></a><code>terraform_cloud_workspace_id</code><br/>Terraform Cloud Workspace ID</h3>
+<hr />
+<dl>
+<dt>What is this value ?</dt>
+<dd>Terraform Cloud workspace used for terraform operations</dd>
+<dt>How to get a value to set here ?</dt>
+<dd>Create the Workspace with <code>babylon terraform-cloud workspace create --select my_workspace</code>.  </dd>
+</dl>
+<div class="example">
+<p><code>xxxxxxxx</code></p>
+</div>
+</div>
+</article>
+<article>
+<div class="text">
+<h3 id="powerbi_api_scope"><a id="powerbi_api_scope"></a><code>powerbi_api_scope</code><br/>PowerBI API Scope</h3>
+<hr />
+<dl>
+<dt>What is this value ?</dt>
+<dd>Used to make api calls to PowerBI, mostly by default but can be set for on-premise PowerBI install</dd>
+</dl>
+<div class="example">
+<p><code>"https://analysis.windows.net/powerbi/api/.default"</code></p>
 </div>
 </div>
 </article>
