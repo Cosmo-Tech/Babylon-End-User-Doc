@@ -6,7 +6,16 @@ hide:
 
 Now that you have installed Babylon we can learn about how it works.  
 
-Let's begin by running a few commands to see some elements.
+## Initialization
+
+In order to begin working on your project you need a fully initialized configuration and working directory. Use the following command to create necessary files.
+???+ info "Help of the command"
+    ```bash
+        # Usage: babylon config init [OPTIONS]
+        # Initialize Babylon configuration, working directory and secret key
+        # Options:
+        #  --help  Show this message and exit.
+    ```
 
 ???+ example "First commands"
     --8<-- 'docs/partials/Configuration/FirstCommands.md'

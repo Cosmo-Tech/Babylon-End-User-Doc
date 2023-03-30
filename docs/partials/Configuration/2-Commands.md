@@ -1,4 +1,4 @@
-Just like the `edit` and `set-variable` commands you can use the `create` and `select` commands to switch between platform/deployment configuration.
+Just like the `edit` and `set-variable` commands you can use the `create` commands between platform/deployment configuration.
 
 ???+ example "`create` command"
     ```bash
