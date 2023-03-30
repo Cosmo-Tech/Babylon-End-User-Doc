@@ -1,6 +1,13 @@
 # In a yaml format "|-" means that the value is a block of text where:
 #   - "|-" : every newline will be doubled : allowing to keep the format in markdown
 #   - "-" : the trailing white spaces are striped
+deployment_name:
+  display_name: Deployment Name
+  description: |-
+    Name of the current deployment, used to identify some resources
+  example: |-
+    AssetDev  
+    SupplyStaging
 organization_id:
   display_name: Organization ID
   description: |-
@@ -187,3 +194,17 @@ webapp_enable_insights :
     Weither to enable Azure Application Insights for the static WebApp
   example: |-
     True
+terraform_cloud_workspace_id :
+  display_name: Terraform Cloud Workspace ID
+  description: |-
+    Terraform Cloud workspace used for terraform operations
+  howto: |-
+    Create the Workspace with `babylon terraform-cloud workspace create --select my_workspace`.
+  example: |-
+    xxxxxxxx
+powerbi_api_scope :
+  display_name: PowerBI API Scope
+  description: |-
+    Used to make api calls to PowerBI, mostly by default but can be set for on-premise PowerBI install
+  example: |-
+    "https://analysis.windows.net/powerbi/api/.default"
