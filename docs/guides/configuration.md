@@ -6,7 +6,16 @@ hide:
 
 Now that you have installed Babylon we can learn about how it works.  
 
-Let's begin by running a few commands to see some elements.
+## Initialization
+
+In order to begin working on your project you need a fully initialized configuration and working directory. Use the following command to create necessary files.
+???+ info "Help of the command"
+    ```bash
+        # Usage: babylon config init [OPTIONS]
+        # Initialize Babylon configuration, working directory and secret key
+        # Options:
+        #  --help  Show this message and exit.
+    ```
 
 ???+ example "First commands"
     --8<-- 'docs/partials/Configuration/FirstCommands.md'
@@ -53,12 +62,3 @@ In the following part we will only work on `platform`, but those 3 ways are iden
     --8<-- 'docs/partials/Configuration/1-UseEditor.md'
 
 Now you know how to set a specific configuration variable.
-
-## Switch configuration
-
-Now that we can set the configuration variables we want to be able to switch between configuration. Some systems exist inside Babylon to simplify those switches.
-
-=== "Use `create` and `select` commands"
-    --8<-- 'docs/partials/Configuration/2-Commands.md'
-=== "Use environment variables to override the configuration"
-    --8<-- 'docs/partials/Configuration/2-EnvVars.md'

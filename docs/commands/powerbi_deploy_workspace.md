@@ -4,15 +4,17 @@ hide:
 ---
 # Power BI Deploy Workspace
 
-`babylon powerbi deploy-workspace` will deploy a PowerBI workspace and populate it with reports.
+`babylon powerbi deploy-workspace` will deploy a PowerBI workspace and populate it with reports. If the given workspace name already exists, the reports will be published in the existing workspace.
 
 This includes:
 
-  - Creating a PowerBI workspace
+  - Creating a PowerBI workspace if it does not exist
   - Uploading all reports from a folder
   - Updating dataset parameters
   - Updating dataset azure credentials
 
+???+ warning "Requirements"
+    By default this macro command require a folder called `POWERBI` containing all your `.pbix` files in current working directory.
 
 !!! note ""
     ```bash
@@ -27,6 +29,7 @@ This includes:
     # Options:
     #   -f, --report-folder DIRECTORY
     #   -p, --report-parameter <FILETYPE FILETYPE>...
+    #   --override                      override reports in case of name conflict ?
     #   -h, --help                      Show this message and exit.
     ```
 

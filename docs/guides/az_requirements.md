@@ -2,11 +2,20 @@
 
 ???+ warning "Requirements"
     The following elements are required before you can use Babylon on an Azure subscription
-    === "Software requirements"
-        --8<-- "docs/partials/Azure/requirements.md"
     === "Platform requirements"
         --8<-- "docs/partials/Azure/platform.md"
-    Once you followed those, you should have access to the `az` command in your terminal of choice, and a platform registered on your Azure tenant.
+
+## Allow access to the API App registrations
+Babylon uses the Azure Active Directory to authenticate users and allow them to interact with the API. To do so, Babylon needs to be registered as an application in the Azure Active Directory.
+The App registration will need rights on resources you will have to edit and you will need to expose the API as well.
+
+=== "Correctly set up App Registration"
+    ![Post client added screenshot](../assets/app_registration_expose_an_api.png)
+Now the API will allow connections from your App Registration
+
+You can use the following commands to setup your App Registration secrets in your `.secrets.yaml.encrypt` file for `Babylon` to use it directly !
+    - [babylon azure login](https://cosmo-tech.github.io/Babylon/latest/cli/#login)
+    - [babylon azure logout](https://cosmo-tech.github.io/Babylon/latest/cli/#logout)
 
 ## Allow access to the API using `az`
 

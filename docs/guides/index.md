@@ -37,6 +37,21 @@ This guide will help you with the required steps to use Babylon with Azure
 
 <article markdown>
 <div class="text" markdown>
+:material-terraform: __Terraform Cloud Requirements__
+
+---
+This guide will help you with the required steps to use Babylon with Terraform Cloud
+
+---
+<footer markdown>
+[:octicons-arrow-right-24: Terraform Cloud requirements](./tfc_requirements.md)
+</footer>
+</div>
+
+</article>
+
+<article markdown>
+<div class="text" markdown>
 :material-note: __Configuration__
 
 ---

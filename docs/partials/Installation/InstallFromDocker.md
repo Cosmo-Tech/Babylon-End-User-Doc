@@ -6,12 +6,12 @@
     | **Docker**      | [![Install docker](https://img.shields.io/badge/Docker-3776AB?style=for-the-badge&logo=docker&logoColor=white)](https://docs.docker.com/get-docker//)|
 
 
-Choosing the version of Babylon you want to use you can run the following command (here for version `1.2.0`) 
+Choosing the version of Babylon you want to use you can run the following command
 
 ???+ example "Download docker image"
     ```bash
-    docker pull ghcr.io/cosmo-tech/babylon:1.2.0
-    docker tag ghcr.io/cosmo-tech/babylon:1.2.0 babylon
+    docker pull ghcr.io/cosmo-tech/babylon:latest
+    docker tag ghcr.io/cosmo-tech/babylon:latest babylon
     ```
 
 It will download for you the required docker image, and rename it to `babylon`
