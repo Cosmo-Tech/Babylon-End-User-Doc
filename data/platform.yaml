@@ -22,10 +22,10 @@ api_scope :
     === "Using `az login` authentication"
         Your scope is your platform url ended with `/.default` (see example)
     === "Using an app registration authentication"
-      Your scope is the following value name, replacing the app registration name with the one used for your platform
-      ```bash
-      babylon azure ad app get-all --filter "[?displayName==\`phoenix core dev\`].api.oauth2PermissionScopes"  example: |-
-      ```
+        Your scope is the following value name, replacing the app registration name with the one used for your platform.
+        ```bash
+        babylon azure ad app get-all --filter "[?displayName==\`phoenix core dev\`].api.oauth2PermissionScopes"
+        ```
   example: |-
     https://dev.api.cosmotech.com/.default
 azure_subscription :
@@ -136,10 +136,10 @@ storage_account_name :
     Name of the main storage account tied to your platform
   howto: |-
     Use the following az cli command
-    `̀̀`̀̀`bash
+    ```bash
     az login -t [tenant_id]
     az storage account list --query [*].name
-    `̀̀`̀̀`
+    ```
   example: |-
     mystorageaccount
 powerbi_api_scope:
@@ -156,9 +156,9 @@ azure_powerbi_group_id:
     ID of the Azure Active Directory group `PowerBI`
   howto: |-
     Use the following commands
-    `̀̀`̀̀`bash
+    ```bash
     az login -t [tenant_id]
     babylon azure ad group get-all --filter [?displayName==\`PowerBI\`].id
-    `̀̀`̀̀`
+    ```
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
