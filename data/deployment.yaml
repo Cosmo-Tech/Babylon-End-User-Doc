@@ -20,7 +20,7 @@ organization_id:
     It can also be created and filled automatically by babylon
     ```bash
     babylon api organization create MyOrg --select
-    `̀ `
+    ```
   example: |-
     o-XXXXXXXXXX
 solution_id:
@@ -30,14 +30,14 @@ solution_id:
   howto: |-
     Can be found using the following command
     ```bash
-    babylon api solution get-all --filter "[*].{name:name,id:id}"
-    ```
-    It can also be created and filled automatically by babylon
+    babylon api solution get-all --filter "[*].{name:name,id:id}"  
+    ``` 
+    It can also be created and filled automatically by babylon  
     ```bash
-    babylon api solution create MyOrg -i [solution_file.yml] --select
-    `̀ `
+    babylon api solution create MyOrg -i [solution_file.yml] --select  
+    ```
   example: |-
-    sol-XXXXXXXXXX
+    sol-XXXXXXXXXX  
 workspace_id :
   display_name: Workspace ID
   description: |-
@@ -50,7 +50,7 @@ workspace_id :
     It can also be created and filled automatically by babylon
     ```bash
     babylon api workspace create MyWorkspace --select
-    `̀ `
+    ```
   example: |-
     w-XXXXXXXXXX
 workspace_key :
@@ -61,7 +61,7 @@ workspace_key :
     Can be found using the following command
     ```bash
     babylon api workspace get-all --filter "[*].{name:name,key:key}"
-    ```
+    ```  
   example: |-
     workspacekey
 api_url :
@@ -71,9 +71,8 @@ api_url :
   howto: |-
     Your url is the following value, replacing the app registration name with the one used for your platform
     ```bash
-    babylon azure ad app get-all --filter "[?displayName==\`phoenix core dev\`].api.oauth2PermissionScopes"  example: |-
-    ```
     babylon azure ad app get-all --filter "[?displayName==\`phoenix core dev\`].identifierUris"
+    ```  
   example: |-
     https://dev.api.cosmotech.com
 resource_group_name :
@@ -119,10 +118,10 @@ digital_twin_url :
     URL of the Azure Digital Twin instance to use
   howto: |-
     Use the following az cli command
-    `̀̀`̀̀`bash
+    ```bash
     az login -t [tenant_id]
     az dt list --query [*].hostName
-    `̀̀`̀̀`
+    ```
   example: |-
     https://mydigitaltwin.api.weu.digitaltwins.azure.net
 csm_simulator_repository :
@@ -131,10 +130,10 @@ csm_simulator_repository :
     The solution simulator docker origin repository
   howto: |-
     Use the following commands
-    `̀̀`̀̀`bash
+    ```bash
     az login -t [tenant_id]
     babylon azure acr list --registry [my_registry.azurecr.io]
-    `̀̀`̀̀`
+    ```
   example: |-
     solution_simulator
 simulator_repository :
@@ -143,10 +142,10 @@ simulator_repository :
     The solution simulator docker target repository (repository value in Solution.yaml)
   howto: |-
     Use the following commands
-    `̀̀`̀̀`bash
+    ```bash
     az login -t [tenant_id]
     babylon azure acr list --registry [my_registry.azurecr.io]
-    `̀̀`̀̀`
+    ```
   example: |-
     solution_simulator
 simulator_version :
@@ -191,7 +190,7 @@ powerbi_workspace_id :
     It can also be created and filled automatically by babylon
     ```bash
     babylon powerbi workspace create MyWorkspace --select
-    `̀ `
+    ```
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 webapp_domain :
@@ -207,7 +206,10 @@ webapp_location :
   description: |-
     Azure Location at which the static web app resource will be created.
   howto: |-
-    You can access a list of location names with `az account list-locations -o table`
+    You can access a list of location names with the following command
+    ```bash
+    az account list-locations -o table
+    ```
   example: |-
     westeurope
 webapp_repository :
@@ -237,7 +239,7 @@ webapp_registration_id :
     ```bash
     babylon azure ad app create [my_app] -o my_app.json
     babylon config set-variable deploy webapp_registration_id %workdir[my_app.json]%id
-    `̀ `
+    ```
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 webapp_insights_instrumentation_key :
@@ -270,7 +272,7 @@ terraform_cloud_workspace_id :
     It can also be created and set by babylon
     ```bash
     babylon terraform-cloud workspace create [my_workspace] --select
-    `̀ `
+    ```
   example: |-
     xxxxxxxx
 powerbi_api_scope :
