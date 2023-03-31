@@ -15,7 +15,7 @@
         <link rel="next" href="../secrets/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.240905d7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -889,8 +889,10 @@
 <dt>What is this value ?</dt>
 <dd>The URL of the Cosmo Tech API</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>In the Azure Portal, navigate to your app registration for your API.
-Then look at the value in <code>Application ID URI</code>  </dd>
+<dd>Your url is the following value, replacing the app registration name with the one used for your platform
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>ad<span class="w"> </span>app<span class="w"> </span>get-all<span class="w"> </span>--filter<span class="w"> </span><span class="s2">&quot;[?displayName==\`phoenix core dev\`].api.oauth2PermissionScopes&quot;</span><span class="w">  </span>example:<span class="w"> </span><span class="p">|</span>-
+</code></pre></div>
+babylon azure ad app get-all --filter "[?displayName==`phoenix core dev`].identifierUris"  </dd>
 </dl>
 <div class="example">
 <p><code>https://dev.api.cosmotech.com</code></p>
@@ -907,16 +909,17 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <dt>How to get a value to set here ?</dt>
 <dd>Depending on your authentication to Azure, the format of the scope can change </dd>
 </dl>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Using <code>az cli</code></label><label for="__tabbed_1_2">Using an app registration</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Using <code>az login</code> authentication</label><label for="__tabbed_1_2">Using an app registration authentication</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Your scope should finish in <code>/.default</code> like in the example</p>
+<p>Your scope is your platform url ended with <code>/.default</code> (see example)</p>
 </div>
-<div class="tabbed-block">
-<p>You need to use the scope defined in your Azure Portal, under <code>App registrations &gt; &lt;your API registration&gt; &gt; Expose an API</code>  </p>
-</div>
+<div class="tabbed-block"></div>
 </div>
 </div>
+<p>Your scope is the following value name, replacing the app registration name with the one used for your platform
+  <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>ad<span class="w"> </span>app<span class="w"> </span>get-all<span class="w"> </span>--filter<span class="w"> </span><span class="s2">&quot;[?displayName==\`phoenix core dev\`].api.oauth2PermissionScopes&quot;</span><span class="w">  </span>example:<span class="w"> </span><span class="p">|</span>-
+</code></pre></div></p>
 <div class="example">
 <p><code>https://dev.api.cosmotech.com/.default</code></p>
 </div>
@@ -945,7 +948,9 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <dt>What is this value ?</dt>
 <dd>Azure Tenant id used to contain the platform</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found using <code>az account tenant list</code>  </dd>
+<dd>Can be found using the following command
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>account<span class="w"> </span>tenant<span class="w"> </span>list
+</code></pre></div></dd>
 </dl>
 <div class="example">
 <p><code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code></p>
@@ -954,13 +959,15 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 </article>
 <article>
 <div class="text">
-<h3 id="csm_platform_app_id"><a id="csm_platform_app_id"></a><code>csm_platform_app_id</code><br/>Azure App Registration ID of cosmotech platform</h3>
+<h3 id="csm_platform_app_id"><a id="csm_platform_app_id"></a><code>csm_platform_app_id</code><br/>Azure App Registration App ID of cosmotech platform</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
-<dd>Azure Active Directory App Registration ID of the cosmotech platform</dd>
+<dd>Azure Active Directory App Registration App ID of the cosmotech platform</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found using <code>babylon azure ad app get-all -o app_registrations.json</code>  </dd>
+<dd>Can be found using the following command while replacing the cosmotech platform app registration name
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>ad<span class="w"> </span>app<span class="w"> </span>get-all<span class="w"> </span>--filter<span class="w"> </span><span class="s2">&quot;[?displayName==\`phoenix core dev\`]&quot;</span>
+</code></pre></div></dd>
 </dl>
 <div class="example">
 <p><code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code></p>
@@ -975,7 +982,9 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <dt>What is this value ?</dt>
 <dd>Azure Active Directory App Registration scope of the cosmotech platform</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found using <code>babylon azure ad app get-all -o app_registrations.json</code>  </dd>
+<dd>Can be found using the following command while replacing the cosmotech platform app registration name
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>ad<span class="w"> </span>app<span class="w"> </span>get-all<span class="w"> </span>--filter<span class="w"> </span><span class="s2">&quot;[?displayName==\`phoenix core dev\`].api.oauth2PermissionScopes&quot;</span>
+</code></pre></div></dd>
 </dl>
 <div class="example">
 <p><code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code></p>
@@ -990,7 +999,10 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <dt>What is this value ?</dt>
 <dd>The name of the Azure Data Explorer Cluster of your platform</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found in your Azure Portal, under Azure Data Explorer Clusters  </dd>
+<dd>Use the following commands
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>login<span class="w"> </span>-t<span class="w"> </span><span class="o">[</span>tenant_id<span class="o">]</span>
+babylon<span class="w"> </span>azure<span class="w"> </span>adx<span class="w"> </span>get-all<span class="w"> </span>--filter<span class="w"> </span><span class="o">[</span>*<span class="o">]</span>.name
+</code></pre></div></dd>
 </dl>
 <div class="example">
 <p><code>platformcluster</code></p>
@@ -1005,7 +1017,10 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <dt>What is this value ?</dt>
 <dd>The name fo the resource group used on the platform</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found in your Azure Portal, under Resource Groups  </dd>
+<dd>Use the following commands
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>login<span class="w"> </span>-t<span class="w"> </span><span class="o">[</span>tenant_id<span class="o">]</span>
+az<span class="w"> </span>group<span class="w"> </span>list<span class="w"> </span>--query<span class="w"> </span><span class="o">[</span>*<span class="o">]</span>.name
+</code></pre></div></dd>
 </dl>
 <div class="example">
 <p><code>Platform Resource Group</code></p>
@@ -1020,7 +1035,10 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <dt>What is this value ?</dt>
 <dd>ACR registry name used as source for your containers</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found in your Azure Portal under Container Registeries &gt; <code>&lt;your registery&gt;</code> &gt; Login server  </dd>
+<dd>Use the following commands
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>login<span class="w"> </span>-t<span class="w"> </span><span class="o">[</span>tenant_id<span class="o">]</span>
+az<span class="w"> </span>acr<span class="w"> </span>list<span class="w"> </span>--query<span class="w"> </span><span class="o">[</span>*<span class="o">]</span>.name
+</code></pre></div></dd>
 </dl>
 <div class="example">
 <p><code>source_registry.azurecr.io</code></p>
@@ -1029,13 +1047,16 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 </article>
 <article>
 <div class="text">
-<h3 id="acr_registry_name"><a id="acr_registry_name"></a><code>acr_registry_name</code><br/>ACR Registery Name</h3>
+<h3 id="acr_registry_name"><a id="acr_registry_name"></a><code>acr_registry_name</code><br/>ACR Registry Name</h3>
 <hr />
 <dl>
 <dt>What is this value ?</dt>
 <dd>ACR registry name used as target for your containers</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found in your Azure Portal under Container Registeries &gt; <code>&lt;your registery&gt;</code> &gt; Login server  </dd>
+<dd>Use the following commands
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>login<span class="w"> </span>-t<span class="w"> </span><span class="o">[</span>tenant_id<span class="o">]</span>
+az<span class="w"> </span>acr<span class="w"> </span>list<span class="w"> </span>--query<span class="w"> </span><span class="o">[</span>*<span class="o">]</span>.name
+</code></pre></div></dd>
 </dl>
 <div class="example">
 <p><code>dest_registry.azurecr.io</code></p>
@@ -1052,7 +1073,7 @@ Then look at the value in <code>Application ID URI</code>  </dd>
 <dt>How to get a value to set here ?</dt>
 <dd>You could use the same resource location as your API<br />
 In case you want a full list of the available locations you can use the <code>az</code> CLI and run the following command<br />
-<div class="highlight"><pre><span></span><code>az<span class="w"> </span>account<span class="w"> </span>list-locations
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>account<span class="w"> </span>list-locations<span class="w"> </span>--query<span class="w"> </span><span class="o">[</span>*<span class="o">]</span>.name
 </code></pre></div></dd>
 </dl>
 <div class="example">
@@ -1068,7 +1089,10 @@ In case you want a full list of the available locations you can use the <code>az
 <dt>What is this value ?</dt>
 <dd>Name of the main storage account tied to your platform</dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Can be found in your Azure Portal under Storage Accounts  </dd>
+<dd>Use the following az cli command
+<code>̀̀</code>̀̀<code>bash
+az login -t [tenant_id]
+az storage account list --query [*].name</code>̀̀<code>̀̀</code>  </dd>
 </dl>
 <div class="example">
 <p><code>mystorageaccount</code></p>
@@ -1098,7 +1122,11 @@ In case you want a full list of the available locations you can use the <code>az
 <dt>What is this value ?</dt>
 <dd>ID of the Azure Active Directory group <code>PowerBI</code></dd>
 <dt>How to get a value to set here ?</dt>
-<dd>Find it using <code>babylon azure ad group get-all -o ad_groups.json</code>  </dd>
+<dd>Use the following commands
+<code>̀̀</code>̀̀<code>bash
+az login -t [tenant_id]
+babylon azure ad group get-all --filter [?displayName==\</code>PowerBI`].id
+<code>̀̀</code>̀̀`  </dd>
 </dl>
 <div class="example">
 <p><code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code></p>
@@ -1137,10 +1165,10 @@ In case you want a full list of the available locations you can use the <code>az
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
             <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
               <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Previous
-                </span>
                 Deployment Values
               </div>
             </div>
@@ -1150,10 +1178,10 @@ In case you want a full list of the available locations you can use the <code>az
           
           <a href="../secrets/" class="md-footer__link md-footer__link--next" aria-label="Next: Secrets Values" rel="next">
             <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
               <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Next
-                </span>
                 Secrets Values
               </div>
             </div>
@@ -1187,7 +1215,7 @@ In case you want a full list of the available locations you can use the <code>az
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
+      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>
