@@ -6,8 +6,11 @@ api_url :
   description: |-
     The URL of the Cosmo Tech API
   howto: |-
-    In the Azure Portal, navigate to your app registration for your API.
-    Then look at the value in `Application ID URI`
+    Your url is the following value, replacing the app registration name with the one used for your platform
+    ```bash
+    babylon azure ad app get-all --filter "[?displayName==\`phoenix core dev\`].api.oauth2PermissionScopes"  example: |-
+    ```
+    babylon azure ad app get-all --filter "[?displayName==\`phoenix core dev\`].identifierUris"
   example: |-
     https://dev.api.cosmotech.com
 api_scope :
@@ -16,10 +19,13 @@ api_scope :
     The scope used to authenticate to the Cosmo Tech API
   howto: |-
     Depending on your authentication to Azure, the format of the scope can change 
-    === "Using `az cli`"
-        Your scope should finish in `/.default` like in the example
-    === "Using an app registration"
-        You need to use the scope defined in your Azure Portal, under `App registrations > <your API registration> > Expose an API`
+    === "Using `az login` authentication"
+        Your scope is your platform url ended with `/.default` (see example)
+    === "Using an app registration authentication"
+      Your scope is the following value name, replacing the app registration name with the one used for your platform
+      ```bash
+      babylon azure ad app get-all --filter "[?displayName==\`phoenix core dev\`].api.oauth2PermissionScopes"  example: |-
+      ```
   example: |-
     https://dev.api.cosmotech.com/.default
 azure_subscription :
@@ -35,15 +41,21 @@ azure_tenant_id:
   description: |-
     Azure Tenant id used to contain the platform
   howto: |-
-    Can be found using `az account tenant list`
+    Can be found using the following command
+    ```bash
+    az account tenant list
+    ```
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 csm_platform_app_id:
-  display_name: Azure App Registration ID of cosmotech platform
+  display_name: Azure App Registration App ID of cosmotech platform
   description: |-
-    Azure Active Directory App Registration ID of the cosmotech platform
+    Azure Active Directory App Registration App ID of the cosmotech platform
   howto: |-
-    Can be found using `babylon azure ad app get-all -o app_registrations.json`
+    Can be found using the following command while replacing the cosmotech platform app registration name
+    ```bash
+    babylon azure ad app get-all --filter "[?displayName==\`phoenix core dev\`]"
+    ```
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 csm_platform_scope_id:
@@ -51,7 +63,11 @@ csm_platform_scope_id:
   description: |-
     Azure Active Directory App Registration scope of the cosmotech platform
   howto: |-
-    Can be found using `babylon azure ad app get-all -o app_registrations.json`
+  howto: |-
+    Can be found using the following command while replacing the cosmotech platform app registration name
+    ```bash
+    babylon azure ad app get-all --filter "[?displayName==\`phoenix core dev\`].api.oauth2PermissionScopes"
+    ```
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 adx_cluster_name :
@@ -59,7 +75,11 @@ adx_cluster_name :
   description: |-
     The name of the Azure Data Explorer Cluster of your platform
   howto: |-
-    Can be found in your Azure Portal, under Azure Data Explorer Clusters
+    Use the following commands
+    ```bash
+    az login -t [tenant_id]
+    babylon azure adx get-all --filter [*].name
+    ```
   example: |-
     platformcluster
 resource_group_name :
@@ -67,7 +87,11 @@ resource_group_name :
   description: |-
     The name fo the resource group used on the platform
   howto: |-
-    Can be found in your Azure Portal, under Resource Groups
+    Use the following commands
+    ```bash
+    az login -t [tenant_id]
+    az group list --query [*].name
+    ```
   example: |-
     Platform Resource Group
 csm_acr_registry_name :
@@ -75,15 +99,23 @@ csm_acr_registry_name :
   description: |-
     ACR registry name used as source for your containers
   howto: |-
-    Can be found in your Azure Portal under Container Registeries > `<your registery>` > Login server
+    Use the following commands
+    ```bash
+    az login -t [tenant_id]
+    az acr list --query [*].name
+    ```
   example: |-
     source_registry.azurecr.io
 acr_registry_name :
-  display_name: ACR Registery Name
+  display_name: ACR Registry Name
   description: |-
     ACR registry name used as target for your containers
-  howto: |-
-    Can be found in your Azure Portal under Container Registeries > `<your registery>` > Login server
+  howto: |- 
+    Use the following commands
+    ```bash
+    az login -t [tenant_id]
+    az acr list --query [*].name
+    ```
   example: |-
     dest_registry.azurecr.io
 resources_location :
@@ -94,7 +126,7 @@ resources_location :
     You could use the same resource location as your API  
     In case you want a full list of the available locations you can use the `az` CLI and run the following command  
     ```bash
-    az account list-locations
+    az account list-locations --query [*].name
     ```
   example: |-
     westeurope
@@ -103,7 +135,11 @@ storage_account_name :
   description: |-
     Name of the main storage account tied to your platform
   howto: |-
-    Can be found in your Azure Portal under Storage Accounts
+    Use the following az cli command
+    `̀̀`̀̀`bash
+    az login -t [tenant_id]
+    az storage account list --query [*].name
+    `̀̀`̀̀`
   example: |-
     mystorageaccount
 powerbi_api_scope:
@@ -119,6 +155,10 @@ azure_powerbi_group_id:
   description: |-
     ID of the Azure Active Directory group `PowerBI`
   howto: |-
-    Find it using `babylon azure ad group get-all -o ad_groups.json`
+    Use the following commands
+    `̀̀`̀̀`bash
+    az login -t [tenant_id]
+    babylon azure ad group get-all --filter [?displayName==\`PowerBI\`].id
+    `̀̀`̀̀`
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

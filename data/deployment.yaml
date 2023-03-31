@@ -4,7 +4,7 @@
 deployment_name:
   display_name: Deployment Name
   description: |-
-    Name of the current deployment, used to identify some resources
+    Name of the current deployment, used to identify resources at creation
   example: |-
     AssetDev  
     SupplyStaging
@@ -13,40 +13,67 @@ organization_id:
   description: |-
     The ID of the organization in the Cosmo Tech API
   howto: |-
-    Can be found using `babylon api organization get-all`
+    Can be found using the following command
+    ```bash
+    babylon api organization get-all --filter "[?name==\`Cosmo Tech\`]"
+    ```
+    It can also be created and filled automatically by babylon
+    ```bash
+    babylon api organization create MyOrg --select
+    `̀ `
   example: |-
-    O-XXXXXXXXXX
+    o-XXXXXXXXXX
 solution_id:
   display_name: Solution ID
   description: |-
     The ID of the solution in the Cosmo Tech API
   howto: |-
-    Can be found using `babylon api solution get-all`
+    Can be found using the following command
+    ```bash
+    babylon api solution get-all --filter "[*].{name:name,id:id}"
+    ```
+    It can also be created and filled automatically by babylon
+    ```bash
+    babylon api solution create MyOrg -i [solution_file.yml] --select
+    `̀ `
   example: |-
-    Sol-XXXXXXXXXX
+    sol-XXXXXXXXXX
 workspace_id :
   display_name: Workspace ID
   description: |-
     The ID of the workspace on the API
   howto: |-
-    Can be found using `babylon api workspace get-all`
+    Can be found using the following command
+    ```bash
+    babylon api workspace get-all --filter "[*].{name:name,id:id}"
+    ```
+    It can also be created and filled automatically by babylon
+    ```bash
+    babylon api workspace create MyWorkspace --select
+    `̀ `
   example: |-
-    W-XXXXXXXXXX
+    w-XXXXXXXXXX
 workspace_key :
   display_name: Workspace Key
   description: |-
     The key of the workspace on the API shared with Terraform configuration
   howto: |-
-    Can be found using `babylon api workspace get`
+    Can be found using the following command
+    ```bash
+    babylon api workspace get-all --filter "[*].{name:name,key:key}"
+    ```
   example: |-
     workspacekey
 api_url :
   display_name: Cosmo Tech API URL
   description: |-
-    the url of the API (used for validation)
+    The URL of the Cosmo Tech API
   howto: |-
-    In the Azure Portal, navigate to your app registration for your API.
-    Then look at the value in `Application ID URI`
+    Your url is the following value, replacing the app registration name with the one used for your platform
+    ```bash
+    babylon azure ad app get-all --filter "[?displayName==\`phoenix core dev\`].api.oauth2PermissionScopes"  example: |-
+    ```
+    babylon azure ad app get-all --filter "[?displayName==\`phoenix core dev\`].identifierUris"
   example: |-
     https://dev.api.cosmotech.com
 resource_group_name :
@@ -54,18 +81,22 @@ resource_group_name :
   description: |-
     The name fo the resource group used for users deployment (function apps, webapp)
   howto: |-
-    Can be found in your Azure Portal in the resource group category
+    Use the following commands
+    ```bash
+    az login -t [tenant_id]
+    az group list --query [*].name
+    ```
   example: |-
     azure_ressource_group
 resources_location :
   display_name: Resources Location
   description: |-
-    The Azure resource location for users deployment
+    Azure resource location used on the platform
   howto: |-
     You could use the same resource location as your API  
     In case you want a full list of the available locations you can use the `az` CLI and run the following command  
     ```bash
-    az account list-locations
+    az account list-locations --query [*].name
     ```
   example: |-
     westeurope
@@ -74,8 +105,12 @@ adx_database_name :
   description: |-
     The name of the database used in Azure Data Explorer
   howto: |-
-    Can be found in your Azure Portal in you Azure Data Explorer Clusters.  
-    Inside the cluster configuration you can check in `Databases` to find the name of the one you want to use
+    Use the following commands
+    ```bash
+    az extension add -n kusto
+    az login -t [tenant_id]
+    az kusto database list --resource-group [resource_group] --cluster-name [cluster_name]
+    ```
   example: |-
     o-xxxxxxxxxx-workspacename
 digital_twin_url :
@@ -83,7 +118,11 @@ digital_twin_url :
   description: |-
     URL of the Azure Digital Twin instance to use
   howto: |-
-    Can be found in the Azure Portal of your ADT instance next to `Host name`
+    Use the following az cli command
+    `̀̀`̀̀`bash
+    az login -t [tenant_id]
+    az dt list --query [*].hostName
+    `̀̀`̀̀`
   example: |-
     https://mydigitaltwin.api.weu.digitaltwins.azure.net
 csm_simulator_repository :
@@ -91,7 +130,11 @@ csm_simulator_repository :
   description: |-
     The solution simulator docker origin repository
   howto: |-
-    This is the name of the solution source repository for its docker image, it is given by the solution integration team
+    Use the following commands
+    `̀̀`̀̀`bash
+    az login -t [tenant_id]
+    babylon azure acr list --registry [my_registry.azurecr.io]
+    `̀̀`̀̀`
   example: |-
     solution_simulator
 simulator_repository :
@@ -99,7 +142,11 @@ simulator_repository :
   description: |-
     The solution simulator docker target repository (repository value in Solution.yaml)
   howto: |-
-    This is the name of the solution target repository for its docker image, it should be the same as in your Solution.yaml
+    Use the following commands
+    `̀̀`̀̀`bash
+    az login -t [tenant_id]
+    babylon azure acr list --registry [my_registry.azurecr.io]
+    `̀̀`̀̀`
   example: |-
     solution_simulator
 simulator_version :
@@ -137,7 +184,14 @@ powerbi_workspace_id :
   description: |-
     ID of the power BI workspace to keep the dashboards for this deployment.
   howto: |-
-    You can find the ID of the workspace in the [wep app of Power BI](https://app.powerbi.com)
+    Can be found using the following command
+    ```bash
+    babylon powerbi workspace get -n [workspace_name]"
+    ```
+    It can also be created and filled automatically by babylon
+    ```bash
+    babylon powerbi workspace create MyWorkspace --select
+    `̀ `
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 webapp_domain :
@@ -175,8 +229,15 @@ webapp_registration_id :
   description: |-
     Azure Active Directory App Registration ID used to give permissions to the Static Web App
   howto: |-
-    Create the App Registration with `babylon azure ad app create [myapp]` and copy the returned ID.
-    This will be filled automatically when `babylon webapp deploy` is used.
+    Can be found using the following command
+    ```bash
+    babylon azure ad app get-all --filter "[*].{name:displayName,id:id}"
+    ```
+    It can also be created by babylon during `babylon webapp deploy` or manually with
+    ```bash
+    babylon azure ad app create [my_app] -o my_app.json
+    babylon config set-variable deploy webapp_registration_id %workdir[my_app.json]%id
+    `̀ `
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 webapp_insights_instrumentation_key :
@@ -184,8 +245,11 @@ webapp_insights_instrumentation_key :
   description: |-
     Azure Application Insights instrumentation key used to send logs from the Static Web App
   howto: |-
-    Create the Application Insights with `babylon azure appinsight create [myapp]` and copy the returned instrumentation key.
-    This will be filled automatically when `babylon webapp deploy` is used.
+    Can be found using the following command
+    ```bash
+    babylon azure appinsight get-all --filter "[*].{name:name,key:properties.InstrumentationKey}"
+    ```
+    It will be set automatically during `babylon webapp deploy`
   example: |-
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 webapp_enable_insights : 
@@ -199,12 +263,19 @@ terraform_cloud_workspace_id :
   description: |-
     Terraform Cloud workspace used for terraform operations
   howto: |-
-    Create the Workspace with `babylon terraform-cloud workspace create --select my_workspace`.
+    Can be found using the following command
+    ```bash
+    babylon terraform-cloud workspace get-all
+    ```
+    It can also be created and set by babylon
+    ```bash
+    babylon terraform-cloud workspace create [my_workspace] --select
+    `̀ `
   example: |-
     xxxxxxxx
 powerbi_api_scope :
   display_name: PowerBI API Scope
   description: |-
-    Used to make api calls to PowerBI, mostly by default but can be set for on-premise PowerBI install
+    Used to make api calls to PowerBI, keep the default value except for on-premise PowerBI install
   example: |-
     "https://analysis.windows.net/powerbi/api/.default"
