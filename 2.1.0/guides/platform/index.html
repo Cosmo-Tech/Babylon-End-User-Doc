@@ -914,12 +914,13 @@ babylon azure ad app get-all --filter "[?displayName==`phoenix core dev`].identi
 <div class="tabbed-block">
 <p>Your scope is your platform url ended with <code>/.default</code> (see example)</p>
 </div>
-<div class="tabbed-block"></div>
-</div>
-</div>
-<p>Your scope is the following value name, replacing the app registration name with the one used for your platform
-  <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>ad<span class="w"> </span>app<span class="w"> </span>get-all<span class="w"> </span>--filter<span class="w"> </span><span class="s2">&quot;[?displayName==\`phoenix core dev\`].api.oauth2PermissionScopes&quot;</span><span class="w">  </span>example:<span class="w"> </span><span class="p">|</span>-
+<div class="tabbed-block">
+<p>Your scope is the following value name, replacing the app registration name with the one used for your platform.
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>ad<span class="w"> </span>app<span class="w"> </span>get-all<span class="w"> </span>--filter<span class="w"> </span><span class="s2">&quot;[?displayName==\`phoenix core dev\`].api.oauth2PermissionScopes&quot;</span>
 </code></pre></div></p>
+</div>
+</div>
+</div>
 <div class="example">
 <p><code>https://dev.api.cosmotech.com/.default</code></p>
 </div>
@@ -1090,9 +1091,9 @@ In case you want a full list of the available locations you can use the <code>az
 <dd>Name of the main storage account tied to your platform</dd>
 <dt>How to get a value to set here ?</dt>
 <dd>Use the following az cli command
-<code>̀̀</code>̀̀<code>bash
-az login -t [tenant_id]
-az storage account list --query [*].name</code>̀̀<code>̀̀</code>  </dd>
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>login<span class="w"> </span>-t<span class="w"> </span><span class="o">[</span>tenant_id<span class="o">]</span>
+az<span class="w"> </span>storage<span class="w"> </span>account<span class="w"> </span>list<span class="w"> </span>--query<span class="w"> </span><span class="o">[</span>*<span class="o">]</span>.name
+</code></pre></div></dd>
 </dl>
 <div class="example">
 <p><code>mystorageaccount</code></p>
@@ -1123,10 +1124,9 @@ az storage account list --query [*].name</code>̀̀<code>̀̀</code>  </dd>
 <dd>ID of the Azure Active Directory group <code>PowerBI</code></dd>
 <dt>How to get a value to set here ?</dt>
 <dd>Use the following commands
-<code>̀̀</code>̀̀<code>bash
-az login -t [tenant_id]
-babylon azure ad group get-all --filter [?displayName==\</code>PowerBI`].id
-<code>̀̀</code>̀̀`  </dd>
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>login<span class="w"> </span>-t<span class="w"> </span><span class="o">[</span>tenant_id<span class="o">]</span>
+babylon<span class="w"> </span>azure<span class="w"> </span>ad<span class="w"> </span>group<span class="w"> </span>get-all<span class="w"> </span>--filter<span class="w"> </span><span class="o">[</span>?displayName<span class="o">==</span><span class="se">\`</span>PowerBI<span class="se">\`</span><span class="o">]</span>.id
+</code></pre></div></dd>
 </dl>
 <div class="example">
 <p><code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code></p>
