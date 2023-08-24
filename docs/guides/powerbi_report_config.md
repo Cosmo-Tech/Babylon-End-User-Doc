@@ -2,6 +2,7 @@
 hide:
   - toc
 ---
+
 # Configuring PowerBI reports
 
 !!! info
@@ -42,10 +43,10 @@ Once your Power BI report is ready, publish it to the Power BI Web Portal.
 
 ???+ abstract "With Babylon"
     1. Get your workspace id  
-      [babylon powerbi workspace get-all](https://cosmo-tech.github.io/Babylon/latest/cli/#get-all_13)
+      [babylon -c `<project_id>` -p `<platform_id>` powerbi workspace get-all](https://cosmo-tech.github.io/Babylon/latest/cli/#get-all_13)
     2. Upload your report  
-      `babylon powerbi report upload -w [workspace_id] [myfile.pbix]`  
-      [babylon powerbi report upload](https://cosmo-tech.github.io/Babylon/latest/cli/#upload_2)
+      `babylon -c `<project_id>` -p `<platform_id>` powerbi report upload -w [workspace_id] [myfile.pbix]`  
+      [babylon -c `<project_id>` -p `<platform_id>` powerbi report upload](https://cosmo-tech.github.io/Babylon/latest/cli/#upload_2)
 
 ???+ abstract "With PowerBI Web Portal"
     ![Screenshot of publishing report](../assets/pbi_step_4a.png)
@@ -56,16 +57,14 @@ If you want to plug your Power BI report to a new environment you can do it easi
 
 ???+ abstract "With Babylon"
     1. Get your workspace id  
-      [babylon powerbi workspace get-all](https://cosmo-tech.github.io/Babylon/latest/cli/#get-all_13)
+      [babylon -c `<project_id>` -p `<platform_id>` powerbi workspace get-all](https://cosmo-tech.github.io/Babylon/latest/cli/#get-all_13)
     2. Get your dataset id  
-      [babylon powerbi dataset get-all](https://cosmo-tech.github.io/Babylon/latest/cli/#get-all_11)
+      [babylon -c `<project_id>` -p `<platform_id>` powerbi dataset get-all](https://cosmo-tech.github.io/Babylon/latest/cli/#get-all_11)
     3. Update parameters  
-      `babylon dataset parameters update -w [workspace_id] -p ADX_cluster [adx_cluster] -p ADX_database [adx_database] [dataset_id]`  
-      [babylon powerbi dataset parameters update](https://cosmo-tech.github.io/Babylon/latest/cli/#update_8)
-    2. Update dataset credentials
-      `babylon powerbi dataset update-credentials -w [workspace_id] [dataset_id]`  
-      [babylon powerbi dataset update-credentials](https://cosmo-tech.github.io/Babylon/latest/cli/#update-credentials)
-    3. The data sources will automatically be updated to read the new environment's data. 
+      [babylon -c `<project_id>` -p `<platform_id>` powerbi dataset parameters update](https://cosmo-tech.github.io/Babylon/latest/cli/#update_8)
+    4. Update dataset credentials  
+      [babylon -c `<project_id>` -p `<platform_id>` powerbi dataset update-credentials -w [workspace_id]  [dataset_id]](https://cosmo-tech.github.io/Babylon/latest/cli/#update-credentials)
+    5. The data sources will automatically be updated to read the new environment's data. 
     
 ???+ abstract "With PowerBI web portal"
     1. Go to the Power BI workspace and access the settings of your report’s Dataset.

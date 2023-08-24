@@ -1,7 +1,6 @@
 ---
 hide:
   - path
-  - toc
 ---
 
 <main class="grid" markdown>
