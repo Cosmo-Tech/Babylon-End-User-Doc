@@ -40,6 +40,4 @@ def generate_file(file_type: str):
         _md_file.writelines("\n".join(content))
 
 
-generate_file("deployment")
-generate_file("platform")
-generate_file("secrets")
+generate_file("home")

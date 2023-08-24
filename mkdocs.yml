@@ -42,20 +42,12 @@ extra:
 nav:
   - Home:
     - Home: 'index.md'
-    - Discover Babylon: 'DiscoverBabylon.md'
   - Guides:
       - Guides: 'guides/index.md'
-      - Installation: 'guides/installation.md'
-      - Azure Requirements: 'guides/az_requirements.md'
-      - Configuration: 'guides/configuration.md'
-      - Deployment Values: 'guides/deployment.md'
-      - Platform Values: 'guides/platform.md'
-      - Secrets Values: 'guides/secrets.md'
-      - PowerBI reports configuration: 'guides/powerbi_report_config.md'
-  - Commands:
-      - Macro List: 'commands/index.md'
-      - Power BI deploy-workspace: 'commands/powerbi_deploy_workspace.md'
-      - WebApp Deploy: 'commands/webapp_deploy.md'
+      - Getting started: 'guides/getting_started.md'
+      - Solution deployment: 'guides/solution_deployment.md'
+      - PowerBI deployment: 'commands/powerbi_deploy_workspace.md'
+      - WebApp deployment: 'commands/webapp_deploy.md'
 
 markdown_extensions:
     - admonition
@@ -90,6 +82,5 @@ plugins:
     - gen-files:
         scripts:
           - src/generate_index.py
-          - src/generate_description_file.py
     - literate-nav
     - mike

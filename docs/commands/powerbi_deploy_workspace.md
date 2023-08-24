@@ -4,73 +4,91 @@ hide:
 ---
 # Power BI Deploy Workspace
 
-`babylon powerbi deploy-workspace` will deploy a PowerBI workspace and populate it with reports. If the given workspace name already exists, the reports will be published in the existing workspace.
+## Description
+
+This macro command will deploy a PowerBI workspace and populate it with reports. If the given workspace name already exists, the reports will be published in the existing workspace.
 
 This includes:
 
-  - Creating a PowerBI workspace if it does not exist
+  - Creating a PowerBI workspace if it does not exists
+  - Add user to PowerBI workspace
   - Uploading all reports from a folder
   - Updating dataset parameters
   - Updating dataset azure credentials
 
-???+ warning "Requirements"
-    By default this macro command require a folder called `POWERBI` containing all your `.pbix` files in current working directory.
+## Configuration 
 
-!!! note ""
+!!! warning "Requirements"
+    By default this macro command requires a folder called `powerbi` containing two sub-folders 
+    both with your `.pbix` files in respectively directory.
+
+        ├── powerbi
+        │   ├── dashboard
+        │   │   ├── dashboard_1.pbix
+        │   │   ├── dashboard_2.pbix
+        │   │   ├── dashboard_3.pbix
+        │   │   ├── dashboard_4.pbix
+        │   └── scenario
+        │       └── scenario.pbix
+
+
+!!! info "Note"
+    You can setup your `email` and your `user principal id` ([Azure Directory](https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers)) in your config files to deploy powerbi workspace with your credentials.
+
     ```bash
-    babylon powerbi deploy-workspace --help
-    # Usage: babylon powerbi deploy-workspace [OPTIONS] WORKSPACE_NAME
-    #
-    #   Macro command allowing full deployment of a power bi workspace
-    #
-    #   Require a local folder named `powerbi-reports` and will initialize a full
-    #   workspace with the given reports
-    #
-    # Options:
-    #   -f, --report-folder DIRECTORY
-    #   -p, --report-parameter <FILETYPE FILETYPE>...
-    #   --override                      override reports in case of name conflict ?
-    #   -h, --help                      Show this message and exit.
+    babylon config set azure email <CHANGEME> -c <context_id> -p <platform_id> 
     ```
 
-???+ warning "Requirements"
-    By default this macro command require a folder called `powerbi-reports` containing all your `.pbix` files in your current folder.
+    ```bash
+    babylon config set azure user_principal_id <USER_PRINCIPAL_ID> -c <context_id> -p <platform_id> 
+    ```
 
-???+ success "Arguments"
-    === "`WORKSPACE_NAME`"
-        This parameter is a required parameter for the command.
-        It is a unique string over your Power BI environment that name your future workspace.
+    Then, make sure you have the required rights.
+    ```bash
+    babylon azure adx permission set -c <context_id> -p <platform_id> --type User --role Admin %azure%user_principal_id 
+    ```
 
-???+ note "Options"
-    === "`--report-folder` / `-f`"
-        This option allows you to replace the default folder `powerbi-report` by any folder you may want to use.
-        ???+ example
-            ```bash
-            ... --report-folder ./myfolder/mypowerbifolder
-            ```
-    === "`--report-parameter` / `-p`"
-        This option can be used multiple times.
-        This option allows you to define a pair of key/value that will be applied to all the dataset uploaded during the creation of the workspace
-        Both the key and the value can be loaded using the `QueryType` (described in the advanced documentation)
-        ???+ example
-            ```bash
-            # Would set the parameter named MyKey to the value MyValue
-            ... --report-parameter MyKey MyValue
-            # Would set the parameter named MySecondKey to the value read in the deployment file at `solution_id`
-            ... --report-parameter MySecondKey %deploy%solution_id
-            ```
+    Finally, you have to retrieve your access token powerbi
+    ```bash
+    babylon azure token store -c <context_id> -p <platform_id> --scope powerbi 
+    ```
 
-???+ failure "Known Issues"
-    After setting the parameter, this macro will try to update the credentials of the dataset.
-    If you don't have the rights to the targeted databases this step can fail, but won't break the deployment.
-    You will need an user with the correct permissions to `take-over` the dataset, and then to upgrade the credentials.
+    !!! important 
+        The last command will give you a secret.
+        ```bash
+        export BABYLON_ENCODING_KEY=<your_secret>
+        ```
 
-???+ abstract "Steps"
-    1. Create a PowerBI workspace  
-    [babylon powerbi workspace create](https://cosmo-tech.github.io/Babylon/latest/cli/#create_15)  
-    2. Upload a directory of `.pbix` reports to PowerBI Web  
-    [babylon powerbi report upload](https://cosmo-tech.github.io/Babylon/latest/cli/#upload_2)  
-    3. Update uploaded PowerBI report parameters `ADX_cluster` and `ADX_database`  
-    [babylon powerbi dataset parameters update](https://cosmo-tech.github.io/Babylon/latest/cli/#update_8)  
-    4. Refresh Azure credentials used to access data from `ADX`  
-    [babylon powerbi dataset update-credentials](https://cosmo-tech.github.io/Babylon/latest/cli/#update-credentials)  
+
+## Macro command
+
+!!! Macro
+    ```bash
+    babylon powerbi workspace deploy <WORKSPACE_NAME> -c <context_id> -p <platform_id> \
+        --folder <FOLDER_NAME>/<scenario | dashboard> \
+        --type <scenario_view | dashboard_view> 
+    ```
+
+!!! Usage
+    ```bash
+    # Usage: babylon powerbi workspace deploy [OPTIONS] WORKSPACE_NAME 
+    # 
+    #   Macro command allowing full deployment of a powerBI workspace
+    #   Requires a local folder named `powerbi` and will initialize a full workspace with the
+    #   given reports. Won't run powerbi workspace creation if it's already existing
+    # 
+    # Options:
+    #   --folder DIRECTORY          Override folder containing your .pbix files
+    #                                   [required]
+    #   --parameter <QUERYSTRING QUERYSTRING>...
+    #                                   Add a combination <Key Value> that will be
+    #                                   sent as parameter to all your datasets
+    #   --override                      override reports in case of name conflict ?
+    #   --type [scenario_view|dashboard_view]
+    #                                   [required]
+    #   --help                          Show this message and exit.
+    ```
+
+
+
+
