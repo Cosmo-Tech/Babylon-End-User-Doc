@@ -8,28 +8,24 @@ hide:
 
 <article markdown>
 <div class="text" markdown>
-:material-clock-fast: __Install Babylon__
+:rocket: **Getting started**
 
----
-Learn how to install `babylon` like a pro
+You'll learn how to install, run, and experiment with Babylon.
 
----
 <footer markdown>
-[:octicons-arrow-right-24: Getting started](./installation.md)
+[:octicons-arrow-right-24: Getting started](./getting_started.md)
 </footer>
 </div>
 </article>
 
 <article markdown>
 <div class="text" markdown>
-:material-microsoft-azure: __Azure Requirements__
+:material-cloud: **Solution deploy**
 
----
-This guide will help you with the required steps to use Babylon with Azure
+This guide will help you to deploy a new solution.
 
----
 <footer markdown>
-[:octicons-arrow-right-24: Azure Requirements](./az_requirements.md)
+[:octicons-arrow-right-24: Solution deploy](./solution_deploy.md)
 </footer>
 </div>
 
@@ -37,14 +33,12 @@ This guide will help you with the required steps to use Babylon with Azure
 
 <article markdown>
 <div class="text" markdown>
-:material-terraform: __Terraform Cloud Requirements__
+:material-note: **PowerBI deploy**
 
----
-This guide will help you with the required steps to use Babylon with Terraform Cloud
+You will deploy a PowerBI workspace and populate it with reports.
 
----
 <footer markdown>
-[:octicons-arrow-right-24: Terraform Cloud requirements](./tfc_requirements.md)
+[:octicons-arrow-right-24: PowerBI deploy](../commands/powerbi_deploy_workspace.md)
 </footer>
 </div>
 
@@ -52,74 +46,15 @@ This guide will help you with the required steps to use Babylon with Terraform C
 
 <article markdown>
 <div class="text" markdown>
-:material-note: __Configuration__
+:material-note: **WebApp deploy**
 
----
-This guide will help you configure your new installation of Babylon
+This guide will help you to deploy a new WebApp.
 
----
 <footer markdown>
-[:octicons-arrow-right-24: Configuration](./configuration.md)
+[:octicons-arrow-right-24: WebApp deploy](../commands/webapp_deploy.md)
 </footer>
 </div>
 
 </article>
 
-<article markdown>
-<div class="text" markdown>
-:material-view-grid: __Deployment values__
-
----
-This guide will explain all the deployment values to you, and how to get them.
-
----
-<footer markdown>
-[:octicons-arrow-right-24: Deployment](./deployment.md)
-</footer>
-</div>
-</article>
-
-
-<article markdown>
-<div class="text" markdown>
-:material-view-grid: __Platform values__
-
----
-This guide will explain all the platform values to you, and how to get them.
-
----
-<footer markdown>
-[:octicons-arrow-right-24: Platform](./platform.md)
-</footer>
-</div>
-</article>
-
-<article markdown>
-<div class="text" markdown>
-:material-view-grid: __Secrets values__
-
----
-This guide will explain all secrets values to you, and how to get them.
-
----
-<footer markdown>
-[:octicons-arrow-right-24: Secrets](./secrets.md)
-</footer>
-</div>
-</article>
-
-<article markdown>
-<div class="text" markdown>
-:material-note: __PowerBI reports configuration__
-
----
-This guide will help you to configure your PowerBI reports to ensure Babylon compatibility.
-
----
-<footer markdown>
-[:octicons-arrow-right-24: PowerBI reports configuration](./powerbi_report_config.md)
-</footer>
-</div>
-
-</article>
 </main>

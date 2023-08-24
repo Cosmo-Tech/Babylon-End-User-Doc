@@ -6,9 +6,9 @@ with open('requirements.txt') as f:
 
 setup(
     name='Babylon End User Documentation',
-    version='2.1.0',
-    author='Alexis Fossart',
-    author_email='alexis.fossart@cosmotech.com',
+    version='3.0.0',
+    author='Cosmo Tech',
+    author_email='nibaldo.donoso@cosmotech.com',
     url="https://github.com/Cosmo-Tech/Babylon",
     description='Simple setup.py for the build of the Babylon end user documentation',
     packages=find_packages(),
