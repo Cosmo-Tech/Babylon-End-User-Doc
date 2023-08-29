@@ -1,4 +1,4 @@
-# Getting started with Babylon
+# :rocket: Getting started with Babylon
 
 This is a guide to getting started with Babylon. You'll learn how to install, run, and experiment with the Babylon.
 
@@ -21,26 +21,27 @@ babylon --help
 ### Setup environment variables
 
 The vault service is required to work with babylon cli.
-Contact your babylon admin to get your uri service and your userpass.
+Contact your babylon admin to get your **URI** service and your **userpass**.
 
-```bash
-export BABYLON_SERVICE=<uri_babylon_vault_server>
-```
+* Set **URI** vault service.
+  ```bash
+  export BABYLON_SERVICE=<uri_babylon_vault_server>
+  ```
 
-Now, you will need set some environment variables before interacting with Babylon cli.
-To do so, perform the login command.
+  Now, you will need set some environment variables before interacting with Babylon cli.
+  To do so, perform the login command.
 
-```bash
-babylon hvac login
-```
-questions: 
-```text
-[?] Username: <username>
-[?] Password: ****
-[?] Organization: <organization_name>`
-```
-
-Copy the response and paste it in your environment.
+* Login and get an access token.  
+  ```bash
+  babylon hvac login
+  ```
+  questions: 
+  ```text
+  [?] Username: <username>
+  [?] Password: ****
+  [?] Organization: <organization_name>
+  ```
+  Copy the response and paste it in your environment.
 
 
 ### Configuration
@@ -55,21 +56,22 @@ For example, you can try this command,
 ```bash
 babylon config -c brewery -p dev display
 ```
-You will see in your terminal the current configuration.
+You will see in your terminal the current configuration. For now, this configuration is empty.
 
-For now, this configuration is empty.
-
-To initialize the configuration for `dev` platform, you need perform this command.
+To select the configuration for `dev` platform, you need perform this command.
 
 ```bash
 babylon config -c brewery -p dev select
 ```
 
-Try again the display command and see the current configuration.
+Try again the display command and verify the current configuration.
 
 
 ## Explore babylon
 
+You will explore some basics commands. 
+
+### Configuration files
 
 * ** Set and get configuration variables ** 
 ```bash
@@ -81,7 +83,7 @@ babylon config -c brewery -p dev set azure email example@test.com
 babylon config -c brewery -p dev get azure email
 ```
 
-<br>
+### Azure container registry and images
 
 * ** Interact with Azure Container Registry ** 
 !!! requirements
@@ -119,3 +121,7 @@ babylon azure -c brewery -p staging acr push -i brewery_simulator:0.0.26
 babylon config -c brewery -p staging get acr simulator_repository
 babylon config -c brewery -p staging get acr simulator_version
 ```
+
+## Config files specification
+
+--8<-- 'docs/guides/resource_file.md'

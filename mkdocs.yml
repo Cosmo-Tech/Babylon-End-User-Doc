@@ -42,14 +42,12 @@ extra:
 nav:
   - Home:
     - Home: 'index.md'
-    - Discover Babylon: 'discover.md'
   - Guides:
+      - Guides: 'guides/index.md'
       - Getting started: 'guides/getting_started.md'
-      - Config files: 'guides/resource_file.md'
-      - Deploy solution: 'guides/brewery.md'
-  - Macro Commands:
+      - Solution deploy: 'guides/solution_deploy.md'
       - PowerBI deploy: 'commands/powerbi_deploy_workspace.md'
-      - WebApp Deploy: 'commands/webapp_deploy.md'
+      - WebApp deploy: 'commands/webapp_deploy.md'
 
 markdown_extensions:
     - admonition

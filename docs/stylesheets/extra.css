@@ -7,11 +7,12 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: 10px;
+    grid-gap: 1rem;
     align-items: stretch;
 } 
 
 .grid > article {
+    padding: 10px;
     border: 1px solid #ccc;
 } 
 
@@ -34,14 +35,20 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    padding: 0 10px 10px 0;
+    padding: 0 20px 0px 0;
 } 
+
+.grid > article .text {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+}
 
 .grid > article .text .example {
     display: flex;
     position: absolute;
     padding: 0 10px 0 0;
-    top: -40px;
+    top: 0px;
     right: 0;
     max-width: 20%;
 }
