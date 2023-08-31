@@ -25,8 +25,14 @@ hide:
     You can setup your `email` and your `user principal id` in your config files to deploy powerbi workspace with your credentials (you will find them in this section: [Azure Directory](https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers))
 
     ```bash
-    babylon azure -c <context_id> -p <platform_id> config set azure email <changeme>
-    babylon azure -c <context_id> -p <platform_id> config set azure user_principal_id <user_principal_id>
+    babylon config -c <context_id> -p <platform_id> set azure email <changeme>
+    babylon config -c <context_id> -p <platform_id> set azure user_principal_id <user_principal_id>
+    ```
+
+    Prepare sections for powerbi
+    ```bash
+    babylon config -c <context_id> -p <platform_id> set powerbi dashboard_view
+    babylon config -c <context_id> -p <platform_id> set powerbi scenario_view
     ```
 
     Then, make sure you have the rights required
