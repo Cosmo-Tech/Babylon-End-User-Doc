@@ -36,8 +36,6 @@ babylon config -c brewery -p staging set azure email <changeme>
 babylon config -c brewery -p staging set azure user_principal_id <user_principal_id> 
 babylon config -c brewery -p staging set api workspace_key <workspace_key> 
 babylon config -c brewery -p staging set adx cluster_uri <uri_kusto_cluster> 
-babylon config -c brewery -p staging set powerbi dashboard_view 
-babylon config -c brewery -p staging set powerbi scenario_view 
 babylon config -c brewery -p staging set azure team_id <team_id> 
 ```
 
@@ -48,6 +46,8 @@ In this point, you can create a new organization or retrieve an organization
 babylon config -c brewery -p staging set api workspace_key <changeme>
 babylon api    -c brewery -p staging organizations payload create
 babylon api    -c brewery -p staging organizations create <organization_name> -e <email> -r Admin
+
+# make sure you have your storage and all rights
 babylon azure  -c brewery -p staging storage container create <organization_id>
 babylon azure  -c brewery -p staging iam set -rt Microsoft.Storage/storageAccounts \
     -ri %azure%storage_blob_reader \
@@ -77,6 +77,8 @@ babylon azure -c brewery -p staging adt instance create
 * ** Retrieve ADT instance **
 ```bash
 babylon config -c brewery -p staging set adt digital_twins_url <digital_twins_url>
+
+# make sure you have all rights
 babylon azure  -c brewery -p staging iam set \
     -rt Microsoft.DigitalTwins/digitalTwinsInstances \
     -ri %adt%built_owner_id
@@ -117,6 +119,8 @@ babylon azure -c brewery -p staging adx script run-folder adx/
 * ** Create Eventhub namespace** 
 ```bash
 babylon azure -c brewery -p staging arm run -f %templates%/arm/eventhub_deploy.json
+
+# make sure you have all rights
 babylon azure -c brewery -p staging iam set \
     -rt Microsoft.EventHub/Namespaces \
     -ri %azure%eventhub_built_data_receiver \
@@ -203,10 +207,12 @@ babylon hvac -c <context_id> -p <platfom_id> set project eventhub $eventkey
         You can setup your `email` and your `user principal id` ([Azure Directory](https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers)) in azure section to deploy powerbi workspace with your credentials
 
         ```bash
-        babylon azure -c <context_id> -p <platform_id> config set azure email <changeme>
-        babylon azure -c <context_id> -p <platform_id> config set azure user_principal_id <user_principal_id>
-        babylon azure -c <context_id> -p <platform_id> adx permission set -t User -r Admin %azure%user_principal_id
-        babylon azure -c <context_id> -p <platform_id> token store --scope powerbi
+        babylon config -c <context_id> -p <platform_id> set azure email <changeme>
+        babylon config -c <context_id> -p <platform_id> set azure user_principal_id <user_principal_id>
+        babylon config -c <context_id> -p <platform_id> set powerbi dashboard_view 
+        babylon config -c <context_id> -p <platform_id> set powerbi scenario_view 
+        babylon azure  -c <context_id> -p <platform_id> adx permission set -t User -r Admin %azure%user_principal_id
+        babylon azure  -c <context_id> -p <platform_id> token store --scope powerbi
         ```
 
     !!! warning 
@@ -257,15 +263,15 @@ babylon hvac -c <context_id> -p <platfom_id> set project eventhub $eventkey
     Now, setup the webapp configuration
 
     ```bash
-    babylon -c brewery -p staging config set azure function_artifact_url <uri_artifact_zip> 
-    babylon -c brewery -p staging config set webapp deployment_name <changeme>
-    babylon -c brewery -p staging config set webapp location <changeme>
-    babylon -c brewery -p staging config set github branch <changeme>
-    babylon -c brewery -p staging config set github organization <changeme>
-    babylon -c brewery -p staging config set github repository <changeme>
-    babylon -c brewery -p staging webapp deploy
+    babylon config -c brewery -p staging set azure function_artifact_url <uri_artifact_zip> 
+    babylon config -c brewery -p staging set webapp deployment_name <changeme>
+    babylon config -c brewery -p staging set webapp location <changeme>
+    babylon config -c brewery -p staging set github branch <changeme>
+    babylon config -c brewery -p staging set github organization <changeme>
+    babylon config -c brewery -p staging set github repository <changeme>
+    babylon webapp -c brewery -p staging deploy
 
-    babylon -c brewery -p staging powerbi workspace user add %app%principal_id App Admin
+    babylon powerbi -c brewery -p staging workspace user add %app%principal_id App Admin
     ```
     [Get additional information about command](/commands/webapp_deploy/)  
 
