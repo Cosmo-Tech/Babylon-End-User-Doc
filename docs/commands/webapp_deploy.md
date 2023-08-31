@@ -4,47 +4,8 @@ hide:
 ---
 # WebApp Deploy
 
-## Macro command
-
-!!! Macro
-    ```bash
-    babylon webapp -c <context_id> -p <platfom_id> deploy
-    
-    # Usage: babylon webapp -c <context_id> -p <platform_id> deploy [OPTIONS]
-    # 
-    #  Macro command allowing deployment of new webapp.
-    # 
-    # Options:
-    # --func-arm PATH  File with arm Azure Function deployment
-    # --help           Show this message and exit.
-    ```
-
-## Description
-
-This macro command will create a static webapp and configure it with the webapp source code.
-
-This includes:
-
-  - Creating and configuring an Azure Static WebApp resource
-  - Creating and configuring an Azure Active Directory App Registration
-  - Configuring the WebApp source code
-  - Adding access to the PowerBI Workspace
-
-
-!!! important "DNS Record"
-    DNS Record creation is intently not supported by Babylon.  
-
-
 
 ## Configuration
-
-!!! warning "Requirements"
-    This macro requires a github access token set in vault service.
-    
-    Please generate github access token using classic tokens [Github access Tokens](https://github.com/settings/tokens) and perform the following command:
-    ```bash
-    babylon hvac set global github token [github_pat_token]
-    ```
 
 !!! warning "Requirements"
     This macro requires a github repository with the destination branch already created
@@ -65,4 +26,38 @@ This includes:
       rm -r .github/
       git add .; git commit -m 'first commit'
       git push origin <BRANCH> -f
+    ```
+
+## Description
+
+The macro command will create a static webapp and configure it with the webapp source code.
+
+This includes:
+
+  - Creating and configuring an Azure Static WebApp resource
+  - Creating and configuring an Azure Active Directory App Registration
+  - Configuring the WebApp source code
+  - Adding access to the PowerBI Workspace
+
+
+!!! important "DNS Record"
+    DNS Record creation is intently not supported by Babylon.  
+
+
+## Macro command
+
+!!! Macro
+    ```bash
+    babylon webapp -c <context_id> -p <platfom_id> deploy
+    ```
+
+!!! Usage
+    ```bash
+    # Usage: babylon webapp -c <context_id> -p <platform_id> deploy [OPTIONS]
+    # 
+    #  Macro command allowing deployment of new webapp.
+    # 
+    # Options:
+    # --func-arm PATH  File with arm Azure Function deployment
+    # --help           Show this message and exit.
     ```
