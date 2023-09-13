@@ -17,6 +17,7 @@ jobs:
           git clone https://github.com/Cosmo-Tech/Babylon.git babylon
           cd babylon
           pip install -e .
+          pip install -r requirements.txt
       - name: Extract version
         id: version
         run: echo "version=$(babylon --version)" >> $GITHUB_OUTPUT
