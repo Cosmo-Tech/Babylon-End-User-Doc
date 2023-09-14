@@ -565,15 +565,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-powerbi" class="md-nav__link">
-    Deploy PowerBI
+  <a href="#powerbi-deploy" class="md-nav__link">
+    PowerBI deploy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-webapp" class="md-nav__link">
-    Deploy Webapp
+  <a href="#webapp-deploy" class="md-nav__link">
+    Webapp deploy
   </a>
   
 </li>
@@ -641,7 +641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../commands/webapp_deploy/" class="md-nav__link">
+      <a href="../../commands/webapp_deployment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -766,15 +766,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-powerbi" class="md-nav__link">
-    Deploy PowerBI
+  <a href="#powerbi-deploy" class="md-nav__link">
+    PowerBI deploy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-webapp" class="md-nav__link">
-    Deploy Webapp
+  <a href="#webapp-deploy" class="md-nav__link">
+    Webapp deploy
   </a>
   
 </li>
@@ -1057,7 +1057,7 @@ babylon<span class="w"> </span>azure<span class="w"> </span>adx<span class="w"> 
 babylon<span class="w"> </span>hvac<span class="w"> </span><span class="nb">set</span><span class="w"> </span>project<span class="w"> </span>eventhub<span class="w"> </span><span class="nv">$eventkey</span><span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf
 </code></pre></div>
 </div>
-<h3 id="deploy-powerbi">Deploy PowerBI</h3>
+<h3 id="powerbi-deploy">PowerBI deploy</h3>
 <div class="admonition warning">
 <p class="admonition-title">Requirements</p>
 <p>By default this macro command requires a folder called <code>powerbi</code> containing two sub-folders (<code>dashboard</code> and <code>scenario</code>) with your <code>.pbix</code> files. </p>
@@ -1094,7 +1094,7 @@ babylon<span class="w"> </span>hvac<span class="w"> </span><span class="nb">set<
 <p><a href="/commands/powerbi_deploy_workspace/">Get additional information about command</a>  </p>
 </div>
 <p><br></p>
-<h3 id="deploy-webapp">Deploy Webapp</h3>
+<h3 id="webapp-deploy">Webapp deploy</h3>
 <div class="admonition warning">
 <p class="admonition-title">Requirements</p>
 <p>This macro requires a github access token set in vault service.</p>
@@ -1173,9 +1173,13 @@ babylon<span class="w"> </span>hvac<span class="w"> </span><span class="nb">set<
 <h3 id="create-solution">Create Solution</h3>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>solutions<span class="w"> </span>payload<span class="w"> </span>create<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>
 </code></pre></div>
-<blockquote>
-<p>Make specific changes to Solution.</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You will find a new file in <code>.payload</code> directory.</p>
+<ul>
+<li>Make changes in solution description file <code>.payload/brewery.dev.solution.yaml</code></li>
+</ul>
+</div>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>solutions<span class="w"> </span>create<span class="w"> </span>&lt;solution_name&gt;<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>
 </code></pre></div>
 <h3 id="create-workspace">Create Workspace</h3>
@@ -1187,9 +1191,13 @@ babylon<span class="w"> </span>config<span class="w"> </span><span class="nb">se
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>workspaces<span class="w"> </span>payload<span class="w"> </span>create<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>
 </code></pre></div>
-<blockquote>
-<p>Make specific changes to Workspace.</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You will find a new file in <code>.payload</code> directory.</p>
+<ul>
+<li>Make changes in workspace description file <code>.payload/brewery.dev.workspace.yaml</code></li>
+</ul>
+</div>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>workspaces<span class="w"> </span>create<span class="w"> </span>&lt;CHANGEME&gt;<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>
 </code></pre></div>
 <h3 id="register-the-eventhub-key-in-workspace">Register the eventhub key in workspace</h3>
