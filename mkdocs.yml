@@ -47,7 +47,7 @@ nav:
       - Getting started: 'guides/getting_started.md'
       - Solution deployment: 'guides/solution_deployment.md'
       - PowerBI deployment: 'commands/powerbi_deploy_workspace.md'
-      - WebApp deployment: 'commands/webapp_deploy.md'
+      - WebApp deployment: 'commands/webapp_deployment.md'
 
 markdown_extensions:
     - admonition

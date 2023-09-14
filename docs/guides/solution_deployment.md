@@ -359,7 +359,7 @@ babylon azure adx connections create -c brewery -p perf ScenarioRunMetaData %adx
     babylon hvac set project eventhub $eventkey -c brewery -p perf
     ```
 
-### Deploy PowerBI
+### PowerBI deploy
 
 !!! warning "Requirements"
     By default this macro command requires a folder called `powerbi` containing two sub-folders (`dashboard` and `scenario`) with your `.pbix` files. 
@@ -406,7 +406,7 @@ babylon azure adx connections create -c brewery -p perf ScenarioRunMetaData %adx
 
 <br>
 
-### Deploy Webapp
+### Webapp deploy
 
 !!! warning "Requirements"
     This macro requires a github access token set in vault service.
@@ -536,7 +536,10 @@ At this point, you can create or retrieve a solution.
 babylon api solutions payload create -c brewery -p perf 
 ```
 
->Make specific changes to Solution.
+!!! info 
+    You will find a new file in `.payload` directory.
+
+    * Make changes in solution description file `.payload/brewery.dev.solution.yaml`
 
 ```bash
 babylon api solutions create <solution_name> -c brewery -p perf 
@@ -557,7 +560,10 @@ babylon config set api run_templates -c brewery -p perf \
 babylon api workspaces payload create -c brewery -p perf 
 ```
 
->Make specific changes to Workspace.
+!!! info 
+    You will find a new file in `.payload` directory.
+    
+    * Make changes in workspace description file `.payload/brewery.dev.workspace.yaml`
 
 ```bash
 babylon api workspaces create <CHANGEME> -c brewery -p perf 
