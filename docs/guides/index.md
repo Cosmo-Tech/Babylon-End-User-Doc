@@ -20,12 +20,12 @@ You'll learn how to install, run, and experiment with Babylon.
 
 <article markdown>
 <div class="text" markdown>
-:material-cloud: **Solution deploy**
+:material-cloud: **Solution deployment**
 
 This guide will help you to deploy a new solution.
 
 <footer markdown>
-[:octicons-arrow-right-24: Solution deploy](./solution_deploy.md)
+[:octicons-arrow-right-24: Solution deploy](./solution_deployment.md)
 </footer>
 </div>
 
@@ -33,7 +33,7 @@ This guide will help you to deploy a new solution.
 
 <article markdown>
 <div class="text" markdown>
-:material-note: **PowerBI deploy**
+:material-note: **PowerBI deployment**
 
 You will deploy a PowerBI workspace and populate it with reports.
 
@@ -46,12 +46,12 @@ You will deploy a PowerBI workspace and populate it with reports.
 
 <article markdown>
 <div class="text" markdown>
-:material-note: **WebApp deploy**
+:material-note: **WebApp deployment**
 
 This guide will help you to deploy a new WebApp.
 
 <footer markdown>
-[:octicons-arrow-right-24: WebApp deploy](../commands/webapp_deploy.md)
+[:octicons-arrow-right-24: WebApp deploy](../commands/webapp_deployment.md)
 </footer>
 </div>
 
