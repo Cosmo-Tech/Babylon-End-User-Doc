@@ -87,13 +87,13 @@ babylon api organizations payload create -c brewery -p perf
 ```
 
 ```bash
-babylon api organizations create <organization_name> -c brewery -p perf
+babylon api organizations create <organization_name> -c brewery -p perf \
+    --output .payload/brewery.perf.organization.yaml
 ```
 
 ```bash
-babylon api oeganizations security add -c brewery -p perf --email <CHANGEME> --role admin
+babylon api organizations security add -c brewery -p perf --email email@domain.com --role admin
 ```
-
 
 ```bash
 babylon azure storage container create <organization_id> -c brewery -p perf 
@@ -126,7 +126,7 @@ babylon api organizations get <organization_id> -c brewery -p perf
 ```bash
 # Optional
 babylon api organizations get <organization_id> -c brewery -p perf \
-    --output .payload/brewery.dev.organization.yaml
+    --output .payload/brewery.perf.organization.yaml
 ```
 
 ```bash
@@ -144,80 +144,6 @@ babylon azure iam set -c brewery -p perf \
     --role-id %azure%storage_blob_reader \
     --principal-id %platform%principal_id \
     --resource-name %azure%storage_account_name
-```
-
-At this point, you can create or retrieve an ADT Instance if you need it.
-
-### Create ADT instance
-
-```bash
-babylon azure adt instance create -c brewery -p perf 
-```
-
-```bash
-babylon azure iam set -c brewery -p perf \
-    --resource-type Microsoft.DigitalTwins/digitalTwinsInstances \
-    --role-id %adt%built_owner_id 
-```
-
-```bash
-babylon azure iam set -c brewery -p perf \
-    --resource-type Microsoft.DigitalTwins/digitalTwinsInstances \
-    --role-id %adt%built_reader_id
-```
-
-```bash
-babylon azure set -c brewery -p perf \
-    --principal-id %azure%team_id \
-    --principal-type Group \
-    --resource-type Microsoft.DigitalTwins/digitalTwinsInstances \
-    --role-id %adt%built_owner_id
-```
-
-```bash
-babylon azure set -c brewery -p perf \
-    --principal-id %azure%team_id \
-    --principal-type Group \
-    --resource-type Microsoft.DigitalTwins/digitalTwinsInstances \
-    --role-id %adt%built_reader_id 
-```
-
-### Retrieve ADT instance
-
-```bash
-babylon config set adt digital_twins_url <digital_twins_url> -c brewery -p perf 
-```
-
-```bash
-babylon azure iam set -c brewery -p perf \
-    --resource-type Microsoft.DigitalTwins/digitalTwinsInstances \
-    --role-id %adt%built_owner_id 
-```
-
-```bash
-babylon azure iam set -c brewery -p perf \
-    --resource-type Microsoft.DigitalTwins/digitalTwinsInstances \
-    --role-id %adt%built_reader_id
-```
-
-```bash
-babylon azure set -c brewery -p perf \
-    --principal-id %azure%team_id \
-    --principal-type Group \
-    --resource-type Microsoft.DigitalTwins/digitalTwinsInstances \
-    --role-id %adt%built_owner_id
-```
-
-```bash
-babylon azure set -c brewery -p perf \
-    --principal-id %azure%team_id \
-    --principal-type Group \
-    --resource-type Microsoft.DigitalTwins/digitalTwinsInstances \
-    --role-id %adt%built_reader_id 
-```
-
-```bash
-babylon azure adt model upload dtdl/ -c brewery -p perf 
 ```
 
 ### Azure Data Explorer database
@@ -341,23 +267,39 @@ babylon azure adx connections create -c brewery -p perf ScenarioRunMetaData %adx
     --mapping ScenarioRunMetadataMapping
 ```
 
-### Retrieve eventhub key
+### Authentication Eventhub configuration
 
-!!! warning "Requirements"
-    Azure CLI
+There are two options:
+
+* Tenant Client Credential: 
     
-    ```bash
-    eventkey=$(az eventhubs namespace authorization-rule keys list \
-        -g <RESOURCE_GROUP> \
-        --namespace-name <ORGANIZATION_ID>-<WORKSPACE_ID> \
-        --name RootManageSharedAccessKey \
-        --query primaryKey)
-    ```
+    Platform app registration should be Event Hub Data Sender on Event Hub resource
 
-    ```bash
-    # save this secret
-    babylon hvac set project eventhub $eventkey -c brewery -p perf
-    ```
+    `azure.eventbus.authentication.strategy = “TENANT_CLIENT_CREDENTIALS”`
+
+* Shared Access Key
+
+    `dedicatedEventHubAuthenticationStrategy = “SHARED_ACCESS_POLICY”`
+
+    `name: dedicatedEventHubSasKeyName`
+
+    `key`: Retrieve eventhub share access key
+    
+    !!! warning "Requirements"
+        Azure CLI
+        
+        ```bash
+        eventkey=$(az eventhubs namespace authorization-rule keys list \
+            -g <RESOURCE_GROUP> \
+            --namespace-name <ORGANIZATION_ID>-<WORKSPACE_ID> \
+            --name RootManageSharedAccessKey \
+            --query primaryKey)
+        ```
+
+        ```bash
+        # save this secret
+        babylon hvac set project eventhub $eventkey -c brewery -p perf
+        ```
 
 ### PowerBI deploy
 
@@ -376,7 +318,7 @@ babylon azure adx connections create -c brewery -p perf ScenarioRunMetaData %adx
     You can setup your `email` and your `user principal id` ([Azure Directory](https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers)) in azure section to deploy powerbi workspace with your credentials
 
     ```bash
-    babylon config set azure email <CHANGEME> -c brewery -p perf 
+    babylon config set azure email example@domain.com -c brewery -p perf 
     ```
 
     ```bash
@@ -384,11 +326,11 @@ babylon azure adx connections create -c brewery -p perf ScenarioRunMetaData %adx
     ```
 
     ```bash
-    babylon azure  token store -c brewery -p perf --scope powerbi  
+    babylon azure token store -c brewery -p perf --scope powerbi  
     ```
 
     !!! warning 
-        The last command `babylon azure  token store -c brewery -p perf --scope powerbi` will give you a secret
+        The last command `babylon azure token store -c brewery -p perf --scope powerbi` will give you a secret
         ```bash
         export BABYLON_ENCODING_KEY=<your_secret>
         ```
@@ -411,7 +353,7 @@ babylon azure adx connections create -c brewery -p perf ScenarioRunMetaData %adx
 !!! warning "Requirements"
     This macro requires a github access token set in vault service.
         
-    Please generate github access token using classic tokens [Github access Tokens](https://github.com/settings/tokens) and perform the following command:
+    Please generate github access token using classic tokens [Github access Tokens](https://github.com/settings/tokens) with `repo and workflow` permissions and perform the following command:
     
     ```bash
     babylon hvac set global github token [github_token]
@@ -510,7 +452,10 @@ babylon azure adx connections create -c brewery -p perf ScenarioRunMetaData %adx
 
     [Get additional information about command](/commands/webapp_deploy/)  
 
+    After deployment, make sure to perform an admin consent on API permission of app registration.
 <br>
+
+
 
 ### Retrieve azure function key
 
@@ -539,10 +484,10 @@ babylon api solutions payload create -c brewery -p perf
 !!! info 
     You will find a new file in `.payload` directory.
 
-    * Make changes in solution description file `.payload/brewery.dev.solution.yaml`
+    * Make changes in solution description file `.payload/brewery.perf.solution.yaml`
 
 ```bash
-babylon api solutions create <solution_name> -c brewery -p perf 
+babylon api solutions create <solution_name> -c brewery -p perf --output .payload/brewery.perf.solution.yaml
 ```
 
 
@@ -563,10 +508,10 @@ babylon api workspaces payload create -c brewery -p perf
 !!! info 
     You will find a new file in `.payload` directory.
     
-    * Make changes in workspace description file `.payload/brewery.dev.workspace.yaml`
+    * Make changes in workspace description file `.payload/brewery.perf.workspace.yaml`
 
 ```bash
-babylon api workspaces create <CHANGEME> -c brewery -p perf 
+babylon api workspaces create <workspace_name> -c brewery -p perf 
 ```
 
 ### Register the eventhub key in workspace
