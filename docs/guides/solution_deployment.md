@@ -511,7 +511,7 @@ babylon api workspaces payload create -c brewery -p perf
     * Make changes in workspace description file `.payload/brewery.perf.workspace.yaml`
 
 ```bash
-babylon api workspaces create <workspace_name> -c brewery -p perf 
+babylon api workspaces create <workspace_name> -c brewery -p perf --output .payload/brewery.perf.workspace.yaml 
 ```
 
 ### Register the eventhub key in workspace
