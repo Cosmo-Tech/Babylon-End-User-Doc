@@ -291,7 +291,7 @@ There are two options:
         ```bash
         eventkey=$(az eventhubs namespace authorization-rule keys list \
             -g <RESOURCE_GROUP> \
-            --namespace-name <ORGANIZATION_ID>-<WORKSPACE_ID> \
+            --namespace-name <ORGANIZATION_ID>-<WORKSPACE_KEY> \
             --name RootManageSharedAccessKey \
             --query primaryKey)
         ```
@@ -511,7 +511,8 @@ babylon api workspaces payload create -c brewery -p perf
     * Make changes in workspace description file `.payload/brewery.perf.workspace.yaml`
 
 ```bash
-babylon api workspaces create <workspace_name> -c brewery -p perf --output .payload/brewery.perf.workspace.yaml 
+babylon api workspaces create <workspace_name> -c brewery -p perf \
+    --output .payload/brewery.perf.workspace.yaml 
 ```
 
 ### Register the eventhub key in workspace
