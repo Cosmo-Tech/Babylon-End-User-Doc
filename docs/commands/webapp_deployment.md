@@ -95,6 +95,7 @@ This includes:
     # Options:
     #   -c, --context TEXT   Context Name  [required]
     #   -p, --platform TEXT  Platform Name  [required]
-    #   --arm-path PATH
+    #   --arm-path PATH      Your custom arm azure function description file yaml
+    #   --with-azf           Deploy webapp with azure function
     #   --help               Show this message and exit.
     ```
