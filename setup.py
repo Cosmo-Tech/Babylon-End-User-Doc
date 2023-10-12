@@ -4,13 +4,15 @@ from setuptools import setup
 with open('requirements.txt') as f:
     required = f.read().splitlines()
 
+version = "3.1.0"
+
 setup(
     name='Babylon End User Documentation',
-    version='3.0.0',
+    version=version,
     author='Cosmo Tech',
     author_email='nibaldo.donoso@cosmotech.com',
     url="https://github.com/Cosmo-Tech/Babylon",
-    description='Simple setup.py for the build of the Babylon end user documentation',
+    description='Simple setup.py for the build of the Babylon documentation',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
