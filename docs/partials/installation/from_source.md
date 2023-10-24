@@ -1,4 +1,4 @@
-### ** Get Babylon from source **
+### **Get Babylon from source**
 
 !!! warning "Requirements"
     --8<-- 'docs/partials/installation/prerequisites.md'

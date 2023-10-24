@@ -1,22 +1,29 @@
-# Azure requirements
+## Azure requirements
+
 
 !!! warning "Requirements"
     The following elements are required before you can use Babylon on an Azure subscription
-    === "Platform requirements"
-    --8<-- "docs/partials/azure/platform.md"
 
-## App registration for Babylon CLI
+    * **Fully set up Cosmo Tech Platform installed on your Azure Tenant**
 
-Babylon uses a Service Principal to interact with the API and other resources. To do so, Babylon needs to be registered as an application in the Azure Active Directory.
+    * **App registration for Babylon**
 
-The App registration will need rights on resources you will have to grant.
+    Babylon uses a Service Principal to interact with the API and other resources. To do so, Babylon needs to be registered as an application in the Azure Active Directory.
 
-* **Microsoft Graph**
-    - Application.ReadWrite.All
-    - Application.ReadWrite.OwnedBy
-    - Group.ReadWrite.All
-    - User.Read
-    - User.Read.All
+    This App Registration will be used to authenticate and get the required tokens to connect to your Platform. Rights on the App Registration depends on the type of connection you want to make.
 
-* **Platform Api**
-    - Platform.Admin
+    The App registration needs the following API permissions.
+
+    * **Microsoft Graph**
+        - Application.ReadWrite.All (Application)
+        - Application.ReadWrite.OwnedBy (Application)
+        - Group.ReadWrite.All (Application)
+        - User.Read (Delegted)
+        - User.Read.All (Application)
+
+    * **Platform Api**
+        - Platform.Admin (Application)
+
+    !!! important
+        Babylon App registration needs **Owner** role on Cosmo Tech Platform Resource Group to grants full access to manage all resources, including the ability to assign roles in Azure RBAC.
+

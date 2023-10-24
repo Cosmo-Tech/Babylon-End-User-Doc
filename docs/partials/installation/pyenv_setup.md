@@ -1,13 +1,13 @@
 
 * Setup a `pyenv`
 
-    ** Automatic installer **
+    **Automatic installer**
     
     ```bash
     curl https://pyenv.run | bash
     ```
 
-    ** Setup your shell environment for pyenv **
+    **Setup your shell environment for pyenv**
 
     ```bash
     echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
@@ -16,12 +16,12 @@
     source ~/.bashrc
     ```
 
-    ** Now you can create a venv with `pyenv` **
+    **Now you can create a venv with `pyenv`**
     ```bash
     pyenv virtualenv <babylon_env_name>
     ```
 
-    ** Activate your new venv **
+    **Activate your new venv**
     ```bash
     pyenv activate <babylon_env_name>
     ```

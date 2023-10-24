@@ -162,15 +162,15 @@ Configuration
     ```
 
     ```bash
-    babylon azure adx permission set -c brewery -p perf --type User --role Admin %azure%user_principal_id  
+    babylon azure adx permission set -c brewery -p perf --principal-type User --role Admin %azure%user_principal_id  
     ```
 
     ```bash
-    babylon azure adx permission set -c brewery -p perf --type Group --role Admin %azure%team_id
+    babylon azure adx permission set -c brewery -p perf --principal-type Group --role Admin %azure%team_id
     ```
 
     ```bash
-    babylon azure adx permission set -c brewery -p perf --type App --role Admin %platform%principal_id 
+    babylon azure adx permission set -c brewery -p perf --principal-type App --role Admin %platform%principal_id 
     ```
 
     ```bash

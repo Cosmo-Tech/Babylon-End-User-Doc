@@ -2,6 +2,8 @@
 
 This is a guide to getting started with Babylon. You'll learn how to install, run, and experiment with the Babylon.
 
+--8<-- 'docs/guides/az_requirements.md'
+
 --8<-- 'docs/partials/installation/from_source.md'
 
 Now that you have a fully functional installation of Babylon, you can check the next steps to learn how to start running commands.
