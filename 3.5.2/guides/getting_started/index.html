@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.35e1ed30.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
@@ -465,7 +465,9 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="In this page">
   
   
   
@@ -474,7 +476,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      In this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -655,7 +657,9 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="In this page">
   
   
   
@@ -664,7 +668,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      In this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -774,9 +778,9 @@
   
 
 
-<h1 id="getting-started-with-babylon"><img alt="🚀" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f680.svg" title=":rocket:" /> Getting started with Babylon</h1>
+<h1 id="getting-started-with-babylon"><img alt="🚀" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f680.svg" title=":rocket:" /> Getting started with Babylon<a class="headerlink" href="#getting-started-with-babylon" title="Permanent link">&para;</a></h1>
 <p>This is a guide to getting started with Babylon. You'll learn how to install, run, and experiment with the Babylon.</p>
-<h2 id="azure-requirements">Azure requirements</h2>
+<h2 id="azure-requirements">Azure requirements<a class="headerlink" href="#azure-requirements" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Requirements</p>
 <p>The following elements are required before you can use Babylon on an Azure subscription</p>
@@ -814,7 +818,7 @@
 <p>Babylon App registration needs <strong>Owner</strong> role on Cosmo Tech Platform Resource Group to grants full access to manage all resources, including the ability to assign roles in Azure RBAC.</p>
 </div>
 </div>
-<h3 id="get-babylon-from-source"><strong>Get Babylon from source</strong></h3>
+<h3 id="get-babylon-from-source"><strong>Get Babylon from source</strong><a class="headerlink" href="#get-babylon-from-source" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Requirements</p>
 <ul>
@@ -836,7 +840,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>babylon
 </code></pre></div>
-<h2 id="install-babylon">Install Babylon</h2>
+<h2 id="install-babylon">Install Babylon<a class="headerlink" href="#install-babylon" title="Permanent link">&para;</a></h2>
 <p>You can install babylon globally in your system</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>.
 </code></pre></div>
@@ -881,12 +885,12 @@ pip<span class="w"> </span>install<span class="w"> </span>.
 </details>
 <p>Now that you have a fully functional installation of Babylon, you can check the next steps to learn how to start running commands.</p>
 <p><br></p>
-<h2 id="setup-babylon">Setup Babylon</h2>
+<h2 id="setup-babylon">Setup Babylon<a class="headerlink" href="#setup-babylon" title="Permanent link">&para;</a></h2>
 <p>Babylon use a <a href="https://www.vaultproject.io/">Vault</a> service and provides a group of commands that can be used.</p>
 <p>The first thing to do in order to check if Babylon is working properly:
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>--help
 </code></pre></div></p>
-<h3 id="setup-environment-variables">Setup environment variables</h3>
+<h3 id="setup-environment-variables">Setup environment variables<a class="headerlink" href="#setup-environment-variables" title="Permanent link">&para;</a></h3>
 <p>The vault service is required to work with babylon cli.
 Contact your babylon admin to get your <strong>URI</strong> service and your <strong>userpass</strong>.</p>
 <ul>
@@ -907,7 +911,7 @@ Contact your babylon admin to get your <strong>URI</strong> service and your <st
 </code></pre></div>
   Copy the response and paste it in your environment.</li>
 </ul>
-<h3 id="configuration">Configuration</h3>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
 <p>At this point, you will need two variables to perform Babylon commands.</p>
 <ul>
 <li><code>context_id</code> : project name</li>
@@ -921,16 +925,16 @@ You will see the current configuration. For now, this configuration is empty.</p
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>config<span class="w"> </span>init<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>dev
 </code></pre></div>
 <p>Try again the display command and verify the current configuration.</p>
-<h2 id="explore-babylon">Explore babylon</h2>
+<h2 id="explore-babylon">Explore babylon<a class="headerlink" href="#explore-babylon" title="Permanent link">&para;</a></h2>
 <p>You will explore some basics commands. </p>
-<h3 id="configuration-files">Configuration files</h3>
+<h3 id="configuration-files">Configuration files<a class="headerlink" href="#configuration-files" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code><span class="c1"># set email in azure config</span>
 babylon<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>azure<span class="w"> </span>email<span class="w"> </span>example@test.com<span class="w"> </span>-c<span class="w"> </span>&lt;context_id&gt;<span class="w"> </span>-p<span class="w"> </span>dev
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># get email in azure config</span>
 babylon<span class="w"> </span>config<span class="w"> </span>get<span class="w"> </span>azure<span class="w"> </span>email<span class="w"> </span>-c<span class="w"> </span>&lt;context_id&gt;<span class="w"> </span>-p<span class="w"> </span>dev
 </code></pre></div></p>
-<h3 id="azure-container-registry-and-images">Azure container registry and images</h3>
+<h3 id="azure-container-registry-and-images">Azure container registry and images<a class="headerlink" href="#azure-container-registry-and-images" title="Permanent link">&para;</a></h3>
 <ul>
 <li>** Interact with Azure Container Registry ** </li>
 </ul>
@@ -968,7 +972,7 @@ babylon<span class="w"> </span>config<span class="w"> </span>get<span class="w">
 </code></pre></div></p>
 </li>
 </ol>
-<h2 id="config-files-specification">Config files specification</h2>
+<h2 id="config-files-specification">Config files specification<a class="headerlink" href="#config-files-specification" title="Permanent link">&para;</a></h2>
 <p>The <code>babylon config init -c &lt;context_id&gt; -p &lt;platfom_id&gt;</code> command will create all config files for you.</p>
 <p>You will find,</p>
 <p>** Azure Container Registry **</p>
@@ -1195,7 +1199,7 @@ babylon<span class="w"> </span>config<span class="w"> </span>get<span class="w">
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
     
   </body>

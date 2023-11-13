@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.35e1ed30.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
@@ -485,14 +485,16 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="In this page">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      In this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -672,14 +674,16 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="In this page">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      In this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -819,7 +823,7 @@
 </ul>
 </div>
 <p><br></p>
-<h3 id="container-registry">Container Registry</h3>
+<h3 id="container-registry">Container Registry<a class="headerlink" href="#container-registry" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># retrieve configuration to work with dev platform</span>
 babylon<span class="w"> </span>config<span class="w"> </span>init<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>dev
 </code></pre></div>
@@ -835,7 +839,7 @@ babylon<span class="w"> </span>azure<span class="w"> </span>acr<span class="w"> 
 <div class="highlight"><pre><span></span><code><span class="c1"># push image to `perf` platform</span>
 babylon<span class="w"> </span>azure<span class="w"> </span>acr<span class="w"> </span>push<span class="w"> </span>-i<span class="w"> </span>&lt;image_docker:version&gt;<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf
 </code></pre></div>
-<h3 id="setup-basic-configuration">Setup basic configuration</h3>
+<h3 id="setup-basic-configuration">Setup basic configuration<a class="headerlink" href="#setup-basic-configuration" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>azure<span class="w"> </span>email<span class="w"> </span>&lt;CHANGEME&gt;<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf
 </code></pre></div>
 <p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>azure<span class="w"> </span>user_principal_id<span class="w"> </span>&lt;user_principal_id&gt;<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf
@@ -853,7 +857,7 @@ babylon<span class="w"> </span>azure<span class="w"> </span>acr<span class="w"> 
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>acr<span class="w"> </span>simulator_version<span class="w"> </span>&lt;version&gt;<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf
 </code></pre></div>
 <p>At this point, you can create or retrieve an organization</p>
-<h3 id="create-organization">Create organization</h3>
+<h3 id="create-organization">Create organization<a class="headerlink" href="#create-organization" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>organizations<span class="w"> </span>payload<span class="w"> </span>create<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>organizations<span class="w"> </span>create<span class="w"> </span>&lt;organization_name&gt;<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span><span class="se">\</span>
@@ -876,7 +880,7 @@ babylon<span class="w"> </span>azure<span class="w"> </span>acr<span class="w"> 
 <span class="w">    </span>--principal-id<span class="w"> </span>%platform%principal_id<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--resource-name<span class="w"> </span>%azure%storage_account_name
 </code></pre></div>
-<h3 id="retrieve-an-organization">Retrieve an organization</h3>
+<h3 id="retrieve-an-organization">Retrieve an organization<a class="headerlink" href="#retrieve-an-organization" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>organizations<span class="w"> </span>get<span class="w"> </span>&lt;organization_id&gt;<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># Optional</span>
@@ -896,7 +900,7 @@ babylon<span class="w"> </span>api<span class="w"> </span>organizations<span cla
 <span class="w">    </span>--principal-id<span class="w"> </span>%platform%principal_id<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--resource-name<span class="w"> </span>%azure%storage_account_name
 </code></pre></div>
-<h3 id="azure-data-explorer-database">Azure Data Explorer database</h3>
+<h3 id="azure-data-explorer-database">Azure Data Explorer database<a class="headerlink" href="#azure-data-explorer-database" title="Permanent link">&para;</a></h3>
 <p>Configuration </p>
 <div class="admonition warning">
 <p class="admonition-title">Requirements</p>
@@ -916,7 +920,7 @@ babylon<span class="w"> </span>azure<span class="w"> </span>adx<span class="w"> 
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>adx<span class="w"> </span>script<span class="w"> </span>run-folder<span class="w"> </span>adx/<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf
 </code></pre></div>
 </div>
-<h3 id="create-eventhub-namespace">Create Eventhub namespace</h3>
+<h3 id="create-eventhub-namespace">Create Eventhub namespace<a class="headerlink" href="#create-eventhub-namespace" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>arm<span class="w"> </span>run<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>--file<span class="w"> </span>%templates%/arm/eventhub_deploy.json<span class="w"> </span>&lt;NAME&gt;
 </code></pre></div>
 <p>Make sure you have all rights.</p>
@@ -941,7 +945,7 @@ babylon<span class="w"> </span>azure<span class="w"> </span>adx<span class="w"> 
 <span class="w">    </span>--resource-type<span class="w"> </span>Microsoft.EventHub/Namespaces<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--role-id<span class="w"> </span>%azure%eventhub_built_contributor_id<span class="w"> </span>
 </code></pre></div>
-<h3 id="eventhub-consumer-group-and-connectors-adx">Eventhub consumer group and connectors ADX</h3>
+<h3 id="eventhub-consumer-group-and-connectors-adx">Eventhub consumer group and connectors ADX<a class="headerlink" href="#eventhub-consumer-group-and-connectors-adx" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>adx<span class="w"> </span>consumer<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;adx&quot;</span><span class="w"> </span><span class="s2">&quot;ProbesMeasures&quot;</span><span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>adx<span class="w"> </span>consumer<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;adx&quot;</span><span class="w"> </span><span class="s2">&quot;ScenarioMetaData&quot;</span><span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>
@@ -950,7 +954,7 @@ babylon<span class="w"> </span>azure<span class="w"> </span>adx<span class="w"> 
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>adx<span class="w"> </span>consumer<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;adx&quot;</span><span class="w"> </span><span class="s2">&quot;ScenarioRunMetaData&quot;</span><span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>
 </code></pre></div>
-<h3 id="create-connections">Create connections</h3>
+<h3 id="create-connections">Create connections<a class="headerlink" href="#create-connections" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>adx<span class="w"> </span>connections<span class="w"> </span>create<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>ProbesMeasures<span class="w"> </span>%adx%database_name<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--data-format<span class="w"> </span>JSON<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--table-name<span class="w"> </span>ProbesMeasures<span class="w"> </span><span class="se">\</span>
@@ -976,7 +980,7 @@ babylon<span class="w"> </span>azure<span class="w"> </span>adx<span class="w"> 
 <span class="w">    </span>--consumer-group<span class="w"> </span>adx<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--mapping<span class="w"> </span>ScenarioRunMetadataMapping
 </code></pre></div>
-<h3 id="authentication-eventhub-configuration">Authentication Eventhub configuration</h3>
+<h3 id="authentication-eventhub-configuration">Authentication Eventhub configuration<a class="headerlink" href="#authentication-eventhub-configuration" title="Permanent link">&para;</a></h3>
 <p>There are two options:</p>
 <ul>
 <li>
@@ -1004,7 +1008,7 @@ babylon<span class="w"> </span>hvac<span class="w"> </span><span class="nb">set<
 </div>
 </li>
 </ul>
-<h3 id="powerbi-deploy">PowerBI deploy</h3>
+<h3 id="powerbi-deploy">PowerBI deploy<a class="headerlink" href="#powerbi-deploy" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Requirements</p>
 <p>By default this macro command requires a folder called <code>powerbi</code> containing two sub-folders (<code>dashboard</code> and <code>scenario</code>) with your <code>.pbix</code> files. </p>
@@ -1041,7 +1045,7 @@ babylon<span class="w"> </span>hvac<span class="w"> </span><span class="nb">set<
 <p><a href="/commands/powerbi_deploy_workspace/">Get additional information about command</a>  </p>
 </div>
 <p><br></p>
-<h3 id="webapp-deploy">Webapp deploy</h3>
+<h3 id="webapp-deploy">Webapp deploy<a class="headerlink" href="#webapp-deploy" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Requirements</p>
 <p>This macro requires a github access token set in vault service.</p>
@@ -1105,7 +1109,7 @@ babylon<span class="w"> </span>hvac<span class="w"> </span><span class="nb">set<
 <p>After deployment, make sure to perform an admin consent on API permission of app registration.</p>
 </div>
 <p><br></p>
-<h3 id="retrieve-azure-function-key">Retrieve azure function key</h3>
+<h3 id="retrieve-azure-function-key">Retrieve azure function key<a class="headerlink" href="#retrieve-azure-function-key" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Requirements</p>
 <p>Azure CLI</p>
@@ -1118,7 +1122,7 @@ babylon<span class="w"> </span>hvac<span class="w"> </span><span class="nb">set<
 </code></pre></div>
 </div>
 <p>At this point, you can create or retrieve a solution.</p>
-<h3 id="create-solution">Create Solution</h3>
+<h3 id="create-solution">Create Solution<a class="headerlink" href="#create-solution" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>solutions<span class="w"> </span>payload<span class="w"> </span>create<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>
 </code></pre></div>
 <div class="admonition info">
@@ -1130,7 +1134,7 @@ babylon<span class="w"> </span>hvac<span class="w"> </span><span class="nb">set<
 </div>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>solutions<span class="w"> </span>create<span class="w"> </span>&lt;solution_name&gt;<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>--output<span class="w"> </span>.payload/brewery.perf.solution.yaml
 </code></pre></div>
-<h3 id="create-workspace">Create Workspace</h3>
+<h3 id="create-workspace">Create Workspace<a class="headerlink" href="#create-workspace" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># setup run_templates</span>
 babylon<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>api<span class="w"> </span>run_templates<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--item<span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="se">\</span>
@@ -1149,7 +1153,7 @@ babylon<span class="w"> </span>config<span class="w"> </span><span class="nb">se
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>workspaces<span class="w"> </span>create<span class="w"> </span>&lt;workspace_name&gt;<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--output<span class="w"> </span>.payload/brewery.perf.workspace.yaml<span class="w"> </span>
 </code></pre></div>
-<h3 id="register-the-eventhub-key-in-workspace">Register the eventhub key in workspace</h3>
+<h3 id="register-the-eventhub-key-in-workspace">Register the eventhub key in workspace<a class="headerlink" href="#register-the-eventhub-key-in-workspace" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>workspaces<span class="w"> </span>send-key<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>perf<span class="w"> </span>
 </code></pre></div>
 
@@ -1241,7 +1245,7 @@ babylon<span class="w"> </span>config<span class="w"> </span><span class="nb">se
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
     
   </body>
