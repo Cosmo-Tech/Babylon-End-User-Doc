@@ -45,6 +45,10 @@ Contact your babylon admin to get your **URI** service and your **userpass**.
   ```
   Copy the response and paste it in your environment.
 
+* If entries does not exist, you may need to create it (e.g for a newly deployed platform):
+  We provide a tool for this, you can find it [here](https://github.com/Cosmo-Tech/backend-tf-state-to-vault)
+  This needs an initial Terraform depoyment as it uses the Terraform state to parse and populate the Vault.
+  Usefull informations can be found in the Readme of this repository !
 
 ### Configuration
 
