@@ -10,8 +10,12 @@
 
     Babylon uses a Service Principal to interact with the API and other resources. To do so, Babylon needs to be registered as an application in the Azure Active Directory.
 
-    This App Registration will be used to authenticate and get the required tokens to connect to your Platform. Rights on the App Registration depends on the type of connection you want to make. We recommend defining this app registration as a mobile and desktop application in Azure configuration with redirection URL (mostly for authenticating against Azure services.
+    This App Registration will be used to authenticate and get the required tokens to connect to your Platform. Rights on the App Registration depends on the type of connection you want to make. 
+    
+    We recommend defining this app registration as a mobile and desktop application in Azure configuration with redirection URL (mostly for authenticating against Azure services.
+    
     See official documentation :
+    
         * https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow
         * https://learn.microsoft.com/en-us/entra/identity-platform/msal-client-application-configuration
         * https://learn.microsoft.com/en-us/onedrive/developer/rest-api/getting-started/msa-oauth?view=odsp-graph-online
