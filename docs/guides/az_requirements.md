@@ -20,7 +20,7 @@
         * https://learn.microsoft.com/en-us/entra/identity-platform/msal-client-application-configuration
         * https://learn.microsoft.com/en-us/onedrive/developer/rest-api/getting-started/msa-oauth?view=odsp-graph-online
 
-    The App registration needs the following API permissions.
+    The App registration needs the following API permissions:
 
     * **Microsoft Graph**
         - Application.ReadWrite.All (Application)
@@ -31,6 +31,9 @@
 
     * **Platform Api**
         - Platform.Admin (Application)
+
+    For those concerned with specifics Azure policies, all Microsoft Graph's permissions can be deleted excepted User.Read.All (Application), but this implies that some operations would be handled manually. The platform API permission is mandatory.
+
 
     !!! important
         Babylon App registration needs **Owner** role on Cosmo Tech Platform Resource Group to grants full access to manage all resources, including the ability to assign roles in Azure RBAC.
