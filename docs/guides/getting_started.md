@@ -47,8 +47,8 @@ Contact your babylon admin to get your **URI** service and your **userpass**.
 
 * If entries does not exist, you may need to create it (e.g for a newly deployed platform):
   We provide a tool for this, you can find it [here](https://github.com/Cosmo-Tech/backend-tf-state-to-vault)
-  This needs an initial Terraform depoyment as it uses the Terraform state to parse and populate the Vault.
-  Usefull informations can be found in the Readme of this repository !
+  This needs an initial Terraform deployment as it uses the Terraform state to parse and populate the Vault.
+  Useful information can be found in the Readme of this repository !
 
 ### Configuration
 
@@ -56,37 +56,25 @@ At this point, you will need two variables to perform Babylon commands.
 
   - `context_id` : project name
   - `platform_id` : platform name
+  - `state_id`: state name
 
-For example, you can try this command,
+`context_id` and `state_id` can be strings of your choice,
+but they cannot contain special characters. To initialize it, perform this command:
+  ```bash
+  babylon namespace use -c <context_id> -p <platform_id> -s <state_id>
+  ```
+It will be saved in a local file /home/.config/cosmotech/babylon/namespace.yaml
 
-```bash
-babylon config display -c brewery -p dev
-```
-You will see the current configuration. For now, this configuration is empty.
-
-To retrieve `dev` configuration, you need perform this command.
-
-```bash
-babylon config init -c brewery -p dev
-```
-
-Try again the display command and verify the current configuration.
-
+You can now test Babylon by performing a simple command, e.g.:
+  ```bash
+  babylon babylon api organizations get-all
+  ```
+Initial configuration will be retrieved from vault and saved in Azure Storage
+and in local file /home/.config/cosmotech/babylon/<state_id>.yaml
 
 ## Explore babylon
 
-You will explore some basics commands. 
-
-### Configuration files
-
-```bash
-# set email in azure config
-babylon config set azure email example@test.com -c <context_id> -p dev
-```
-```bash
-# get email in azure config
-babylon config get azure email -c <context_id> -p dev
-```
+You will explore some basics commands.
 
 ### Azure container registry and images
 
@@ -96,31 +84,21 @@ babylon config get azure email -c <context_id> -p dev
     * Vault service with `dev` and `staging` platform already configured 
 
 
-1. Retrieve `dev` platform configuration
-```bash
-babylon config init -c <context_id> -p dev 
-```
-
-* Retrieve `staging` platform configuration
-```bash
-babylon config init -c <context_id> -p staging 
-```
-
 * List images from `dev` registry
 ```bash
-babylon azure acr list -c <context_id> -p dev 
+babylon azure acr list 
 ```
 
-* Pull image from source : `dev` registry
+* Pull image from source
 ```bash
-babylon azure acr pull -c <context_id> -p dev --image <IMAGE:VERSION> 
+babylon azure acr pull --image <IMAGE:VERSION> 
 ```
 
-* Push image to target : `staging` registry
+* Push image to target : `dev` registry
 ```bash
-babylon azure acr push -c <context_id> -p staging --image <IMAGE:VERSION>
+babylon azure acr push --image <IMAGE:VERSION>
 ```
 
-## Config files specification
+## State file specification
 
 --8<-- 'docs/guides/resource_file.md'
