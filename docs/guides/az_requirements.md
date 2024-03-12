@@ -36,5 +36,5 @@
 
 
     !!! important
-        Babylon App registration needs **Owner** role on Cosmo Tech Platform Resource Group to grants full access to manage all resources, including the ability to assign roles in Azure RBAC.
+        Babylon App registration needs at least **Contributor** role on Cosmo Tech Platform Resource Group.
 

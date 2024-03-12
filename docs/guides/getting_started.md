@@ -45,21 +45,22 @@ Contact your babylon admin to get your **URI** service and your **userpass**.
   ```
   Copy the response and paste it in your environment.
 
-* If entries does not exist, you may need to create it (e.g for a newly deployed platform):
+* If entries does not exist, you may need to create it (e.g. for a newly deployed platform):
   We provide a tool for this, you can find it [here](https://github.com/Cosmo-Tech/backend-tf-state-to-vault)
   This needs an initial Terraform deployment as it uses the Terraform state to parse and populate the Vault.
   Useful information can be found in the Readme of this repository !
 
 ### Configuration
 
-At this point, you will need two variables to perform Babylon commands.
+At this point, you will need three variables to perform Babylon commands.
 
   - `context_id` : project name
   - `platform_id` : platform name
   - `state_id`: state name
 
 `context_id` and `state_id` can be strings of your choice,
-but they cannot contain special characters. To initialize it, perform this command:
+but they cannot contain special characters. `platform_id` represents the id of the platform, such as dev, staging, etc.
+To initialize it, perform this command:
   ```bash
   babylon namespace use -c <context_id> -p <platform_id> -s <state_id>
   ```
@@ -67,7 +68,7 @@ It will be saved in a local file /home/.config/cosmotech/babylon/namespace.yaml
 
 You can now test Babylon by performing a simple command, e.g.:
   ```bash
-  babylon babylon api organizations get-all
+  babylon api organizations get-all
   ```
 Initial configuration will be retrieved from vault and saved in Azure Storage
 and in local file /home/.config/cosmotech/babylon/<state_id>.yaml
@@ -84,7 +85,7 @@ You will explore some basics commands.
     * Vault service with `dev` and `staging` platform already configured 
 
 
-* List images from `dev` registry
+* List images
 ```bash
 babylon azure acr list 
 ```
@@ -94,7 +95,7 @@ babylon azure acr list
 babylon azure acr pull --image <IMAGE:VERSION> 
 ```
 
-* Push image to target : `dev` registry
+* Push image to target
 ```bash
 babylon azure acr push --image <IMAGE:VERSION>
 ```
