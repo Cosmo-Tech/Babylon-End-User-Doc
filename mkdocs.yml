@@ -45,10 +45,8 @@ nav:
   - Guides:
       - Guides: 'guides/index.md'
       - Getting started: 'guides/getting_started.md'
-      - Solution deployment: 'guides/solution_deployment.md'
-      - PowerBI deployment: 'commands/powerbi_deploy_workspace.md'
-      - WebApp deployment: 'commands/webapp_deployment.md'
-
+      - Solution deployment: 'guides/create_update_solution.md'
+      - Destroy a solution: 'guides/destroy_solution.md'
 markdown_extensions:
     - admonition
     - attr_list

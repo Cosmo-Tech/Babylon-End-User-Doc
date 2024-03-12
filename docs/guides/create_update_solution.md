@@ -10,8 +10,9 @@
 
     * context_id: `test`
     * platform_id: `dev`
+    * state_id: teststate
 
-To deploy a complete solution, you can declare its configuration in yaml files corresponding
+To deploy a complete Cosmo Tech solution, you can declare its configuration in yaml files corresponding
 to specific deployment type. Each file contains general information about the deployment:
 
 ```yaml
@@ -24,10 +25,11 @@ namespace:
     url: https://dev.api.cosmotech.com/phoenix/v3-0 
 ```
 The `kind` key must be one of these: Organization, Solution, Workspace, WebApp, Dataset - it decides which
-resource will be deployed with specification listed below. `namespace` key gives information that identifies
-the deployment: state, context and platform. 
+resource will be deployed with specification listed below. Note that the type of resource must always start with capital letter.
+`namespace` key gives information that identifies the deployment: state, context and platform. 
 
-Then, each file declares resource configuration under `spec` key, e.g., in organization deployment file:
+Then, each file declares resource configuration under `spec` key, specifically in the `payload` section,
+e.g., in organization deployment file:
 
 ```yaml
 kind: Organization
@@ -54,7 +56,8 @@ security:
     - id: user2@email.com
       role: editor
 ```
-Solution deployment file
+This is how the solution deployment file is structured:
+
 ```yaml
 kind: Solution
 namespace:
@@ -92,10 +95,11 @@ spec:
      role: admin
 ```
 Run templates are enumerated under `sidecars` key which lists every side resources needed for the
-correct functionning of the solution. Run templates scripts must be placed in _run_templates_ folder
+correct functioning of the solution. Run templates scripts must be placed in _run_templates_ folder
 of your project with the following path: _run_templates/<run_template_id>/<handler_id>/<script_file>_
 
-Workspace configuration contains keys needed to deploy a powerBI workspaces, an event hub and an adx database.
+Workspace configuration contains keys needed to deploy a powerBI workspaces, an event hub
+and an adx database. These keys are stored in `sidecars` section, under `azure` key.
 
 ```yaml
 kind: Workspace
@@ -197,10 +201,70 @@ in adx folder of your project.
     level. Owner rights allow it to assign roles to resources. If you security policy doesn't grant
     such access to Babylon, these operations must be done manually. 
 
-To deploy a webapp you can use an existing app registration or use an existing one; it can be 
+To deploy a webapp you can create a new app registration or use an existing one; it can be 
 declared by `create` key of `sidecars.azure.app` section. If it is set to false, a client_id and a name
 of your app registration must be declared. 
 
+!!! warning "Requirements"
+    Webapp deployment requires a GitHub repository with the destination branch. You can
+follow these steps to create it:
+    
+    1. [create a new repository](https://github.com/new) in Github
+    3. configure your branch `<BRANCH>` with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)
+    
+    ```bash
+    git init
+    ```
+
+    ```bash
+    echo "# empty_webapp" >> README.md
+    ```
+    
+    ```bash
+    git add README.md
+    ```
+    
+    ```bash
+    git commit -m "first commit"
+    ```
+    
+    ```bash
+    git branch -M <BRANCH>
+    ```
+    
+    ```bash
+    git remote add origin git@github.com:<YOUR_GITHUB_REPOSITORY>.git
+    ```
+    
+    ```bash
+    git remote add upstream https://github.com/Cosmo-Tech/azure-sample-webapp.git
+    ```
+    
+    ```bash
+    git remote set-url upstream --push "NO"
+    ```
+    
+    ```bash
+    git fetch --all --tags --prune
+    ```
+    
+    ```bash
+    git checkout -B <BRANCH> <SOURCE_TAG>
+    ```
+    
+    ```bash
+    rm -r .github/
+    ```
+    
+    ```bash
+    git add .; git commit -m 'first commit'
+    ```
+    
+    ```bash
+    git push origin <BRANCH> -f
+    ```
+
+Then, you can use this repository to deploy a new webapp:
 ```yaml
 kind: WebApp
 namespace:
@@ -302,6 +366,16 @@ spec:
   name: Apply dataset
   description: Creating dataset with nothing but update
   sourceType: None | AzureStorage | ADT | File
+  source:
+    path: # path to the folder in AzureStorage, mandatory if sourceType is AzureStorage
+          # and no local file is provided
+    location: # mandatory field if sourceType is ADT: path to dataset stored in ADT;
+              # if sourceType is AzureStorage, default value is set to organization
+              # container, you can edit this field if you want to use a dataset from
+              # another container
+    name: # field used for sourceType AzureStorage, by default is set to storage account
+          # name referenced in state; edit it if you want to use a dataset from another
+          # account
   security:
    default: viewer
    accessControlList:
@@ -327,13 +401,13 @@ Project folder must have this structure:
                 ├── powerbi
         ├── variables.yaml
 
-After filling configuration files, you can launch the following command: 
+After filling all deployment files, you can launch the following command: 
 ```bash
 babylon apply project/
 ```
 
 Babylon will create and deploy all resources and save it in the state except for datasets. Keeping this information in the
-state simplifies modification of the resources as you can edit one of the project configuration files
+state simplifies modification of the resources as you can edit one of the project deployment files
 and relaunch `babylon apply` command. It will update existing resources or create missing ones, for example,
 in case when Babylon was granted more rights between two `apply` commands.
 <br>

@@ -1,4 +1,4 @@
-If you don't need a solution anymore, you can destroy it with all resources using 
+If you don't need a Cosmo Tech solution anymore, you can destroy it with all resources using 
 `babylon destroy` command. It will automatically delete following resources:
 - scenarios and scenarioruns
 - datasets
@@ -10,7 +10,7 @@ If you don't need a solution anymore, you can destroy it with all resources usin
 - run templates
 - solution
 
-By default, it will destroy the state saved in namespace file, but you can define a specific state as option:
+By default, it will destroy resources referenced in state saved in namespace file, but you can define a specific state as option:
 
 ```bash
 babylon destroy --state-to-destroy <path-to-specific-state>

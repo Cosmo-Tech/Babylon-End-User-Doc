@@ -22,36 +22,24 @@ You'll learn how to install, run, and experiment with Babylon.
 <div class="text" markdown>
 :material-cloud: **Solution deployment**
 
-This guide will help you to deploy a new solution.
+This guide will help you to deploy a new solution or update an existing one.
 
 <footer markdown>
-[:octicons-arrow-right-24: Solution deploy](./solution_deployment.md)
+[:octicons-arrow-right-24: Solution deploy](./create_update_solution.md)
 </footer>
 </div>
 
 </article>
 
-<article markdown>
-<div class="text" markdown>
-:material-note: **PowerBI deployment**
-
-You will deploy a PowerBI workspace and populate it with reports.
-
-<footer markdown>
-[:octicons-arrow-right-24: PowerBI deploy](../commands/powerbi_deploy_workspace.md)
-</footer>
-</div>
-
-</article>
 
 <article markdown>
 <div class="text" markdown>
-:material-note: **WebApp deployment**
+:material-note: **Destroy a solution**
 
-This guide will help you to deploy a new WebApp.
+This guide will help you to delete all resources of an existing solution
 
 <footer markdown>
-[:octicons-arrow-right-24: WebApp deploy](../commands/webapp_deployment.md)
+[:octicons-arrow-right-24: WebApp deploy](./destroy_solution.md)
 </footer>
 </div>
 
