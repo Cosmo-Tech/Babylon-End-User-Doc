@@ -214,29 +214,17 @@ of your app registration must be declared.
     
 ```bash
     git init
-
     echo "# empty_webapp" >> README.md
-
     git add README.md
-
     git commit -m "first commit"
-
     git branch -M <BRANCH>
-
     git remote add origin git@github.com:<YOUR_GITHUB_REPOSITORY>.git
-
     git remote add upstream https://github.com/Cosmo-Tech/azure-sample-webapp.git
-
     git remote set-url upstream --push "NO"
-
     git fetch --all --tags --prune
-
     git checkout -B <BRANCH> <SOURCE_TAG>
-
     rm -r .github/
-
     git add .; git commit -m 'first commit'
-
     git push origin <BRANCH> -f
 ```
 
