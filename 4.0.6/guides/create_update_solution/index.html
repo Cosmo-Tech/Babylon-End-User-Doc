@@ -548,7 +548,7 @@
 <ul>
 <li>context_id: <code>test</code></li>
 <li>platform_id: <code>dev</code></li>
-<li>state_id: teststate</li>
+<li>state_id: <code>teststate</code></li>
 </ul>
 </div>
 <p>To deploy a complete Cosmo Tech solution, you can declare its configuration in yaml files corresponding
@@ -578,7 +578,7 @@ e.g., in organization deployment file:</p>
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">My new Organization</span>
 <span class="w">  </span><span class="nt">security</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="nv">security</span><span class="p p-Indicator">}}</span>
 </code></pre></div>
-All keys in this file can be templated with <code>{{}}</code> syntax, as <code>security</code> section of this file. Corresponding*
+All keys in this file can be templated with <code>{{}}</code> syntax, as <code>security</code> section of this file. Corresponding
 values must be stored in <em>variables.yaml</em> file at the same level that your project:</p>
 <p><div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">viewer</span>
@@ -625,8 +625,8 @@ This is how the solution deployment file is structured:</p>
 <span class="w">     </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
 </code></pre></div>
 Run templates are enumerated under <code>sidecars</code> key which lists every side resources needed for the
-correct functioning of the solution. Run templates scripts must be placed in <em>run_templates</em> folder
-of your project with the following path: <em>run_templates/<run_template_id>/<handler_id>/<script_file></em></p>
+correct functioning of the solution. Run templates scripts must be placed in <code>_run_templates_</code> folder
+of your project with the following path: <code>_run_templates/run_template_id/handler_id/script_file_</code></p>
 <p>Workspace configuration contains keys needed to deploy a powerBI workspaces, an event hub
 and an adx database. These keys are stored in <code>sidecars</code> section, under <code>azure</code> key.</p>
 <p><div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Workspace</span>
@@ -728,68 +728,43 @@ level. Owner rights allow it to assign roles to resources. If you security polic
 such access to Babylon, these operations must be done manually. </p>
 </div>
 <p>To deploy a webapp you can create a new app registration or use an existing one; it can be 
-declared by <code>create</code> key of <code>sidecars.azure.app</code> section. If it is set to false, a client_id and a name
+declared by <code>create</code> key of <code>sidecars.azure.app</code> section. If it is set to false, a <code>client_id</code> and a <code>name</code>
 of your app registration must be declared. </p>
 <div class="admonition warning">
 <p class="admonition-title">Requirements</p>
-<p>Webapp deployment requires a GitHub repository with the destination branch. You can</p>
+<p>Webapp deployment requires a GitHub repository with the destination branch. You can
+follow these steps to create it:</p>
 </div>
-<p>follow these steps to create it:</p>
-<pre><code>1. [create a new repository](https://github.com/new) in Github
-3. configure your branch `&lt;BRANCH&gt;` with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)
+<ol>
+<li><a href="https://github.com/new">create a new repository</a> in Github</li>
+<li>configure your branch <code>&lt;BRANCH&gt;</code> with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>init
 
-```bash
-git init
-```
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# empty_webapp&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
 
-```bash
-echo "# empty_webapp" &gt;&gt; README.md
-```
+<span class="w">    </span>git<span class="w"> </span>add<span class="w"> </span>README.md
 
-```bash
-git add README.md
-```
+<span class="w">    </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;first commit&quot;</span>
 
-```bash
-git commit -m "first commit"
-```
+<span class="w">    </span>git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>&lt;BRANCH&gt;
 
-```bash
-git branch -M &lt;BRANCH&gt;
-```
+<span class="w">    </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:&lt;YOUR_GITHUB_REPOSITORY&gt;.git
 
-```bash
-git remote add origin git@github.com:&lt;YOUR_GITHUB_REPOSITORY&gt;.git
-```
+<span class="w">    </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/Cosmo-Tech/azure-sample-webapp.git
 
-```bash
-git remote add upstream https://github.com/Cosmo-Tech/azure-sample-webapp.git
-```
+<span class="w">    </span>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>upstream<span class="w"> </span>--push<span class="w"> </span><span class="s2">&quot;NO&quot;</span>
 
-```bash
-git remote set-url upstream --push "NO"
-```
+<span class="w">    </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags<span class="w"> </span>--prune
 
-```bash
-git fetch --all --tags --prune
-```
+<span class="w">    </span>git<span class="w"> </span>checkout<span class="w"> </span>-B<span class="w"> </span>&lt;BRANCH&gt;<span class="w"> </span>&lt;SOURCE_TAG&gt;
 
-```bash
-git checkout -B &lt;BRANCH&gt; &lt;SOURCE_TAG&gt;
-```
+<span class="w">    </span>rm<span class="w"> </span>-r<span class="w"> </span>.github/
 
-```bash
-rm -r .github/
-```
+<span class="w">    </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="p">;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;first commit&#39;</span>
 
-```bash
-git add .; git commit -m 'first commit'
-```
-
-```bash
-git push origin &lt;BRANCH&gt; -f
-```
-</code></pre>
+<span class="w">    </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;BRANCH&gt;<span class="w"> </span>-f
+</code></pre></div>
 <p>Then, you can use this repository to deploy a new webapp:
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WebApp</span>
 <span class="nt">namespace</span><span class="p">:</span>
@@ -863,11 +838,11 @@ git push origin &lt;BRANCH&gt; -f
 <span class="w">   </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard</span>
 </code></pre></div></p>
 <p>To deploy one or multiple datasets, one yaml file is needed by dataset. Four <em>sourceType</em> of datasets are 
-available:
-- ADT - creates dataset from ADT
-- AzureStorage - creates dataset with Azure Storage
-- File - creates dataset from a local file
-- None - creates an empty dataset</p>
+available:<br>
+- ADT - creates dataset from ADT<br>
+- AzureStorage - creates dataset with Azure Storage<br>
+- File - creates dataset from a local file<br>
+- None - creates an empty dataset<br></p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
 <span class="nt">namespace</span><span class="p">:</span>
 <span class="w"> </span><span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state_id}}&quot;</span>
@@ -904,23 +879,23 @@ available:
 <span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e-mail@cosmotech.com</span>
 <span class="w">     </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
 </code></pre></div>
-<p>Project folder must have this structure:</p>
-<pre><code> ├── my-deployment
-    ├── project
-        ├── organization.yaml
-        ├── solution.yaml
-        ├── workspace.yaml
-        ├── webapp.yaml
-        ├── dataset1.yaml
-        ├── dataset2.yaml
-        ├── run_templates
-            ├── run-template-id
-                ├── run
-            ├── adx
-                ├── scripts
-            ├── powerbi
-    ├── variables.yaml
-</code></pre>
+<p>Project folder must have this structure:
+<div class="highlight"><pre><span></span><code><span class="w"> </span>├──<span class="w"> </span>my-deployment
+<span class="w">    </span>├──<span class="w"> </span>project
+<span class="w">        </span>├──<span class="w"> </span>organization.yaml
+<span class="w">        </span>├──<span class="w"> </span>solution.yaml
+<span class="w">        </span>├──<span class="w"> </span>workspace.yaml
+<span class="w">        </span>├──<span class="w"> </span>webapp.yaml
+<span class="w">        </span>├──<span class="w"> </span>dataset1.yaml
+<span class="w">        </span>├──<span class="w"> </span>dataset2.yaml
+<span class="w">        </span>├──<span class="w"> </span>run_templates
+<span class="w">            </span>├──<span class="w"> </span>run-template-id
+<span class="w">                </span>├──<span class="w"> </span>run
+<span class="w">            </span>├──<span class="w"> </span>adx
+<span class="w">                </span>├──<span class="w"> </span>scripts
+<span class="w">            </span>├──<span class="w"> </span>powerbi
+<span class="w">    </span>├──<span class="w"> </span>variables.yaml
+</code></pre></div></p>
 <p>After filling all deployment files, you can launch the following command: 
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>apply<span class="w"> </span>project/
 </code></pre></div></p>

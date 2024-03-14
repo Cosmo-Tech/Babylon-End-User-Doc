@@ -521,26 +521,26 @@
   <h1>Resource file</h1>
 
 <p>If state file doesn't exist, the first babylon command you launch will create one and store it in Azure Storage
-and in /home/.config/cosmotech/babylon/<state_id>.yaml file in local.</p>
+and in <code>/home/.config/cosmotech/babylon/&lt;state_id&gt;.yaml</code> file in local.</p>
 <p>You will find three main sections:
 <div class="highlight"><pre><span></span><code><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 <span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">teststate</span>
 <span class="nt">services</span><span class="p">:</span>
 </code></pre></div>
 The last one contains following keys with some information already prefilled with data from vault:</p>
-<p>** Azure Container Registry **</p>
+<p>Azure Container Registry </p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">acr</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">login_server</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">simulator_repository</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">simulator_version</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** Azure Digital Twins **</p>
+<p>Azure Digital Twins </p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">adt</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">built_owner_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">built_reader_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">digital_twin_url</span><span class="p">:</span><span class="w">  </span>
 </code></pre></div>
-<p>** Azure Explorer Database **</p>
+<p>Azure Explorer Database</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">adx</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">built_contributor_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">built_owner_id</span><span class="p">:</span><span class="w"> </span>
@@ -548,12 +548,9 @@ The last one contains following keys with some information already prefilled wit
 <span class="w">    </span><span class="nt">cluster_principal_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">cluster_uri</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">database_name</span><span class="p">:</span><span class="w"> </span>
-<span class="w">  </span><span class="err">```</span>
-
-<span class="err">**</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cosmotech API **</span>
-
-<span class="l l-Scalar l-Scalar-Plain">```yaml</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">api</span><span class="p p-Indicator">:</span>
+</code></pre></div>
+<p>Cosmotech API </p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">api</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">connector.adt_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">connector.adt_version</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">connector.storage_id</span><span class="p">:</span><span class="w"> </span>
@@ -574,14 +571,14 @@ The last one contains following keys with some information already prefilled wit
 <span class="w">    </span><span class="nt">workspace_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">workspace_key</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** Azure App Registration **</p>
+<p>Azure App Registration</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">app</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">app_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">object_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">principal_id</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** Azure **</p>
+<p>Azure </p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">azure</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">cli_client_id</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span>
@@ -597,12 +594,12 @@ The last one contains following keys with some information already prefilled wit
 <span class="w">      </span><span class="nt">team_id</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">user_principal_id</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** Azure Babylon App Registration **</p>
+<p>Azure Babylon App Registration </p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">babylon</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">principal_id</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** Github **</p>
+<p>Github </p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">github</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">organization</span><span class="p">:</span><span class="w"> </span>
@@ -610,15 +607,13 @@ The last one contains following keys with some information already prefilled wit
 <span class="w">      </span><span class="nt">run_url</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">workflow_path</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** Cosmotech Platform **</p>
+<p>Cosmotech Platform </p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">platform</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">app_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">principal_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">scope_id</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** PowerBI **</p>
-<ul>
-<li>powerbi.yaml
+<p>PowerBI</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">powerbi</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">dashboard_view</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">group_id</span><span class="p">:</span><span class="w"> </span>
@@ -626,9 +621,8 @@ The last one contains following keys with some information already prefilled wit
 <span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">workspace.id</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">workspace.name</span><span class="p">:</span>
-</code></pre></div></li>
-</ul>
-<p>** WebApp **</p>
+</code></pre></div>
+<p>WebApp </p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">webapp</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">deployment_name</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">enable_insights</span><span class="p">:</span><span class="w"> </span>

@@ -855,45 +855,6 @@
 <p>You can install babylon globally in your system</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>.
 </code></pre></div>
-<p>but, if you want you can set up a virtual environment in python using the library <code>pvenv</code> to keep your Babylon dependencies in a single location. See the guide below:</p>
-<ul>
-<li>
-<p>Setup a <code>pyenv</code></p>
-<p><strong>Automatic installer</strong></p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>https://pyenv.run<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
-</code></pre></div>
-<p><strong>Setup your shell environment for pyenv</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;eval &quot;$(pyenv init -)&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-<span class="nb">source</span><span class="w"> </span>~/.bashrc
-</code></pre></div>
-<p><strong>Now you can create a venv with <code>pyenv</code></strong>
-<div class="highlight"><pre><span></span><code>pyenv<span class="w"> </span>virtualenv<span class="w"> </span>&lt;babylon_env_name&gt;
-</code></pre></div></p>
-<p><strong>Activate your new venv</strong>
-<div class="highlight"><pre><span></span><code>pyenv<span class="w"> </span>activate<span class="w"> </span>&lt;babylon_env_name&gt;
-</code></pre></div></p>
-</li>
-<li>
-<p>Install Babylon in your environment <code>&lt;babylon_env_name&gt;</code>
-<div class="highlight"><pre><span></span><code>pyenv<span class="w"> </span>activate<span class="w"> </span>&lt;babylon_env_name&gt;
-pip<span class="w"> </span>install<span class="w"> </span>.
-</code></pre></div></p>
-</li>
-</ul>
-<details class="tip">
-<summary>Enable autocompletion</summary>
-<p>On some systems autocompletion can be enabled for Babylon, more information on autocompletion can be found on the <a href="https://click.palletsprojects.com/en/8.1.x/shell-completion/">click documentation</a> (since Babylon is based on <code>click</code>)</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Example of click autocompletion command for <code>bash</code></label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;eval &quot;$(_BABYLON_COMPLETE=bash_source babylon)&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-<span class="nb">source</span><span class="w"> </span>~/.bashrc
-</code></pre></div>
-</details>
 <p>Now that you have a fully functional installation of Babylon, you can check the next steps to learn how to start running commands.</p>
 <p><br></p>
 <h2 id="setup-babylon">Setup Babylon<a class="headerlink" href="#setup-babylon" title="Permanent link">&para;</a></h2>
@@ -947,12 +908,12 @@ It will be saved in a local file /home/.config/cosmotech/babylon/namespace.yaml<
   <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>organizations<span class="w"> </span>get-all
 </code></pre></div>
 Initial configuration will be retrieved from vault and saved in Azure Storage
-and in local file /home/.config/cosmotech/babylon/<state_id>.yaml</p>
+and in local file <code>/home/.config/cosmotech/babylon/state_id.yaml</code></p>
 <h2 id="explore-babylon">Explore babylon<a class="headerlink" href="#explore-babylon" title="Permanent link">&para;</a></h2>
 <p>You will explore some basics commands.</p>
 <h3 id="azure-container-registry-and-images">Azure container registry and images<a class="headerlink" href="#azure-container-registry-and-images" title="Permanent link">&para;</a></h3>
 <ul>
-<li>** Interact with Azure Container Registry ** </li>
+<li>Interact with Azure Container Registry  </li>
 </ul>
 <div class="admonition requirements">
 <p class="admonition-title">Requirements</p>
@@ -980,26 +941,26 @@ and in local file /home/.config/cosmotech/babylon/<state_id>.yaml</p>
 </ul>
 <h2 id="state-file-specification">State file specification<a class="headerlink" href="#state-file-specification" title="Permanent link">&para;</a></h2>
 <p>If state file doesn't exist, the first babylon command you launch will create one and store it in Azure Storage
-and in /home/.config/cosmotech/babylon/<state_id>.yaml file in local.</p>
+and in <code>/home/.config/cosmotech/babylon/&lt;state_id&gt;.yaml</code> file in local.</p>
 <p>You will find three main sections:
 <div class="highlight"><pre><span></span><code><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 <span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">teststate</span>
 <span class="nt">services</span><span class="p">:</span>
 </code></pre></div>
 The last one contains following keys with some information already prefilled with data from vault:</p>
-<p>** Azure Container Registry **</p>
+<p>Azure Container Registry </p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">acr</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">login_server</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">simulator_repository</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">simulator_version</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** Azure Digital Twins **</p>
+<p>Azure Digital Twins </p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">adt</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">built_owner_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">built_reader_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">digital_twin_url</span><span class="p">:</span><span class="w">  </span>
 </code></pre></div>
-<p>** Azure Explorer Database **</p>
+<p>Azure Explorer Database</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">adx</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">built_contributor_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">built_owner_id</span><span class="p">:</span><span class="w"> </span>
@@ -1007,12 +968,9 @@ The last one contains following keys with some information already prefilled wit
 <span class="w">    </span><span class="nt">cluster_principal_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">cluster_uri</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">database_name</span><span class="p">:</span><span class="w"> </span>
-<span class="w">  </span><span class="err">```</span>
-
-<span class="err">**</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cosmotech API **</span>
-
-<span class="l l-Scalar l-Scalar-Plain">```yaml</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">api</span><span class="p p-Indicator">:</span>
+</code></pre></div>
+<p>Cosmotech API </p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">api</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">connector.adt_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">connector.adt_version</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">connector.storage_id</span><span class="p">:</span><span class="w"> </span>
@@ -1033,14 +991,14 @@ The last one contains following keys with some information already prefilled wit
 <span class="w">    </span><span class="nt">workspace_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">workspace_key</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** Azure App Registration **</p>
+<p>Azure App Registration</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">app</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">app_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">object_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">principal_id</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** Azure **</p>
+<p>Azure </p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">azure</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">cli_client_id</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span>
@@ -1056,12 +1014,12 @@ The last one contains following keys with some information already prefilled wit
 <span class="w">      </span><span class="nt">team_id</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">user_principal_id</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** Azure Babylon App Registration **</p>
+<p>Azure Babylon App Registration </p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">babylon</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">principal_id</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** Github **</p>
+<p>Github </p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">github</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">organization</span><span class="p">:</span><span class="w"> </span>
@@ -1069,15 +1027,13 @@ The last one contains following keys with some information already prefilled wit
 <span class="w">      </span><span class="nt">run_url</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">workflow_path</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** Cosmotech Platform **</p>
+<p>Cosmotech Platform </p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">platform</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">app_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">principal_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">scope_id</span><span class="p">:</span><span class="w"> </span>
 </code></pre></div>
-<p>** PowerBI **</p>
-<ul>
-<li>powerbi.yaml
+<p>PowerBI</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">powerbi</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">dashboard_view</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">group_id</span><span class="p">:</span><span class="w"> </span>
@@ -1085,9 +1041,8 @@ The last one contains following keys with some information already prefilled wit
 <span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">workspace.id</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">workspace.name</span><span class="p">:</span>
-</code></pre></div></li>
-</ul>
-<p>** WebApp **</p>
+</code></pre></div>
+<p>WebApp </p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">webapp</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">deployment_name</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">enable_insights</span><span class="p">:</span><span class="w"> </span>
