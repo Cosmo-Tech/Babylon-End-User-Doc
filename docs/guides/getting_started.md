@@ -71,7 +71,7 @@ You can now test Babylon by performing a simple command, e.g.:
   babylon api organizations get-all
   ```
 Initial configuration will be retrieved from vault and saved in Azure Storage
-and in local file /home/.config/cosmotech/babylon/<state_id>.yaml
+and in local file `/home/.config/cosmotech/babylon/state_id.yaml`
 
 ## Explore babylon
 
@@ -79,7 +79,7 @@ You will explore some basics commands.
 
 ### Azure container registry and images
 
-* ** Interact with Azure Container Registry ** 
+* Interact with Azure Container Registry  
 !!! requirements
     * Docker instance
     * Vault service with `dev` and `staging` platform already configured 

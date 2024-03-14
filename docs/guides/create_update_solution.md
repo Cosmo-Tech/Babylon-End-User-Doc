@@ -10,7 +10,7 @@
 
     * context_id: `test`
     * platform_id: `dev`
-    * state_id: teststate
+    * state_id: `teststate`
 
 To deploy a complete Cosmo Tech solution, you can declare its configuration in yaml files corresponding
 to specific deployment type. Each file contains general information about the deployment:
@@ -44,7 +44,7 @@ spec:
   name: My new Organization
   security: {{security}}
 ```
-All keys in this file can be templated with `{{}}` syntax, as `security` section of this file. Corresponding*
+All keys in this file can be templated with `{{}}` syntax, as `security` section of this file. Corresponding
 values must be stored in _variables.yaml_ file at the same level that your project:
 
 ```yaml
@@ -95,8 +95,8 @@ spec:
      role: admin
 ```
 Run templates are enumerated under `sidecars` key which lists every side resources needed for the
-correct functioning of the solution. Run templates scripts must be placed in _run_templates_ folder
-of your project with the following path: _run_templates/<run_template_id>/<handler_id>/<script_file>_
+correct functioning of the solution. Run templates scripts must be placed in `_run_templates_` folder
+of your project with the following path: `_run_templates/run_template_id/handler_id/script_file_`
 
 Workspace configuration contains keys needed to deploy a powerBI workspaces, an event hub
 and an adx database. These keys are stored in `sidecars` section, under `azure` key.
@@ -202,67 +202,43 @@ in adx folder of your project.
     such access to Babylon, these operations must be done manually. 
 
 To deploy a webapp you can create a new app registration or use an existing one; it can be 
-declared by `create` key of `sidecars.azure.app` section. If it is set to false, a client_id and a name
+declared by `create` key of `sidecars.azure.app` section. If it is set to false, a `client_id` and a `name`
 of your app registration must be declared. 
 
 !!! warning "Requirements"
     Webapp deployment requires a GitHub repository with the destination branch. You can
-follow these steps to create it:
+    follow these steps to create it:
     
-    1. [create a new repository](https://github.com/new) in Github
-    3. configure your branch `<BRANCH>` with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)
+  1. [create a new repository](https://github.com/new) in Github
+  2. configure your branch `<BRANCH>` with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)
     
-    ```bash
+```bash
     git init
-    ```
 
-    ```bash
     echo "# empty_webapp" >> README.md
-    ```
-    
-    ```bash
+
     git add README.md
-    ```
-    
-    ```bash
+
     git commit -m "first commit"
-    ```
-    
-    ```bash
+
     git branch -M <BRANCH>
-    ```
-    
-    ```bash
+
     git remote add origin git@github.com:<YOUR_GITHUB_REPOSITORY>.git
-    ```
-    
-    ```bash
+
     git remote add upstream https://github.com/Cosmo-Tech/azure-sample-webapp.git
-    ```
-    
-    ```bash
+
     git remote set-url upstream --push "NO"
-    ```
-    
-    ```bash
+
     git fetch --all --tags --prune
-    ```
-    
-    ```bash
+
     git checkout -B <BRANCH> <SOURCE_TAG>
-    ```
-    
-    ```bash
+
     rm -r .github/
-    ```
-    
-    ```bash
+
     git add .; git commit -m 'first commit'
-    ```
-    
-    ```bash
+
     git push origin <BRANCH> -f
-    ```
+```
 
 Then, you can use this repository to deploy a new webapp:
 ```yaml
@@ -339,11 +315,11 @@ spec:
 ```
 
 To deploy one or multiple datasets, one yaml file is needed by dataset. Four _sourceType_ of datasets are 
-available:
-- ADT - creates dataset from ADT
-- AzureStorage - creates dataset with Azure Storage
-- File - creates dataset from a local file
-- None - creates an empty dataset
+available:<br>
+- ADT - creates dataset from ADT<br>
+- AzureStorage - creates dataset with Azure Storage<br>
+- File - creates dataset from a local file<br>
+- None - creates an empty dataset<br>
 
 ```yaml
 kind: Dataset
@@ -384,22 +360,23 @@ spec:
 ```
 
 Project folder must have this structure:
-   
-     ├── my-deployment
-        ├── project
-            ├── organization.yaml
-            ├── solution.yaml
-            ├── workspace.yaml
-            ├── webapp.yaml
-            ├── dataset1.yaml
-            ├── dataset2.yaml
-            ├── run_templates
-                ├── run-template-id
-                    ├── run
-                ├── adx
-                    ├── scripts
-                ├── powerbi
-        ├── variables.yaml
+```bash  
+ ├── my-deployment
+    ├── project
+        ├── organization.yaml
+        ├── solution.yaml
+        ├── workspace.yaml
+        ├── webapp.yaml
+        ├── dataset1.yaml
+        ├── dataset2.yaml
+        ├── run_templates
+            ├── run-template-id
+                ├── run
+            ├── adx
+                ├── scripts
+            ├── powerbi
+    ├── variables.yaml
+```
 
 After filling all deployment files, you can launch the following command: 
 ```bash
