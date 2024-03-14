@@ -229,6 +229,7 @@ of your app registration must be declared.
 ```
 
 Then, you can use this repository to deploy a new webapp:
+
 ```yaml
 kind: WebApp
 namespace:
