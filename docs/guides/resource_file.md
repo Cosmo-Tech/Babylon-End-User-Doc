@@ -1,5 +1,5 @@
 If state file doesn't exist, the first babylon command you launch will create one and store it in Azure Storage
-and in /home/.config/cosmotech/babylon/<state_id>.yaml file in local.
+and in `/home/.config/cosmotech/babylon/<state_id>.yaml` file in local.
 
 You will find three main sections:
 ```yaml
@@ -9,7 +9,7 @@ services:
 ```
 The last one contains following keys with some information already prefilled with data from vault:
 
-** Azure Container Registry **
+Azure Container Registry 
 
 ```yaml
   acr:
@@ -18,7 +18,7 @@ The last one contains following keys with some information already prefilled wit
     simulator_version: 
 ```
 
-** Azure Digital Twins **
+Azure Digital Twins 
 
 ```yaml
   adt:
@@ -27,7 +27,7 @@ The last one contains following keys with some information already prefilled wit
     digital_twin_url:  
 ```
 
-** Azure Explorer Database **
+Azure Explorer Database
 
 ```yaml
   adx:
@@ -37,9 +37,9 @@ The last one contains following keys with some information already prefilled wit
     cluster_principal_id: 
     cluster_uri: 
     database_name: 
-  ```
+```
 
-** Cosmotech API **
+Cosmotech API 
 
 ```yaml
   api:
@@ -64,7 +64,7 @@ The last one contains following keys with some information already prefilled wit
     workspace_key: 
 ```
 
-** Azure App Registration **
+Azure App Registration
 
 ```yaml
   app:
@@ -74,7 +74,7 @@ The last one contains following keys with some information already prefilled wit
     principal_id: 
 ```
 
-** Azure **
+Azure 
 
 ```yaml
     azure:
@@ -93,7 +93,7 @@ The last one contains following keys with some information already prefilled wit
       user_principal_id: 
 ```
 
-** Azure Babylon App Registration **
+Azure Babylon App Registration 
 
 ```yaml
     babylon:
@@ -101,7 +101,7 @@ The last one contains following keys with some information already prefilled wit
       principal_id: 
 ```
 
-** Github **
+Github 
 
 ```yaml
     github:
@@ -112,7 +112,7 @@ The last one contains following keys with some information already prefilled wit
       workflow_path: 
 ```
 
-** Cosmotech Platform **
+Cosmotech Platform 
 
 ```yaml
     platform:
@@ -121,9 +121,8 @@ The last one contains following keys with some information already prefilled wit
       scope_id: 
 ```
 
-** PowerBI **
+PowerBI
 
-* powerbi.yaml
 ```yaml
     powerbi:
       dashboard_view: 
@@ -134,7 +133,7 @@ The last one contains following keys with some information already prefilled wit
       workspace.name:
 ```
 
-** WebApp **
+WebApp 
 
 ```yaml
     webapp:
