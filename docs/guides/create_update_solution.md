@@ -95,8 +95,8 @@ spec:
      role: admin
 ```
 Run templates are enumerated under `sidecars` key which lists every side resources needed for the
-correct functioning of the solution. Run templates scripts must be placed in `_run_templates_` folder
-of your project with the following path: `_run_templates/run_template_id/handler_id/script_file_`
+correct functioning of the solution. Run templates scripts must be placed in _run_templates_ folder
+of your project with the following path: _run_templates/run_template_id/handler_id/script_file_
 
 Workspace configuration contains keys needed to deploy a powerBI workspaces, an event hub
 and an adx database. These keys are stored in `sidecars` section, under `azure` key.
@@ -209,24 +209,48 @@ of your app registration must be declared.
     Webapp deployment requires a GitHub repository with the destination branch. You can
     follow these steps to create it:
     
-  1. [create a new repository](https://github.com/new) in Github
-  2. configure your branch `<BRANCH>` with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)
-    
-```bash
-    git init
-    echo "# empty_webapp" >> README.md
-    git add README.md
-    git commit -m "first commit"
-    git branch -M <BRANCH>
-    git remote add origin git@github.com:<YOUR_GITHUB_REPOSITORY>.git
-    git remote add upstream https://github.com/Cosmo-Tech/azure-sample-webapp.git
-    git remote set-url upstream --push "NO"
-    git fetch --all --tags --prune
-    git checkout -B <BRANCH> <SOURCE_TAG>
-    rm -r .github/
-    git add .; git commit -m 'first commit'
-    git push origin <BRANCH> -f
-```
+    1. [create a new repository](https://github.com/new) in Github
+    2. configure your branch `<BRANCH>` with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)
+        
+        ```bash
+            git init
+        ```
+        ```bash
+            echo "# empty_webapp" >> README.md
+        ```
+        ```bash
+            git add README.md
+        ```
+        ```bash
+            git commit -m "first commit"
+        ```
+        ```bash
+            git branch -M <BRANCH>
+        ```
+        ```bash
+            git remote add origin git@github.com:<YOUR_GITHUB_REPOSITORY>.git
+        ```
+        ```bash
+            git remote add upstream https://github.com/Cosmo-Tech/azure-sample-webapp.git
+        ```
+        ```bash
+            git remote set-url upstream --push "NO"
+        ```
+        ```bash
+            git fetch --all --tags --prune
+        ```
+        ```bash
+            git checkout -B <BRANCH> <SOURCE_TAG>
+        ```
+        ```bash
+            rm -r .github/
+        ```
+        ```bash
+            git add .; git commit -m 'first commit'
+        ```
+        ```bash
+            git push origin <BRANCH> -f
+        ```
 
 Then, you can use this repository to deploy a new webapp:
 

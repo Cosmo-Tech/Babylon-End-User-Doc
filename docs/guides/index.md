@@ -20,7 +20,7 @@ You'll learn how to install, run, and experiment with Babylon.
 
 <article markdown>
 <div class="text" markdown>
-:material-cloud: **Solution deployment**
+:material-cloud: **Deploy a solution**
 
 This guide will help you to deploy a new solution or update an existing one.
 
@@ -34,7 +34,7 @@ This guide will help you to deploy a new solution or update an existing one.
 
 <article markdown>
 <div class="text" markdown>
-:material-note: **Destroy a solution**
+:material-delete: **Destroy a solution**
 
 This guide will help you to delete all resources of an existing solution
 
