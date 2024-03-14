@@ -8,8 +8,6 @@ This is a guide to getting started with Babylon. You'll learn how to install, ru
 
 Now that you have a fully functional installation of Babylon, you can check the next steps to learn how to start running commands.
 
-<br>
-
 ## Setup Babylon
 
 
@@ -73,32 +71,6 @@ You can now test Babylon by performing a simple command, e.g.:
 Initial configuration will be retrieved from vault and saved in Azure Storage
 and in local file `/home/.config/cosmotech/babylon/state_id.yaml`
 
-## Explore babylon
-
-You will explore some basics commands.
-
-### Azure container registry and images
-
-* Interact with Azure Container Registry  
-!!! requirements
-    * Docker instance
-    * Vault service with `dev` and `staging` platform already configured 
-
-
-* List images
-```bash
-babylon azure acr list 
-```
-
-* Pull image from source
-```bash
-babylon azure acr pull --image <IMAGE:VERSION> 
-```
-
-* Push image to target
-```bash
-babylon azure acr push --image <IMAGE:VERSION>
-```
 
 ## State file specification
 

@@ -5,6 +5,7 @@ If you don't need a Cosmo Tech solution anymore, you can destroy it with all res
 - adx database<br>
 - event hub<br>
 - azure function<br>
+- webapp<br>
 - powerbi workspace<br>
 - workspace<br>
 - run templates<br>
