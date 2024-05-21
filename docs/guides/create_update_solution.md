@@ -142,7 +142,7 @@ spec:
        principal_id: "412f3fad-3ce3-410a-994c-2a36bccaa0b2"
        role: Admin
      - type: App
-       description: "Cosmo Tech Platform warp For <some-tenant>"
+       description: "Cosmo Tech Platform <some-platform> For <some-tenant>"
        principal_id: "<guid>"
        role: Admin
      scripts:
