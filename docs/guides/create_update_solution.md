@@ -119,10 +119,19 @@ spec:
       - name: Report Name A
         type: dashboard
         path: "powerbi/myreportA.pbix"
+        parameters:
+        - id: "ADX_Cluster"
+          value: "https://{{services['adx.cluster_name']}}.westeurope.kusto.windows.net"
+        - id: "ADX_Database"
+          value: "{{services['api.organization_id']}}-{{key}}" 
      permissions:
      - identifier: "e-mail@cosmotech.com"
        rights: Admin
        type: User
+      - identifier: "<guid>"
+        description: "Object Id of Service Principal WebApp"
+        rights: Admin
+        type: App
    adx:
     database:
      create: true
@@ -131,6 +140,10 @@ spec:
      - type: User
        email: e-mail@cosmotech.com
        principal_id: "412f3fad-3ce3-410a-994c-2a36bccaa0b2"
+       role: Admin
+     - type: App
+       description: "Cosmo Tech Platform warp For <some-tenant>"
+       principal_id: "<guid>"
        role: Admin
      scripts:
      - id: "demoscript"
