@@ -1,13 +1,14 @@
 ---
- hide:
+hide:
   - toc
 ---
+
 !!! abstract "Remember"
 
     You have to choose the platform and project you want to work. Contact your babylon admin to know more about your options.
-
+    
     In this example, we will use
-
+    
     * context_id: `test`
     * platform_id: `dev`
     * state_id: `teststate`
@@ -15,7 +16,7 @@
 To deploy a complete Cosmo Tech solution, you can declare its configuration in yaml files corresponding
 to specific deployment type. Each file contains general information about the deployment:
 
-```yaml
+```yaml {"id":"01HZEKCRJ38EH5EEJKBR78E64T"}
 kind: Organization
 namespace:
   state_id: "{{state_id}}"
@@ -24,14 +25,15 @@ namespace:
     id: dev
     url: https://dev.api.cosmotech.com/phoenix/v3-0 
 ```
+
 The `kind` key must be one of these: Organization, Solution, Workspace, WebApp, Dataset - it decides which
 resource will be deployed with specification listed below. Note that the type of resource must always start with capital letter.
-`namespace` key gives information that identifies the deployment: state, context and platform. 
+`namespace` key gives information that identifies the deployment: state, context and platform.
 
 Then, each file declares resource configuration under `spec` key, specifically in the `payload` section,
 e.g., in organization deployment file:
 
-```yaml
+```yaml {"id":"01HZEKCRJ38EH5EEJKBVW8Q87M"}
 kind: Organization
 namespace:
  state_id: "{{state_id}}"
@@ -44,10 +46,11 @@ spec:
   name: My new Organization
   security: {{security}}
 ```
+
 All keys in this file can be templated with `{{}}` syntax, as `security` section of this file. Corresponding
 values must be stored in _variables.yaml_ file at the same level that your project:
 
-```yaml
+```yaml {"id":"01HZEKCRJ38EH5EEJKBWB0R6FT"}
 security:
   default: viewer
   accessControlList:
@@ -56,9 +59,10 @@ security:
     - id: user2@email.com
       role: editor
 ```
+
 This is how the solution deployment file is structured:
 
-```yaml
+```yaml {"id":"01HZEKCRJ38EH5EEJKBYAN8X3P"}
 kind: Solution
 namespace:
  state_id: "{{state_id}}"
@@ -94,6 +98,7 @@ spec:
    - id: e-mail@cosmotech.com
      role: admin
 ```
+
 Run templates are enumerated under `sidecars` key which lists every side resources needed for the
 correct functioning of the solution. Run templates scripts must be placed in _run_templates_ folder
 of your project with the following path: _run_templates/run_template_id/handler_id/script_file_
@@ -101,7 +106,7 @@ of your project with the following path: _run_templates/run_template_id/handler_
 Workspace configuration contains keys needed to deploy a powerBI workspaces, an event hub
 and an adx database. These keys are stored in `sidecars` section, under `azure` key.
 
-```yaml
+```yaml {"id":"01HZEKCRJ38EH5EEJKC28K3WM7"}
 kind: Workspace
 namespace:
  state_id: "{{state_id}}"
@@ -128,10 +133,10 @@ spec:
      - identifier: "e-mail@cosmotech.com"
        rights: Admin
        type: User
-      - identifier: "<guid>"
-        description: "Object Id of Service Principal WebApp"
-        rights: Admin
-        type: App
+     - identifier: "<guid>"
+       description: "Object Id of Service Principal WebApp"
+       rights: Admin
+       type: App
    adx:
     database:
      create: true
@@ -204,6 +209,7 @@ spec:
    - id: e-mail@cosmotech.com
      role: admin
 ```
+
 Path to existing powerBI reports could be declared in `powerBI` section of sidecars; adx script must be
 in adx folder of your project.
 
@@ -214,14 +220,14 @@ in adx folder of your project.
     level. Owner rights allow it to assign roles to resources. If you security policy doesn't grant
     such access to Babylon, these operations must be done manually. 
 
-To deploy a webapp you can create a new app registration or use an existing one; it can be 
+To deploy a webapp you can create a new app registration or use an existing one; it can be
 declared by `create` key of `sidecars.azure.app` section. If it is set to false, a `client_id` and a `name`
-of your app registration must be declared. 
+of your app registration must be declared.
 
 !!! warning "Requirements"
-    Webapp deployment requires a GitHub repository with the destination branch. You can
-    follow these steps to create it:
-    
+Webapp deployment requires a GitHub repository with the destination branch. You can
+follow these steps to create it:
+
     1. [create a new repository](https://github.com/new) in Github
     2. configure your branch `<BRANCH>` with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)
         
@@ -267,7 +273,7 @@ of your app registration must be declared.
 
 Then, you can use this repository to deploy a new webapp:
 
-```yaml
+```yaml {"id":"01HZEKCRJ38EH5EEJKC4EK1A52"}
 kind: WebApp
 namespace:
  state_id: "{{state_id}}"
@@ -298,6 +304,7 @@ spec:
      displayName: thisismyappforcontinuous
      client_id: "3d0531b1-d23b-4baf-98be-a764c0a42f00"
     principal_id: "{{services['app.principal_id']}}"
+    add_to_powerbi: true
     payload:
      displayName: thisismyappforcontinuous
      signInAudience: AzureADMyOrg
@@ -340,14 +347,15 @@ spec:
    tier: Standard
 ```
 
-To deploy one or multiple datasets, one yaml file is needed by dataset. Four _sourceType_ of datasets are 
-available:<br>
-- ADT - creates dataset from ADT<br>
-- AzureStorage - creates dataset with Azure Storage<br>
-- File - creates dataset from a local file<br>
-- None - creates an empty dataset<br>
+To deploy one or multiple datasets, one yaml file is needed by dataset. Four _sourceType_ of datasets are
+available:
 
-```yaml
+- ADT - creates dataset from ADT
+- AzureStorage - creates dataset with Azure Storage
+- File - creates dataset from a local file
+- None - creates an empty dataset
+
+```yaml {"id":"01HZEKCRJ38EH5EEJKC5DVF3C8"}
 kind: Dataset
 namespace:
  state_id: "{{state_id}}"
@@ -386,7 +394,8 @@ spec:
 ```
 
 Project folder must have this structure:
-```bash  
+
+```bash {"id":"01HZEKCRJ38EH5EEJKC6ATM1D3"}
  ├── my-deployment
     ├── project
         ├── organization.yaml
@@ -404,8 +413,9 @@ Project folder must have this structure:
     ├── variables.yaml
 ```
 
-After filling all deployment files, you can launch the following command: 
-```bash
+After filling all deployment files, you can launch the following command:
+
+```bash {"id":"01HZEKCRJ38EH5EEJKC88YY1CY"}
 babylon apply project/
 ```
 
@@ -413,4 +423,3 @@ Babylon will create and deploy all resources and save it in the state except for
 state simplifies modification of the resources as you can edit one of the project deployment files
 and relaunch `babylon apply` command. It will update existing resources or create missing ones, for example,
 in case when Babylon was granted more rights between two `apply` commands.
-<br>
