@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rocket-getting-started-with-babylon" class="md-skip">
+        <a href="#getting-started-with-babylon" class="md-skip">
           Skip to content
         </a>
       
@@ -178,7 +178,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -734,7 +734,7 @@
   
 
 
-<h1 id="rocket-getting-started-with-babylon">:rocket: Getting started with Babylon<a class="headerlink" href="#rocket-getting-started-with-babylon" title="Permanent link">&para;</a></h1>
+<h1 id="getting-started-with-babylon">Getting started with Babylon<a class="headerlink" href="#getting-started-with-babylon" title="Permanent link">&para;</a></h1>
 <p>This is a guide to getting started with Babylon. You'll learn how to install, run, and experiment with the Babylon.</p>
 <h2 id="azure-requirements">Azure requirements<a class="headerlink" href="#azure-requirements" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
@@ -764,8 +764,6 @@
 <li>Application.ReadWrite.All (Application)</li>
 <li>Application.ReadWrite.OwnedBy (Application)</li>
 <li>Group.ReadWrite.All (Application)</li>
-<li>User.Read (Delegted)</li>
-<li>User.Read.All (Application)</li>
 </ul>
 </li>
 <li>
@@ -853,8 +851,8 @@ Contact your babylon admin to get your <strong>URI</strong> service and your <st
 but they cannot contain special characters. <code>platform_id</code> represents the id of the platform, such as dev, staging, etc.
 To initialize it, perform this command:
   <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>namespace<span class="w"> </span>use<span class="w"> </span>-c<span class="w"> </span>&lt;context_id&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;platform_id&gt;<span class="w"> </span>-s<span class="w"> </span>&lt;state_id&gt;
-</code></pre></div>
-It will be saved in a local file /home/.config/cosmotech/babylon/namespace.yaml</p>
+</code></pre></div></p>
+<p>It will be saved in a local file /home/.config/cosmotech/babylon/namespace.yaml</p>
 <p>You can now test Babylon by performing a simple command, e.g.:
   <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>organizations<span class="w"> </span>get-all
 </code></pre></div>
@@ -957,7 +955,6 @@ The last one contains following keys with some information already prefilled wit
 <p>PowerBI</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">powerbi</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">dashboard_view</span><span class="p">:</span><span class="w"> </span>
-<span class="w">      </span><span class="nt">group_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">scenario_view</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">workspace.id</span><span class="p">:</span>
@@ -1065,7 +1062,7 @@ The last one contains following keys with some information already prefilled wit
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
     
   </body>
