@@ -126,7 +126,6 @@ PowerBI
 ```yaml
     powerbi:
       dashboard_view: 
-      group_id: 
       scenario_view: 
       scope: 
       workspace.id:

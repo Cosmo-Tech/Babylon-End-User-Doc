@@ -16,7 +16,7 @@ hide:
 To deploy a complete Cosmo Tech solution, you can declare its configuration in yaml files corresponding
 to specific deployment type. Each file contains general information about the deployment:
 
-```yaml {"id":"01HZEKCRJ38EH5EEJKBR78E64T"}
+```yaml
 kind: Organization
 namespace:
   state_id: "{{state_id}}"
@@ -33,7 +33,7 @@ resource will be deployed with specification listed below. Note that the type of
 Then, each file declares resource configuration under `spec` key, specifically in the `payload` section,
 e.g., in organization deployment file:
 
-```yaml {"id":"01HZEKCRJ38EH5EEJKBVW8Q87M"}
+```yaml
 kind: Organization
 namespace:
  state_id: "{{state_id}}"
@@ -47,10 +47,10 @@ spec:
   security: {{security}}
 ```
 
-All keys in this file can be templated with `{{}}` syntax, as `security` section of this file. Corresponding
+All keys in this file can be templated with `{{}}` syntax for objects and `"{{}}"` for strings, as `security` section of this file. Corresponding
 values must be stored in _variables.yaml_ file at the same level that your project:
 
-```yaml {"id":"01HZEKCRJ38EH5EEJKBWB0R6FT"}
+```yaml
 security:
   default: viewer
   accessControlList:
@@ -62,7 +62,7 @@ security:
 
 This is how the solution deployment file is structured:
 
-```yaml {"id":"01HZEKCRJ38EH5EEJKBYAN8X3P"}
+```yaml
 kind: Solution
 namespace:
  state_id: "{{state_id}}"
@@ -106,7 +106,7 @@ of your project with the following path: _run_templates/run_template_id/handler_
 Workspace configuration contains keys needed to deploy a powerBI workspaces, an event hub
 and an adx database. These keys are stored in `sidecars` section, under `azure` key.
 
-```yaml {"id":"01HZEKCRJ38EH5EEJKC28K3WM7"}
+```yaml
 kind: Workspace
 namespace:
  state_id: "{{state_id}}"
@@ -228,52 +228,57 @@ of your app registration must be declared.
 Webapp deployment requires a GitHub repository with the destination branch. You can
 follow these steps to create it:
 
-    1. [create a new repository](https://github.com/new) in Github
-    2. configure your branch `<BRANCH>` with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)
-        
-        ```bash
-            git init
-        ```
-        ```bash
-            echo "# empty_webapp" >> README.md
-        ```
-        ```bash
-            git add README.md
-        ```
-        ```bash
-            git commit -m "first commit"
-        ```
-        ```bash
-            git branch -M <BRANCH>
-        ```
-        ```bash
-            git remote add origin git@github.com:<YOUR_GITHUB_REPOSITORY>.git
-        ```
-        ```bash
-            git remote add upstream https://github.com/Cosmo-Tech/azure-sample-webapp.git
-        ```
-        ```bash
-            git remote set-url upstream --push "NO"
-        ```
-        ```bash
-            git fetch --all --tags --prune
-        ```
-        ```bash
-            git checkout -B <BRANCH> <SOURCE_TAG>
-        ```
-        ```bash
-            rm -r .github/
-        ```
-        ```bash
-            git add .; git commit -m 'first commit'
-        ```
-        ```bash
-            git push origin <BRANCH> -f
-        ```
+1. [create a new repository](https://github.com/new) in Github
+
+
+2. configure your branch `<BRANCH>` with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)
+
+
+  ```bash
+      git init
+  ```
+  ```bash
+      echo "# empty_webapp" >> README.md
+  ```
+  ```bash
+      git add README.md
+  ```
+  ```bash
+      git commit -m "first commit"
+  ```
+  ```bash
+      git branch -M <BRANCH>
+  ```
+  ```bash
+      git remote add origin git@github.com:<YOUR_GITHUB_REPOSITORY>.git
+  ```
+  ```bash
+      git remote add upstream https://github.com/Cosmo-Tech/azure-sample-webapp.git
+  ```
+  ```bash
+      git remote set-url upstream --push "NO"
+  ```
+  ```bash
+      git fetch --all --tags --prune
+  ```
+  ```bash
+      git checkout -B <BRANCH> <SOURCE_TAG>
+  ```
+  ```bash
+      rm -r .github/
+  ```
+  ```bash
+      git add .; git commit -m 'first commit'
+  ```
+  ```bash
+      git push origin <BRANCH> -f
+  ```
+
 
 Then, you can use this repository to deploy a new webapp:
 
-```yaml {"id":"01HZEKCRJ38EH5EEJKC4EK1A52"}
+
+```yaml
 kind: WebApp
 namespace:
  state_id: "{{state_id}}"
@@ -317,7 +322,7 @@ spec:
         - id: "{{services['platform.scope_id']}}"
           type: Scope
    function:
-    url_zip: https://github.com/Cosmo-Tech/supplychain-azure-function-dataset-download/releases/download/2.1.10/artifact.zip
+    url_zip: "https://github.com/Cosmo-Tech/supplychain-azure-function-dataset-download/releases/download/2.1.10/artifact.zip"
   config:
    REACT_APP_APPLICATION_INSIGHTS_INSTRUMENTATION_KEY: "{{services['webapp.insights_instrumentation_key']}}"
    REACT_APP_ENABLE_APPLICATION_INSIGHTS: "{{services['webapp.enable_insights']}}"
@@ -355,7 +360,7 @@ available:
 - File - creates dataset from a local file
 - None - creates an empty dataset
 
-```yaml {"id":"01HZEKCRJ38EH5EEJKC5DVF3C8"}
+```yaml
 kind: Dataset
 namespace:
  state_id: "{{state_id}}"
@@ -395,7 +400,7 @@ spec:
 
 Project folder must have this structure:
 
-```bash {"id":"01HZEKCRJ38EH5EEJKC6ATM1D3"}
+```bash
  ├── my-deployment
     ├── project
         ├── organization.yaml
@@ -415,7 +420,7 @@ Project folder must have this structure:
 
 After filling all deployment files, you can launch the following command:
 
-```bash {"id":"01HZEKCRJ38EH5EEJKC88YY1CY"}
+```bash
 babylon apply project/
 ```
 

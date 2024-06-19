@@ -26,8 +26,6 @@
         - Application.ReadWrite.All (Application)
         - Application.ReadWrite.OwnedBy (Application)
         - Group.ReadWrite.All (Application)
-        - User.Read (Delegted)
-        - User.Read.All (Application)
 
     * **Platform Api**
         - Platform.Admin (Application)

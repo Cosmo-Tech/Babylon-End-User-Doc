@@ -1,4 +1,4 @@
-# :rocket: Getting started with Babylon
+# Getting started with Babylon
 
 This is a guide to getting started with Babylon. You'll learn how to install, run, and experiment with the Babylon.
 
@@ -62,6 +62,7 @@ To initialize it, perform this command:
   ```bash
   babylon namespace use -c <context_id> -p <platform_id> -s <state_id>
   ```
+
 It will be saved in a local file /home/.config/cosmotech/babylon/namespace.yaml
 
 You can now test Babylon by performing a simple command, e.g.:
