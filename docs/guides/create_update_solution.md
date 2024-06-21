@@ -23,12 +23,16 @@ namespace:
   context: demo
   platform:
     id: dev
-    url: https://dev.api.cosmotech.com/phoenix/v3-0 
+    url: https://dev.api.cosmotech.com/phoenix/v3-0
+metadatas: 
+  workspace_key: "{{workspace_key}}" 
 ```
 
 The `kind` key must be one of these: Organization, Solution, Workspace, WebApp, Dataset - it decides which
 resource will be deployed with specification listed below. Note that the type of resource must always start with capital letter.
 `namespace` key gives information that identifies the deployment: state, context and platform.
+
+Also, the `metadatas` section contain data specific to each deployment section. The `workspace_key` parameter must be included in each metadata.
 
 Then, each file declares resource configuration under `spec` key, specifically in the `payload` section,
 e.g., in organization deployment file:
@@ -41,6 +45,8 @@ namespace:
  platform:
   id: dev
   url: https://dev.api.cosmotech.com/phoenix/v3-0
+metadatas: 
+  workspace_key: "{{workspace_key}}"
 spec:
  payload:
   name: My new Organization
@@ -58,6 +64,7 @@ security:
       role: admin
     - id: user2@email.com
       role: editor
+workspace_key: digitalsupplychainassetmanagement
 ```
 
 This is how the solution deployment file is structured:
@@ -70,6 +77,8 @@ namespace:
  platform:
   id: dev
   url: https://dev.api.cosmotech.com/phoenix/v3-0
+metadatas: 
+  workspace_key: "{{workspace_key}}"
 spec:
  sidecars:
   azure:
@@ -114,6 +123,8 @@ namespace:
  platform:
   id: dev
   url: https://dev.api.cosmotech.com/phoenix/v3-0
+metadatas: 
+  workspace_key: "{{workspace_key}}"
 spec:
  sidecars:
   azure:
@@ -286,6 +297,8 @@ namespace:
  platform:
   id: dev
   url: https://dev.api.cosmotech.com/phoenix/v3-0
+metadatas: 
+  workspace_key: "{{workspace_key}}"
 spec:
  sidecars:
   github:
@@ -368,6 +381,8 @@ namespace:
  platform:
   id: dev
   url: https://dev.api.cosmotech.com/phoenix/v3-0
+metadatas: 
+  workspace_key: "{{workspace_key}}"
 spec:
  sidecars:
   azure:
