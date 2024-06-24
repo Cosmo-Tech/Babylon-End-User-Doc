@@ -14,5 +14,5 @@ If you don't need a Cosmo Tech solution anymore, you can destroy it with all res
 By default, it will destroy resources referenced in state saved in namespace file, but you can define a specific state as option:
 
 ```bash
-babylon destroy --state-to-destroy <path-to-specific-state>
+babylon destroy -s <state_id>
 ```
