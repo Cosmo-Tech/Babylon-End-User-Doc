@@ -560,28 +560,28 @@ to specific deployment type. Each file contains general information about the de
 <span class="w">  </span><span class="nt">platform</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
 <span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dev.api.cosmotech.com/phoenix/v3-0</span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
-<span class="w">  </span><span class="nt">workspace_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{workspace_key}}&quot;</span><span class="w"> </span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">workspace_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{workspace_key}}&quot;</span>
 </code></pre></div>
 <p>The <code>kind</code> key must be one of these: Organization, Solution, Workspace, WebApp, Dataset - it decides which
 resource will be deployed with specification listed below. Note that the type of resource must always start with capital letter.
 <code>namespace</code> key gives information that identifies the deployment: state, context and platform.</p>
-<p>Also, the <code>metadata</code> section contain data specific to each deployment section. The <code>workspace_key</code> parameter must be included in each metadata.If <code>workspace_key</code> parameter is empty, the deployment will fail.</p>
+<p>Also, the <code>metadata</code> section contain data specific to each deployment section. The <code>workspace_key</code> parameter must be included in each metadata. If <code>workspace_key</code> parameter is empty, the deployment will fail.</p>
 <p>Then, each file declares resource configuration under <code>spec</code> key, specifically in the <code>payload</code> section,
 e.g., in organization deployment file:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Organization</span>
 <span class="nt">namespace</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state_id}}&quot;</span>
-<span class="w"> </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span>
-<span class="w"> </span><span class="nt">platform</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
-<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dev.api.cosmotech.com/phoenix/v3-0</span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state_id}}&quot;</span>
+<span class="w">  </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span>
+<span class="w">  </span><span class="nt">platform</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dev.api.cosmotech.com/phoenix/v3-0</span>
+<span class="nt">metadata</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">workspace_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{workspace_key}}&quot;</span>
 <span class="nt">spec</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">payload</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">My new Organization</span>
-<span class="w">  </span><span class="nt">security</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="nv">security</span><span class="p p-Indicator">}}</span>
+<span class="w">  </span><span class="nt">payload</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">My new Organization</span>
+<span class="w">    </span><span class="nt">security</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="nv">security</span><span class="p p-Indicator">}}</span>
 </code></pre></div>
 <p>All keys in this file can be templated with <code>{{}}</code> syntax for objects and <code>"{{}}"</code> for strings, as <code>security</code> section of this file. Corresponding
 values must be stored in <em>variables.yaml</em> file at the same level that your project:</p>
@@ -592,45 +592,44 @@ values must be stored in <em>variables.yaml</em> file at the same level that you
 <span class="w">      </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user2@email.com</span>
 <span class="w">      </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">editor</span>
-<span class="nt">workspace_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">digitalsupplychainassetmanagement</span>
 </code></pre></div>
 <p>This is how the solution deployment file is structured:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Solution</span>
 <span class="nt">namespace</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state_id}}&quot;</span>
-<span class="w"> </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span>
-<span class="w"> </span><span class="nt">platform</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
-<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dev.api.cosmotech.com/phoenix/v3-0</span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state_id}}&quot;</span>
+<span class="w">  </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span>
+<span class="w">  </span><span class="nt">platform</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dev.api.cosmotech.com/phoenix/v3-0</span>
+<span class="nt">metadata</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">workspace_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{workspace_key}}&quot;</span>
 <span class="nt">spec</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">sidecars</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">azure</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">run_templates</span><span class="p">:</span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">run_template_id</span>
-<span class="w">     </span><span class="nt">handlers</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">preRun</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w"> </span><span class="nt">payload</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;demosolution&quot;</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;My</span><span class="nv"> </span><span class="s">Solution</span><span class="nv"> </span><span class="s">Name&quot;</span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;My</span><span class="nv"> </span><span class="s">solution</span><span class="nv"> </span><span class="s">description&quot;</span>
-<span class="w">  </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brewery_for_continuous</span>
-<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">latest</span>
-<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brewery</span>
-<span class="w">  </span><span class="nt">runTemplates</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;run_id&quot;</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Standard</span><span class="nv"> </span><span class="s">simulation&quot;</span>
-<span class="w">    </span><span class="nt">csmSimulation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AzureWebApp/AzureWebApp_Simulation</span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">preRun</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">parameterGroups</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">security</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
-<span class="w">   </span><span class="nt">accessControlList</span><span class="p">:</span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e-mail@cosmotech.com</span>
-<span class="w">     </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">  </span><span class="nt">sidecars</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">azure</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">run_templates</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">run_template_id</span>
+<span class="w">          </span><span class="nt">handlers</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">preRun</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">payload</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;demosolution&quot;</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;My</span><span class="nv"> </span><span class="s">Solution</span><span class="nv"> </span><span class="s">Name&quot;</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;My</span><span class="nv"> </span><span class="s">solution</span><span class="nv"> </span><span class="s">description&quot;</span>
+<span class="w">    </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brewery_for_continuous</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">latest</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brewery</span>
+<span class="w">    </span><span class="nt">runTemplates</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;run_id&quot;</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Standard</span><span class="nv"> </span><span class="s">simulation&quot;</span>
+<span class="w">        </span><span class="nt">csmSimulation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AzureWebApp/AzureWebApp_Simulation</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">preRun</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">parameterGroups</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">security</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+<span class="w">      </span><span class="nt">accessControlList</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e-mail@cosmotech.com</span>
+<span class="w">          </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
 </code></pre></div>
 <p>Run templates are enumerated under <code>sidecars</code> key which lists every side resources needed for the
 correct functioning of the solution. Run templates scripts must be placed in <em>run_templates</em> folder
@@ -639,107 +638,107 @@ of your project with the following path: <em>run_templates/run_template_id/handl
 and an adx database. These keys are stored in <code>sidecars</code> section, under <code>azure</code> key.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Workspace</span>
 <span class="nt">namespace</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state_id}}&quot;</span>
-<span class="w"> </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span>
-<span class="w"> </span><span class="nt">platform</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
-<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dev.api.cosmotech.com/phoenix/v3-0</span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state_id}}&quot;</span>
+<span class="w">  </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span>
+<span class="w">  </span><span class="nt">platform</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dev.api.cosmotech.com/phoenix/v3-0</span>
+<span class="nt">metadata</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">workspace_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{workspace_key}}&quot;</span>
 <span class="nt">spec</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">sidecars</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">azure</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">powerbi</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">workspace</span><span class="p">:</span>
-<span class="w">     </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;My</span><span class="nv"> </span><span class="s">workspace</span><span class="nv"> </span><span class="s">Powerbi</span><span class="nv"> </span><span class="s">Name&quot;</span>
-<span class="w">     </span><span class="nt">reports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Report Name A</span>
-<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dashboard</span>
-<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;powerbi/myreportA.pbix&quot;</span>
-<span class="w">        </span><span class="nt">parameters</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ADX_Cluster&quot;</span>
-<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://{{services[&#39;adx.cluster_name&#39;]}}.westeurope.kusto.windows.net&quot;</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ADX_Database&quot;</span>
-<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}-{{key}}&quot;</span><span class="w"> </span>
-<span class="w">     </span><span class="nt">permissions</span><span class="p">:</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;e-mail@cosmotech.com&quot;</span>
-<span class="w">       </span><span class="nt">rights</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Admin</span>
-<span class="w">       </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">User</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;guid&gt;&quot;</span>
-<span class="w">       </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Object</span><span class="nv"> </span><span class="s">Id</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Service</span><span class="nv"> </span><span class="s">Principal</span><span class="nv"> </span><span class="s">WebApp&quot;</span>
-<span class="w">       </span><span class="nt">rights</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Admin</span>
-<span class="w">       </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">App</span>
-<span class="w">   </span><span class="nt">adx</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">database</span><span class="p">:</span>
-<span class="w">     </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">     </span><span class="nt">retention</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">365</span>
-<span class="w">     </span><span class="nt">permissions</span><span class="p">:</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">User</span>
-<span class="w">       </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e-mail@cosmotech.com</span>
-<span class="w">       </span><span class="nt">principal_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;412f3fad-3ce3-410a-994c-2a36bccaa0b2&quot;</span>
-<span class="w">       </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Admin</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">App</span>
-<span class="w">       </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Cosmo</span><span class="nv"> </span><span class="s">Tech</span><span class="nv"> </span><span class="s">Platform</span><span class="nv"> </span><span class="s">&lt;some-platform&gt;</span><span class="nv"> </span><span class="s">For</span><span class="nv"> </span><span class="s">&lt;some-tenant&gt;&quot;</span>
-<span class="w">       </span><span class="nt">principal_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;guid&gt;&quot;</span>
-<span class="w">       </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Admin</span>
-<span class="w">     </span><span class="nt">scripts</span><span class="p">:</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;demoscript&quot;</span>
-<span class="w">       </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create.kql</span>
-<span class="w">       </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;adx/scripts&quot;</span>
-<span class="w">   </span><span class="nt">eventhub</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">consumers</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
-<span class="w">      </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProbesMeasures</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
-<span class="w">      </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioMetadata</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
-<span class="w">      </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioRun</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
-<span class="w">      </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioRunMetadata</span>
-<span class="w">    </span><span class="nt">connectors</span><span class="p">:</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">table_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProbesMeasures</span>
-<span class="w">       </span><span class="nt">consumer_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
-<span class="w">       </span><span class="nt">connection_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProbesMeasures</span>
-<span class="w">       </span><span class="nt">database_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}-{{key}}&quot;</span>
-<span class="w">       </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JSON</span>
-<span class="w">       </span><span class="nt">compression</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gzip</span>
-<span class="w">       </span><span class="nt">mapping</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProbesMeasuresMapping</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">table_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioMetadata</span>
-<span class="w">       </span><span class="nt">consumer_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
-<span class="w">       </span><span class="nt">connection_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioMetadata</span>
-<span class="w">       </span><span class="nt">database_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}-{{key}}&quot;</span>
-<span class="w">       </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CSV</span>
-<span class="w">       </span><span class="nt">compression</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">None</span>
-<span class="w">       </span><span class="nt">mapping</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioMetadataMapping</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">table_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SimulationTotalFacts</span>
-<span class="w">       </span><span class="nt">consumer_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
-<span class="w">       </span><span class="nt">connection_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioRun</span>
-<span class="w">       </span><span class="nt">database_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}-{{key}}&quot;</span>
-<span class="w">       </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JSON</span>
-<span class="w">       </span><span class="nt">compression</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">None</span>
-<span class="w">       </span><span class="nt">mapping</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SimulationTotalFactsMapping</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">table_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioRunMetadata</span>
-<span class="w">       </span><span class="nt">consumer_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
-<span class="w">       </span><span class="nt">connection_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioRunMetadata</span>
-<span class="w">       </span><span class="nt">database_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}-{{key}}&quot;</span>
-<span class="w">       </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CSV</span>
-<span class="w">       </span><span class="nt">compression</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">None</span>
-<span class="w">       </span><span class="nt">mapping</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioRunMetadataMapping</span>
-<span class="w"> </span><span class="nt">payload</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{key}}&quot;</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;My</span><span class="nv"> </span><span class="s">Workspace</span><span class="nv"> </span><span class="s">Name&quot;</span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Workspace</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">solution&quot;</span>
-<span class="w">  </span><span class="nt">solution</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">solutionId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.solution_id&#39;]}}&quot;</span>
-<span class="w">  </span><span class="nt">useDedicatedEventHubNamespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">sendScenarioMetadataToEventHub</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">sendInputToDataWarehouse</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">sendScenarioRunToEventHub</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">security</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
-<span class="w">   </span><span class="nt">accessControlList</span><span class="p">:</span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e-mail@cosmotech.com</span>
-<span class="w">     </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">  </span><span class="nt">sidecars</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">azure</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">powerbi</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">workspace</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;My</span><span class="nv"> </span><span class="s">workspace</span><span class="nv"> </span><span class="s">Powerbi</span><span class="nv"> </span><span class="s">Name&quot;</span>
+<span class="w">          </span><span class="nt">reports</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Report Name A</span>
+<span class="w">              </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dashboard</span>
+<span class="w">              </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;powerbi/myreportA.pbix&quot;</span>
+<span class="w">              </span><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ADX_Cluster&quot;</span>
+<span class="w">                  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://{{services[&#39;adx.cluster_name&#39;]}}.westeurope.kusto.windows.net&quot;</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ADX_Database&quot;</span>
+<span class="w">                  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}-{{key}}&quot;</span>
+<span class="w">          </span><span class="nt">permissions</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;e-mail@cosmotech.com&quot;</span>
+<span class="w">              </span><span class="nt">rights</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Admin</span>
+<span class="w">              </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">User</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;guid&gt;&quot;</span>
+<span class="w">              </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Object</span><span class="nv"> </span><span class="s">Id</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Service</span><span class="nv"> </span><span class="s">Principal</span><span class="nv"> </span><span class="s">WebApp&quot;</span>
+<span class="w">              </span><span class="nt">rights</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Admin</span>
+<span class="w">              </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">App</span>
+<span class="w">      </span><span class="nt">adx</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">database</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">retention</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">365</span>
+<span class="w">          </span><span class="nt">permissions</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">User</span>
+<span class="w">              </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e-mail@cosmotech.com</span>
+<span class="w">              </span><span class="nt">principal_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;412f3fad-3ce3-410a-994c-2a36bccaa0b2&quot;</span>
+<span class="w">              </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Admin</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">App</span>
+<span class="w">              </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Cosmo</span><span class="nv"> </span><span class="s">Tech</span><span class="nv"> </span><span class="s">Platform</span><span class="nv"> </span><span class="s">&lt;some-platform&gt;</span><span class="nv"> </span><span class="s">For</span><span class="nv"> </span><span class="s">&lt;some-tenant&gt;&quot;</span>
+<span class="w">              </span><span class="nt">principal_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;guid&gt;&quot;</span>
+<span class="w">              </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Admin</span>
+<span class="w">          </span><span class="nt">scripts</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;demoscript&quot;</span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create.kql</span>
+<span class="w">              </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;adx/scripts&quot;</span>
+<span class="w">      </span><span class="nt">eventhub</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">consumers</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
+<span class="w">            </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProbesMeasures</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
+<span class="w">            </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioMetadata</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
+<span class="w">            </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioRun</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
+<span class="w">            </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioRunMetadata</span>
+<span class="w">        </span><span class="nt">connectors</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">table_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProbesMeasures</span>
+<span class="w">            </span><span class="nt">consumer_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
+<span class="w">            </span><span class="nt">connection_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProbesMeasures</span>
+<span class="w">            </span><span class="nt">database_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}-{{key}}&quot;</span>
+<span class="w">            </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JSON</span>
+<span class="w">            </span><span class="nt">compression</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gzip</span>
+<span class="w">            </span><span class="nt">mapping</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProbesMeasuresMapping</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">table_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioMetadata</span>
+<span class="w">            </span><span class="nt">consumer_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
+<span class="w">            </span><span class="nt">connection_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioMetadata</span>
+<span class="w">            </span><span class="nt">database_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}-{{key}}&quot;</span>
+<span class="w">            </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CSV</span>
+<span class="w">            </span><span class="nt">compression</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">None</span>
+<span class="w">            </span><span class="nt">mapping</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioMetadataMapping</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">table_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SimulationTotalFacts</span>
+<span class="w">            </span><span class="nt">consumer_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
+<span class="w">            </span><span class="nt">connection_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioRun</span>
+<span class="w">            </span><span class="nt">database_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}-{{key}}&quot;</span>
+<span class="w">            </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JSON</span>
+<span class="w">            </span><span class="nt">compression</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">None</span>
+<span class="w">            </span><span class="nt">mapping</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SimulationTotalFactsMapping</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">table_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioRunMetadata</span>
+<span class="w">            </span><span class="nt">consumer_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adx</span>
+<span class="w">            </span><span class="nt">connection_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioRunMetadata</span>
+<span class="w">            </span><span class="nt">database_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}-{{key}}&quot;</span>
+<span class="w">            </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CSV</span>
+<span class="w">            </span><span class="nt">compression</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">None</span>
+<span class="w">            </span><span class="nt">mapping</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScenarioRunMetadataMapping</span>
+<span class="w">  </span><span class="nt">payload</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{key}}&quot;</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;My</span><span class="nv"> </span><span class="s">Workspace</span><span class="nv"> </span><span class="s">Name&quot;</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Workspace</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">solution&quot;</span>
+<span class="w">    </span><span class="nt">solution</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">solutionId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.solution_id&#39;]}}&quot;</span>
+<span class="w">    </span><span class="nt">useDedicatedEventHubNamespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">sendScenarioMetadataToEventHub</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">sendInputToDataWarehouse</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">sendScenarioRunToEventHub</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">security</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+<span class="w">      </span><span class="nt">accessControlList</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e-mail@cosmotech.com</span>
+<span class="w">          </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
 </code></pre></div>
 <p>Path to existing powerBI reports could be declared in <code>powerBI</code> section of sidecars; adx script must be
 in adx folder of your project.</p>
@@ -759,113 +758,109 @@ of your app registration must be declared.</p>
 <p>Webapp deployment requires a GitHub repository with the destination branch. You can
 follow these steps to create it:</p>
 <ol>
-<li>
-<p><a href="https://github.com/new">create a new repository</a> in Github</p>
-</li>
-<li>
-<p>configure your branch <code>&lt;BRANCH&gt;</code> with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)</p>
-</li>
+<li><a href="https://github.com/new">create a new repository</a> in Github</li>
+<li>configure your branch <code>&lt;BRANCH&gt;</code> with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)</li>
 </ol>
-<p><div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>init
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>init
 </code></pre></div>
-  <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# empty_webapp&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# empty_webapp&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
 </code></pre></div>
-  <div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>add<span class="w"> </span>README.md
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>add<span class="w"> </span>README.md
 </code></pre></div>
-  <div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;first commit&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;first commit&quot;</span>
 </code></pre></div>
-  <div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>&lt;BRANCH&gt;
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>&lt;BRANCH&gt;
 </code></pre></div>
-  <div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:&lt;YOUR_GITHUB_REPOSITORY&gt;.git
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:&lt;YOUR_GITHUB_REPOSITORY&gt;.git
 </code></pre></div>
-  <div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/Cosmo-Tech/azure-sample-webapp.git
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/Cosmo-Tech/azure-sample-webapp.git
 </code></pre></div>
-  <div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>upstream<span class="w"> </span>--push<span class="w"> </span><span class="s2">&quot;NO&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>upstream<span class="w"> </span>--push<span class="w"> </span><span class="s2">&quot;NO&quot;</span>
 </code></pre></div>
-  <div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags<span class="w"> </span>--prune
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags<span class="w"> </span>--prune
 </code></pre></div>
-  <div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>checkout<span class="w"> </span>-B<span class="w"> </span>&lt;BRANCH&gt;<span class="w"> </span>&lt;SOURCE_TAG&gt;
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>checkout<span class="w"> </span>-B<span class="w"> </span>&lt;BRANCH&gt;<span class="w"> </span>&lt;SOURCE_TAG&gt;
 </code></pre></div>
-  <div class="highlight"><pre><span></span><code><span class="w">    </span>rm<span class="w"> </span>-r<span class="w"> </span>.github/
+<div class="highlight"><pre><span></span><code><span class="w">    </span>rm<span class="w"> </span>-r<span class="w"> </span>.github/
 </code></pre></div>
-  <div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="p">;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;first commit&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="p">;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;first commit&#39;</span>
 </code></pre></div>
-  <div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;BRANCH&gt;<span class="w"> </span>-f
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;BRANCH&gt;<span class="w"> </span>-f
+</code></pre></div>
 <p>Then, you can use this repository to deploy a new webapp:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WebApp</span>
 <span class="nt">namespace</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state_id}}&quot;</span>
-<span class="w"> </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span>
-<span class="w"> </span><span class="nt">platform</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
-<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dev.api.cosmotech.com/phoenix/v3-0</span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state_id}}&quot;</span>
+<span class="w">  </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span>
+<span class="w">  </span><span class="nt">platform</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dev.api.cosmotech.com/phoenix/v3-0</span>
+<span class="nt">metadata</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">workspace_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{workspace_key}}&quot;</span>
 <span class="nt">spec</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">sidecars</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">github</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">organization_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cosmo-Tech</span>
-<span class="w">   </span><span class="nt">repository_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure-webapp-engineering-brewery-deployments</span>
-<span class="w">   </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brewery</span>
-<span class="w">  </span><span class="nt">powerbi</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">group_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changement</span>
-<span class="w">   </span><span class="nt">settings</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">sidecars</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">github</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">organization_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cosmo-Tech</span>
+<span class="w">      </span><span class="nt">repository_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure-webapp-engineering-brewery-deployments</span>
+<span class="w">      </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brewery</span>
+<span class="w">    </span><span class="nt">powerbi</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">group_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changement</span>
+<span class="w">      </span><span class="nt">settings</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">properties</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">POWER_BI_SCOPE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://analysis.windows.net/powerbi/api/.default&quot;</span>
+<span class="w">          </span><span class="nt">POWER_BI_AUTHORITY_URI</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://login.microsoftonline.com/common/v2.0</span>
+<span class="w">          </span><span class="nt">POWER_BI_WORKSPACE_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;powerbi.workspace.id&#39;]}}&quot;</span>
+<span class="w">          </span><span class="nt">POWER_BI_CLIENT_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;app.app_id&#39;]}}&quot;</span>
+<span class="w">          </span><span class="nt">POWER_BI_CLIENT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{secret_powerbi}}&quot;</span>
+<span class="w">          </span><span class="nt">POWER_BI_TENANT_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;azure.tenant_id&#39;]}}&quot;</span>
+<span class="w">    </span><span class="nt">azure</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">        </span><span class="nt">use</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thisismyappforcontinuous</span>
+<span class="w">          </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3d0531b1-d23b-4baf-98be-a764c0a42f00&quot;</span>
+<span class="w">        </span><span class="nt">principal_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;app.principal_id&#39;]}}&quot;</span>
+<span class="w">        </span><span class="nt">add_to_powerbi</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">payload</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thisismyappforcontinuous</span>
+<span class="w">          </span><span class="nt">signInAudience</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AzureADMyOrg</span>
+<span class="w">          </span><span class="nt">spa</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">redirectUris</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:3000/sign-in</span>
+<span class="w">          </span><span class="nt">requiredResourceAccess</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">resourceAppId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;platform.app_id&#39;]}}&quot;</span>
+<span class="w">              </span><span class="nt">resourceAccess</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;platform.scope_id&#39;]}}&quot;</span>
+<span class="w">                  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Scope</span>
+<span class="w">      </span><span class="nt">function</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">url_zip</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://github.com/Cosmo-Tech/supplychain-azure-function-dataset-download/releases/download/2.1.10/artifact.zip&quot;</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">REACT_APP_APPLICATION_INSIGHTS_INSTRUMENTATION_KEY</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;webapp.insights_instrumentation_key&#39;]}}&quot;</span>
+<span class="w">      </span><span class="nt">REACT_APP_ENABLE_APPLICATION_INSIGHTS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;webapp.enable_insights&#39;]}}&quot;</span>
+<span class="w">      </span><span class="nt">REACT_APP_APP_REGISTRATION_CLIENT_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;app.app_id&#39;]}}&quot;</span>
+<span class="w">      </span><span class="nt">REACT_APP_AZURE_TENANT_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;azure.tenant_id&#39;]}}&quot;</span>
+<span class="w">      </span><span class="nt">REACT_APP_COSMOTECH_API_SCOPE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.scope&#39;]}}&quot;</span>
+<span class="w">      </span><span class="nt">REACT_APP_DEFAULT_BASE_PATH</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.url&#39;]}}&quot;</span>
+<span class="w">      </span><span class="nt">REACT_APP_ORGANIZATION_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}&quot;</span>
+<span class="w">      </span><span class="nt">REACT_APP_WORKSPACES_IDS_FILTER</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">      </span><span class="nt">REACT_APP_APP_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">      </span><span class="nt">REACT_APP_ORGANIZATION_URL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_url&#39;]}}&quot;</span>
+<span class="w">      </span><span class="nt">REACT_APP_DOCUMENTATION_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://cosmotech.com</span>
+<span class="w">      </span><span class="nt">REACT_APP_SUPPORT_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://support.cosmotech.com</span>
+<span class="w">  </span><span class="nt">payload</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my-webapp-for-continuous&quot;</span>
+<span class="w">    </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">westeurope</span>
 <span class="w">    </span><span class="nt">properties</span><span class="p">:</span>
-<span class="w">     </span><span class="nt">POWER_BI_SCOPE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://analysis.windows.net/powerbi/api/.default&quot;</span>
-<span class="w">     </span><span class="nt">POWER_BI_AUTHORITY_URI</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://login.microsoftonline.com/common/v2.0</span>
-<span class="w">     </span><span class="nt">POWER_BI_WORKSPACE_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;powerbi.workspace.id&#39;]}}&quot;</span>
-<span class="w">     </span><span class="nt">POWER_BI_CLIENT_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;app.app_id&#39;]}}&quot;</span>
-<span class="w">     </span><span class="nt">POWER_BI_CLIENT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{secret_powerbi}}&quot;</span>
-<span class="w">     </span><span class="nt">POWER_BI_TENANT_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;azure.tenant_id&#39;]}}&quot;</span>
-<span class="w">  </span><span class="nt">azure</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">app</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">use</span><span class="p">:</span>
-<span class="w">     </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thisismyappforcontinuous</span>
-<span class="w">     </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3d0531b1-d23b-4baf-98be-a764c0a42f00&quot;</span>
-<span class="w">    </span><span class="nt">principal_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;app.principal_id&#39;]}}&quot;</span>
-<span class="w">    </span><span class="nt">add_to_powerbi</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">payload</span><span class="p">:</span>
-<span class="w">     </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thisismyappforcontinuous</span>
-<span class="w">     </span><span class="nt">signInAudience</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AzureADMyOrg</span>
-<span class="w">     </span><span class="nt">spa</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">redirectUris</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:3000/sign-in</span>
-<span class="w">     </span><span class="nt">requiredResourceAccess</span><span class="p">:</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">resourceAppId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;platform.app_id&#39;]}}&quot;</span>
-<span class="w">       </span><span class="nt">resourceAccess</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;platform.scope_id&#39;]}}&quot;</span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Scope</span>
-<span class="w">   </span><span class="nt">function</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">url_zip</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://github.com/Cosmo-Tech/supplychain-azure-function-dataset-download/releases/download/2.1.10/artifact.zip&quot;</span>
-<span class="w">  </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">REACT_APP_APPLICATION_INSIGHTS_INSTRUMENTATION_KEY</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;webapp.insights_instrumentation_key&#39;]}}&quot;</span>
-<span class="w">   </span><span class="nt">REACT_APP_ENABLE_APPLICATION_INSIGHTS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;webapp.enable_insights&#39;]}}&quot;</span>
-<span class="w">   </span><span class="nt">REACT_APP_APP_REGISTRATION_CLIENT_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;app.app_id&#39;]}}&quot;</span>
-<span class="w">   </span><span class="nt">REACT_APP_AZURE_TENANT_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;azure.tenant_id&#39;]}}&quot;</span>
-<span class="w">   </span><span class="nt">REACT_APP_COSMOTECH_API_SCOPE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.scope&#39;]}}&quot;</span>
-<span class="w">   </span><span class="nt">REACT_APP_DEFAULT_BASE_PATH</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.url&#39;]}}&quot;</span>
-<span class="w">   </span><span class="nt">REACT_APP_ORGANIZATION_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}&quot;</span>
-<span class="w">   </span><span class="nt">REACT_APP_WORKSPACES_IDS_FILTER</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
-<span class="w">   </span><span class="nt">REACT_APP_APP_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
-<span class="w">   </span><span class="nt">REACT_APP_ORGANIZATION_URL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_url&#39;]}}&quot;</span>
-<span class="w">   </span><span class="nt">REACT_APP_DOCUMENTATION_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://cosmotech.com</span>
-<span class="w">   </span><span class="nt">REACT_APP_SUPPORT_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://support.cosmotech.com</span>
-<span class="w"> </span><span class="nt">payload</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my-webapp-for-continuous&quot;</span>
-<span class="w">  </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">westeurope</span>
-<span class="w">  </span><span class="nt">properties</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">repositoryUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/Cosmo-Tech/azure-webapp-engineering-brewery-deployments</span>
-<span class="w">   </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brewery</span>
-<span class="w">   </span><span class="nt">repositoryToken</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{github_secret}}&quot;</span>
-<span class="w">   </span><span class="nt">buildProperties</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">appLocation</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/&quot;</span>
-<span class="w">    </span><span class="nt">apiLocation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api</span>
-<span class="w">    </span><span class="nt">appArtifactLocation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
-<span class="w">  </span><span class="nt">sku</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard</span>
-<span class="w">   </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard</span>
+<span class="w">      </span><span class="nt">repositoryUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/Cosmo-Tech/azure-webapp-engineering-brewery-deployments</span>
+<span class="w">      </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brewery</span>
+<span class="w">      </span><span class="nt">repositoryToken</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{github_secret}}&quot;</span>
+<span class="w">      </span><span class="nt">buildProperties</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">appLocation</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/&quot;</span>
+<span class="w">        </span><span class="nt">apiLocation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api</span>
+<span class="w">        </span><span class="nt">appArtifactLocation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">    </span><span class="nt">sku</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard</span>
+<span class="w">      </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard</span>
 </code></pre></div>
 <p>To deploy one or multiple datasets, one yaml file is needed by dataset. Four <em>sourceType</em> of datasets are
 available:</p>
@@ -877,41 +872,41 @@ available:</p>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
 <span class="nt">namespace</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state_id}}&quot;</span>
-<span class="w"> </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span>
-<span class="w"> </span><span class="nt">platform</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
-<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dev.api.cosmotech.com/phoenix/v3-0</span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state_id}}&quot;</span>
+<span class="w">  </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span>
+<span class="w">  </span><span class="nt">platform</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dev.api.cosmotech.com/phoenix/v3-0</span>
+<span class="nt">metadata</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">workspace_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{workspace_key}}&quot;</span>
 <span class="nt">spec</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">sidecars</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">azure</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">dataset</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">storage</span><span class="p">:</span>
-<span class="w">     </span><span class="nt">local_path</span><span class="p">:</span><span class="w"> </span><span class="c1"># needed if you want to upload your local dataset to AzureStorage</span>
-<span class="w">    </span><span class="nt">file</span><span class="p">:</span>
-<span class="w">     </span><span class="nt">local_path</span><span class="p">:</span><span class="w"> </span><span class="c1"># needed for datasets with sourceType File</span>
-<span class="w"> </span><span class="nt">payload</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="c1"># mandatory if you want to launch an update, without id a new dataset will be created ; if you want a new dataset, leave this field empty</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Apply dataset</span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Creating dataset with nothing but update</span>
-<span class="w">  </span><span class="nt">sourceType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">None | AzureStorage | ADT | File</span>
-<span class="w">  </span><span class="nt">source</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="c1"># path to the folder in AzureStorage, mandatory if sourceType is AzureStorage</span>
-<span class="w">          </span><span class="c1"># and no local file is provided</span>
-<span class="w">    </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="c1"># mandatory field if sourceType is ADT: path to dataset stored in ADT;</span>
-<span class="w">              </span><span class="c1"># if sourceType is AzureStorage, default value is set to organization</span>
-<span class="w">              </span><span class="c1"># container, you can edit this field if you want to use a dataset from</span>
-<span class="w">              </span><span class="c1"># another container</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="c1"># field used for sourceType AzureStorage, by default is set to storage account</span>
-<span class="w">          </span><span class="c1"># name referenced in state; edit it if you want to use a dataset from another</span>
-<span class="w">          </span><span class="c1"># account</span>
-<span class="w">  </span><span class="nt">security</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">viewer</span>
-<span class="w">   </span><span class="nt">accessControlList</span><span class="p">:</span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e-mail@cosmotech.com</span>
-<span class="w">     </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">  </span><span class="nt">sidecars</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">azure</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">dataset</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">storage</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">local_path</span><span class="p">:</span><span class="w"> </span><span class="c1"># needed if you want to upload your local dataset to AzureStorage</span>
+<span class="w">        </span><span class="nt">file</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">local_path</span><span class="p">:</span><span class="w"> </span><span class="c1"># needed for datasets with sourceType File</span>
+<span class="w">  </span><span class="nt">payload</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="c1"># mandatory if you want to launch an update, without id a new dataset will be created ; if you want a new dataset, leave this field empty</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Apply dataset</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Creating dataset with nothing but update</span>
+<span class="w">    </span><span class="nt">sourceType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">None | AzureStorage | ADT | File</span>
+<span class="w">    </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">path:# path to the folder in AzureStorage, mandatory if sourceType is AzureStorage</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain"># and no local file is provided</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="c1"># mandatory field if sourceType is ADT: path to dataset stored in ADT;</span>
+<span class="w">        </span><span class="c1"># if sourceType is AzureStorage, default value is set to organization</span>
+<span class="w">        </span><span class="c1"># container, you can edit this field if you want to use a dataset from</span>
+<span class="w">        </span><span class="c1"># another container</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="c1"># field used for sourceType AzureStorage, by default is set to storage account</span>
+<span class="w">        </span><span class="c1"># name referenced in state; edit it if you want to use a dataset from another</span>
+<span class="w">        </span><span class="c1"># account</span>
+<span class="w">    </span><span class="nt">security</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">viewer</span>
+<span class="w">      </span><span class="nt">accessControlList</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e-mail@cosmotech.com</span>
+<span class="w">          </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
 </code></pre></div>
 <p>Project folder must have this structure:</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span>├──<span class="w"> </span>my-deployment
