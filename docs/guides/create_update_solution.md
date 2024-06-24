@@ -32,7 +32,8 @@ The `kind` key must be one of these: Organization, Solution, Workspace, WebApp, 
 resource will be deployed with specification listed below. Note that the type of resource must always start with capital letter.
 `namespace` key gives information that identifies the deployment: state, context and platform.
 
-Also, the `metadata` section contain data specific to each deployment section. The `workspace_key` parameter must be included in each metadata.
+Also, the `metadata` section contain data specific to each deployment section. The `workspace_key` parameter must be included in each metadata.If `workspace_key` parameter is empty, the deployment will fail.
+
 
 Then, each file declares resource configuration under `spec` key, specifically in the `payload` section,
 e.g., in organization deployment file:
