@@ -4,7 +4,7 @@ from setuptools import setup
 with open('requirements.txt') as f:
     required = f.read().splitlines()
 
-version = "4.1.0"
+version = "4.1.1"
 
 setup(
     name='Babylon End User Documentation',

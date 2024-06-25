@@ -18,6 +18,7 @@ to specific deployment type. Each file contains general information about the de
 
 ```yaml
 kind: Organization
+remote: true   # false by default
 namespace:
   state_id: "{{state_id}}"
   context: demo
@@ -33,13 +34,16 @@ The `kind` key must be one of these: Organization, Solution, Workspace, WebApp, 
 resource will be deployed with specification listed below. Note that the type of resource must always start with capital letter.
 `namespace` key gives information that identifies the deployment: state, context and platform.
 
-Also, the `metadata` section contain data specific to each deployment section. The `workspace_key` parameter must be included in each metadata. If `workspace_key` parameter is empty, the deployment will fail.
+`remote` key, it's a boolean variable to indicate if you want to store the state only locally or locally and in the cloud as well. By default is false (local state).
+
+The `metadata` section contains data specific to each deployment section. The `workspace_key` parameter must be included in each metadata. If `workspace_key` parameter is empty, the deployment will fail.
 
 Then, each file declares resource configuration under `spec` key, specifically in the `payload` section,
 e.g., in organization deployment file:
 
 ```yaml
 kind: Organization
+remote: true   # false by default
 namespace:
   state_id: "{{state_id}}"
   context: demo
@@ -72,6 +76,7 @@ This is how the solution deployment file is structured:
 
 ```yaml
 kind: Solution
+remote: true   # false by default
 namespace:
   state_id: "{{state_id}}"
   context: demo
@@ -119,6 +124,7 @@ and an adx database. These keys are stored in `sidecars` section, under `azure` 
 
 ```yaml
 kind: Workspace
+remote: true   # false by default
 namespace:
   state_id: "{{state_id}}"
   context: demo
@@ -152,6 +158,7 @@ spec:
               type: App
       adx:
         database:
+          uri: https://<name>.<location>.kusto.windows.net  # URI Azure Data Explorer Cluster
           create: true
           retention: 365
           permissions:
@@ -301,6 +308,7 @@ Then, you can use this repository to deploy a new webapp:
 
 ```yaml
 kind: WebApp
+remote: true   # false by default
 namespace:
   state_id: "{{state_id}}"
   context: demo
@@ -386,6 +394,7 @@ available:
 
 ```yaml
 kind: Dataset
+remote: true   # false by default
 namespace:
   state_id: "{{state_id}}"
   context: demo
