@@ -36,7 +36,8 @@ resource will be deployed with specification listed below. Note that the type of
 
 `remote` key, it's a boolean variable to indicate if you want to store the state only locally or locally and in the cloud as well. By default is false (local state).
 
-The `metadata` section contains data specific to each deployment section. The `workspace_key` parameter must be included in each metadata. If `workspace_key` parameter is empty, the deployment will fail.
+The `metadata` section contains data specific to each deployment section. The `workspace_key` parameter must be included in each metadata. If `workspace_key` parameter is empty, the deployment will fail.<br>
+`Note`: In the `metadata`, you can find another important field, `organization_id`. This field allow us to deploy a solution and workspace with an existing organization. The user should specify and add `organization_id` to the variables.yaml file.
 
 Then, each file declares resource configuration under `spec` key, specifically in the `payload` section,
 e.g., in organization deployment file:
@@ -85,6 +86,7 @@ namespace:
     url: https://dev.api.cosmotech.com/phoenix/v3-0
 metadata:
   workspace_key: "{{workspace_key}}"
+  organization_id: {{organization_id}}
 spec:
   sidecars:
     azure:
@@ -133,6 +135,7 @@ namespace:
     url: https://dev.api.cosmotech.com/phoenix/v3-0
 metadata:
   workspace_key: "{{workspace_key}}"
+  organization_id: {{organization_id}}
 spec:
   sidecars:
     azure:
