@@ -715,7 +715,7 @@
 </code></pre></div>
 <h2 id="deploying-a-workspace-with-an-existing-solution-and-organization">Deploying a workspace with an existing solution and organization<a class="headerlink" href="#deploying-a-workspace-with-an-existing-solution-and-organization" title="Permanent link">&para;</a></h2>
 <p>Similarly, if you want to deploy a new workspace within an existing organization and solution, it is now possible. You should add the <code>organization_id</code> and <code>solution_id</code> in <code>metadata.selector</code> and reference the <code>organization_id</code> and <code>solution_id</code> declared in <code>variables.yaml</code>, <font color="red"><strong>and ensure that organization and solution deployment is deactivated.</strong></font></p>
-<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Workspace</span>
+<p><div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Workspace</span>
 <span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">   </span><span class="c1"># false by default</span>
 <span class="nt">namespace</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state_id}}&quot;</span>
@@ -824,7 +824,7 @@
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e-mail@cosmotech.com</span>
 <span class="w">          </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
 </code></pre></div>
-<p><code>note</code>: Make sure you have already add those variable in <code>variables.yaml</code> file : </p>
+<font color="red"><strong>Note</strong></font> : Make sure you have already add those variable in <code>variables.yaml</code> file : </p>
 <div class="highlight"><pre><span></span><code><span class="c1"># example</span>
 <span class="nt">state_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">‘’</span>
 <span class="nt">workspace_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">‘’</span>
