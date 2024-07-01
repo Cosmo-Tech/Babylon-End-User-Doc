@@ -176,8 +176,7 @@ spec:
           role: admin
 
 ```
-
-`note`: Make sure you have already add those variable in `variables.yaml` file : 
+<font color="red"><strong>Note</strong></font> : Make sure you have already add those variable in `variables.yaml` file : 
 
 ```yaml
 # example
