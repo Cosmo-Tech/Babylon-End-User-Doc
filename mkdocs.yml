@@ -46,6 +46,7 @@ nav:
       - Guides: 'guides/index.md'
       - Getting started: 'guides/getting_started.md'
       - Solution deployment: 'guides/create_update_solution.md'
+      - Deployment with existing organization : 'guides/create_update_solution_with_existing_organization.md'
       - Destroy a solution: 'guides/destroy_solution.md'
 markdown_extensions:
     - admonition

@@ -28,9 +28,19 @@ This guide will help you to deploy a new solution or update an existing one.
 [Solution deploy](./create_update_solution.md)
 </footer>
 </div>
-
 </article>
 
+<article markdown>
+<div class="text" markdown>
+**Deploy a solution with existing organization**
+
+This guide will help you deploy a new solution within an existing organization or a new workspace within an existing organization and solution.
+
+<footer markdown>
+[Solution deploy](./create_update_solution_with_existing_organization.md)
+</footer>
+</div>
+</article>
 
 <article markdown>
 <div class="text" markdown>
