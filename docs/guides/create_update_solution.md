@@ -139,6 +139,7 @@ spec:
             - name: Report Name A
               type: dashboard
               path: "powerbi/myreportA.pbix"
+              tag: "myReportATag"
               parameters:
                 - id: "ADX_Cluster"
                   value: "https://{{services['adx.cluster_name']}}.westeurope.kusto.windows.net"
@@ -227,7 +228,39 @@ spec:
 
 ```
 
-Path to existing powerBI reports could be declared in `powerBI` section of sidecars; adx script must be
+Path to existing powerBI reports could be declared in `powerBI` section of sidecars; 
+
+It's important to note here that Babylon can automatically make the link between the reports declared in the `sidecars` and those defined in the `runTemplates` in the charts.
+
+To do that, you need to integrate a unique identifier for the report, called a `tag`, into each imported PowerBI report, and use this tag to link the PowerBI report you wish to use in the runTemplates (dashboardsView and scenarioView). 
+
+This referencing will be done by using a second variable called `reportTag` in your runTemplates.
+This variable must correspond to the PowerBI report `tag` you wish to use in the runTemplate. So, babylon will be able to retrieve the reportId corresponding to the PowerBI report and will use it in the runTemplates.
+
+```yaml
+...
+  charts:
+    workspaceId: "{{services['powerbi.workspace.id']}}"
+    logInWithUserCredentials: false
+    scenarioViewIframeDisplayRatio: 3.2
+    dashboardsViewIframeDisplayRatio: 1.8285714285714283
+    dashboardsView:
+      - title:
+          en: Scorecard
+          fr: Tableau de bord
+        reportTag: "myReportATag"
+        settings:
+          navContentPaneEnabled: true
+          panes:
+            filters:
+              expanded: false
+              visible: false
+...
+
+```
+
+
+adx script must be
 in adx folder of your project.
 
 !!! abstract "Remember"
