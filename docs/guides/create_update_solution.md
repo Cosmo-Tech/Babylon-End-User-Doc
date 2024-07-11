@@ -230,15 +230,47 @@ spec:
 
 Path to existing powerBI reports could be declared in `powerBI` section of sidecars; 
 
-It's important to note here that Babylon can automatically make the link between the reports declared in the `sidecars` and those defined in the `runTemplates` in the charts.
+**NOTE** : It's important to know that Babylon can now automatically retrieve the report IDs when deploying Power BI reports. It can reference these report IDs to DashboardViews and ScenarioViews section without requiring manual intervention as before.
 
-To do that, you need to integrate a unique identifier for the report, called a `tag`, into each imported PowerBI report, and use this tag to link the PowerBI report you wish to use in the runTemplates (dashboardsView and scenarioView). 
-
-This referencing will be done by using a second variable called `reportTag` in your runTemplates.
-This variable must correspond to the PowerBI report `tag` you wish to use in the runTemplate. So, babylon will be able to retrieve the reportId corresponding to the PowerBI report and will use it in the runTemplates.
+To do that, you need to integrate a unique identifier for the report, called a `tag`, into each imported PowerBI report, and use this tag to link the PowerBI report ID you wish to use in (dashboardsView and scenarioView) section. see example below :
 
 ```yaml
-...
+#example
+kind: Workspace
+remote: true   # false by default
+namespace:
+  state_id: "{{state_id}}"
+  context: demo
+  platform:
+    id: dev
+    url: https://dev.api.cosmotech.com/phoenix/v3-0
+metadata:
+  workspace_key: "{{workspace_key}}"
+spec:
+  sidecars:
+    azure:
+      powerbi:
+        workspace:
+          name: "My workspace Powerbi Name"
+          reports:
+            - name: Report Name A
+              type: dashboard
+              path: "powerbi/myreportA.pbix"
+              tag: "myReportATag" # Here, you should add the tag corresponding to this Power BI report
+              parameters:
+                - id: "ADX_Cluster"
+                  value: "https://{{services['adx.cluster_name']}}.westeurope.kusto.windows.net"
+                - id: "ADX_Database"
+                  value: "{{services['api.organization_id']}}-{{key}}"
+
+```
+
+This referencing will be accomplished using a second variable called `reportTag` in your dashboardsView and scenarioView sections, as illustrated in the example below. This variable should correspond to the Power BI report tag you intend to use. Therefore, Babylon will handle everything automatically.
+
+```yaml
+#example
+kind: Workspace
+#......etc
   charts:
     workspaceId: "{{services['powerbi.workspace.id']}}"
     logInWithUserCredentials: false
@@ -248,7 +280,7 @@ This variable must correspond to the PowerBI report `tag` you wish to use in the
       - title:
           en: Scorecard
           fr: Tableau de bord
-        reportTag: "myReportATag"
+        reportTag: "myReportATag" # Here, you should use the tag corresponding to this Power BI report
         settings:
           navContentPaneEnabled: true
           panes:
@@ -256,7 +288,6 @@ This variable must correspond to the PowerBI report `tag` you wish to use in the
               expanded: false
               visible: false
 ...
-
 ```
 
 
