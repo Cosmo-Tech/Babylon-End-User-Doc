@@ -522,3 +522,12 @@ Babylon will create and deploy all resources and save it in the state except for
 state simplifies modification of the resources as you can edit one of the project deployment files
 and relaunch `babylon apply` command. It will update existing resources or create missing ones, for example,
 in case when Babylon was granted more rights between two `apply` commands.
+
+
+You can also specify different variable files when launching the `babylon apply` command. To do this, use the `--file` or `-f` option.
+
+```bash
+babylon apply project/ --file variable_file_1.yaml --file variable_file_2.yaml
+```
+
+**NOTE** : If you don't specify a variable file, Babylon will use the default variable file ***variables.yaml***.
