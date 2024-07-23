@@ -524,10 +524,10 @@ and relaunch `babylon apply` command. It will update existing resources or creat
 in case when Babylon was granted more rights between two `apply` commands.
 
 
-You can also specify different variable files when launching the `babylon apply` command. To do this, use the `--file` or `-f` option.
+You can also specify different variable files when launching the `babylon apply` command. To do this, use the `--var-file` option.
 
 ```bash
-babylon apply project/ --file variable_file_1.yaml --file variable_file_2.yaml
+babylon apply project/ --var-file variable_file_1.yaml --var-file variable_file_2.yaml
 ```
 
 **NOTE** : If you don't specify a variable file, Babylon will use the default variable file ***variables.yaml***.
