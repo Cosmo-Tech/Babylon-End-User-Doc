@@ -529,5 +529,26 @@ You can also specify different variable files when launching the `babylon apply`
 ```bash
 babylon apply project/ --var-file variable_file_1.yaml --var-file variable_file_2.yaml
 ```
+!!! abstract "Remember"
 
-**NOTE** : If you don't specify a variable file, Babylon will use the default variable file ***variables.yaml***.
+    If you don't specify a variable file, Babylon will use the default variable file ***variables.yaml***.
+
+## Execution of babylon apply on a single object API
+
+Now, with the new feature in Babylon, we have the possibility to deploy or update a single object API with the macro command apply.
+
+The command to do this is as follows:
+
+```bash
+babylon apply --OBJECT project/
+```
+As objects, Babylon accepts the following:
+
+```bash
+  --organization       Deploy or update an organization.
+  --solution           Deploy or update a solution. 
+  --workspace          Deploy or update a workspace.
+  --webapp             Deploy or update a webapp.
+  --dataset            Deploy or update a dataset.
+
+```
