@@ -21,8 +21,8 @@ The `workspace_key` parameter must be included in each metadata. If `workspace_k
 
 ```yaml
 kind: Solution
-remote: true   # false by default
 namespace:
+  remote: true   # false by default
   state_id: "{{state_id}}"
   context: demo
   platform:

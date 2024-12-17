@@ -18,8 +18,8 @@ to specific deployment type. Each file contains general information about the de
 
 ```yaml
 kind: Organization
-remote: true   # false by default
 namespace:
+  remote: true   # false by default
   state_id: "{{state_id}}"
   context: demo
   platform:
@@ -38,8 +38,8 @@ e.g., in organization deployment file:
 
 ```yaml
 kind: Organization
-remote: true   # false by default
 namespace:
+  remote: true   # false by default
   state_id: "{{state_id}}"
   context: demo
   platform:
@@ -69,8 +69,8 @@ This is how the solution deployment file is structured:
 
 ```yaml
 kind: Solution
-remote: true   # false by default
 namespace:
+  remote: true   # false by default
   state_id: "{{state_id}}"
   context: demo
   platform:
@@ -120,8 +120,8 @@ and an adx database. These keys are stored in `sidecars` section, under `azure` 
 
 ```yaml
 kind: Workspace
-remote: true   # false by default
 namespace:
+  remote: true   # false by default
   state_id: "{{state_id}}"
   context: demo
   platform:
@@ -237,8 +237,8 @@ To do that, you need to integrate a unique identifier for the report, called a `
 ```yaml
 #example
 kind: Workspace
-remote: true   # false by default
 namespace:
+  remote: true   # false by default
   state_id: "{{state_id}}"
   context: demo
   platform:
@@ -313,63 +313,63 @@ follow these steps to create it:
 2. configure your branch `<BRANCH>` with code source (e.g https://github.com/Cosmo-Tech/azure-sample-webapp.git)
 
 ```bash
-    git init
+git init
 ```
 
 ```bash
-    echo "# empty_webapp" >> README.md
+echo "# empty_webapp" >> README.md
 ```
 
 ```bash
-    git add README.md
+git add README.md
 ```
 
 ```bash
-    git commit -m "first commit"
+git commit -m "first commit"
 ```
 
 ```bash
-    git branch -M <BRANCH>
+git branch -M <BRANCH>
 ```
 
 ```bash
-    git remote add origin git@github.com:<YOUR_GITHUB_REPOSITORY>.git
+git remote add origin git@github.com:<YOUR_GITHUB_REPOSITORY>.git
 ```
 
 ```bash
-    git remote add upstream https://github.com/Cosmo-Tech/azure-sample-webapp.git
+git remote add upstream https://github.com/Cosmo-Tech/azure-sample-webapp.git
 ```
 
 ```bash
-    git remote set-url upstream --push "NO"
+git remote set-url upstream --push "NO"
 ```
 
 ```bash
-    git fetch --all --tags --prune
+git fetch --all --tags --prune
 ```
 
 ```bash
-    git checkout -B <BRANCH> <SOURCE_TAG>
+git checkout -B <BRANCH> <SOURCE_TAG>
 ```
 
 ```bash
-    rm -r .github/
+rm -r .github/
 ```
 
 ```bash
-    git add .; git commit -m 'first commit'
+git add .; git commit -m 'first commit'
 ```
 
 ```bash
-    git push origin <BRANCH> -f
+git push origin <BRANCH> -f
 ```
 
 Then, you can use this repository to deploy a new webapp:
 
 ```yaml
 kind: WebApp
-remote: true   # false by default
 namespace:
+  remote: true   # false by default
   state_id: "{{state_id}}"
   context: demo
   platform:
@@ -454,8 +454,8 @@ available:
 
 ```yaml
 kind: Dataset
-remote: true   # false by default
 namespace:
+  remote: true   # false by default
   state_id: "{{state_id}}"
   context: demo
   platform:
