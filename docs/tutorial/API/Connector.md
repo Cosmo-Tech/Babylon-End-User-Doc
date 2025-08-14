@@ -1,0 +1,34 @@
+Currently, to create a new connector, we use the **API endpoint**.  
+Below is an example of how you can create it using a YAML configuration file.
+
+??? example "connector_azure_storage.yaml"
+
+    ```yaml
+    key: connector_azure_storage
+    name: Azure Storage Connector
+    description: Connector for Azure Storage. Read all data in a container with a prefix
+      and write the data in CSV for a ScenarioRun
+    version: "1.1.2"
+    repository: cosmo-tech/azure-storage-simulator-connector
+    tags:
+    - Azure Storage
+    - Babylon
+    url: https://github.com/Cosmo-Tech/azure-storage-simulator-connector
+    ioTypes:
+    - read
+    azureAuthenticationWithCustomerAppRegistration:
+    azureManagedIdentity:
+    parameterGroups:
+    - id: parameters
+      label: Parameters
+      parameters:
+      - id: AZURE_STORAGE_CONNECTION_STRING
+        label: Azure Storage Connection String
+        valueType: string
+        default: "%STORAGE_CONNECTION_STRING%"
+        envVar: AZURE_STORAGE_CONNECTION_STRING
+      - id: AZURE_STORAGE_CONTAINER_BLOB_PREFIX
+        label: Azure Storage Path in the form container/path
+        valueType: string
+        envVar: AZURE_STORAGE_CONTAINER_BLOB_PREFIX
+    ```
