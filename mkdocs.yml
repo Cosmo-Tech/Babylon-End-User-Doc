@@ -1,7 +1,8 @@
 site_name: Babylon User Documentation
 repo_url: https://github.com/Cosmo-Tech/Babylon
 repo_name: Cosmo-Tech/Babylon
-
+site_description: Cosmo Tech Babylon helps with interacting between Cosmo Tech solutions and Azure
+site_url: https://cosmo-tech.github.io/Babylon-End-User-Doc/
 theme:
   name: material
   logo: assets/logo.png
@@ -22,6 +23,8 @@ theme:
         name: Switch to dark mode
   features:
     - content.code.copy
+    - content.code.annotate
+    - content.tooltips
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.expand
@@ -29,25 +32,40 @@ theme:
     - navigation.indexes
     - navigation.instant
     - navigation.footer
+    - navigation.sections
   custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/templates.css
 
 extra:
   version:
     provider: mike
 nav:
   - Home:
-    - Home: 'index.md'
-  - Guides:
-      - Guides: 'guides/index.md'
-      - Getting started: 'guides/getting_started.md'
-      - Solution deployment: 'guides/create_update_solution.md'
-      - Deployment with existing organization : 'guides/create_update_solution_with_existing_organization.md'
-      - Destroy a solution: 'guides/destroy_solution.md'
+    - Cosmo Tech Babylon: 'index.md'
+    - License: 'Licence.md'
+  - Tutorials:
+      - "tutorial/index.md"
+      - "tutorial/Babylon_Vault_Init_Vars.md"
+      - "tutorial/Getting_started.md"
+      - "tutorial/Deploy_CosmoTech_workspace.md"
+      - "tutorial/Deploy_workspace_with_existing_org_sol.md"
+      - "tutorial/Destroy_workspace.md"
+  - Examples: 
+      - "Examples/index.md"
+      - "Examples/Example_Deploy_CosmoTech_workspace.md"
+      - "Examples/Example_Update_CosmoTech_workspace.md"
+  - Commands:
+      - "commands/babylon_commands.md"
+      # - Guides: 'guides/index.md'
+      # - Getting started: 'guides/getting_started.md'
+      # - Solution deployment: 'guides/create_update_solution.md'
+      # - Deployment with existing organization : 'guides/create_update_solution_with_existing_organization.md'
+      # - Destroy a solution: 'guides/destroy_solution.md'
 markdown_extensions:
     - admonition
     - attr_list
@@ -68,9 +86,13 @@ markdown_extensions:
     - toc:
         title: "In this page"
         permalink: true
-
+    - pymdownx.emoji:
+        emoji_index: !!python/name:material.extensions.emoji.twemoji
+        emoji_generator: !!python/name:material.extensions.emoji.to_svg
 plugins:
-    - search
+    - search:
+        lang:
+          - en
     - mkdocstrings:
         default_handler: python
         handlers:

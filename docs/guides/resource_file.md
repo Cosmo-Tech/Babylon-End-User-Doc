@@ -1,17 +1,25 @@
-If state file doesn't exist, the first babylon command you launch will create one and store it in Azure Storage
-and in `/home/.config/cosmotech/babylon/<state_id>.yaml` file in local.
+If the **state file** does not exist, the first Babylon command you run will **initialize a new state** and persist it in Azure Storage and local file.
 
-You will find three main sections:
+!!! note
+    To enable persistence in **Azure Storage**, you must set the parameter `remote: true`.  
+    (This will be explained in detail in the *Deploy Workspace* tutorial just keep it in mind for now)
+
+### Babylon State Structure
+
+The **Babylon state** is a structured YAML file composed of multiple sections.  
+At a high level, you will find three main entries:
 ```yaml
+context:
 files: []
-id: teststate
-services:
+id: 25075b92-fe8e-4952-9e9b-53360dacf369
+platform:
 ```
 The last one contains following keys with some information already prefilled with data from vault:
 
 Azure Container Registry 
 
 ```yaml
+services:
   acr:
     login_server: 
     simulator_repository: 

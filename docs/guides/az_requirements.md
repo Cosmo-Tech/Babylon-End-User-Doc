@@ -22,15 +22,19 @@
 
     The App registration needs the following API permissions:
 
-    * **Microsoft Graph**
-        - Application.ReadWrite.All (Application)
-        - Application.ReadWrite.OwnedBy (Application)
-        - Group.ReadWrite.All (Application)
+    !!! tip "API Permissions"
+        **Microsoft Graph**  
+        🔹 Application.ReadWrite.All *(Application)*  
+        🔹 Application.ReadWrite.OwnedBy *(Application)*  
+        🔹 Group.ReadWrite.All *(Delegated)*  
+        🔹 User.Read *(Delegated)*  
 
-    * **Platform Api**
-        - Platform.Admin (Application)
+        **Platform API**  
+        🔹 Platform.Admin *(Application)*  
 
-    For those concerned with specifics Azure policies, all Microsoft Graph's permissions can be deleted excepted User.Read.All (Application), but this implies that some operations would be handled manually. The platform API permission is mandatory.
+
+
+    For those concerned with specifics Azure policies, all Microsoft Graph's permissions can be deleted excepted User.Read (Delegated), but this implies that some operations would be handled manually. The platform API permission is mandatory.
 
 
     !!! important

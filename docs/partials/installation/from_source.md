@@ -11,6 +11,9 @@ We will go through the process of getting a version of Babylon before the instal
 
 You can install babylon globally in your system
 
-```bash
-pip install .
-```
+!!! example 
+    ```bash
+    python3 -m venv ~/babylonenv
+    source ~/babylonenv/bin/activate
+    pip install .
+    ```
