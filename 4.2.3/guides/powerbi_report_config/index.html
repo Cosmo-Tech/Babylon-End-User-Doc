@@ -20,7 +20,7 @@
     
     
       
-        <title>Configuring PowerBI reports - Babylon User Documentation</title>
+        <title>Powerbi report config - Babylon User Documentation</title>
       
     
     
@@ -77,11 +77,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#configuring-powerbi-reports" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -117,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuring PowerBI reports
+              Powerbi report config
             
           </span>
         </div>
@@ -320,8 +315,6 @@
         <div class="md-main__inner md-grid">
           
             
-              
-                
               
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
@@ -844,9 +837,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -857,43 +848,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      In this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-power-bi-reports-in-power-bi-desktop" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create Power BI reports in Power BI desktop
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#publish-report-to-power-bi-web-portal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Publish report to Power BI web portal
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#move-report-to-a-new-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Move report to a new environment
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -906,106 +860,97 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
-
-
-
-  
-  
-
-
-<h1 id="configuring-powerbi-reports">Configuring PowerBI reports<a class="headerlink" href="#configuring-powerbi-reports" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>To follow this guide you should be familiar with <a href="https://learn.microsoft.com/en-us/power-bi/">PowerBI</a></p>
-</div>
-<p>In order to facilitate the creation of Power BI reports and the migration of reports between environments, a few guidelines should be followed.</p>
-<p>This guidelines will also ensure that your PowerBI report is compatible with <strong>Babylon</strong>.</p>
-<div class="admonition note">
-<p>The whole process is automated along with PowerBI workspace creation in <a href="../../commands/powerbi_deploy_workspace/">PowerBI deploy-workspace</a></p>
-</div>
-<h2 id="create-power-bi-reports-in-power-bi-desktop">Create Power BI reports in Power BI desktop<a class="headerlink" href="#create-power-bi-reports-in-power-bi-desktop" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Within PowerBI Desktop</p>
-<ol>
-<li>Create a new Power BI report</li>
-<li>Go to section <a href="https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-query-overview">Transform Data</a> for managing data sources.<br />
-<img alt="Screenshot of transform data" src="../../assets/pbi_step_1.png" /></li>
-<li>Create parameters in the report<br />
-<img alt="Screenshot of adding powerBI parameters" src="../../assets/pbi_step_2a.png" /><ol>
-<li>Create parameter <strong>ADX_cluster</strong>: URL of the ADX cluster (e.g.: phoenixdev.westeurope.kusto.windows.net)</li>
-<li>Create parameter <strong>ADX_database</strong>: Name of the ADX database (e.g.: o-xxxxxxxx-brewerydemo)
-<img alt="Screenshot of adding powerBI parameters" src="../../assets/pbi_step_2b.png" /></li>
-</ol>
-</li>
-<li>Create a new Data Source of type Azure &gt; Azure Data Explorer (Kusto).
-<img alt="Screenshot of adding powerBI parameters" src="../../assets/pbi_step_3a.png" /></li>
-<li>Enter the exact value for ADX Cluster, ADX Database and ADX Table (e.g. ScenarioMetadata).</li>
-<li>Select DirectQuery as the Data Connectivity Mode.
-<img alt="Screenshot of entering powerBI parameters" src="../../assets/pbi_step_3b.png" /></li>
-<li>In the query formula, replace ADX cluster and database with the parameter value.
-<img alt="Screenshot of replacing parameter value" src="../../assets/pbi_step_3c.png" /></li>
-<li>Rename the Query (in the query list on the left) after the table name.</li>
-<li>Perform <a href="https://learn.microsoft.com/en-us/power-bi/transform-model/">data transformation</a> as needed.</li>
-<li>Create and tune your Power BI Dashboards.</li>
-</ol>
-</div>
-<h2 id="publish-report-to-power-bi-web-portal">Publish report to Power BI web portal<a class="headerlink" href="#publish-report-to-power-bi-web-portal" title="Permanent link">&para;</a></h2>
-<p>Once your Power BI report is ready, publish it to the Power BI Web Portal.</p>
-<details class="abstract" open="open">
-<summary>With Babylon</summary>
-<ol>
-<li>Get your workspace id<br />
-<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#get-all_13">babylon powerbi workspace get-all -c <code>&lt;project_id&gt;</code> -p <code>&lt;platform_id&gt;</code></a></li>
-<li>Upload your report<br />
-<code>babylon powerbi report upload -c &lt;project_id&gt; -p &lt;platform_id&gt; --workspace [workspace_id] [myfile.pbix]</code><br />
-<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#upload_2">babylon powerbi report upload -c <code>&lt;project_id&gt;</code> -p <code>&lt;platform_id&gt;</code> </a></li>
-</ol>
-</details>
-<details class="abstract" open="open">
-<summary>With PowerBI Web Portal</summary>
-<p><img alt="Screenshot of publishing report" src="../../assets/pbi_step_4a.png" /></p>
-</details>
-<h2 id="move-report-to-a-new-environment">Move report to a new environment<a class="headerlink" href="#move-report-to-a-new-environment" title="Permanent link">&para;</a></h2>
-<p>If you want to plug your Power BI report to a new environment you can do it easily by changing its parameters in the PowerBI Web Portal (app.powerbi.com) or with <strong>Babylon</strong>.</p>
-<details class="abstract" open="open">
-<summary>With Babylon</summary>
-<ol>
-<li>Get your workspace id<br />
-<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#get-all_13">babylon powerbi workspace get-all -c <code>&lt;project_id&gt;</code> -p <code>&lt;platform_id&gt;</code> </a></li>
-<li>Get your dataset id<br />
-<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#get-all_11">babylon powerbi dataset get-all -c <code>&lt;project_id&gt;</code> -p <code>&lt;platform_id&gt;</code> </a></li>
-<li>Update parameters<br />
-<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#update_8">babylon powerbi dataset parameters update -c <code>&lt;project_id&gt;</code> -p <code>&lt;platform_id&gt;</code> </a></li>
-<li>Update dataset credentials<br />
-<a href="https://cosmo-tech.github.io/Babylon/latest/cli/#update-credentials">babylon powerbi dataset update-credentials -c <project_id> -p <platform_id> --workspace [workspace_id][dataset_id]</a></li>
-<li>The data sources will automatically be updated to read the new environment's data. </li>
-</ol>
-</details>
-<details class="abstract" open="open">
-<summary>With PowerBI web portal</summary>
-<ol>
-<li>Go to the Power BI workspace and access the settings of your report’s Dataset.
-<img alt="Screenshot of entering powerBI parameters" src="../../assets/pbi_step_4b.png" /></li>
-<li>Update the parameters values (ADX_cluster and ADX_database) with your target environment data. 
-<img alt="Screenshot of entering powerBI parameters" src="../../assets/pbi_step_4c.png" /></li>
-<li>The data sources will automatically be updated to read the new environment's data. </li>
-</ol>
-</details>
-
-
-
-
-
 
 
   
   
 
 
+  <h1>Powerbi report config</h1>
+
+<!-- ---
+hide:
+  - toc
+---
+
+# Configuring PowerBI reports
+
+!!! info
+    To follow this guide you should be familiar with [PowerBI](https://learn.microsoft.com/en-us/power-bi/)
+
+In order to facilitate the creation of Power BI reports and the migration of reports between environments, a few guidelines should be followed.
+
+This guidelines will also ensure that your PowerBI report is compatible with **Babylon**.
+
+!!! note ""
+    The whole process is automated along with PowerBI workspace creation in [PowerBI deploy-workspace](../commands/powerbi_deploy_workspace.md)
+
+## Create Power BI reports in Power BI desktop
+
+!!! info "Within PowerBI Desktop"
+    1. Create a new Power BI report
+    2. Go to section [Transform Data](https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-query-overview) for managing data sources.  
+    ![Screenshot of transform data](../assets/pbi_step_1.png)
+    3. Create parameters in the report  
+    ![Screenshot of adding powerBI parameters](../assets/pbi_step_2a.png)
+        1. Create parameter **ADX_cluster**: URL of the ADX cluster (e.g.: phoenixdev.westeurope.kusto.windows.net)
+        2. Create parameter **ADX_database**: Name of the ADX database (e.g.: o-xxxxxxxx-brewerydemo)
+    ![Screenshot of adding powerBI parameters](../assets/pbi_step_2b.png)
+    4. Create a new Data Source of type Azure > Azure Data Explorer (Kusto).
+    ![Screenshot of adding powerBI parameters](../assets/pbi_step_3a.png)
+    5. Enter the exact value for ADX Cluster, ADX Database and ADX Table (e.g. ScenarioMetadata).
+    6. Select DirectQuery as the Data Connectivity Mode.
+    ![Screenshot of entering powerBI parameters](../assets/pbi_step_3b.png)
+    7. In the query formula, replace ADX cluster and database with the parameter value.
+    ![Screenshot of replacing parameter value](../assets/pbi_step_3c.png)
+    8. Rename the Query (in the query list on the left) after the table name.
+    9. Perform [data transformation](https://learn.microsoft.com/en-us/power-bi/transform-model/) as needed.
+    10. Create and tune your Power BI Dashboards.
+
+## Publish report to Power BI web portal
+
+Once your Power BI report is ready, publish it to the Power BI Web Portal.
+
+???+ abstract "With Babylon"
+    1. Get your workspace id  
+      [babylon powerbi workspace get-all -c `<project_id>` -p `<platform_id>`](https://cosmo-tech.github.io/Babylon/latest/cli/#get-all_13)
+    2. Upload your report  
+      `babylon powerbi report upload -c <project_id> -p <platform_id> --workspace [workspace_id] [myfile.pbix] `  
+      [babylon powerbi report upload -c `<project_id>` -p `<platform_id>` ](https://cosmo-tech.github.io/Babylon/latest/cli/#upload_2)
+
+???+ abstract "With PowerBI Web Portal"
+    ![Screenshot of publishing report](../assets/pbi_step_4a.png)
+
+## Move report to a new environment
+
+If you want to plug your Power BI report to a new environment you can do it easily by changing its parameters in the PowerBI Web Portal (app.powerbi.com) or with **Babylon**.
+
+???+ abstract "With Babylon"
+    1. Get your workspace id  
+      [babylon powerbi workspace get-all -c `<project_id>` -p `<platform_id>` ](https://cosmo-tech.github.io/Babylon/latest/cli/#get-all_13)
+    2. Get your dataset id  
+      [babylon powerbi dataset get-all -c `<project_id>` -p `<platform_id>` ](https://cosmo-tech.github.io/Babylon/latest/cli/#get-all_11)
+    3. Update parameters  
+      [babylon powerbi dataset parameters update -c `<project_id>` -p `<platform_id>` ](https://cosmo-tech.github.io/Babylon/latest/cli/#update_8)
+    4. Update dataset credentials  
+      [babylon powerbi dataset update-credentials -c <project_id> -p <platform_id> --workspace [workspace_id] [dataset_id]](https://cosmo-tech.github.io/Babylon/latest/cli/#update-credentials)
+    5. The data sources will automatically be updated to read the new environment's data. 
+
+???+ abstract "With PowerBI web portal"
+    1. Go to the Power BI workspace and access the settings of your report’s Dataset.
+    ![Screenshot of entering powerBI parameters](../assets/pbi_step_4b.png)
+    2. Update the parameters values (ADX_cluster and ADX_database) with your target environment data. 
+    ![Screenshot of entering powerBI parameters](../assets/pbi_step_4c.png)
+    3. The data sources will automatically be updated to read the new environment's data.  -->
 
 
-  
+
+
+
+
+
+
+
 
 
 

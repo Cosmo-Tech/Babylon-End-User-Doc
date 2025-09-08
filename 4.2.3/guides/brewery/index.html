@@ -316,8 +316,6 @@
           
             
               
-                
-              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -839,9 +837,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -864,8 +860,6 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
-
 
 
   
@@ -874,20 +868,26 @@
 
   <h1>Brewery</h1>
 
-<p>You can perform the following commands to deploy a new solution</p>
-<div class="admonition abstract">
-<p class="admonition-title">Remember</p>
-<p>You have to choose the platform and project you want to work. Contact your babylon admin to know more about your options.</p>
-<p>In this example, we will use</p>
-<ul>
-<li>context_id: <code>brewery</code></li>
-<li>platform_id: <code>staging</code></li>
-</ul>
-</div>
-<p><br></p>
-<ul>
-<li>
-<p>** Container Registry ** 
+<!-- ---
+ hide:
+  - toc
+---
+
+You can perform the following commands to deploy a new solution
+
+!!! abstract "Remember"
+
+    You have to choose the platform and project you want to work. Contact your babylon admin to know more about your options.
+
+    In this example, we will use
+
+    * context_id: `brewery`
+    * platform_id: `staging`
+
+
+<br>
+
+* ** Container Registry ** 
 <div class="highlight"><pre><span></span><code><span class="c1"># retrieve configuration to work with dev platform</span>
 babylon<span class="w"> </span>config<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>dev<span class="w"> </span><span class="k">select</span>
 <span class="c1"># retrieve configuration to work with staging platform</span>
@@ -896,10 +896,9 @@ babylon<span class="w"> </span>config<span class="w"> </span>-c<span class="w"> 
 <span class="c1"># tranfer image from `dev` to `staging` platform</span>
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>dev<span class="w">     </span>acr<span class="w"> </span>pull<span class="w"> </span>-i<span class="w"> </span>&lt;image_docker:tag&gt;
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>acr<span class="w"> </span>push<span class="w"> </span>-i<span class="w"> </span>&lt;image_docker:tag&gt;
-</code></pre></div></p>
-</li>
-<li>
-<p>** Setting variables ** 
+</code></pre></div>
+
+* ** Setting variables ** 
 <div class="highlight"><pre><span></span><code><span class="c1"># set some required variables</span>
 babylon<span class="w"> </span>config<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span><span class="nb">set</span><span class="w"> </span>azure<span class="w"> </span>email<span class="w"> </span>&lt;changeme&gt;
 babylon<span class="w"> </span>config<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span><span class="nb">set</span><span class="w"> </span>azure<span class="w"> </span>user_principal_id<span class="w"> </span>&lt;user_principal_id&gt;<span class="w"> </span>
@@ -908,13 +907,11 @@ babylon<span class="w"> </span>config<span class="w"> </span>-c<span class="w"> 
 babylon<span class="w"> </span>config<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span><span class="nb">set</span><span class="w"> </span>powerbi<span class="w"> </span>dashboard_view<span class="w"> </span>
 babylon<span class="w"> </span>config<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span><span class="nb">set</span><span class="w"> </span>powerbi<span class="w"> </span>scenario_view<span class="w"> </span>
 babylon<span class="w"> </span>config<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span><span class="nb">set</span><span class="w"> </span>azure<span class="w"> </span>team_id<span class="w"> </span>&lt;team_id&gt;<span class="w"> </span>
-</code></pre></div></p>
-</li>
-</ul>
-<p>In this point, you can create a new organization or retrieve an organization</p>
-<ul>
-<li>
-<p>** Create organization ** 
+</code></pre></div>
+
+In this point, you can create a new organization or retrieve an organization
+
+* ** Create organization ** 
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>config<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span><span class="nb">set</span><span class="w"> </span>api<span class="w"> </span>workspace_key<span class="w"> </span>&lt;changeme&gt;
 babylon<span class="w"> </span>api<span class="w">    </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>organizations<span class="w"> </span>payload<span class="w"> </span>create
 babylon<span class="w"> </span>api<span class="w">    </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>organizations<span class="w"> </span>create<span class="w"> </span>&lt;organization_name&gt;<span class="w"> </span>-e<span class="w"> </span>&lt;email&gt;<span class="w"> </span>-r<span class="w"> </span>Admin
@@ -924,29 +921,25 @@ babylon<span class="w"> </span>azure<span class="w">  </span>-c<span class="w"> 
 <span class="w">    </span>-pi<span class="w"> </span>%azure%team_id<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-pt<span class="w"> </span>Group<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-rn<span class="w"> </span>%azure%storage_account_name
-</code></pre></div></p>
-</li>
-<li>
-<p>** Retrieve organization ** 
+</code></pre></div>
+
+* ** Retrieve organization ** 
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w">   </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>organizations<span class="w"> </span>get<span class="w"> </span>&lt;organization_id&gt;
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>iam<span class="w"> </span><span class="nb">set</span><span class="w"> </span>-rt<span class="w"> </span>Microsoft.Storage/storageAccounts<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-ri<span class="w"> </span>%azure%storage_blob_reader<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-pi<span class="w"> </span>%azure%team_id<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-pt<span class="w"> </span>Group<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-rn<span class="w"> </span>%azure%storage_account_name
-</code></pre></div></p>
-</li>
-</ul>
-<p>In this point, you can create a new ADT Instance or retrieve an ADT Instance</p>
-<ul>
-<li>
-<p>** Create ADT instance **
+</code></pre></div>
+
+In this point, you can create a new ADT Instance or retrieve an ADT Instance
+
+* ** Create ADT instance **
 <div class="highlight"><pre><span></span><code><span class="c1"># by default the name is &lt;organization_id&gt;-&lt;workspace_key&gt;</span>
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>adt<span class="w"> </span>instance<span class="w"> </span>create
-</code></pre></div></p>
-</li>
-<li>
-<p>** Retrieve ADT instance **
+</code></pre></div>
+
+* ** Retrieve ADT instance **
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>config<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span><span class="nb">set</span><span class="w"> </span>adt<span class="w"> </span>digital_twins_url<span class="w"> </span>&lt;digital_twins_url&gt;
 babylon<span class="w"> </span>azure<span class="w">  </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>iam<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-rt<span class="w"> </span>Microsoft.DigitalTwins/digitalTwinsInstances<span class="w"> </span><span class="se">\</span>
@@ -965,18 +958,17 @@ babylon<span class="w"> </span>azure<span class="w">  </span>-c<span class="w"> 
 <span class="w">    </span>-rt<span class="w"> </span>Microsoft.DigitalTwins/digitalTwinsInstances<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-ri<span class="w"> </span>%adt%built_reader_id
 babylon<span class="w"> </span>azure<span class="w">  </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>adt<span class="w"> </span>model<span class="w"> </span>upload<span class="w"> </span>dtdl/
-</code></pre></div></p>
-</li>
-<li>
-<p>** Azure Data Explorer database ** </p>
-<p>Configuration </p>
-<div class="admonition warning">
-<p class="admonition-title">Requirements</p>
-<p>By default this command requires a folder called <code>adx</code> containing scripts *.kql </p>
-<pre><code>├── adx
-│   ├── script.kql
-</code></pre>
-</div>
+</code></pre></div>
+
+* ** Azure Data Explorer database ** 
+
+    Configuration 
+
+    !!! warning "Requirements"
+        By default this command requires a folder called `adx` containing scripts *.kql 
+
+            ├── adx
+            │   ├── script.kql
 <div class="highlight"><pre><span></span><code><span class="c1"># by default the name is &lt;organization_id&gt;-&lt;workspace_key&gt;</span>
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>adx<span class="w"> </span>database<span class="w"> </span>create
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>adx<span class="w"> </span>permission<span class="w"> </span><span class="nb">set</span><span class="w"> </span>-t<span class="w"> </span>User<span class="w"> </span>-r<span class="w"> </span>Admin<span class="w"> </span>%azure%user_principal_id
@@ -984,9 +976,8 @@ babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> <
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>adx<span class="w"> </span>permission<span class="w"> </span><span class="nb">set</span><span class="w"> </span>-t<span class="w"> </span>App<span class="w"> </span>-r<span class="w"> </span>Admin<span class="w"> </span>%platform%principal_id
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>adx<span class="w"> </span>script<span class="w"> </span>run-folder<span class="w"> </span>adx/
 </code></pre></div>
-</li>
-<li>
-<p>** Create Eventhub namespace** 
+
+* ** Create Eventhub namespace** 
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>arm<span class="w"> </span>run<span class="w"> </span>-f<span class="w"> </span>%templates%/arm/eventhub_deploy.json
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>iam<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-rt<span class="w"> </span>Microsoft.EventHub/Namespaces<span class="w"> </span><span class="se">\</span>
@@ -1008,10 +999,9 @@ babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> <
 <span class="w">    </span>-pt<span class="w"> </span>Group<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-rt<span class="w"> </span>Microsoft.EventHub/Namespaces<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-ri<span class="w"> </span>%azure%eventhub_built_contributor_id
-</code></pre></div></p>
-</li>
-<li>
-<p>** Eventhub consumer group and connectors ADX database** 
+</code></pre></div>
+
+* ** Eventhub consumer group and connectors ADX database** 
 <div class="highlight"><pre><span></span><code><span class="c1"># create consumer groups</span>
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>adx<span class="w"> </span>consumer<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;adx&quot;</span><span class="w"> </span><span class="s2">&quot;ProbesMeasures&quot;</span>
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>adx<span class="w"> </span>consumer<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;adx&quot;</span><span class="w"> </span><span class="s2">&quot;ScenarioMetaData&quot;</span>
@@ -1040,14 +1030,12 @@ babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> <
 <span class="w">    </span>-tn<span class="w"> </span>ScenarioRunMetadata<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-cg<span class="w"> </span>adx<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-mp<span class="w"> </span>ScenarioRunMetadataMapping
-</code></pre></div></p>
-</li>
-<li>
-<p>** Retrieve eventhub key ** </p>
-<div class="admonition warning">
-<p class="admonition-title">Requirements</p>
-<p>Azure CLI</p>
-</div>
+</code></pre></div>
+
+* ** Retrieve eventhub key ** 
+
+    !!! warning "Requirements"
+        Azure CLI
 <div class="highlight"><pre><span></span><code><span class="nv">eventkey</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>eventhubs<span class="w"> </span>namespace<span class="w"> </span>authorization-rule<span class="w"> </span>keys<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-g<span class="w"> </span>&lt;your_resource_group&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--namespace-name<span class="w"> </span>&lt;organization_id&gt;-&lt;workspace_key&gt;<span class="w"> </span><span class="se">\</span>
@@ -1056,58 +1044,56 @@ babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> <
 
 babylon<span class="w"> </span>hvac<span class="w"> </span>-c<span class="w"> </span>&lt;context_id&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;platfom_id&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>project<span class="w"> </span>eventhub<span class="w"> </span><span class="nv">$eventkey</span>
 </code></pre></div>
-</li>
-<li>
-<p>** Deploy PowerBI ** </p>
-<div class="admonition warning">
-<p class="admonition-title">Requirements</p>
-<p>By default this macro command requires a folder called <code>powerbi</code> containing two sub-folders (<code>dashboard</code> and <code>scenario</code>) with your <code>.pbix</code> files. </p>
-<pre><code>├── powerbi
-│   ├── dashboard
-│   │   ├── dashboard_1.pbix
-│   │   ├── ...
-│   └── scenario
-│       └── scenario.pbix
-</code></pre>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Note</p>
-<p>You can setup your <code>email</code> and your <code>user principal id</code> (<a href="https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers">Azure Directory</a>) in azure section to deploy powerbi workspace with your credentials</p>
-<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>&lt;context_id&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;platform_id&gt;<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>azure<span class="w"> </span>email<span class="w"> </span>&lt;changeme&gt;
+
+* ** Deploy PowerBI ** 
+
+    !!! warning "Requirements"
+        By default this macro command requires a folder called `powerbi` containing two sub-folders (`dashboard` and `scenario`) with your `.pbix` files. 
+
+            ├── powerbi
+            │   ├── dashboard
+            │   │   ├── dashboard_1.pbix
+            │   │   ├── ...
+            │   └── scenario
+            │       └── scenario.pbix
+
+
+    !!! info "Note"
+        You can setup your `email` and your `user principal id` ([Azure Directory](https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers)) in azure section to deploy powerbi workspace with your credentials
+
+        <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>&lt;context_id&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;platform_id&gt;<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>azure<span class="w"> </span>email<span class="w"> </span>&lt;changeme&gt;
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>&lt;context_id&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;platform_id&gt;<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>azure<span class="w"> </span>user_principal_id<span class="w"> </span>&lt;user_principal_id&gt;
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>&lt;context_id&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;platform_id&gt;<span class="w"> </span>adx<span class="w"> </span>permission<span class="w"> </span><span class="nb">set</span><span class="w"> </span>-t<span class="w"> </span>User<span class="w"> </span>-r<span class="w"> </span>Admin<span class="w"> </span>%azure%user_principal_id
 babylon<span class="w"> </span>azure<span class="w"> </span>-c<span class="w"> </span>&lt;context_id&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;platform_id&gt;<span class="w"> </span>token<span class="w"> </span>store<span class="w"> </span>--scope<span class="w"> </span>powerbi
 </code></pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The last command <code>babylon azure -c &lt;context_id&gt; -p &lt;platform_id&gt; token store --scope powerbi</code> will give you a secret to set in your environment variables
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BABYLON_ENCODING_KEY</span><span class="o">=</span>&lt;your_secret&gt;
-</code></pre></div></p>
-</div>
-<div class="admonition macro">
-<p class="admonition-title">Macro</p>
-<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>powerbi<span class="w"> </span>-c<span class="w"> </span>&lt;context_id&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;platform_id&gt;<span class="w"> </span>workspace<span class="w"> </span>deploy
+
+    !!! warning 
+        The last command `babylon azure -c <context_id> -p <platform_id> token store --scope powerbi` will give you a secret to set in your environment variables
+        <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BABYLON_ENCODING_KEY</span><span class="o">=</span>&lt;your_secret&gt;
 </code></pre></div>
-</div>
-<p><a href="/commands/powerbi_deploy_workspace/">Get additional information about command</a>  </p>
-</li>
-</ul>
-<p><br></p>
-<ul>
-<li>
-<p>** Deploy Webapp ** </p>
-<div class="admonition warning">
-<p class="admonition-title">Requirements</p>
-<p>This macro requires a github access token set in vault service.</p>
-<p>Please generate github access token using classic tokens <a href="https://github.com/settings/tokens">Github access Tokens</a> and perform the following command:
-<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>hvac<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global<span class="w"> </span>github<span class="w"> </span>token<span class="w"> </span><span class="o">[</span>github_pat_token<span class="o">]</span>
-</code></pre></div></p>
-<p>This macro requires a github repository with the destination branch already created  </p>
-<ol>
-<li><a href="https://github.com/new">create a new repository</a> in Github  </li>
-<li>configure your branch <code>&lt;BRANCH&gt;</code> with the source code. (example: https://github.com/Cosmo-Tech/azure-sample-webapp.git)
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>init
+
+    !!! Macro
+        <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>powerbi<span class="w"> </span>-c<span class="w"> </span>&lt;context_id&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;platform_id&gt;<span class="w"> </span>workspace<span class="w"> </span>deploy
+</code></pre></div>
+
+    [Get additional information about command](/commands/powerbi_deploy_workspace/)  
+
+<br>
+
+* ** Deploy Webapp ** 
+
+    !!! warning "Requirements"
+        This macro requires a github access token set in vault service.
+
+        Please generate github access token using classic tokens [Github access Tokens](https://github.com/settings/tokens) and perform the following command:
+        <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>hvac<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global<span class="w"> </span>github<span class="w"> </span>token<span class="w"> </span><span class="o">[</span>github_pat_token<span class="o">]</span>
+</code></pre></div>
+
+        This macro requires a github repository with the destination branch already created  
+
+        1. [create a new repository](https://github.com/new) in Github  
+        1. configure your branch `<BRANCH>` with the source code. (example: https://github.com/Cosmo-Tech/azure-sample-webapp.git)
+        <div class="highlight"><pre><span></span><code>git<span class="w"> </span>init
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# empty_webapp&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
 git<span class="w"> </span>add<span class="w"> </span>README.md
 git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;add readme&quot;</span>
@@ -1120,11 +1106,11 @@ git<span class="w"> </span>checkout<span class="w"> </span>-B<span class="w"> </
 rm<span class="w"> </span>-r<span class="w"> </span>.github/
 git<span class="w"> </span>add<span class="w"> </span>.<span class="p">;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;first commit&#39;</span>
 git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;BRANCH&gt;<span class="w"> </span>-f
-</code></pre></div></li>
-</ol>
-</div>
-<p>Now, setup the webapp configuration</p>
-<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>azure<span class="w"> </span>function_artifact_url<span class="w"> </span>&lt;uri_artifact_zip&gt;<span class="w"> </span>
+</code></pre></div>
+
+    Now, setup the webapp configuration
+
+    <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>azure<span class="w"> </span>function_artifact_url<span class="w"> </span>&lt;uri_artifact_zip&gt;<span class="w"> </span>
 babylon<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>webapp<span class="w"> </span>deployment_name<span class="w"> </span>&lt;changeme&gt;
 babylon<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>webapp<span class="w"> </span>location<span class="w"> </span>&lt;changeme&gt;
 babylon<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>github<span class="w"> </span>branch<span class="w"> </span>&lt;changeme&gt;
@@ -1134,68 +1120,59 @@ babylon<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w">
 
 babylon<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>powerbi<span class="w"> </span>workspace<span class="w"> </span>user<span class="w"> </span>add<span class="w"> </span>%app%principal_id<span class="w"> </span>App<span class="w"> </span>Admin
 </code></pre></div>
-<a href="/commands/webapp_deploy/">Get additional information about command</a>  </p>
-</li>
-</ul>
-<p><br></p>
-<ul>
-<li>
-<p>** Retrieve azure function key ** </p>
-<div class="admonition warning">
-<p class="admonition-title">Requirements</p>
-<p>Azure CLI</p>
-</div>
-<div class="highlight"><pre><span></span><code><span class="nv">azf_key</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>functionapp<span class="w"> </span>keys<span class="w"> </span>list<span class="w"> </span><span class="se">\ </span>
+    [Get additional information about command](/commands/webapp_deploy/)  
+
+<br>
+
+* ** Retrieve azure function key ** 
+
+    !!! warning "Requirements"
+        Azure CLI
+
+    <div class="highlight"><pre><span></span><code><span class="nv">azf_key</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>functionapp<span class="w"> </span>keys<span class="w"> </span>list<span class="w"> </span><span class="se">\ </span>
 <span class="w">    </span>-g<span class="w"> </span>&lt;youtçresource_group&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-n<span class="w"> </span>&lt;organization_id&gt;-&lt;workspace_key&gt;<span class="w"> </span>--query<span class="w"> </span>masterKey<span class="k">)</span>
 
 babylon<span class="w"> </span>hvac<span class="w"> </span>-c<span class="w"> </span>&lt;context_id&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;platfom_id&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>project<span class="w"> </span>func<span class="w"> </span><span class="nv">$azf_key</span>
 </code></pre></div>
-</li>
-</ul>
-<p>In this point, you can create a new solution or retrieve a solution already created</p>
-<ul>
-<li>
-<p>** Create solution ** 
+
+In this point, you can create a new solution or retrieve a solution already created
+
+* ** Create solution ** 
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>solutions<span class="w"> </span>payload<span class="w"> </span>create
 babylon<span class="w"> </span>api<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>solutions<span class="w"> </span>create<span class="w"> </span>&lt;solution_name&gt;
-</code></pre></div></p>
-</li>
-<li>
-<p>** Retrieve solution ** 
+</code></pre></div>
+
+
+* ** Retrieve solution ** 
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>solutions<span class="w"> </span>get<span class="w"> </span>&lt;solution_id&gt;
-</code></pre></div></p>
-</li>
-<li>
-<p>** Create new Workspace ** 
-<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>config<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span><span class="nb">set</span><span class="w"> </span>api<span class="w"> </span>run_templates<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-i<span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-i<span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-i<span class="w"> </span><span class="s2">&quot;3&quot;</span>
-
-babylon<span class="w"> </span>api<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>workspaces<span class="w"> </span>payload<span class="w"> </span>create
-babylon<span class="w"> </span>api<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>workspaces<span class="w"> </span>create<span class="w"> </span>&lt;changeme&gt;
+</code></pre></div>
 
 
-<span class="c1"># register the key into workspace </span>
-babylon<span class="w"> </span>api<span class="w"> </span>-c<span class="w"> </span>brewery<span class="w"> </span>-p<span class="w"> </span>staging<span class="w"> </span>workspaces<span class="w"> </span>send-key
-</code></pre></div></p>
-</li>
-</ul>
+
+* ** Create new Workspace ** 
+```bash
+babylon config -c brewery -p staging set api run_templates \
+    -i "1" \
+    -i "2" \
+    -i "3"
+
+babylon api -c brewery -p staging workspaces payload create
+babylon api -c brewery -p staging workspaces create <changeme>
 
 
+# register the key into workspace 
+babylon api -c brewery -p staging workspaces send-key
+``` -->
 
 
 
 
 
-  
-  
 
 
 
 
-  
 
 
 

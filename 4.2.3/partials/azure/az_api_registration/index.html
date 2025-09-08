@@ -868,29 +868,22 @@
 
   <h1>Az api registration</h1>
 
-<p>AZ CLI being a Microsoft software comes with its own Application ID</p>
-<ul>
-<li><a href="https://learn.microsoft.com/en-us/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-of-commonly-used-microsoft-applications">List of commonly used Microsoft applications ID</a></li>
-</ul>
-<p>So in this case we can easily find the required id and add it to our API  </p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Azure CLI application ID</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>04b07795-8ddb-461a-bbee-02f9e1bf7b46
+<!-- AZ CLI being a Microsoft software comes with its own Application ID
+
+- [List of commonly used Microsoft applications ID](https://learn.microsoft.com/en-us/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-of-commonly-used-microsoft-applications)
+
+So in this case we can easily find the required id and add it to our API  
+=== "Azure CLI application ID"
+    <div class="highlight"><pre><span></span><code>04b07795-8ddb-461a-bbee-02f9e1bf7b46
 </code></pre></div>
-</div>
-</div>
-</div>
-<p>You can then go to the App Registration of your API on your Azure Tenant and go on the <code>Expose an API</code> page.</p>
-<p>There you can see a button <code>Add a client application</code> which will allow you to add the AZ CLI application ID as an authorized client for your api</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Correctly set up App Registration</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><img alt="Post client added screenshot" src="../assets/app_registration_expose_an_api.png" /></p>
-</div>
-</div>
-</div>
-<p>Now the API will allow connections from the AZ CLI</p>
+
+You can then go to the App Registration of your API on your Azure Tenant and go on the `Expose an API` page.
+
+There you can see a button `Add a client application` which will allow you to add the AZ CLI application ID as an authorized client for your api
+
+=== "Correctly set up App Registration"
+    ![Post client added screenshot](../assets/app_registration_expose_an_api.png)
+Now the API will allow connections from the AZ CLI -->
 
 
 
