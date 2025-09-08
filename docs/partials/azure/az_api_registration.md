@@ -1,4 +1,4 @@
-AZ CLI being a Microsoft software comes with its own Application ID
+<!-- AZ CLI being a Microsoft software comes with its own Application ID
 
 - [List of commonly used Microsoft applications ID](https://learn.microsoft.com/en-us/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-of-commonly-used-microsoft-applications)
 
@@ -14,4 +14,4 @@ There you can see a button `Add a client application` which will allow you to ad
 
 === "Correctly set up App Registration"
     ![Post client added screenshot](../assets/app_registration_expose_an_api.png)
-Now the API will allow connections from the AZ CLI
+Now the API will allow connections from the AZ CLI -->

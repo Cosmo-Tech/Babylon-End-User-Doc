@@ -1,4 +1,4 @@
----
+<!-- ---
  hide:
   - toc
 ---
@@ -313,4 +313,4 @@ babylon api -c brewery -p staging workspaces create <changeme>
 
 # register the key into workspace 
 babylon api -c brewery -p staging workspaces send-key
-```
+``` -->

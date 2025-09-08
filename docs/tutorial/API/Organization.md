@@ -51,7 +51,7 @@ For example, in an **Organization** deployment file:
     ```
 
 All keys in this file can be templated with `{{}}` syntax for objects and `"{{}}"` for strings, as `security` section of this file. Corresponding
-values must be stored in `_variables.yaml_` file at the same level that your project See 👉 [Examples](../Examples/Example_Deploy_CosmoTech_workspace.md):
+values must be stored in `_variables.yaml_` file at the same level that your project See 👉 [Examples](../../Examples/Example_Deploy_CosmoTech_workspace.md):
 
 ```yaml
 security:
