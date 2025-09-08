@@ -1,4 +1,4 @@
----
+<!-- ---
 hide:
   - toc
 ---
@@ -71,4 +71,4 @@ If you want to plug your Power BI report to a new environment you can do it easi
     ![Screenshot of entering powerBI parameters](../assets/pbi_step_4b.png)
     2. Update the parameters values (ADX_cluster and ADX_database) with your target environment data. 
     ![Screenshot of entering powerBI parameters](../assets/pbi_step_4c.png)
-    3. The data sources will automatically be updated to read the new environment's data. 
+    3. The data sources will automatically be updated to read the new environment's data.  -->

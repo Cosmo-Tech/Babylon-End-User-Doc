@@ -246,7 +246,7 @@ The path to existing **Power BI reports** can be specified under the `sidecars �
 
 ---
 
-All ADX scripts **must be placed** inside the `adx/` folder of your project structure See 👉 [Examples](../Examples/Example_Deploy_CosmoTech_workspace.md)
+All ADX scripts **must be placed** inside the `adx/` folder of your project structure See 👉 [Examples](../../Examples/Example_Deploy_CosmoTech_workspace.md)
 
 
 !!! abstract "Permissions Reminder"
