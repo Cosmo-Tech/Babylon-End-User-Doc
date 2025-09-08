@@ -248,7 +248,6 @@ The path to existing **Power BI reports** can be specified under the `sidecars â
 
 All ADX scripts **must be placed** inside the `adx/` folder of your project structure See ðŸ‘‰ [Examples](../Examples/Example_Deploy_CosmoTech_workspace.md)
 
-
 !!! abstract "Permissions Reminder"
 
     Certain operations may fail if Babylon doesn't have the necessary Azure permissions.
