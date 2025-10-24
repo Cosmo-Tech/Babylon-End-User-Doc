@@ -1,17 +1,17 @@
 ---
-description: Example from scratch for deploying a Cosmo Tech workspace with babylon v5
+description: Deploy an example Cosmo Tech workspace from scratch with Babylon 5
 ---
 
 # Deploy Cosmo Tech workspace 
 
 !!! important
-    For testing, use the `sphinx` platform is already configured in Vault.
+    Babylon needs a configured Vault instance in order to work properly. Contact the DevOps team if you need to access one!
 
-After creating the Python virtual environment (`.venv`) to use Babylon, you can now get started<br>
+After creating the Python virtual environment (`.venv`) to use Babylon, you can now get started.<br>
 See 👉 [Install Babylon](../partials/installation/from_source.md#install-babylon)
 
 !!! example "Deploy with Babylon v5"
-    Export Vault Variables
+    Export Vault variables
     ```bash
     export BABYLON_ORG_NAME="cosmotech" # cosmotech
     export BABYLON_TOKEN="vault_root_token"  # hvs.CLxxxxxxxxxxxxxxx
@@ -24,16 +24,16 @@ See 👉 [Install Babylon](../partials/installation/from_source.md#install-babyl
     ```bash
     babylon namespace use -c test-v5 -p sphinx -s 220d04f0 
     ```   
-    Create a folder of your choice, for example
+    Create a test folder, for example
     ```bash
     mkdir test-babylon && cd test-babylon
     ```
-    Run the Babylon init command to generate the project structure
+    Run the init command to generate the project structure
     ```bash
     babylon init
     ```
-    Now, you will see all the manifest files already generated for a minimal deployment.
-    You can modify them as you wish, and then start the deployment process.
+    All the manifest files for a minimal deployment are now ready.
+    Edit them as you need, and then start the deployment process:
     ```bash
     babylon apply --organization project/  
     ```
@@ -46,9 +46,9 @@ See 👉 [Install Babylon](../partials/installation/from_source.md#install-babyl
     ```bash 
     babylon apply --runner project/
     ```
-    You can also test individual Babylon commands, such as updating security, runtemplates, etc.
+    You can also test individual Babylon commands: list resources, update security, etc.
     ```bash 
-    babylon api organizations security  get-all
+    babylon api organizations security get-all
     ```
     ```bash 
     babylon api solutions security get --email toto.tata@cosmotech.com 
