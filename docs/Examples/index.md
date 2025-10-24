@@ -13,10 +13,10 @@ A collection of examples to get started with Babylon for deploying and updating 
 
 <article markdown>
 <div class="text" markdown>
-:material-roman-numeral-1: __Example of Deploying a Cosmo Tech Workspace__
+:material-roman-numeral-1: __Example: Deploying a Cosmo Tech Workspace__
 
 ---
-This guide provides an example of how to deploy a workspace using Babylon
+This guide provides an example on how to deploy a workspace using Babylon.
 
 ---
 <footer markdown>
@@ -28,7 +28,7 @@ This guide provides an example of how to deploy a workspace using Babylon
 
 <article markdown>
 <div class="text" markdown>
-:material-roman-numeral-2: __Example of Updating a Cosmo Tech Workspace__
+:material-roman-numeral-2: __Example: Updating a Cosmo Tech Workspace__
 
 ---
 This guide explains how to update a Cosmo Tech workspace.
@@ -42,10 +42,10 @@ This guide explains how to update a Cosmo Tech workspace.
 
 <article markdown>
 <div class="text" markdown>
-:material-roman-numeral-3: __Example of a Deploying Cosmo Tech Workspace with v5__
+:material-roman-numeral-3: __Example: Deploying a Cosmo Tech Workspace with v5__
 
 ---
-This guide provides an example of how to deploy a workspace using Babylon v5
+This guide provides an example on how to deploy a workspace using Babylon 5.
 
 ---
 <footer markdown>
