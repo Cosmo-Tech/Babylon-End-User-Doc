@@ -6,7 +6,7 @@ hide:
 ---
 # Tutorials
 
-A list of tutorials to start using babylon
+A list of tutorials to start using babylon v4 and v5
 
 <main class="grid" markdown>
 
@@ -77,6 +77,20 @@ This guide will help you how to destroy a workspace
 ---
 <footer markdown>
 [:octicons-arrow-right-24: Destroy](./Destroy_workspace.md)
+</footer>
+</div>
+</article>
+
+<article markdown>
+<div class="text" markdown>
+:material-roman-numeral-6: __Getting started with Babylon v5__
+
+---
+This guide you'll learn how to install, run, and experiment with Babylon v5
+
+---
+<footer markdown>
+[:octicons-arrow-right-24: Babylon v5](./Getting_started_with_babylon_v5.md)
 </footer>
 </div>
 </article>

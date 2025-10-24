@@ -40,4 +40,18 @@ This guide explains how to update a Cosmo Tech workspace.
 </div>
 </article>
 
+<article markdown>
+<div class="text" markdown>
+:material-roman-numeral-3: __Example of a Deploying Cosmo Tech Workspace with v5__
+
+---
+This guide provides an example of how to deploy a workspace using Babylon v5
+
+---
+<footer markdown>
+[:octicons-arrow-right-24: Deploy v5](./Example_Deploy_CosmoTech_workspace_v5.md)
+</footer>
+</div>
+</article>
+
 </main>

@@ -17,3 +17,11 @@ You can install babylon globally in your system
     source ~/babylonenv/bin/activate
     pip install .
     ```
+If you want to install Babylon in development mode to test this version, follow these steps
+
+!!! example 
+    ```bash
+    python3 -m venv ~/babylonenv
+    source ~/babylonenv/bin/activate
+    pip install -e .
+    ```
