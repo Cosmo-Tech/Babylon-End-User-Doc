@@ -6,17 +6,17 @@ hide:
 ---
 # Tutorials
 
-A list of tutorials to start using babylon v4 and v5
+A list of tutorials to start using Babylon v4 and v5.
 
 <main class="grid" markdown>
 
 
 <article markdown>
 <div class="text" markdown>
-:material-roman-numeral-1: __My First Implementation to Populating Vault__
+:material-roman-numeral-1: __Populating Vault__
 
 ---
-This guide shows how to install and configure Vault with initialization variables
+This guide shows how to install and configure Vault with initialization variables.
 
 ---
 <footer markdown>
@@ -30,7 +30,7 @@ This guide shows how to install and configure Vault with initialization variable
 :material-roman-numeral-2: __Getting started with Babylon__
 
 ---
-This guide you'll learn how to install, run, and experiment with Babylon
+In this guide you'll learn how to install, run commands, and experiment with Babylon.
 
 ---
 <footer markdown>
@@ -44,7 +44,7 @@ This guide you'll learn how to install, run, and experiment with Babylon
 :material-roman-numeral-3: __Deploy a new Workspace__
 
 ---
-This guide will help you how to deploy a new organization, solution, workspace
+This guide will help you deploy a new organization, solution, and workspace.
 
 ---
 <footer markdown>
@@ -55,10 +55,10 @@ This guide will help you how to deploy a new organization, solution, workspace
 
 <article markdown>
 <div class="text" markdown>
-:material-roman-numeral-4: __Deploy a Workspace with an existing (org/sol)__
+:material-roman-numeral-4: __Deploy a Workspace with an existing Organization and/or Solution)__
 
 ---
-This guide will help you how to deploy a workspace with an existing, organization and solution
+This guide will help you deploy a workspace with existing organization and solution resources.
 
 ---
 <footer markdown>
@@ -72,7 +72,7 @@ This guide will help you how to deploy a workspace with an existing, organizatio
 :material-roman-numeral-5: __Destroy a Workspace__
 
 ---
-This guide will help you how to destroy a workspace
+This guide will show you how to destroy a workspace.
 
 ---
 <footer markdown>
@@ -86,7 +86,7 @@ This guide will help you how to destroy a workspace
 :material-roman-numeral-6: __Getting started with Babylon v5__
 
 ---
-This guide you'll learn how to install, run, and experiment with Babylon v5
+This guide you'll learn how to install, run commands, and experiment with Babylon 5.
 
 ---
 <footer markdown>
