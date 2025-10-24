@@ -1,14 +1,14 @@
 ---
-description: Tutorial for getting started with Babylon CLI v5
+description: Getting started with Babylon 5
 ---
 
-# Getting started with Babylon v5
+# Getting started with Babylon 5
 
-This is a guide to getting started with Babylon v5. You'll learn how to install, run, and experiment Babylon commands.
+In this guide you'll learn how to install Babylon 5, run Babylon commands, and experiment with the tool.
 
 --8<-- 'docs/partials/installation/from_source.md'
 
-Now that you have a fully functional installation of Babylon, you can check the next steps to learn how to start running commands.
+Now that you have a fully functional installation of Babylon, you can check the next steps and learn how to start running commands.
 
 ## Setup Babylon
 
@@ -19,16 +19,16 @@ The first thing to do in order to check if Babylon is working properly:
 babylon --help
 ```
 
-### Setup Environment Variables
+### Environment Variable
 
-The Vault service is required some environment variables before interacting with **Babylon CLI** To do so, 
-Contact your Babylon admin to get **service URI** and **token**.  
+The Vault service requires multiple environment variables before interacting with **Babylon CLI**. 
+Contact your Babylon admin to get your **service URI** and **token** values.  
 
 !!! important
-    You can retrieve those values directly from the cluster  
+    You can retrieve those values directly from the cluster. 
     See 👉 [Retrieve Vault URL and Token](./Babylon_Vault_Init_Vars.md#1-configure-environment-variables).
 
-When you retrieve these values, you need to set the following environment variables
+Set the following environment variables with the proper values: 
 
 !!! example 
     ```bash
@@ -36,9 +36,10 @@ When you retrieve these values, you need to set the following environment variab
     export BABYLON_TOKEN="vault_root_token"  # hvs.CLxxxxxxxxxxxxxxx
     export BABYLON_SERVICE="vault_url"       # https://example.api.cosmotech.com
     ```
+
 ### Configuration
 
-At this point, you need **three variables** to perform Babylon commands.
+At this point, you need to define **three variables** to run Babylon commands.
 
 | Variable       | Description                                | Example   |
 |----------------|--------------------------------------------|-----------|
@@ -47,7 +48,7 @@ At this point, you need **three variables** to perform Babylon commands.
 | `state_id`     | State name *(string of your choice, no special characters)* | `state1`  |
 
 !!! important "⚠️ Variable Constraints"
-    - `context_id` and `state_id` can be **any string** of your choice, but **they must not contain special characters**.  
+    - `context_id` and `state_id` can be **any string** of your choice, but **they must contain no special characters**.  
 
     - If you are on **Linux**, you can generate a new UUID with [`uuidgen`](https://man7.org/linux/man-pages/man1/uuidgen.1.html):  
       ```bash
@@ -62,7 +63,7 @@ At this point, you need **three variables** to perform Babylon commands.
     - `platform_id` represents the **platform identifier** (e.g., `dev`, `staging`, ...).  
       ⚠️ It must be the **same `platform_id`** you used when initializing the Vault configuration.
 
-To initialize Babylon with these values, run
+To initialize Babylon with these values, run:
 
 ```bash
 babylon namespace use -c <context_id> -p <platform_id> -s <state_id>
@@ -71,11 +72,11 @@ babylon namespace use -c <context_id> -p <platform_id> -s <state_id>
 !!! note "Generated Configuration"
     - This command creates a file called **namespace.yaml**
     - Location: **~/.config/cosmotech/babylon/namespace.yaml**
-    - It contains the current context for your deployment
+    - It contains the current context for your deployment.
 
 ## What’s New in Babylon v5
 ### New namespace commands
-Running the following command displays the updated namespace commands
+Running the following command displays the updated namespace commands:
 !!! example 
 
     ```bash
@@ -93,8 +94,8 @@ Running the following command displays the updated namespace commands
       use           Switch to a specific namespace or create a new one
 
     ```
-Using these commands, we can view the currently active namespace. <br>
-Additionally, with `get-states`, we can list all states available on our local machine. Here are some examples
+Using these commands, you can check the currently active namespace. <br>
+Additionally, with `get-states`, you can list all states available on our local machine. Here are some examples:
 
 !!! example 
 
@@ -112,12 +113,12 @@ Additionally, with `get-states`, we can list all states available on our local m
     ```
 ### Keycloak Authentication
 !!! note "Keycloak Auth"
-    - In v5, Babylon now uses Keycloak as the authentication system to authenticate with the API and execute commands to create a Cosmotech API object.
+    - Starting with vesion 5, Babylon uses Keycloak as the authentication system to authenticate with the API and execute commands to create a Cosmotech API object.
     - A new client, `cosmotech-babylon-client`, is created in Keycloak for this purpose.
 
 ### New babylon init commnad
-After setting the context with the `use` command you can now easily initialize your project folder with the basic structure using the `babylon init` command.  
-Here’s an example
+After setting the context with the `namespace use` command you can now easily initialize your project with a basic structure using the `babylon init` command.  
+Here’s an example:
 
 !!! examples 
 
@@ -156,10 +157,11 @@ You can customize and modify them based on your specific needs.
 ### New group for handling runner and run objects
 !!! important
     In v5, there is no longer a **Connector** object, and **Scenario** / **ScenarioRun** have been replaced by **Runner** and **Run**.
+    For more information refer to the Cosmo Tech platform release notes.
 
 ### Meta About Endpoint
 
-Now, with Babylon, you can see which API version you are using with the following command
+You can now see which API version you are using with the following command:
 
 !!! example "about"
 
@@ -179,7 +181,7 @@ Now, with Babylon, you can see which API version you are using with the followin
       }
     }
     ```
-### Command for Testing
+### Commands for Testing
 
 For more details on how to test, see 👉 [Examples](../Examples/Example_Deploy_CosmoTech_workspace_v5.md#deploy-cosmo-tech-workspace).
 
