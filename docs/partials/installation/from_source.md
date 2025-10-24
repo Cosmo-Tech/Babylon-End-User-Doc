@@ -9,7 +9,7 @@ We will go through the process of getting a version of Babylon before the instal
 
 ## Install Babylon
 
-You can install babylon globally in your system
+You can install Babylon globally on your system:
 
 !!! example 
     ```bash
@@ -17,7 +17,7 @@ You can install babylon globally in your system
     source ~/babylonenv/bin/activate
     pip install .
     ```
-If you want to install Babylon in development mode to test this version, follow these steps
+Alternatively, follow these steps if you want to install Babylon in development mode:
 
 !!! example 
     ```bash
