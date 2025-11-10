@@ -201,3 +201,6 @@ For more details on how to test, see 👉 [Examples](../Examples/Example_Deploy_
     ```
     !!! Note 
         You can use the `--var-file` option to specify a particular `variables.yaml` file.
+
+There is no support for a `babylon apply --dataset` command but datasets can be
+created with the `babylon api datasets create` command
