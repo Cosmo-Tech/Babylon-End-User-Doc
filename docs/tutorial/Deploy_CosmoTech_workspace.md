@@ -8,14 +8,13 @@ description: Tutorial for creating or update Cosmo Tech workspace
     This guide focuses on explaining each object individually.  
     A complete deployment workflow is provided in the [Examples](../Examples/Example_Deploy_CosmoTech_workspace.md) section, where all components are combined in a practical scenario !
 
-    Before proceeding, ensure that you have selected the correct `platform` and `project`.  
-    If unsure, contact your `Babylon administrator` for the available options.
+    Before proceeding, ensure that you have selected the correct `tenant`.
 
     In this example, we will use the following identifiers:
 
     - `context_id`: `test`  
-    - `platform_id`: `dev`  
-    - `state_id`: `8db6069e-e05f-42e6-b6d6-56dde124516a`
+    - `tenant_id`: `dev`  
+    - `state_id`: `8db6069e`
 
 To deploy a complete Cosmo Tech workspace, you can declare its configuration in yaml files corresponding
 to specific deployment type. <br>
@@ -38,17 +37,9 @@ Each file contains general information about the deployment:
 
 --8<-- 'docs/tutorial/API/Workspace.md'
 
-## :material-folder:  Static Web App
+## :material-folder:  Cosmo Tech Web App
 
 --8<-- 'docs/tutorial/API/Webapp.md'
-
-## :material-folder:  API Connector
-
---8<-- 'docs/tutorial/API/Connector.md'
-      
-## :material-folder: API Dataset 
-
---8<-- 'docs/tutorial/API/Dataset.md'
 
 ## :material-file-tree: Babylon project structure 
 
@@ -59,20 +50,14 @@ Project folder must have the following structure:
     ```bash
     ├── variables.yaml
     ├── project
-    │   ├── adx
-    │   │   └── scripts
-    │   │       └── Create.kql
-    │   ├── connector_azure_storage.yaml
     │   ├── organization.yaml
-    │   ├── powerbi
-    │   │   ├── report1.pbix
-    │   │   ├── report2.pbix
-    │   │   └── report3.pbix
     │   ├── solution.yaml
-    │   ├── webapp.yaml
-    │   └── workspace.yaml
+    │   ├── workspace.yaml   
+    │   ├── Runner.yaml
+    │   └── Workspace.yaml
     └── README.md
     ```
+
 
 ## :material-console: Launching the deployment Macro command
 
@@ -84,7 +69,7 @@ After filling all deployment files, you can launch the following command:
     babylon apply project/
     ```
 
-Babylon will create and deploy all resources and save it in the state except for datasets. <br>
+Babylon will create and deploy all resources and save it in the state except for datasets and runner. <br>
 Keeping this information in the
 state simplifies modification of the resources as you can edit one of the project deployment files
 and relaunch `babylon apply` command. It will update existing resources or create missing ones, for example,
@@ -119,8 +104,6 @@ This enhancement makes it easier to **maintain** and **update only the specific 
     --organization       Deploy or update an organization.
     --solution           Deploy or update a solution. 
     --workspace          Deploy or update a workspace.
-    --webapp             Deploy or update a webapp.
-    --dataset            Deploy or update a dataset.
     ```
 ## :material-console: Executing babylon with `--payload-only` option 
 

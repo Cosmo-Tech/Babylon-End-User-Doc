@@ -1,18 +1,12 @@
 This is how the solution deployment file is structured
 
-??? example "Solution.yaml"
+!!! example "Solution.yaml"
 
     ```yaml
     kind: Solution
     namespace:
       remote: true   # false by default
-      state_id: 8db6069e-e05f-42e6-b6d6-56dde124516a
-      context: test
-      platform:
-        id: dev
-        url: https://dev.api.cosmotech.com/phoenix/v3-0
     metadata:
-      workspace_key: "Project1"
       selector:
         organization_id: "{{services['api.organization_id']}}"
     spec:
@@ -22,6 +16,9 @@ This is how the solution deployment file is structured
         description: "My solution description"
         repository: brewery_for_continuous
         version: latest
+        sdkVersion: '10.4.0'
+        alwaysPull: true
+        url: 'https://webapp.com'
         tags:
           - brewery
         runTemplates:
@@ -46,24 +43,6 @@ The **`metadata`** section defines deployment specific attributes. It is require
 
   - `solution.yaml`  
   - `workspace.yaml`  
-  - `webapp.yaml`  
-
-
-The `workspace_key` parameter is a **mandatory field** within the `metadata` section  
-
-- **Purpose**:  
-  Identifies the target workspace  
-  For example, when Babylon provisions resources such as a **Dataset (ADX)** or an **Event Hub**, the generated name follows the convention:  
-  ```bash 
-  <organization_id>-<workspace_key> # Ex : o-rv0h6dd492w8-testppdprojectwork
-  ```
-- **Constraints**:  
-    - Must always be defined.  
-    - Cannot be left empty.  
-
-- ⚠️ **Failure Condition**:  
-    If `workspace_key` is omitted or empty, the deployment will **fail**.
-
 
 The `selector` block is used to specify the **target organization** under which the resource will be deployed.  
 
