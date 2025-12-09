@@ -5,6 +5,9 @@ description: Tutorial how to destroy a Cosmo Tech workspace
 # Destroy a Cosmo Tech Workspace
 
 !!! warning "Remember"
+    The `destroy` command is not yet implemented.
+
+<!-- !!! warning "Remember"
     Keep in mind that the `destroy` command is a **macro command** that removes **everything** deployed.
 
 If you no longer need a Cosmo Tech workspace, you can remove it and all associated resources using the `babylon destroy` macro command.  
@@ -43,4 +46,4 @@ You can also specify a different state file using the `--state-to-destroy` optio
 
     ```bash
     babylon destroy --state-to-destroy /path/to/<state_id>
-    ```
+    ``` -->

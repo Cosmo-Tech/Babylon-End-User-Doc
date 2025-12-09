@@ -58,7 +58,7 @@ description: "Reference guide for essential Babylon CLI commands"
 !!! info "Namespace Use"
 
     ```bash
-     > babylon namespace use -c test -p dev -s 25075b92-fe8e-4952-9e9b-53360dacf369
+     > babylon namespace use -c test -t dev -s 25075b92
        INFO     2025-08-11 18:01:45,484 | [namespace] switched to namespace test, dev successfully
     ```
 ## Apply Macro Command
@@ -79,11 +79,6 @@ description: "Reference guide for essential Babylon CLI commands"
 
     ```bash
      > babylon apply --solution --var-file variables.yaml project/
-    ```
-!!! info "Apply Web app"
-
-    ```bash
-     > babylon apply --webapp --var-file variables.yaml project/
     ```
 !!! info "Apply Workspace"
 
