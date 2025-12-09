@@ -40,7 +40,7 @@ This guide will help you deploy a new organization, solution, and workspace.
 
 <article markdown>
 <div class="text" markdown>
-:material-roman-numeral-3: __Deploy a Workspace with an existing Organization and/or Solution)__
+:material-roman-numeral-3: __Deploy a Workspace with an existing Organization and/or Solution__
 
 ---
 This guide will help you deploy a workspace with existing organization and solution resources.

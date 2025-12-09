@@ -50,7 +50,6 @@ nav:
     - License: 'Licence.md'
   - Tutorials:
       - "tutorial/index.md"
-      - "tutorial/Babylon_Vault_Init_Vars.md"
       - "tutorial/Getting_started.md"
       - "tutorial/Deploy_CosmoTech_workspace.md"
       - "tutorial/Deploy_workspace_with_existing_org_sol.md"
