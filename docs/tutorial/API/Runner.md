@@ -1,22 +1,21 @@
-You can include any parts you need from your CSV files, but make sure all CSV files are located in the **root of the deployment directory**.
+This is how the runner deployment file is structured
 
-!!! example "Dataset.yaml"
+!!! example "Runner.yaml"
 
     ```yaml
-    kind: Dataset
+    kind: Runner
     namespace:
       remote: true   # false by default
     spec:
       sidecars:
       payload:
         id: # mandatory if you want to launch an update, without id a new dataset will be created ; if you want a new dataset, leave this field empty
-        name: Apply dataset
-        description: Creating dataset with nothing but update
-        tags:
-          - brewery
-        parts:
-          - name: part1
-            sourceName: customers.csv
+        name: "{{runner_name}}"
+        runTemplateId: "{{run_template_id}}"
+        solutionId: "{{services['api.solution_id']}}"
+        solutionName: "{{solution_name}}"
+        runTemplateName: "{{runTemplate_name}}"
+        ownerName: "{{owner_name}}"
         security:
           default: viewer
           accessControlList:

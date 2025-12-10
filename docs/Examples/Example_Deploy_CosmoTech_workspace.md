@@ -51,6 +51,7 @@ With Babylon v5, you can now generate a minimal manifest YAML file that can be u
         │   ├── Runner.yaml
         │   ├── Solution.yaml
         │   └── Workspace.yaml
+        ├── customers.csv
         └── variables.yaml
     ```
 ## Start Deployment
@@ -80,6 +81,14 @@ Here is an example of `variables.yaml` with detailed explanations:
     solution_description: to_fill                                           # Quick sentence to explain the purpose of the solution
     simulator_repository: to_fill                                           # To fill according to your simulator name
     simulator_version: to_fill                                              # To fill according to your simulator version
+    # Dataset 
+    dataset_name: to_fill
+    dataset_description: to_fill
+    # Runner 
+    run_template_id: to_fill
+    runner_name: to_fill
+    runTemplate_name: to_fill
+    owner_name: to_fill
     # Security
     # The list below will be used on all API objects.
     # If differents security list are needed for each API objects,
@@ -121,15 +130,20 @@ As a best practice, it is recommended to create a `.env` file at the same level 
     babylon namespace use -c test -t dev -s 73a90433
     ```
     ```bash
-    babylon apply --organization --var-file variables.yaml project/
+    babylon apply --organization project/
     ```
     ```bash
-    babylon apply --solution --var-file variables.yaml project/
+    babylon apply --solution project/
     ```
     ```bash
-    babylon apply --workspace --var-file variables.yaml project/
+    babylon apply --workspace project/
     ```
-
+    ```bash 
+    babylon apply --dataset project/
+    ```
+    ```bash 
+    babylon apply --runner project/
+    ```
 Here are some simple commands you can use if needed:
 
 !!! example

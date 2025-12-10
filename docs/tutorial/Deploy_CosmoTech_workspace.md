@@ -37,6 +37,14 @@ Each file contains general information about the deployment:
 
 --8<-- 'docs/tutorial/API/Workspace.md'
 
+## :material-folder: API Dataset
+
+--8<-- 'docs/tutorial/API/Dataset.md'
+
+## :material-folder: API Runner
+
+--8<-- 'docs/tutorial/API/Runner.md'
+
 ## :material-folder:  Cosmo Tech Web App
 
 --8<-- 'docs/tutorial/API/Webapp.md'
@@ -50,10 +58,11 @@ Project folder must have the following structure:
     ```bash
     ├── variables.yaml
     ├── project
-    │   ├── organization.yaml
-    │   ├── solution.yaml
-    │   ├── workspace.yaml   
+    │   ├── Organization.yaml
+    │   ├── Solution.yaml
+    │   ├── Workspace.yaml   
     │   ├── Runner.yaml
+    │   ├── Dataset.yaml
     │   └── Workspace.yaml
     └── README.md
     ```
@@ -102,8 +111,10 @@ This enhancement makes it easier to **maintain** and **update only the specific 
 
     ```bash
     --organization       Deploy or update an organization.
-    --solution           Deploy or update a solution. 
+    --solution           Deploy or update a solution.
     --workspace          Deploy or update a workspace.
+    --dataset            Deploy or update a dataset.
+    --runner             Deploy or update a runner.
     ```
 ## :material-console: Executing babylon with `--payload-only` option 
 
@@ -121,6 +132,5 @@ However, this option should not be used when there are new Power BI reports, ADX
     As objects now, Babylon accepts the following:
 
     ```bash
-    --solution           Deploy or update a solution pyload only. 
     --workspace          Deploy or update a workspace pyload only.
     ```
