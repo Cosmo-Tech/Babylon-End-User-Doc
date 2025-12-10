@@ -261,6 +261,7 @@ Here’s an example:
       │   ├── Runner.yaml
       │   ├── Solution.yaml
       │   └── Workspace.yaml
+      ├── customers.csv
       └── variables.yaml
     ```
 Now, you can get started with running Babylon commands.  
@@ -310,10 +311,28 @@ For more details on how to test, see 👉 [Examples](../Examples/Example_Deploy_
     babylon apply --workspace project/ 
     ```
     ```bash 
+    babylon apply --dataset project/
+    ```
+    ```bash 
     babylon apply --runner project/
     ```
     !!! Note 
         You can use the `--var-file` option to specify a particular `variables.yaml` file.
 
-There is no support for a `babylon apply --dataset` command but datasets can be
-created with the `babylon api datasets create` command.
+The `babylon apply --dataset/runner` command is a shortcut that performs the same action as a single `babylon api datasets/runner create` command.
+If you want to perform more actions, such as updating or listing resources, you need to use the single commands directly.
+
+!!! example "Commands"
+
+    ```bash 
+    babylon api datasets create o-xxxxxxxxxx w-xxxxxxxxxxx d-xxxxxxxxx project/Dataset.yaml 
+    ```
+    ```bash 
+    babylon api datasets get o-xxxxxxxxxx w-xxxxxxxxxxx project/Dataset.yaml 
+    ```
+    ```bash 
+    babylon api runners create o-xxxxxxxxxx w-xxxxxxxxxxx project/Runner.yaml 
+    ```
+    ```bash 
+    babylon api runners update o-xxxxxxxxxx w-xxxxxxxxxxx r-xxxxxxxxxx project/Runner.yaml 
+    ```
