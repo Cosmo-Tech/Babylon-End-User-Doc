@@ -74,7 +74,8 @@ Alternatively, if you need CI/CD workflows or want to run quick local tests with
     TOKEN_URL=https://dev.api.cosmotech.com/keycloak/realms/dev/protocol/openid-connect/token 
     ```
 
-You can retrieve these values using `kubectl`, or you can contact your Babylon administrator to obtain them.
+You can retrieve these values using `kubectl`, or you can contact your Babylon administrator to obtain them.<br>
+Note: Make sure you have at least Contributor role assigned in Kubernetes.
 
 
 !!! note "Important"
@@ -91,7 +92,30 @@ You can retrieve these values using `kubectl`, or you can contact your Babylon a
         # Look for the 'keycloak-babylon' secret and view its YAML content
         kubectl -n dev get secret keycloak-babylon -o json | jq -r '.data | to_entries[] | "\(.key)=\(.value | @base64d)"'
         ```
+If you no longer have access to the cluster, you can export these variables manually
 
+| Variable         | Description                     | Example                                   |
+|------------------|---------------------------------|-------------------------------------------|
+| `API_URL   `     | API URL                         | `https://dev.api.cosmotech.com/tenant/v5` |
+| `CLIENT_ID`      | Fixed Babylon client ID         | `cosmotech-babylon-client`                |
+| `CLIENT_SECRET`  | Ask Babylon admin               | `xxxxxxxxxxx`                             |
+| `TOKEN_URL`      | Auth endpoint                   | `https://dev.api.cosmotech.com/keycloak/realms/tenant/protocol/openid-connect/token`|
+
+!!! example
+    === "🖥️ Windows"
+        ```bash
+        $env:API_URL="https://dev.api.cosmotech.com/tenant/v5" 
+        $env:CLIENT_ID="cosmotech-babylon-client" 
+        $env:CLIENT_SECRET="your_secret_here" 
+        $env:TOKEN_URL="https://dev.api.cosmotech.com/keycloak/realms/tenant/protocol/openid-connect/token"
+        ```
+    === "🐧 Linux" 
+        ```bash
+        export API_URL="https://dev.api.cosmotech.com/tenant/v5" 
+        export CLIENT_ID="cosmotech-babylon-client" 
+        export CLIENT_SECRET="your_secret_here" 
+        export TOKEN_URL="https://dev.api.cosmotech.com/keycloak/realms/tenant/protocol/openid-connect/token
+        ```
 ### Configuration
 
 At this point, you need **three variables** to perform Babylon commands.
@@ -105,23 +129,22 @@ At this point, you need **three variables** to perform Babylon commands.
 !!! important "⚠️ Variable Constraints"
     - `context_id` and `state_id` can be **any string** of your choice, but **they must not contain special characters**.  
     - For state_id, you can generate a new UUID with [`uuidgen`](https://man7.org/linux/man-pages/man1/uuidgen.1.html):  
-    === "Linux"
-    ```bash
-    sudo apt update
-    sudo apt install uuid-runtime -y
-    # Generate a UUID
-    uuidgen | cut -c1-8
-    # Example output:
-    0475231d
-    ```
-    === "Windows"
-    ```powershell
-    # Open PowerShell and run:
-    [guid]::NewGuid().ToString().Substring(0,8)
-    # Example output:
-    0475231d
-    ```
-
+        === "🐧 Linux"
+            ```bash
+            sudo apt update
+            sudo apt install uuid-runtime -y
+            # Generate a UUID
+            uuidgen | cut -c1-8
+            # Example output:
+            0475231d
+            ```
+        === "🖥️ Windows"
+            ```powershell
+            # Open PowerShell and run:
+            [guid]::NewGuid().ToString().Substring(0,8)
+            # Example output:
+            0475231d
+            ```
     - `tenant_id` represents the **namespace kubernetes** (e.g., `dev`, `staging`, ...).  
 
 
@@ -138,32 +161,18 @@ babylon namespace use -c <context_id> -t <tenant_id> -s <state_id>
 
 You can now test Babylon by running a simple command:
   ```bash
-  babylon api organizations get-all
+  babylon api organizations list
   ```
 If you have already created an organization, you should see its details in the output.
 
 !!! example "Example List Organizations"
     ```bash
-    > babylon api organizations get-all
+    > babylon api organizations list
     ```
-    ```json
-    [
-      {
-        "id": "o-55dsz6e51n8y8j",
-        "name": "Organization name",
-        "ownerId": "e0035649-0f12-4221-9631-3519704816c1",
-        "services": null,
-        "security": {
-          "default": "none",
-          "accessControlList": [
-            {
-              "id": "example.test@cosmotech.com",
-              "role": "admin"
-            }
-          ]
-        }
-      }
-    ]
+    ```bash
+      → Loading configuration from Kubernetes secret...
+      → Sending request to API...
+      ✔ 93 organization(s) retrieved successfully
     ```
 
 In Babylon v5, the **state** is now independent of the configuration.  
@@ -175,13 +184,9 @@ This persisted state is referred to as the **Babylon state**.
 
     The state is saved in two locations:
 
-    1. **Remote backend (cloud)** → `babylon-states`  (❗not available in this release, will be implemented in a future release)
+    1. **Remote backend (cloud)** → storage account `cosmotechstates` → containers `babylon-states`
     2. **Local backend (YAML file)** → `~/.config/babylon/state.<context_id>.<tenant_id>.<state_id>.yaml`
 
-!!! note
-    In this release, the state is stored **only locally**.  
-    Remote state persistence will be implemented in a future release.
-    
 ## State file specification
 
 --8<-- 'docs/guides/resource_file.md'
@@ -283,18 +288,52 @@ You can now see which API version you are using with the following command:
     babylon api about
     ```
     ```bash
-    {
-      "version": {
-        "full": "5.0.0-beta5-7ebc87cb",
-        "release": "5.0.0-beta5",
-        "major": 5,
-        "minor": 0,
-        "patch": 0,
-        "label": "beta5",
-        "build": "7ebc87cb"
-      }
-    }
+    → Loading configuration from Kubernetes secret...
+    → Sending request to API..
+    ✔ API About Information: version=AboutInfoVersion(full='5.0.0-rc5-897806da', release='5.0.0-rc5', major=5, minor=0, patch=0, label='rc5', build='897806da')
     ```
+
+### Output Management
+
+With Babylon v5, you can now handle the output of every single command. This is particularly useful for scripting, filtering data, or integration with other tools.
+
+You can control the output using two main flags:
+
+| Flag | Description | Supported Formats |
+| :--- | :--- | :--- |
+| `-o` | Displays the result in the terminal. | `json`, `yaml`, `wide` |
+| `-f` | Saves the result directly to a file. | `json`, `yaml` |
+
+Usage Examples:
+
+!!! example "Commands"
+
+    ```bash
+    babylon api organizations list -o wide
+    ```
+    ```bash
+    → Loading configuration from Kubernetes secret...
+    → Sending request to API...
+    ✔ 94 organization(s) retrieved successfully
+    ID                NAME                                         CREATED         
+    o-zjrw54r8kxp     Debugging organization                       2025-12-10 11:21
+    o-x5oo38rjywq     Debugging organization                       2025-12-03 16:21
+    o-e2o50oxk7oe     Debugging organization                       2025-12-23 09:40
+    o-vd0wk30pdxx     Debugging organization                       2025-12-10 10:52
+    ```
+    ```bash
+    babylon api organizations list -o json
+    ```
+    ```bash
+    babylon api organizations list -o yaml
+    ```
+    ```bash
+    babylon api organizations list -f organizations.json
+    ```
+    ```bash
+    babylon api organizations list -f organizations.yaml
+    ```
+
 ### Commands for Testing
 
 For more details on how to test, see 👉 [Examples](../Examples/Example_Deploy_CosmoTech_workspace.md#deploy-cosmo-tech-workspace).
@@ -302,37 +341,52 @@ For more details on how to test, see 👉 [Examples](../Examples/Example_Deploy_
 !!! example "Commands"
 
     ```bash
-    babylon apply --organization project/  
+    babylon apply project/  
     ```
     ```bash
-    babylon apply --solution project/
+    🚀 Deploying Organization in namespace: dev
+      → Loading configuration from Kubernetes secret...
+      → No existing organization ID found. Creating...
+      ✔ Organization o-xxxxxxxxx created
+
+    🚀 Deploying Solution in namespace: dev
+      → Loading configuration from Kubernetes secret...
+      → No existing solution ID found. Creating...
+      ✔ Solution sol-xxxxxxxxx created
+
+    🚀 Deploying Workspace in namespace: dev
+      → Loading configuration from Kubernetes secret...
+      → No existing workspace ID found. Creating...
+      ✔ Workspace w-xxxxxxxxx created
+
+    📋 Deployment Summary
+      • Organization Id : o-xxxxxxxxx
+      • Solution Id     : sol-xxxxxxxxx
+      • Workspace Id    : w-xxxxxxxxx
+
+    ✨ Deployment process complete
     ```
-    ```bash    
-    babylon apply --workspace project/ 
-    ```
-    ```bash 
-    babylon apply --dataset project/
-    ```
-    ```bash 
-    babylon apply --runner project/
-    ```
+    
+
     !!! Note 
         You can use the `--var-file` option to specify a particular `variables.yaml` file.
+        ```bash
+        e.g. → babylon apply --var-file devops-test.yaml devops-test/
+        ```
 
-The `babylon apply --dataset/runner` command is a shortcut that performs the same action as a single `babylon api datasets/runner create` command.
-If you want to perform more actions, such as updating or listing resources, you need to use the single commands directly.
+The **macro command** currently only covers **Organization**, **Solution**, and **Workspace** levels. For other resources like **Runners**, **Datasets**, etc., you must use the **single commands** directly to interact with the API.
 
 !!! example "Commands"
 
     ```bash 
-    babylon api datasets create o-xxxxxxxxxx w-xxxxxxxxxxx d-xxxxxxxxx project/Dataset.yaml 
+    babylon api runners create --oid o-xxxxxxxxxx --sid sol-d-xxxxxxxxx --wid w-xxxxxxxxxxx project/runner.yaml
     ```
     ```bash 
-    babylon api datasets get o-xxxxxxxxxx w-xxxxxxxxxxx project/Dataset.yaml 
+    babylon api datasets create --oid o-xxxxxxxxxx --wid w-xxxxxxxxxxx project/dataset.yaml
     ```
     ```bash 
-    babylon api runners create o-xxxxxxxxxx w-xxxxxxxxxxx project/Runner.yaml 
+    babylon api runs list --oid o-xxxxxxxxxx --wid w-xxxxxxxxxxx --rid r-xxxxxxxxxxx
     ```
     ```bash 
-    babylon api runners update o-xxxxxxxxxx w-xxxxxxxxxxx r-xxxxxxxxxx project/Runner.yaml 
+    babylon api datasets create-part --oid o-xxxxxxxxxx --wid w-xxxxxxxxxxx --did d-r-xxxxxxxxxx project/dataset_part.yaml
     ```

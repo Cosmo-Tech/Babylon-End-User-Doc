@@ -103,25 +103,58 @@ To do this, use the `--var-file` option.
 Babylon now supports deploying or updating a **single object API** using the `apply` macro command.  
 This enhancement makes it easier to **maintain** and **update only the specific object** that has changed, instead of running the macro for **all objects** following best practices for efficient deployments.
 
-!!! example "**Command syntax**"
-    ```bash
-    > babylon apply --OBJECT --var-file variable_file_1.yaml project/
-    ```
-    As objects, Babylon accepts the following:
+To support this, Babylon introduces two new options: `--include` `--execlude`
 
+| Option | Description |
+| :--- | :--- |
+| `--include` | Specifies only the objects to be included in the action. |
+| `--exclude` | Specifies the objects to be skipped during the action. |
+
+
+!!! example "**include**"
     ```bash
-    --organization       Deploy or update an organization.
-    --solution           Deploy or update a solution.
-    --workspace          Deploy or update a workspace.
-    --dataset            Deploy or update a dataset.
-    --runner             Deploy or update a runner.
+    > babylon apply --include organization project
     ```
-## :material-console: Executing babylon with `--payload-only` option 
+    ```bash
+    🚀 Deploying Organization in namespace: sphinx
+        → Loading configuration from Kubernetes secret...
+        → No existing organization ID found. Creating...
+        ✔ Organization o-nl8pgn5lpwd created
+
+    📋 Deployment Summary
+        • Organization Id : o-nl8pgn5lpwd
+
+    ✨ Deployment process complete
+    ```
+
+!!! example "**exclude**"
+    ```bash
+    > babylon apply --exclude workspace project/
+    ```
+    ```bash
+    🚀 Deploying Organization in namespace: sphinx
+        → Loading configuration from Kubernetes secret...
+        → No existing organization ID found. Creating...
+        ✔ Organization o-nl8pgn5lpwd created
+
+    🚀 Deploying Solution in namespace: sphinx
+        → Loading configuration from Kubernetes secret...
+        → No existing solution ID found. Creating...
+        ✔ Solution sol-6069lgex2xz created
+
+    📋 Deployment Summary
+        • Organization Id : o-nl8pgn5lpwd
+        • Solution Id     : sol-6069lgex2xz
+
+    ✨ Deployment process complete
+    ```
+<!-- This will be visible after adding the Superset feature -->
+<!-- ## :material-console: Executing babylon with `--payload-only` option 
 
 The `--payload-only` option allows Babylon to deploy or update an object API without triggering the deployment of associated Azure services defined in the deployment file.<br>
 This is particularly useful for incremental updates where you only need to modify lightweight parts, such as adding permissions in the Object ACL or updating the payload. Fully redeploying these parts can be time consuming.
 
-However, this option should not be used when there are new Power BI reports, ADX database permissions, or other changes related to azure section, as those require a full deployment.
+However, this option should not be used when there are new superset reports, or other changes related to azure section, as those require a full deployment.
 
 !!! tip "💡 Best practice for using `--payload-only` "
     Use this option only when you have changes limited to the payload itself, avoiding unnecessary redeployment of Azure section.
@@ -132,5 +165,5 @@ However, this option should not be used when there are new Power BI reports, ADX
     As objects now, Babylon accepts the following:
 
     ```bash
-    --workspace          Deploy or update a workspace pyload only.
-    ```
+    --workspace          Deploy or update a workspace payload only.
+    ``` -->

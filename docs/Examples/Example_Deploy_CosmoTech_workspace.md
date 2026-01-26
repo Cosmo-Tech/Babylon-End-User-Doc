@@ -130,35 +130,20 @@ As a best practice, it is recommended to create a `.env` file at the same level 
     babylon namespace use -c test -t dev -s 73a90433
     ```
     ```bash
-    babylon apply --organization project/
-    ```
-    ```bash
-    babylon apply --solution project/
-    ```
-    ```bash
-    babylon apply --workspace project/
-    ```
-    ```bash 
-    babylon apply --dataset project/
-    ```
-    ```bash 
-    babylon apply --runner project/
+    babylon apply project/
     ```
 Here are some simple commands you can use if needed:
 
 !!! example
 
     ```bash
-    babylon api solutions create o-d2yrojeplmo test-api/Solution.yaml
+    babylon api solutions create --oid o-d2yrojeplmo project/Solution.yaml
     ```
     ```bash
-    babylon api organizations delete o-d2yrojeplmo
+    babylon api organizations delete --oid o-d2yrojeplmo
     ```
     ```bash
-    babylon api workspaces security get-all
-    ```
-    ```bash
-    babylon api runners delete o-d2yrojeplmo w-5zompvvrg0j r-mdlq0mk0jo5
+    babylon api runners delete --oid o-d2yrojeplmo --wid w-5zompvvrg0j --rid r-mdlq0mk0jo5
     ```
 
 It is recommended to use `babylon --help` to get more details about the arguments of each command.
@@ -170,16 +155,12 @@ It is recommended to use `babylon --help` to get more details about the argument
 
     Usage: babylon api organizations delete [OPTIONS] ORGANIZATION_ID
 
-    Delete a specific organization
-
-    Args:
-
-        ORGANIZATION_ID: The unique identifier of the organization
+    Delete an organization by ID
 
     Options:
     -c, --context TEXT   Context Name without any special character
     -t, --tenant TEXT    Tenant Id without any special character
     -s, --state-id TEXT  State Id
-    -D                   Force Delete
+    --oid TEXT           Organization ID  [required]
     --help               Show this message and exit.
     ```

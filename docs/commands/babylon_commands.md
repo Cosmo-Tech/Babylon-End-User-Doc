@@ -19,38 +19,25 @@ description: "Reference guide for essential Babylon CLI commands"
           \/___/  \/__/\/_/ \/___/   `/___/> \\/____/ \/___/  \/_/\/_/  
                                         /\___/  
                                         \/__/  
-                                                                 v4.2.3
+                                                                 v5.0.0-beta.1
 
       CLI used for cloud interactions between CosmoTech and multiple cloud
+      environment
 
-        environment
+    Options:
+    -v, --verbosity LVL   Either CRITICAL, ERROR, WARNING, INFO or DEBUG
+    -n, --dry-run         Will run commands in dry-run mode.
+    --version             Print version number and return.
+    --log-path DIRECTORY  Path to the directory where log files will be stored.
+                            If not set, defaults to current working directory.
+    --help                Show this message and exit.
 
-        The following environment variables are required:
-
-        - BABYLON_SERVICE: Vault Service URI
-        - BABYLON_TOKEN: Access Token Vault Service
-        - BABYLON_ORG_NAME: Organization Name
-            
-
-        Options:
-        -v, --verbosity LVL     Either CRITICAL, ERROR, WARNING, INFO or DEBUG
-        --bare, --raw, --tests  Enable test mode, this mode changes output
-                                formatting.
-        -n, --dry-run           Will run commands in dry-run mode.
-        --version               Print version number and return.
-        --help                  Show this message and exit.
-
-        Commands:
-        abba       Cosmotech ABBA
-        api        Cosmotech API
-        apply      Macro Apply
-        azure      Group allowing communication with Microsoft Azure Cloud
-        destroy    Macro Destroy
-        github     Group allowing communication with Github REST API
-        hvac       Group handling Vault Hashicorp
-        namespace  Babylon namespace
-        powerbi    Group handling communication with PowerBI API
-        webapp     Group handling Cosmo Sample WebApp configuration
+    Commands:
+    api        Cosmotech API
+    apply      Macro Apply
+    destroy    Macro Destroy
+    init       Scaffolds a new Babylon project structure using YAML templates.
+    namespace  Babylon namespace
     ```
 
 ## Namespace Use Command
@@ -58,8 +45,8 @@ description: "Reference guide for essential Babylon CLI commands"
 !!! info "Namespace Use"
 
     ```bash
-     > babylon namespace use -c test -t dev -s 25075b92
-       INFO     2025-08-11 18:01:45,484 | [namespace] switched to namespace test, dev successfully
+     > babylon namespace use -c test -t dev -s 4s5de
+       ✔ Switched to context test, tenant dev successfully
     ```
 ## Apply Macro Command
 
@@ -70,25 +57,18 @@ description: "Reference guide for essential Babylon CLI commands"
     ```
 ## Apply Single Command
 
-!!! info "Apply Organization"
+!!! info "Create Organization"
 
     ```bash
-     > babylon apply --organization --var-file variables.yaml project/
+     > babylon api organizations create project/Organization.yaml
     ```
-!!! info "Apply Solution"
-
     ```bash
-     > babylon apply --solution --var-file variables.yaml project/
-    ```
-!!! info "Apply Workspace"
-
-    ```bash
-     > babylon apply --workspace --var-file variables.yaml project/
+     > babylon api organizations delete --oid o-xxxxxxxxxxxxx
     ```
 ## Destroy Macro Command
 
 !!! info "Macro Destroy"
 
     ```bash
-     > babylon destroy --state-to-destro /path/to/<state_id>
+     > babylon destroy
     ```
