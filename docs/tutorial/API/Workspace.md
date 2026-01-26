@@ -1,12 +1,11 @@
 The **Workspace configuration** may include additional parameters required to provision external services such as:
 
-- **Power BI workspaces**
-- **Azure Event Hubs**
-- **Azure Data Explorer (ADX) databases**
+- **Superset workspaces**
+- **PostgreSQL databases**
 
 These parameters are normally defined under the `sidecars` section, specifically within the `cloud` key.
 
-However, this is **not the case in the current release**, because Cosmotech API v5 does **not depend on any external cloud resources** for the moment.
+However, this is **not the case in the current release**.
 
 
 !!! example "Workspace.yaml"

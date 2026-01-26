@@ -4,8 +4,8 @@
 
 ## What is Babylon ?
 
-Babylon is a `CLI[^1]` principally targeted at Devops users of the Cosmo Tech Platform.  
-It allows the user to interact with the multiple systems used in the platform, performing multiple operations in a simple and streamlined fashion.
+Babylon is a powerful `CLI[^1]` designed to simplify how users interact with the Cosmo Tech Platform.  
+Babylon is built for all users who want to manage their projects workspace in a simple, streamlined fashion without switching between multiple complex tools.
 
 Instead of requiring the user to learn how to use numerous software to interact with the systems, Babylon allows you to learn a single format.
 

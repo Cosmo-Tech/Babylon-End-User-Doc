@@ -73,11 +73,5 @@ After making the necessary modifications, you can now apply the changes using Ba
     babylon namespace use -c test -t dev -s 73a90433
     ```
     ```bash
-    babylon apply --organization --var-file variables.yaml project/
-    ```
-    ```bash
-    babylon apply --solution --var-file variables.yaml project/
-    ```
-    ```bash
-    babylon apply --workspace --var-file variables.yaml project/
+    babylon apply project/
     ```
