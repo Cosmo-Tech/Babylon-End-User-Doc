@@ -4,18 +4,18 @@
 
 ## What is Babylon ?
 
-Babylon is a powerful `CLI[^1]` designed to simplify how users interact with the Cosmo Tech Platform.  
+Babylon is a powerful `CLI[^1]` designed to simplify how users interact with the Cosmo Tech AI Simulation Platform.  
 Babylon is built for all users who want to manage their projects workspace in a simple, streamlined fashion without switching between multiple complex tools.
 
 Instead of requiring the user to learn how to use numerous software to interact with the systems, Babylon allows you to learn a single format.
 
 ## Why Babylon ?
 
-Babylon was developed to help users getting around the difficulty of juggling around with multiple softwares to interact with the multiple systems composing the Cosmo Tech Platform.
+Babylon was developed to help users getting around the difficulty of juggling around with multiple softwares to interact with the multiple systems composing the Cosmo Tech AI Simulation Platform.
 
 By using Babylon you only need one single software to work on your multiple needs.
 
-The team behind Babylon is closely tied to the one working on the Cosmo Tech Platform, and new features of the platform can quickly be added to Babylon allowing users to get fast access to the newest content.
+The team behind Babylon is closely tied to the one working on the Cosmo Tech AI Simulation Platform, and new features of the platform can quickly be added to Babylon allowing users to get fast access to the newest content.
 
 
 ## 🤔 Still not convinced ?

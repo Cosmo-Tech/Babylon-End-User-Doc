@@ -16,35 +16,32 @@ You can install Babylon globally on your system:
 
 !!! uv example
 
+    === "🐧 Linux"
+        ```bash
+        uv venv
+        source .venv/bin/activate
+        uv pip install .
+        ```
+
     === "🖥️ Windows"
         After the installation of **uv**, it is highly recommended to reopen a new terminal window!
         ```bash
-        uv venv .venv
+        uv venv
         .\.venv\Scripts\activate
-        uv pip install .
-        ```
-    === "🐧 Linux"
-
-        ```bash
-        uv .venv
-        source .venv/bin/activate
         uv pip install .
         ```
 
 !!! py example 
-
-    === "🖥️ Windows"
-
-        ```bash
-        python -m venv .venv
-        .\.venv\Scripts\activate
-        pip install .
-        ```
     === "🐧 Linux"
-    
         ```bash
         python3 -m venv .venv
         source .venv/bin/activate
+        pip install .
+        ```
+    === "🖥️ Windows"
+        ```bash
+        python -m venv .venv
+        .\.venv\Scripts\activate
         pip install .
         ```
 Alternatively, follow these steps if you want to install Babylon in development mode:

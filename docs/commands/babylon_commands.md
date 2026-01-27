@@ -19,7 +19,7 @@ description: "Reference guide for essential Babylon CLI commands"
           \/___/  \/__/\/_/ \/___/   `/___/> \\/____/ \/___/  \/_/\/_/  
                                         /\___/  
                                         \/__/  
-                                                                 v5.0.0-beta.1
+                                                                 v5.0.0-beta.2
 
       CLI used for cloud interactions between CosmoTech and multiple cloud
       environment
