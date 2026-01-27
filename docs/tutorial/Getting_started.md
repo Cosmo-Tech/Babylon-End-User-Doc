@@ -129,22 +129,22 @@ At this point, you need **three variables** to perform Babylon commands.
 !!! important "⚠️ Variable Constraints"
     - `context_id` and `state_id` can be **any string** of your choice, but **they must not contain special characters**.  
     - For state_id, you can generate a new UUID with [`uuidgen`](https://man7.org/linux/man-pages/man1/uuidgen.1.html):  
-        === "🐧 Linux"
-            ```bash
-            sudo apt update
-            sudo apt install uuid-runtime -y
-            # Generate a UUID
-            uuidgen | cut -c1-8
-            # Example output:
-            0475231d
-            ```
-        === "🖥️ Windows"
-            ```powershell
-            # Open PowerShell and run:
-            [guid]::NewGuid().ToString().Substring(0,8)
-            # Example output:
-            0475231d
-            ```
+    === "🐧 Linux"
+        ```bash
+        sudo apt update
+        sudo apt install uuid-runtime -y
+        # Generate a UUID
+        uuidgen | cut -c1-8
+        # Example output:
+        0475231d
+        ```
+    === "🖥️ Windows"
+        ```powershell
+        # Open PowerShell and run:
+        [guid]::NewGuid().ToString().Substring(0,8)
+        # Example output:
+        0475231d
+        ```
     - `tenant_id` represents the **namespace kubernetes** (e.g., `dev`, `staging`, ...).  
 
 

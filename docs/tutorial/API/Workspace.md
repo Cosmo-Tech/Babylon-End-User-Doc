@@ -1,7 +1,4 @@
-The **Workspace configuration** may include additional parameters required to provision external services such as:
-
-- **Superset workspaces**
-- **PostgreSQL databases**
+The **Workspace configuration** may include additional parameters required to provision external services.
 
 These parameters are normally defined under the `sidecars` section, specifically within the `cloud` key.
 
