@@ -13,8 +13,8 @@ This will automatically delete the following resources:
 - Organizations
 - Solutions
 - Workspaces
-- Schemas postgreSQL
-- Web Apps
+- PostgreSQL schemas
+- Web App
 
 By default, it destroys the resources referenced in the current state saved in the namespace file.
 

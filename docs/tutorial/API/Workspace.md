@@ -19,11 +19,11 @@ When `create` is set to `true`, Babylon will execute the specified Kubernetes jo
     spec:
       sidecars:
         postgres:
-            schema:
-              create: true # false by default
-              jobs:
-                - name: k8s_job.yaml
-                  path: postgres/jobs
+          schema:
+            create: true # false by default
+            jobs:
+              - name: k8s_job.yaml
+                path: postgres/jobs
       payload:
         key: "Project1"
         name: "My Workspace Name"

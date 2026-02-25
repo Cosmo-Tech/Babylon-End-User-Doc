@@ -49,7 +49,7 @@ description: "Reference guide for essential Babylon CLI commands"
     ```
     ```bash
     → Loading configuration from Kubernetes secret...
-    → Sending request to API..
+    → Sending request to API...
     ✔ API About Information: version=AboutInfoVersion(full='5.0.0-rc5-897806da', release='5.0.0-rc5', major=5, minor=0, patch=0, label='rc5', build='897806da')
     ```
 ## Namespace Use Command
