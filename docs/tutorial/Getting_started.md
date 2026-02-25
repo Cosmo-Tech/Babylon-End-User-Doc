@@ -271,14 +271,14 @@ The `babylon namespace get-states` command provides two options:
 
 ### Keycloak Authentication
 !!! note "Keycloak Auth"
-    - Starting with vesion 5, Babylon uses Keycloak as the authentication system to authenticate with the Cosmotech API and execute commands to create objects.
+    - Starting with version 5, Babylon uses Keycloak as the authentication system to authenticate with the Cosmotech API and execute commands to create objects.
     - A new client, `cosmotech-babylon-client`, is created in Keycloak for this purpose.
 
-### New babylon init commnad
+### New babylon init command
 After setting the context with the `namespace use` command you can now easily initialize your project with a basic structure using the `babylon init` command.  
 Here’s an example:
 
-!!! examples 
+!!! example
 
     ```bash
     babylon init --help
@@ -456,7 +456,7 @@ For more details on how to test, see 👉 [Examples](../Examples/Example_Deploy_
     ✨ Deployment process complete
     ```
 
-    !!! Note 
+    !!! note "Using --var-file" 
         You can use the `--var-file` option to specify a particular `variables.yaml` file.
         ```bash
         e.g. → babylon apply --var-file devops-test.yaml devops-test/

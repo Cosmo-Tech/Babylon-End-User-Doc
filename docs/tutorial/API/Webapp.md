@@ -8,19 +8,20 @@ For more details on how to deploy the web app, refer to the README file in the T
 Babylon automatically clones the Terraform web app repository and updates the `terraform.tfvars` file with all required variables. These variables are retrieved from the `webapp.yaml` configuration file below.
 
 !!! example "webapp.yaml"
-    ```yaml
+
+      ```yaml
       kind: Webapp
       namespace:
          remote: true
       spec:
-      payload:
-         cloud_provider: "azure"
-         cluster_name: "{{cluster_name}}"
-         cluster_domain: "{{cluster_domain}}"
-         tenant: "{{tenant}}"
-         webapp_name: "{{webapp_name}}"
-         organization_id: "{{services['api.organization_id']}}"
-         azure_subscription_id: "{{azure_subscription_id}}"
-         azure_entra_tenant_id: "{{azure_entra_tenant_id}}"
-         powerbi_app_deploy: false
-    ```
+         payload:
+            cloud_provider: "azure"
+            cluster_name: "{{cluster_name}}"
+            cluster_domain: "{{cluster_domain}}"
+            tenant: "{{tenant}}"
+            webapp_name: "{{webapp_name}}"
+            organization_id: "{{services['api.organization_id']}}"
+            azure_subscription_id: "{{azure_subscription_id}}"
+            azure_entra_tenant_id: "{{azure_entra_tenant_id}}"
+            powerbi_app_deploy: false
+      ```
