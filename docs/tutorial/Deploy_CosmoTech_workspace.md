@@ -37,13 +37,13 @@ Each file contains general information about the deployment:
 
 --8<-- 'docs/tutorial/API/Workspace.md'
 
-## :material-folder: API Dataset
+<!-- ## :material-folder: API Dataset
 
 --8<-- 'docs/tutorial/API/Dataset.md'
 
 ## :material-folder: API Runner
 
---8<-- 'docs/tutorial/API/Runner.md'
+--8<-- 'docs/tutorial/API/Runner.md' -->
 
 ## :material-folder:  Cosmo Tech Web App
 
@@ -56,17 +56,19 @@ Project folder must have the following structure:
 !!! tip "Tree" 
 
     ```bash
-    ├── variables.yaml
+    .
+    ├── babylon.log
     ├── project
     │   ├── Organization.yaml
+    │   ├── postgres
+    │   │   └── jobs
+    │   │       └── k8s_job.yaml
     │   ├── Solution.yaml
-    │   ├── Workspace.yaml   
-    │   ├── Runner.yaml
-    │   ├── Dataset.yaml
+    │   ├── Webapp.yaml
     │   └── Workspace.yaml
-    └── README.md
+    ├── terraform-webapp
+    └── variables.yaml
     ```
-
 
 ## :material-console: Launching the deployment Macro command
 
@@ -78,7 +80,7 @@ After filling all deployment files, you can launch the following command:
     babylon apply project/
     ```
 
-Babylon will create and deploy all resources and save it in the state except for datasets and runner. <br>
+Babylon will create and deploy all resources and save it in the state. <br>
 Keeping this information in the
 state simplifies modification of the resources as you can edit one of the project deployment files
 and relaunch `babylon apply` command. It will update existing resources or create missing ones, for example,
@@ -92,7 +94,7 @@ To do this, use the `--var-file` option.
 !!! example 
 
     ```bash
-    babylon apply project/ --var-file variable_file_1.yaml --var-file variable_file_2.yaml
+    babylon apply --var-file variable_file_1.yaml --var-file variable_file_2.yaml project/
     ```
 
 !!! abstract "Remember"
@@ -113,10 +115,10 @@ To support this, Babylon introduces two new options: `--include` `--execlude`
 
 !!! example "**include**"
     ```bash
-    > babylon apply --include organization project
+    babylon apply --include organization project
     ```
     ```bash
-    🚀 Deploying Organization in namespace: sphinx
+    🚀 Deploying Organization in namespace: dev
         → Loading configuration from Kubernetes secret...
         → No existing organization ID found. Creating...
         ✔ Organization o-nl8pgn5lpwd created
@@ -129,15 +131,15 @@ To support this, Babylon introduces two new options: `--include` `--execlude`
 
 !!! example "**exclude**"
     ```bash
-    > babylon apply --exclude workspace project/
+    babylon apply --exclude workspace project/
     ```
     ```bash
-    🚀 Deploying Organization in namespace: sphinx
+    🚀 Deploying Organization in namespace: dev
         → Loading configuration from Kubernetes secret...
         → No existing organization ID found. Creating...
         ✔ Organization o-nl8pgn5lpwd created
 
-    🚀 Deploying Solution in namespace: sphinx
+    🚀 Deploying Solution in namespace: dev
         → Loading configuration from Kubernetes secret...
         → No existing solution ID found. Creating...
         ✔ Solution sol-6069lgex2xz created

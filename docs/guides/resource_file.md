@@ -59,12 +59,14 @@ context:
 files: []
 id: 
 tenant:
-```
-```yaml
 services:
   api:
     organization_id: 
     solution_id: 
     workspace_id: 
+  postgres:
+    schema_name: 
+  webapp:
+    webapp_name: 
+    webapp_url:
 ```
-

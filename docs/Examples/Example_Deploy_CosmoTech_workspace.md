@@ -20,10 +20,12 @@ Check your current Kubernetes context and switch to the correct one:
     ```bash
     > kubectl config current-context
     dev-aks
-
+    ```
+    ```bash
     > kubectl config use-context prod-aks
     Switched to context "prod-aks"
-
+    ```
+    ```bash
     > kubectl config current-context
     prod-aks
     ```
@@ -36,23 +38,41 @@ babylon namespace use -c test -t dev -s 73a90433
 With Babylon v5, you can now generate a minimal manifest YAML file that can be used to test Babylon.
 
 !!! example
+
     ```bash
-    > babylon init
-    INFO     2025-10-24 09:54:53,853 | 
-        [babylon] Project successfully initialized at: ~/CosmoTech/DevOps/babylon_v5_dir/test-babylon/project
+    babylon init --project-folder devops --variables-file devops.yaml 
     ```
     ```bash
-        .
-        ├── babylon.error
-        ├── babylon.log
-        ├── project
-        │   ├── Dataset.yaml
-        │   ├── Organization.yaml
-        │   ├── Runner.yaml
-        │   ├── Solution.yaml
-        │   └── Workspace.yaml
-        ├── customers.csv
-        └── variables.yaml
+       → Cloning Terraform WebApp module...
+       ✔ Terraform WebApp module cloned
+       → Created directory: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+       ✔ Generated Organization.yaml
+       ✔ Generated Solution.yaml
+       ✔ Generated Workspace.yaml
+       ✔ Generated Webapp.yaml
+       ✔ Generated postgres/jobs/k8s_job.yaml
+       ✔ Generated devops.yaml
+    🚀 Project successfully initialized!
+       Path: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+
+    Next steps:
+       1. Edit your variables in devops.yaml
+       2. Run your first deployment command
+    ```
+    the `init` command creates a project folder with the following structure:
+    ```bash
+    .
+    ├── babylon.log
+    ├── devops
+    │   ├── Organization.yaml
+    │   ├── postgres
+    │   │   └── jobs
+    │   │       └── k8s_job.yaml
+    │   ├── Solution.yaml
+    │   ├── Webapp.yaml
+    │   └── Workspace.yaml
+    ├── terraform-webapp
+    └── devops.yaml
     ```
 ## Start Deployment
 
@@ -68,27 +88,29 @@ Here is an example of `variables.yaml` with detailed explanations:
     # Make sure they are used in the manifest YAML.
     # =========================================================
     # Organization
-    organization_name: to_fill                                              # Should be the name of the project like "project1 organization"
+    organization_name: to_fill    # Should be the name of the project like "project1 organization"
 
     # Workspace
-    workspace_name: to_fill                                                 # Should be the name of the project like "project1 workspace"
-    workspace_key: to_fill                                                  # Unique key to define according to your naming convention, for example: project1workspace1
-    workspace_description: to_fill                                          # Quick sentence to explain the purpose of the workspace
+    workspace_name: to_fill       # Should be the name of the project like "project1 workspace"
+    workspace_key: to_fill        # Unique key to define according to your naming convention, for example: project1workspace1
+    workspace_description: to_fill              # Quick sentence to explain the purpose of the workspace
 
     # Solution
-    solution_name: to_fill                                                  # Should be the name of the project like "project1 solution"
-    solution_key: to_fill                                                   # Unique key to define according to your naming convention, for example: project1solution1
-    solution_description: to_fill                                           # Quick sentence to explain the purpose of the solution
-    simulator_repository: to_fill                                           # To fill according to your simulator name
-    simulator_version: to_fill                                              # To fill according to your simulator version
-    # Dataset 
-    dataset_name: to_fill
-    dataset_description: to_fill
-    # Runner 
-    run_template_id: to_fill
-    runner_name: to_fill
-    runTemplate_name: to_fill
-    owner_name: to_fill
+    solution_name: to_fill                      # Should be the name of the project like "project1 solution"
+    solution_key: to_fill                       # Unique key to define according to your naming convention, for example: project1solution1
+    solution_description: to_fill                # Quick sentence to explain the purpose of the solution
+    simulator_repository: to_fill               # To fill according to your simulator name
+    simulator_version: to_fill                  # To fill according to your simulator version
+    # Webapp
+    cloud_provider: azure                       # Cloud provider to use (e.g., azure, aws, gcp)
+    cluster_name: dev-aks                       # Name of the Kubernetes cluster
+    cluster_domain: dev-aks.azure.platform.cosmotech.com  # Domain of the Kubernetes cluster
+    tenant: dev                                 # namespace kubernetes (e.g., dev, prod)
+    webapp_name: business                       # Name of the web application
+    organization_id: o-xxxxxxxxxxx                         # Organization ID
+    azure_subscription_id: xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx # Azure subscription ID
+    azure_entra_tenant_id: xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx # Azure Entra (AAD) tenant ID
+    powerbi_app_deploy: false                              # Set to true if deploying Power BI app, false otherwise
     # Security
     # The list below will be used on all API objects.
     # If differents security list are needed for each API objects,
@@ -97,29 +119,15 @@ Here is an example of `variables.yaml` with detailed explanations:
     security:                                                                   
       default: none                                                            
         accessControlList:                                                        
-        - id: admin.user@example.com                                             # Example of admin user
+        - id: admin.user@example.com    # Example of admin user
             role: admin                                                          
-        - id: editor.user@example.com                                            # Example of editor user
+        - id: editor.user@example.com   # Example of editor user
             role: editor                                                         
-        - id: viewer.user@example.com                                            # Example of viewer user
+        - id: viewer.user@example.com   # Example of viewer user
             role: viewer                                                         
 
     ```
-
-As a best practice, it is recommended to create a `.env` file at the same level as the `variable.yaml` file containing the deployment commands. This allows you to easily update the workspace in the future by reusing or modifying the commands without retyping them.
-
-!!! tip "Tree" 
-
-    ```bash
-    ├── variables.yaml
-    ├── .env         # <--- 
-    ├── .gitignore   # add .env  babylon.*
-    ├── project
-    │   ├── organization.yaml
-    │   ├── solution.yaml
-    │   └── workspace.yaml
-    └── README.md
-    ```
+Now you can launch the `apply` command to deploy the workspace:
 
 !!! example
 
@@ -151,8 +159,9 @@ It is recommended to use `babylon --help` to get more details about the argument
 !!! example
 
     ```bash
-    > babylon api organizations delete --help
-
+    babylon api organizations delete --help
+    ```
+    ```bash
     Usage: babylon api organizations delete [OPTIONS] ORGANIZATION_ID
 
     Delete an organization by ID

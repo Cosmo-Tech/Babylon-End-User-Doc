@@ -30,43 +30,55 @@ Currently, there are two options:
 2. You can manually export the required values as environment variables.
 
 !!! note "Error example"
+
     ```bash
-    > babylon api about 
-    INFO     2025-12-09 10:54:04,281:INFO:Babylon.utils.environment:Loading configuration from Kubernetes secret
-    ERROR    2025-12-09 10:54:04,565:ERROR:Babylon.utils.environment:
-            Failed to read Kubernetes secret 'keycloak-babylon' in namespace 'dev'
-            Please ensure your kubeconfig is valid and your context is correctly set
-            You can switch context using: 'kubectl config use-context <context-name>'
+    babylon api about
+    ```
+    ```bash
+    → Loading configuration from Kubernetes secret...
+
+    ✘ Resource Not Found
+    Secret keycloak-babylon could not be found in namespace dev
+
+    💡 Troubleshooting:
+    • Please ensure your kubeconfig is valid
+    • Check that your context is correctly set kubectl config current-context
+    • You can set context using kubectl config use-context <context-name>
     ```
 
 To fix this, check your current Kubernetes context and switch to the correct one:
 
 !!! example
+
     ```bash
-    > kubectl config current-context
+    kubectl config current-context
     dev-aks
-
-    > kubectl config use-context prod-aks
+    ```
+    ```bash
+    kubectl config use-context prod-aks
     Switched to context "prod-aks"
-
-    > kubectl config current-context
+    ```
+    ```bash
+    kubectl config current-context
     prod-aks
     ```
 
 Now you can run the command again, and it should work:
 !!! example
+
     ```bash
-    > babylon api about
-    INFO     2025-12-09 11:03:29,426:INFO:Babylon.utils.environment:Loading configuration from Kubernetes secret
-
-    Get the version of the API service
-
-    INFO     2025-12-09 11:03:30,115:INFO:Babylon.commands.api.meta.about:API version:{'full': '5.0.0-1639f21d', 'release': '5.0.0', 'major': 5, 'minor': 0, 'patch': 0, 'label': 'rc2', 'build': '1639f21d'}
+    babylon api about
+    ```
+    ```bash
+    → Loading configuration from Kubernetes secret...
+    → Sending request to API...
+    ✔ API About Information: version=AboutInfoVersion(full='5.0.0-rc6-46f7c633', release='5.0.0-rc6', major=5, minor=0, patch=0, label='rc6', build='46f7c633')
     ```
 
 Alternatively, if you need CI/CD workflows or want to run quick local tests without loading the Kubernetes secret, you can export the required variables directly in your terminal.
 
 !!! example
+
     ```bash
     API_URL=https://dev.api.cosmotech.com/dev/v5   
     CLIENT_ID=cosmotech-babylon-client  
@@ -167,12 +179,12 @@ If you have already created an organization, you should see its details in the o
 
 !!! example "Example List Organizations"
     ```bash
-    > babylon api organizations list
+    babylon api organizations list
     ```
     ```bash
-      → Loading configuration from Kubernetes secret...
-      → Sending request to API...
-      ✔ 93 organization(s) retrieved successfully
+    → Loading configuration from Kubernetes secret...
+    → Sending request to API...
+    ✔ 93 organization(s) retrieved successfully
     ```
 
 In Babylon v5, the **state** is now independent of the configuration.  
@@ -198,7 +210,9 @@ Running the following command displays the updated namespace commands:
 !!! example 
 
     ```bash
-    > babylon namespace --help
+    babylon namespace --help
+    ```
+    ```bash
     Usage: babylon namespace [OPTIONS] COMMAND [ARGS]...
 
       Babylon namespace
@@ -208,7 +222,7 @@ Running the following command displays the updated namespace commands:
 
     Commands:
       get-contexts  Display the currently active namespace
-      get-states    Display all states in your local machine
+      get-states    Display states from local machine or remote storage.
       use           Switch to a specific namespace or create a new one
 
     ```
@@ -218,17 +232,43 @@ Additionally, with `get-states`, you can list all states available on our local 
 !!! example 
 
     ```bash
-    > babylon namespace get-contexts  
+    babylon namespace get-contexts
+    ```
+    ```bash
     CURRENT  CONTEXT                            TENANT        STATE ID                              
     *        project1                           dev           1184d4e3 
-
-    # or use get-states
-
-    > babylon namespace get-states 
-    INFO   2025-10-23 22:27:31,230 |  state.project1.dev.c9b011db.yaml
-    INFO   2025-10-23 22:27:31,232 |  state.project2.prod.d4ab0004.yaml
-    INFO   2025-10-23 22:27:31,233 |  state.project3.staging.9646a17d.yaml
     ```
+
+#### Viewing State Files
+
+You can easily view and manage all available state files, whether they are stored locally or in the cloud. This is particularly useful when you need to select a specific state to update or redeploy your workspace.
+
+The `babylon namespace get-states` command provides two options:
+
+- `remote`: Lists all state files stored in the remote (cloud).
+- `local`: Lists all state files available on your local machine.
+
+!!! example 
+
+    ```bash
+    babylon namespace get-states remote
+    ```
+    ```bash
+    ☁️  Remote States
+    • state.project1.dev.d4ab0004.yaml
+    • state.project2.prod.d4ab0005.yaml
+    • state.project3.staging.d4ab0006.yaml
+    ```
+    ```bash
+    babylon namespace get-states local
+    ```
+    ```bash
+    📂  Local States
+    • state.project1.dev.d4ab0004.yaml
+    • state.project2.prod.d4ab0005.yaml
+    • state.project3.staging.d4ab0006.yaml
+    ```
+
 ### Keycloak Authentication
 !!! note "Keycloak Auth"
     - Starting with vesion 5, Babylon uses Keycloak as the authentication system to authenticate with the Cosmotech API and execute commands to create objects.
@@ -241,7 +281,9 @@ Here’s an example:
 !!! examples 
 
     ```bash
-    > babylon init --help
+    babylon init --help
+    ```
+    ```bash
     Usage: babylon init [OPTIONS]
 
     Create a Babylon project structure using YAML templates.
@@ -252,30 +294,51 @@ Here’s an example:
     --help  Show this message and exit.
     ```
     ```bash
-     > babylon init
-     INFO     2025-10-24 09:54:53,853 | 
-          [babylon] Project successfully initialized at: ~/CosmoTech/DevOps/babylon_v5_dir/test-babylon/project
+    babylon init
     ```
     ```bash
-      .
-      ├── babylon.error
-      ├── babylon.log
-      ├── project
-      │   ├── Dataset.yaml
-      │   ├── Organization.yaml
-      │   ├── Runner.yaml
-      │   ├── Solution.yaml
-      │   └── Workspace.yaml
-      ├── customers.csv
-      └── variables.yaml
+    babylon init --project-folder devops --variables-file devops.yaml 
     ```
-Now, you can get started with running Babylon commands.  
-All the required YAML files for the resources you need to deploy in v5 are provided as templates.  
+    ```bash
+       → Cloning Terraform WebApp module...
+       ✔ Terraform WebApp module cloned
+       → Created directory: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+       ✔ Generated Organization.yaml
+       ✔ Generated Solution.yaml
+       ✔ Generated Workspace.yaml
+       ✔ Generated Webapp.yaml
+       ✔ Generated postgres/jobs/k8s_job.yaml
+       ✔ Generated devops.yaml
+    🚀 Project successfully initialized!
+       Path: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+
+    Next steps:
+       1. Edit your variables in devops.yaml
+       2. Run your first deployment command
+    ```
+    for structure of the generated project, you should see something like this:
+
+    ```bash
+    .
+    ├── babylon.log
+    ├── devops
+    │   ├── Organization.yaml
+    │   ├── postgres
+    │   │   └── jobs
+    │   │       └── k8s_job.yaml
+    │   ├── Solution.yaml
+    │   ├── Webapp.yaml
+    │   └── Workspace.yaml
+    ├── terraform-webapp
+    └── devops.yaml
+    ```
+Now, you can get started with running Babylon commands.
+All the required YAML files for the resources you need to deploy in v5 are provided as templates.
 You can customize and modify them based on your specific needs.
 
 ### New group for handling runner and run objects
 !!! important
-    In v5, there is no longer a **Connector** object, and **Scenario** / **ScenarioRun** have been replaced by **Runner** and **Run**.
+    There is no longer a **Connector** object, and **Scenario** / **ScenarioRun** have been replaced by **Runner** and **Run**.
     For more information refer to the Cosmo Tech platform release notes.
 
 ### Meta About Endpoint
@@ -295,7 +358,7 @@ You can now see which API version you are using with the following command:
 
 ### Output Management
 
-With Babylon v5, you can now handle the output of every single command. This is particularly useful for scripting, filtering data, or integration with other tools.
+You can now handle the output of every single command. This is particularly useful for scripting, filtering data, or integration with other tools.
 
 You can control the output using two main flags:
 
@@ -333,6 +396,14 @@ Usage Examples:
     ```bash
     babylon api organizations list -f organizations.yaml
     ```
+### Webapp Deployment
+
+!!! Webapp_deployment
+    We have introduced a new macro command to handle the deployment of webapps, based on terraform modules [`terraform-webapp`](https://github.com/Cosmo-Tech/terraform-webapp). This command simplifies the deployment process by automating the creation of necessary resources and configurations for web applications in specific Kubernetes clusters.
+
+### PostgreSQL Schema Creation
+!!! Workspace_improvements
+    The workspaces macro command has been significantly enhanced, especially for creating PostgreSQL schemas. These improvements streamline the setup and management of database schemas within your workspaces, making it faster and easier to define, deploy, and maintain the necessary database structures.
 
 ### Commands for Testing
 
@@ -358,15 +429,32 @@ For more details on how to test, see 👉 [Examples](../Examples/Example_Deploy_
       → Loading configuration from Kubernetes secret...
       → No existing workspace ID found. Creating...
       ✔ Workspace w-xxxxxxxxx created
+      → Found PostgreSQL service postgresql
+      → Initializing PostgreSQL schema for workspace w-xxxxxxxxx...
+      → Waiting for job postgresql-init-w-xxxxxxxxx to complete...
+      → Checking job logs for errors...
+      ✔ Schema creation w_xxxxxxxxx completed successfully
+
+    🚀 Deploying webapp in namespace: dev
+      → Running Terraform deployment...
+      backend.tf
+      Initializing the backend...
+
+      Successfully configured the backend "azurerm"! Terraform will automatically
+      use this backend unless the backend configuration changes.
+
+      Apply complete! Resources: 5 added, 0 changed, 0 destroyed.
+      ✔ WebApp business deployed
 
     📋 Deployment Summary
       • Organization Id : o-xxxxxxxxx
       • Solution Id     : sol-xxxxxxxxx
       • Workspace Id    : w-xxxxxxxxx
+      • Webapp Name     : webapp-business
+      • Webapp Url      : https://dev.azure.platform.cosmotech.com/dev/webapp-business
 
     ✨ Deployment process complete
     ```
-    
 
     !!! Note 
         You can use the `--var-file` option to specify a particular `variables.yaml` file.
