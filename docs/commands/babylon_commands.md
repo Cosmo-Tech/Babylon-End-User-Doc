@@ -40,35 +40,76 @@ description: "Reference guide for essential Babylon CLI commands"
     namespace  Babylon namespace
     ```
 
+## About Command
+
+!!! info "About Command"
+
+    ```bash
+    babylon api about
+    ```
+    ```bash
+    → Loading configuration from Kubernetes secret...
+    → Sending request to API..
+    ✔ API About Information: version=AboutInfoVersion(full='5.0.0-rc5-897806da', release='5.0.0-rc5', major=5, minor=0, patch=0, label='rc5', build='897806da')
+    ```
 ## Namespace Use Command
 
 !!! info "Namespace Use"
 
     ```bash
-     > babylon namespace use -c test -t dev -s 4s5de
-       ✔ Switched to context test, tenant dev successfully
+    babylon namespace use -c test -t dev -s 4s5de
+    ```
+    ```bash
+     ✔ Switched to context test, tenant dev successfully
+    ```
+    ```bash
+    babylon namespace get-contexts
+    ```
+    ```bash
+    babylon namespace get-states local/remote
     ```
 ## Apply Macro Command
 
 !!! info "Macro Apply"
 
     ```bash
-     > babylon apply project/
+    babylon apply project/
+    ```
+    ```bash
+    babylon apply --var-file devops.yaml devops/
+    ```
+    ```bash
+    babylon apply --exclude webapp --var-file devops.yaml devops/ 
+    ```
+    ```bash
+    babylon apply --include organization --var-file devops.yaml devops/ 
     ```
 ## Apply Single Command
 
 !!! info "Create Organization"
 
     ```bash
-     > babylon api organizations create project/Organization.yaml
+    babylon api organizations create project/Organization.yaml
     ```
     ```bash
-     > babylon api organizations delete --oid o-xxxxxxxxxxxxx
+    babylon api organizations delete --oid o-xxxxxxxxxxxxx
+    ```
+    ```bash
+    babylon api solutions list --oid o-xxxxxxxxxxxxx
+    ```
+    ```bash
+    babylon api workspaces get --oid o-xxxxxxxxxxxxx --wid w-xxxxxxxxxxxxx
     ```
 ## Destroy Macro Command
 
 !!! info "Macro Destroy"
 
     ```bash
-     > babylon destroy
+    babylon destroy
+    ```
+    ```bash
+    babylon destroy --include workspace
+    ```
+    ```bash
+    babylon destroy --exclude organization
     ```

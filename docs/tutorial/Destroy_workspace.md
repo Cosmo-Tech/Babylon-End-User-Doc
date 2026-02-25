@@ -13,6 +13,8 @@ This will automatically delete the following resources:
 - Organizations
 - Solutions
 - Workspaces
+- Schemas postgreSQL
+- Web Apps
 
 By default, it destroys the resources referenced in the current state saved in the namespace file.
 
@@ -34,16 +36,31 @@ When is the case you run simplement
 ```bash
 🔥 Starting Destruction Process in namespace: dev
     → Loading configuration from Kubernetes secret...
-    → Existing ID sol-6069lgex2xz found. Deleting...
-    ✔ Solution sol-6069lgex2xz deleted
-    ⚠ No Workspace ID found in state! skipping deletion
-    → Existing ID o-nl8pgn5lpwd found. Deleting...
-    ✔ Organization o-nl8pgn5lpwd deleted 
+    → Existing ID sol-9epr7jxn2ndl found. Deleting...
+    ✔ Solution sol-9epr7jxn2ndl deleted
+    → Found PostgreSQL service postgresql
+    → Destroying postgreSQL schema for workspace w-0rnd73k2kyd5...
+    → Applying kubernetes destroy job...
+    → Waiting for job postgresql-destroy-w-0rnd73k2kyd5 to complete...
+    → Checking job logs for errors...
+    ✔ Schema destruction w_0rnd73k2kyd5 completed successfully
+    → Existing ID w-0rnd73k2kyd5 found. Deleting...
+    ✔ Workspace w-0rnd73k2kyd5 deleted
+    → Existing ID o-841ez282ypmx found. Deleting...
+    ✔ Organization o-841ez282ypmx deleted
+    → Running Terraform destroy for WebApp resources...
+    Acquiring state lock. This may take a few moments...
+    module.chart-keycloak-client.data.kubernetes_secret.keycloak: Reading...
+    module.chart-cosmotech-webapp.kubernetes_config_map.webapp: Destruction complete after 0s
+   
+    Destroy complete! Resources: 5 destroyed.
+    ✔ WebApp webapp-business destroyed  
 
 📋 Destruction Summary
-    • Organization Id : DELETED
-    • Solution Id     : DELETED
-    • Workspace Id    : DELETED
+  • Organization Id : DELETED
+  • Solution Id     : DELETED
+  • Workspace Id    : DELETED
+  • Webapp Name     : DELETED
 
 ✨ Cleanup process complete
 ```

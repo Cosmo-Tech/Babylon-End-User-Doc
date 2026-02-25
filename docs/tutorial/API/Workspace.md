@@ -1,9 +1,14 @@
 The **Workspace configuration** may include additional parameters required to provision external services.
 
-These parameters are normally defined under the `sidecars` section, specifically within the `cloud` key.
+These parameters are normally defined under the `sidecars` section.
 
-However, this is **not the case in the current release**.
+One of the major changes is the replacement of the `ADX` database with `PostgreSQL` by default. Babylon now automatically creates a dedicated PostgreSQL schema for each workspace, which can be used to store runner results. As a result, the `sidecars` section now references `postgres` instead of `ADX`.
 
+#### PostgreSQL Schema Creation with Kubernetes Job
+
+With the new workspace configuration, Babylon leverages a Kubernetes job to automate the creation of a PostgreSQL schema for each workspace. This is defined under the `sidecars.postgres.schema.jobs` section:
+
+When `create` is set to `true`, Babylon will execute the specified Kubernetes job (`k8s_job.yaml`) located in the `postgres/jobs` directory. This job is responsible for initializing the PostgreSQL schema required by the workspace. This approach ensures that each workspace has its own isolated schema, improving data management and security.
 
 !!! example "Workspace.yaml"
 
@@ -11,13 +16,14 @@ However, this is **not the case in the current release**.
     kind: Workspace
     namespace:
       remote: true   # false by default
-    metadata:
-      selector:
-        organization_id: "{{services['api.organization_id']}}"
-        solution_id: "{{services['api.solution_id']}}"
     spec:
       sidecars:
-        cloud:
+        postgres:
+            schema:
+              create: true # false by default
+              jobs:
+                - name: k8s_job.yaml
+                  path: postgres/jobs
       payload:
         key: "Project1"
         name: "My Workspace Name"
@@ -29,7 +35,7 @@ However, this is **not the case in the current release**.
         sendInputToDataWarehouse: true
         sendScenarioRunToEventHub: true
         additionalData:
-          webApp:
+          webapp:
             solution:
               runTemplateFilter:
               defaultRunTemplateDataset: null
@@ -45,7 +51,8 @@ However, this is **not the case in the current release**.
               supportUrl: 'https://support.cosmotech.com'
               organizationUrl: 'https://cosmotech.com'
               documentationUrl: 'https://portal.cosmotech.com/resources/platform-resources/web-app-user-guide'
-            datasetManager:
+            datasetManager: 'removeToDisableDatasetManager'
+            datasourceFilter: []
         security:
           default: none
           accessControlList:
