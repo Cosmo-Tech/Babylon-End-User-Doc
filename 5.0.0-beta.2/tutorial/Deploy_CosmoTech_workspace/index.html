@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
@@ -675,27 +675,22 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-dataset" class="md-nav__link">
+    <nav class="md-nav" aria-label="API Workspace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-schema-creation-with-kubernetes-job" class="md-nav__link">
     <span class="md-ellipsis">
       
-        API Dataset
+        PostgreSQL Schema Creation with Kubernetes Job
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#api-runner" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Runner
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1103,27 +1098,22 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-dataset" class="md-nav__link">
+    <nav class="md-nav" aria-label="API Workspace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-schema-creation-with-kubernetes-job" class="md-nav__link">
     <span class="md-ellipsis">
       
-        API Dataset
+        PostgreSQL Schema Creation with Kubernetes Job
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#api-runner" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Runner
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1329,20 +1319,24 @@ values must be stored in <code>variables.yaml</code> file at the same level that
 </ul>
 <h2 id="api-workspace"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8z"/></svg></span> API Workspace<a class="headerlink" href="#api-workspace" title="Permanent link">&para;</a></h2>
 <p>The <strong>Workspace configuration</strong> may include additional parameters required to provision external services.</p>
-<p>These parameters are normally defined under the <code>sidecars</code> section, specifically within the <code>cloud</code> key.</p>
-<p>However, this is <strong>not the case in the current release</strong>.</p>
+<p>These parameters are normally defined under the <code>sidecars</code> section.</p>
+<p>One of the major changes is the replacement of the <code>ADX</code> database with <code>PostgreSQL</code> by default. Babylon now automatically creates a dedicated PostgreSQL schema for each workspace, which can be used to store runner results. As a result, the <code>sidecars</code> section now references <code>postgres</code> instead of <code>ADX</code>.</p>
+<h4 id="postgresql-schema-creation-with-kubernetes-job">PostgreSQL Schema Creation with Kubernetes Job<a class="headerlink" href="#postgresql-schema-creation-with-kubernetes-job" title="Permanent link">&para;</a></h4>
+<p>With the new workspace configuration, Babylon leverages a Kubernetes job to automate the creation of a PostgreSQL schema for each workspace. This is defined under the <code>sidecars.postgres.schema.jobs</code> section:</p>
+<p>When <code>create</code> is set to <code>true</code>, Babylon will execute the specified Kubernetes job (<code>k8s_job.yaml</code>) located in the <code>postgres/jobs</code> directory. This job is responsible for initializing the PostgreSQL schema required by the workspace. This approach ensures that each workspace has its own isolated schema, improving data management and security.</p>
 <div class="admonition example">
 <p class="admonition-title">Workspace.yaml</p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Workspace</span>
 <span class="nt">namespace</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">   </span><span class="c1"># false by default</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">organization_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}&quot;</span>
-<span class="w">    </span><span class="nt">solution_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.solution_id&#39;]}}&quot;</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">sidecars</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">cloud</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">postgres</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">schema</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># false by default</span>
+<span class="w">        </span><span class="nt">jobs</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8s_job.yaml</span>
+<span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres/jobs</span>
 <span class="w">  </span><span class="nt">payload</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Project1&quot;</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;My</span><span class="nv"> </span><span class="s">Workspace</span><span class="nv"> </span><span class="s">Name&quot;</span>
@@ -1354,7 +1348,7 @@ values must be stored in <code>variables.yaml</code> file at the same level that
 <span class="w">    </span><span class="nt">sendInputToDataWarehouse</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">sendScenarioRunToEventHub</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">additionalData</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">webApp</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">webapp</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">solution</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">runTemplateFilter</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">defaultRunTemplateDataset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
@@ -1370,7 +1364,8 @@ values must be stored in <code>variables.yaml</code> file at the same level that
 <span class="w">          </span><span class="nt">supportUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://support.cosmotech.com&#39;</span>
 <span class="w">          </span><span class="nt">organizationUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://cosmotech.com&#39;</span>
 <span class="w">          </span><span class="nt">documentationUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://portal.cosmotech.com/resources/platform-resources/web-app-user-guide&#39;</span>
-<span class="w">        </span><span class="nt">datasetManager</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">datasetManager</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;removeToDisableDatasetManager&#39;</span>
+<span class="w">        </span><span class="nt">datasourceFilter</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 <span class="w">    </span><span class="nt">security</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
 <span class="w">      </span><span class="nt">accessControlList</span><span class="p">:</span>
@@ -1382,11 +1377,13 @@ values must be stored in <code>variables.yaml</code> file at the same level that
 <span class="w">          </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">viewer</span>
 </code></pre></div>
 </div>
-<h2 id="api-dataset"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8z"/></svg></span> API Dataset<a class="headerlink" href="#api-dataset" title="Permanent link">&para;</a></h2>
-<p>You can include any parts you need from your CSV files, but make sure all CSV files are located in the <strong>root of the deployment directory</strong>.</p>
-<div class="admonition example">
-<p class="admonition-title">Dataset.yaml</p>
-<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
+<!-- ## :material-folder: API Dataset
+
+You can include any parts you need from your CSV files, but make sure all CSV files are located in the **root of the deployment directory**.
+
+!!! example "Dataset.yaml"
+
+    <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dataset</span>
 <span class="nt">namespace</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">   </span><span class="c1"># false by default</span>
 <span class="nt">spec</span><span class="p">:</span>
@@ -1410,55 +1407,50 @@ values must be stored in <code>variables.yaml</code> file at the same level that
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user3@email.com</span>
 <span class="w">          </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">viewer</span>
 </code></pre></div>
-</div>
-<h2 id="api-runner"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8z"/></svg></span> API Runner<a class="headerlink" href="#api-runner" title="Permanent link">&para;</a></h2>
-<p>This is how the runner deployment file is structured</p>
+
+## :material-folder: API Runner
+
+--8<-- 'docs/tutorial/API/Runner.md' -->
+
+<h2 id="cosmo-tech-web-app"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8z"/></svg></span>  Cosmo Tech Web App<a class="headerlink" href="#cosmo-tech-web-app" title="Permanent link">&para;</a></h2>
+<p>To deploy a Cosmo Tech Web App now is possible with Babylon.</p>
+<p>Babylon now supports deploying web applications using Terraform as backend. This integration allows you to provision and manage web app infrastructure as code directly through Babylon, streamlining the deployment process.</p>
+<p>For more details on how to deploy the web app, refer to the README file in the Terraform web app module: 👉 <a href="https://github.com/Cosmo-Tech/terraform-webapp">Terraform Module</a>.</p>
+<p>Babylon automatically clones the Terraform web app repository and updates the <code>terraform.tfvars</code> file with all required variables. These variables are retrieved from the <code>webapp.yaml</code> configuration file below.</p>
 <div class="admonition example">
-<p class="admonition-title">Runner.yaml</p>
-<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Runner</span>
+<p class="admonition-title">webapp.yaml</p>
+<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Webapp</span>
 <span class="nt">namespace</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">   </span><span class="c1"># false by default</span>
+<span class="w">   </span><span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">sidecars</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">payload</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="c1"># mandatory if you want to launch an update, without id a new dataset will be created ; if you want a new dataset, leave this field empty</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{runner_name}}&quot;</span>
-<span class="w">    </span><span class="nt">runTemplateId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{run_template_id}}&quot;</span>
-<span class="w">    </span><span class="nt">solutionId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.solution_id&#39;]}}&quot;</span>
-<span class="w">    </span><span class="nt">solutionName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{solution_name}}&quot;</span>
-<span class="w">    </span><span class="nt">runTemplateName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{runTemplate_name}}&quot;</span>
-<span class="w">    </span><span class="nt">ownerName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{owner_name}}&quot;</span>
-<span class="w">    </span><span class="nt">security</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">viewer</span>
-<span class="w">      </span><span class="nt">accessControlList</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user1@email.com</span>
-<span class="w">          </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user2@email.com</span>
-<span class="w">          </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">editor</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user3@email.com</span>
-<span class="w">          </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">viewer</span>
+<span class="w">   </span><span class="nt">payload</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">cloud_provider</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;azure&quot;</span>
+<span class="w">      </span><span class="nt">cluster_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{cluster_name}}&quot;</span>
+<span class="w">      </span><span class="nt">cluster_domain</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{cluster_domain}}&quot;</span>
+<span class="w">      </span><span class="nt">tenant</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{tenant}}&quot;</span>
+<span class="w">      </span><span class="nt">webapp_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{webapp_name}}&quot;</span>
+<span class="w">      </span><span class="nt">organization_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}&quot;</span>
+<span class="w">      </span><span class="nt">azure_subscription_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{azure_subscription_id}}&quot;</span>
+<span class="w">      </span><span class="nt">azure_entra_tenant_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{azure_entra_tenant_id}}&quot;</span>
+<span class="w">      </span><span class="nt">powerbi_app_deploy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 </div>
-<h2 id="cosmo-tech-web-app"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8z"/></svg></span>  Cosmo Tech Web App<a class="headerlink" href="#cosmo-tech-web-app" title="Permanent link">&para;</a></h2>
-<p>To deploy a Cosmo Tech Web App, you can:</p>
-<ol>
-<li><strong>Using the Terraform module</strong><br />
-   For the moment, the web app is <strong>not managed by Babylon</strong>. It is deployed using a <strong>Terraform module</strong>, but this will be supported in a future release.</li>
-</ol>
-<p>If you need to deploy the web app, refer to the README file in the Terraform web app module see 👉 <a href="https://github.com/Cosmo-Tech/terraform-webapp">Terraform</a>.</p>
 <h2 id="babylon-project-structure"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h6v4H3zm12 7h6v4h-6zm0 7h6v4h-6zm-2-4H7v5h6v2H5V9h2v2h6z"/></svg></span> Babylon project structure<a class="headerlink" href="#babylon-project-structure" title="Permanent link">&para;</a></h2>
 <p>Project folder must have the following structure:</p>
 <div class="admonition tip">
 <p class="admonition-title">Tree</p>
-<div class="highlight"><pre><span></span><code>├──<span class="w"> </span>variables.yaml
+<div class="highlight"><pre><span></span><code>.
+├──<span class="w"> </span>babylon.log
 ├──<span class="w"> </span>project
 │<span class="w">   </span>├──<span class="w"> </span>Organization.yaml
+│<span class="w">   </span>├──<span class="w"> </span>postgres
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span><span class="nb">jobs</span>
+│<span class="w">   </span>│<span class="w">       </span>└──<span class="w"> </span>k8s_job.yaml
 │<span class="w">   </span>├──<span class="w"> </span>Solution.yaml
-│<span class="w">   </span>├──<span class="w"> </span>Workspace.yaml<span class="w">   </span>
-│<span class="w">   </span>├──<span class="w"> </span>Runner.yaml
-│<span class="w">   </span>├──<span class="w"> </span>Dataset.yaml
+│<span class="w">   </span>├──<span class="w"> </span>Webapp.yaml
 │<span class="w">   </span>└──<span class="w"> </span>Workspace.yaml
-└──<span class="w"> </span>README.md
+├──<span class="w"> </span>terraform-webapp
+└──<span class="w"> </span>variables.yaml
 </code></pre></div>
 </div>
 <h2 id="launching-the-deployment-macro-command"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"/></svg></span> Launching the deployment Macro command<a class="headerlink" href="#launching-the-deployment-macro-command" title="Permanent link">&para;</a></h2>
@@ -1468,7 +1460,7 @@ values must be stored in <code>variables.yaml</code> file at the same level that
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>apply<span class="w"> </span>project/
 </code></pre></div>
 </div>
-<p>Babylon will create and deploy all resources and save it in the state except for datasets and runner. <br>
+<p>Babylon will create and deploy all resources and save it in the state. <br>
 Keeping this information in the
 state simplifies modification of the resources as you can edit one of the project deployment files
 and relaunch <code>babylon apply</code> command. It will update existing resources or create missing ones, for example,
@@ -1477,7 +1469,7 @@ in case when Babylon was granted more rights between two <code>apply</code> comm
 <p>To do this, use the <code>--var-file</code> option.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>apply<span class="w"> </span>project/<span class="w"> </span>--var-file<span class="w"> </span>variable_file_1.yaml<span class="w"> </span>--var-file<span class="w"> </span>variable_file_2.yaml
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>apply<span class="w"> </span>--var-file<span class="w"> </span>variable_file_1.yaml<span class="w"> </span>--var-file<span class="w"> </span>variable_file_2.yaml<span class="w"> </span>project/
 </code></pre></div>
 </div>
 <div class="admonition abstract">
@@ -1508,9 +1500,9 @@ This enhancement makes it easier to <strong>maintain</strong> and <strong>update
 </table>
 <div class="admonition example">
 <p class="admonition-title"><strong>include</strong></p>
-<p><div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>babylon<span class="w"> </span>apply<span class="w"> </span>--include<span class="w"> </span>organization<span class="w"> </span>project
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>apply<span class="w"> </span>--include<span class="w"> </span>organization<span class="w"> </span>project
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>🚀<span class="w"> </span>Deploying<span class="w"> </span>Organization<span class="w"> </span><span class="k">in</span><span class="w"> </span>namespace:<span class="w"> </span>sphinx
+<div class="highlight"><pre><span></span><code>🚀<span class="w"> </span>Deploying<span class="w"> </span>Organization<span class="w"> </span><span class="k">in</span><span class="w"> </span>namespace:<span class="w"> </span>dev
 <span class="w">    </span>→<span class="w"> </span>Loading<span class="w"> </span>configuration<span class="w"> </span>from<span class="w"> </span>Kubernetes<span class="w"> </span>secret...
 <span class="w">    </span>→<span class="w"> </span>No<span class="w"> </span>existing<span class="w"> </span>organization<span class="w"> </span>ID<span class="w"> </span>found.<span class="w"> </span>Creating...
 <span class="w">    </span>✔<span class="w"> </span>Organization<span class="w"> </span>o-nl8pgn5lpwd<span class="w"> </span>created
@@ -1523,14 +1515,14 @@ This enhancement makes it easier to <strong>maintain</strong> and <strong>update
 </div>
 <div class="admonition example">
 <p class="admonition-title"><strong>exclude</strong></p>
-<p><div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>babylon<span class="w"> </span>apply<span class="w"> </span>--exclude<span class="w"> </span>workspace<span class="w"> </span>project/
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>apply<span class="w"> </span>--exclude<span class="w"> </span>workspace<span class="w"> </span>project/
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>🚀<span class="w"> </span>Deploying<span class="w"> </span>Organization<span class="w"> </span><span class="k">in</span><span class="w"> </span>namespace:<span class="w"> </span>sphinx
+<div class="highlight"><pre><span></span><code>🚀<span class="w"> </span>Deploying<span class="w"> </span>Organization<span class="w"> </span><span class="k">in</span><span class="w"> </span>namespace:<span class="w"> </span>dev
 <span class="w">    </span>→<span class="w"> </span>Loading<span class="w"> </span>configuration<span class="w"> </span>from<span class="w"> </span>Kubernetes<span class="w"> </span>secret...
 <span class="w">    </span>→<span class="w"> </span>No<span class="w"> </span>existing<span class="w"> </span>organization<span class="w"> </span>ID<span class="w"> </span>found.<span class="w"> </span>Creating...
 <span class="w">    </span>✔<span class="w"> </span>Organization<span class="w"> </span>o-nl8pgn5lpwd<span class="w"> </span>created
 
-🚀<span class="w"> </span>Deploying<span class="w"> </span>Solution<span class="w"> </span><span class="k">in</span><span class="w"> </span>namespace:<span class="w"> </span>sphinx
+🚀<span class="w"> </span>Deploying<span class="w"> </span>Solution<span class="w"> </span><span class="k">in</span><span class="w"> </span>namespace:<span class="w"> </span>dev
 <span class="w">    </span>→<span class="w"> </span>Loading<span class="w"> </span>configuration<span class="w"> </span>from<span class="w"> </span>Kubernetes<span class="w"> </span>secret...
 <span class="w">    </span>→<span class="w"> </span>No<span class="w"> </span>existing<span class="w"> </span>solution<span class="w"> </span>ID<span class="w"> </span>found.<span class="w"> </span>Creating...
 <span class="w">    </span>✔<span class="w"> </span>Solution<span class="w"> </span>sol-6069lgex2xz<span class="w"> </span>created

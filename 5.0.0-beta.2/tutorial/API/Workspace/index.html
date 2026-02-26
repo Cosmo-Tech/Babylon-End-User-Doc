@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
@@ -78,6 +78,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#postgresql-schema-creation-with-kubernetes-job" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -902,6 +907,25 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      In this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#postgresql-schema-creation-with-kubernetes-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL Schema Creation with Kubernetes Job
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -923,20 +947,24 @@
   <h1>Workspace</h1>
 
 <p>The <strong>Workspace configuration</strong> may include additional parameters required to provision external services.</p>
-<p>These parameters are normally defined under the <code>sidecars</code> section, specifically within the <code>cloud</code> key.</p>
-<p>However, this is <strong>not the case in the current release</strong>.</p>
+<p>These parameters are normally defined under the <code>sidecars</code> section.</p>
+<p>One of the major changes is the replacement of the <code>ADX</code> database with <code>PostgreSQL</code> by default. Babylon now automatically creates a dedicated PostgreSQL schema for each workspace, which can be used to store runner results. As a result, the <code>sidecars</code> section now references <code>postgres</code> instead of <code>ADX</code>.</p>
+<h4 id="postgresql-schema-creation-with-kubernetes-job">PostgreSQL Schema Creation with Kubernetes Job<a class="headerlink" href="#postgresql-schema-creation-with-kubernetes-job" title="Permanent link">&para;</a></h4>
+<p>With the new workspace configuration, Babylon leverages a Kubernetes job to automate the creation of a PostgreSQL schema for each workspace. This is defined under the <code>sidecars.postgres.schema.jobs</code> section:</p>
+<p>When <code>create</code> is set to <code>true</code>, Babylon will execute the specified Kubernetes job (<code>k8s_job.yaml</code>) located in the <code>postgres/jobs</code> directory. This job is responsible for initializing the PostgreSQL schema required by the workspace. This approach ensures that each workspace has its own isolated schema, improving data management and security.</p>
 <div class="admonition example">
 <p class="admonition-title">Workspace.yaml</p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Workspace</span>
 <span class="nt">namespace</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">   </span><span class="c1"># false by default</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">organization_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}&quot;</span>
-<span class="w">    </span><span class="nt">solution_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.solution_id&#39;]}}&quot;</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">sidecars</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">cloud</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">postgres</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">schema</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># false by default</span>
+<span class="w">        </span><span class="nt">jobs</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8s_job.yaml</span>
+<span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres/jobs</span>
 <span class="w">  </span><span class="nt">payload</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Project1&quot;</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;My</span><span class="nv"> </span><span class="s">Workspace</span><span class="nv"> </span><span class="s">Name&quot;</span>
@@ -948,7 +976,7 @@
 <span class="w">    </span><span class="nt">sendInputToDataWarehouse</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">sendScenarioRunToEventHub</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">additionalData</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">webApp</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">webapp</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">solution</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">runTemplateFilter</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">defaultRunTemplateDataset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
@@ -964,7 +992,8 @@
 <span class="w">          </span><span class="nt">supportUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://support.cosmotech.com&#39;</span>
 <span class="w">          </span><span class="nt">organizationUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://cosmotech.com&#39;</span>
 <span class="w">          </span><span class="nt">documentationUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://portal.cosmotech.com/resources/platform-resources/web-app-user-guide&#39;</span>
-<span class="w">        </span><span class="nt">datasetManager</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">datasetManager</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;removeToDisableDatasetManager&#39;</span>
+<span class="w">        </span><span class="nt">datasourceFilter</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 <span class="w">    </span><span class="nt">security</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
 <span class="w">      </span><span class="nt">accessControlList</span><span class="p">:</span>

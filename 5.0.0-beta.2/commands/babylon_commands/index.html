@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
@@ -939,6 +939,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#about-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        About Command
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#namespace-use-command" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1031,6 +1042,17 @@
     <span class="md-ellipsis">
       
         Help Command
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        About Command
       
     </span>
   </a>
@@ -1138,32 +1160,61 @@ init       Scaffolds a new Babylon project structure using YAML templates.
 namespace  Babylon namespace
 </code></pre></div>
 </div>
+<h2 id="about-command">About Command<a class="headerlink" href="#about-command" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">About Command</p>
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>about
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>→<span class="w"> </span>Loading<span class="w"> </span>configuration<span class="w"> </span>from<span class="w"> </span>Kubernetes<span class="w"> </span>secret...
+→<span class="w"> </span>Sending<span class="w"> </span>request<span class="w"> </span>to<span class="w"> </span>API...
+✔<span class="w"> </span>API<span class="w"> </span>About<span class="w"> </span>Information:<span class="w"> </span><span class="nv">version</span><span class="o">=</span>AboutInfoVersion<span class="o">(</span><span class="nv">full</span><span class="o">=</span><span class="s1">&#39;5.0.0-rc5-897806da&#39;</span>,<span class="w"> </span><span class="nv">release</span><span class="o">=</span><span class="s1">&#39;5.0.0-rc5&#39;</span>,<span class="w"> </span><span class="nv">major</span><span class="o">=</span><span class="m">5</span>,<span class="w"> </span><span class="nv">minor</span><span class="o">=</span><span class="m">0</span>,<span class="w"> </span><span class="nv">patch</span><span class="o">=</span><span class="m">0</span>,<span class="w"> </span><span class="nv">label</span><span class="o">=</span><span class="s1">&#39;rc5&#39;</span>,<span class="w"> </span><span class="nv">build</span><span class="o">=</span><span class="s1">&#39;897806da&#39;</span><span class="o">)</span>
+</code></pre></div></p>
+</div>
 <h2 id="namespace-use-command">Namespace Use Command<a class="headerlink" href="#namespace-use-command" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Namespace Use</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span>&gt;<span class="w"> </span>babylon<span class="w"> </span>namespace<span class="w"> </span>use<span class="w"> </span>-c<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-t<span class="w"> </span>dev<span class="w"> </span>-s<span class="w"> </span>4s5de
-<span class="w">   </span>✔<span class="w"> </span>Switched<span class="w"> </span>to<span class="w"> </span>context<span class="w"> </span>test,<span class="w"> </span>tenant<span class="w"> </span>dev<span class="w"> </span>successfully
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>namespace<span class="w"> </span>use<span class="w"> </span>-c<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-t<span class="w"> </span>dev<span class="w"> </span>-s<span class="w"> </span>4s5de
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>✔<span class="w"> </span>Switched<span class="w"> </span>to<span class="w"> </span>context<span class="w"> </span>test,<span class="w"> </span>tenant<span class="w"> </span>dev<span class="w"> </span>successfully
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>namespace<span class="w"> </span>get-contexts
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>namespace<span class="w"> </span>get-states<span class="w"> </span>local/remote
+</code></pre></div></p>
 </div>
 <h2 id="apply-macro-command">Apply Macro Command<a class="headerlink" href="#apply-macro-command" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Macro Apply</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span>&gt;<span class="w"> </span>babylon<span class="w"> </span>apply<span class="w"> </span>project/
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>apply<span class="w"> </span>project/
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>apply<span class="w"> </span>--var-file<span class="w"> </span>devops.yaml<span class="w"> </span>devops/
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>apply<span class="w"> </span>--exclude<span class="w"> </span>webapp<span class="w"> </span>--var-file<span class="w"> </span>devops.yaml<span class="w"> </span>devops/<span class="w"> </span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>apply<span class="w"> </span>--include<span class="w"> </span>organization<span class="w"> </span>--var-file<span class="w"> </span>devops.yaml<span class="w"> </span>devops/<span class="w"> </span>
+</code></pre></div></p>
 </div>
 <h2 id="apply-single-command">Apply Single Command<a class="headerlink" href="#apply-single-command" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Create Organization</p>
-<p><div class="highlight"><pre><span></span><code><span class="w"> </span>&gt;<span class="w"> </span>babylon<span class="w"> </span>api<span class="w"> </span>organizations<span class="w"> </span>create<span class="w"> </span>project/Organization.yaml
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>organizations<span class="w"> </span>create<span class="w"> </span>project/Organization.yaml
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="w"> </span>&gt;<span class="w"> </span>babylon<span class="w"> </span>api<span class="w"> </span>organizations<span class="w"> </span>delete<span class="w"> </span>--oid<span class="w"> </span>o-xxxxxxxxxxxxx
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>organizations<span class="w"> </span>delete<span class="w"> </span>--oid<span class="w"> </span>o-xxxxxxxxxxxxx
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>solutions<span class="w"> </span>list<span class="w"> </span>--oid<span class="w"> </span>o-xxxxxxxxxxxxx
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>workspaces<span class="w"> </span>get<span class="w"> </span>--oid<span class="w"> </span>o-xxxxxxxxxxxxx<span class="w"> </span>--wid<span class="w"> </span>w-xxxxxxxxxxxxx
 </code></pre></div></p>
 </div>
 <h2 id="destroy-macro-command">Destroy Macro Command<a class="headerlink" href="#destroy-macro-command" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Macro Destroy</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span>&gt;<span class="w"> </span>babylon<span class="w"> </span>destroy
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>destroy
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>destroy<span class="w"> </span>--include<span class="w"> </span>workspace
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>destroy<span class="w"> </span>--exclude<span class="w"> </span>organization
+</code></pre></div></p>
 </div>
 
 

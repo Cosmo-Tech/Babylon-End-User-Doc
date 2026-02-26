@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
@@ -922,12 +922,28 @@
 
   <h1>Webapp</h1>
 
-<p>To deploy a Cosmo Tech Web App, you can:</p>
-<ol>
-<li><strong>Using the Terraform module</strong><br />
-   For the moment, the web app is <strong>not managed by Babylon</strong>. It is deployed using a <strong>Terraform module</strong>, but this will be supported in a future release.</li>
-</ol>
-<p>If you need to deploy the web app, refer to the README file in the Terraform web app module see 👉 <a href="https://github.com/Cosmo-Tech/terraform-webapp">Terraform</a>.</p>
+<p>To deploy a Cosmo Tech Web App now is possible with Babylon.</p>
+<p>Babylon now supports deploying web applications using Terraform as backend. This integration allows you to provision and manage web app infrastructure as code directly through Babylon, streamlining the deployment process.</p>
+<p>For more details on how to deploy the web app, refer to the README file in the Terraform web app module: 👉 <a href="https://github.com/Cosmo-Tech/terraform-webapp">Terraform Module</a>.</p>
+<p>Babylon automatically clones the Terraform web app repository and updates the <code>terraform.tfvars</code> file with all required variables. These variables are retrieved from the <code>webapp.yaml</code> configuration file below.</p>
+<div class="admonition example">
+<p class="admonition-title">webapp.yaml</p>
+<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Webapp</span>
+<span class="nt">namespace</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">payload</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">cloud_provider</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;azure&quot;</span>
+<span class="w">      </span><span class="nt">cluster_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{cluster_name}}&quot;</span>
+<span class="w">      </span><span class="nt">cluster_domain</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{cluster_domain}}&quot;</span>
+<span class="w">      </span><span class="nt">tenant</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{tenant}}&quot;</span>
+<span class="w">      </span><span class="nt">webapp_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{webapp_name}}&quot;</span>
+<span class="w">      </span><span class="nt">organization_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{services[&#39;api.organization_id&#39;]}}&quot;</span>
+<span class="w">      </span><span class="nt">azure_subscription_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{azure_subscription_id}}&quot;</span>
+<span class="w">      </span><span class="nt">azure_entra_tenant_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{azure_entra_tenant_id}}&quot;</span>
+<span class="w">      </span><span class="nt">powerbi_app_deploy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+</div>
 
 
 

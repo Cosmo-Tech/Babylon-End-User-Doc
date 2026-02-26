@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
@@ -737,6 +737,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="New namespace commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-state-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viewing State Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -751,10 +768,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-babylon-init-commnad" class="md-nav__link">
+  <a href="#new-babylon-init-command" class="md-nav__link">
     <span class="md-ellipsis">
       
-        New babylon init commnad
+        New babylon init command
       
     </span>
   </a>
@@ -788,6 +805,28 @@
     <span class="md-ellipsis">
       
         Output Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webapp-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webapp Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-schema-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL Schema Creation
       
     </span>
   </a>
@@ -1288,6 +1327,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="New namespace commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-state-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viewing State Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1302,10 +1358,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-babylon-init-commnad" class="md-nav__link">
+  <a href="#new-babylon-init-command" class="md-nav__link">
     <span class="md-ellipsis">
       
-        New babylon init commnad
+        New babylon init command
       
     </span>
   </a>
@@ -1339,6 +1395,28 @@
     <span class="md-ellipsis">
       
         Output Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webapp-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webapp Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-schema-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL Schema Creation
       
     </span>
   </a>
@@ -1494,37 +1572,41 @@ pip<span class="w"> </span>install<span class="w"> </span>.
 2. You can manually export the required values as environment variables.</p>
 <div class="admonition note">
 <p class="admonition-title">Error example</p>
-<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>babylon<span class="w"> </span>api<span class="w"> </span>about<span class="w"> </span>
-INFO<span class="w">     </span><span class="m">2025</span>-12-09<span class="w"> </span><span class="m">10</span>:54:04,281:INFO:Babylon.utils.environment:Loading<span class="w"> </span>configuration<span class="w"> </span>from<span class="w"> </span>Kubernetes<span class="w"> </span>secret
-ERROR<span class="w">    </span><span class="m">2025</span>-12-09<span class="w"> </span><span class="m">10</span>:54:04,565:ERROR:Babylon.utils.environment:
-<span class="w">        </span>Failed<span class="w"> </span>to<span class="w"> </span><span class="nb">read</span><span class="w"> </span>Kubernetes<span class="w"> </span>secret<span class="w"> </span><span class="s1">&#39;keycloak-babylon&#39;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>namespace<span class="w"> </span><span class="s1">&#39;dev&#39;</span>
-<span class="w">        </span>Please<span class="w"> </span>ensure<span class="w"> </span>your<span class="w"> </span>kubeconfig<span class="w"> </span>is<span class="w"> </span>valid<span class="w"> </span>and<span class="w"> </span>your<span class="w"> </span>context<span class="w"> </span>is<span class="w"> </span>correctly<span class="w"> </span><span class="nb">set</span>
-<span class="w">        </span>You<span class="w"> </span>can<span class="w"> </span>switch<span class="w"> </span>context<span class="w"> </span>using:<span class="w"> </span><span class="s1">&#39;kubectl config use-context &lt;context-name&gt;&#39;</span>
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>about
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>→<span class="w"> </span>Loading<span class="w"> </span>configuration<span class="w"> </span>from<span class="w"> </span>Kubernetes<span class="w"> </span>secret...
+
+✘<span class="w"> </span>Resource<span class="w"> </span>Not<span class="w"> </span>Found
+Secret<span class="w"> </span>keycloak-babylon<span class="w"> </span>could<span class="w"> </span>not<span class="w"> </span>be<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>namespace<span class="w"> </span>dev
+
+💡<span class="w"> </span>Troubleshooting:
+•<span class="w"> </span>Please<span class="w"> </span>ensure<span class="w"> </span>your<span class="w"> </span>kubeconfig<span class="w"> </span>is<span class="w"> </span>valid
+•<span class="w"> </span>Check<span class="w"> </span>that<span class="w"> </span>your<span class="w"> </span>context<span class="w"> </span>is<span class="w"> </span>correctly<span class="w"> </span><span class="nb">set</span><span class="w"> </span>kubectl<span class="w"> </span>config<span class="w"> </span>current-context
+•<span class="w"> </span>You<span class="w"> </span>can<span class="w"> </span><span class="nb">set</span><span class="w"> </span>context<span class="w"> </span>using<span class="w"> </span>kubectl<span class="w"> </span>config<span class="w"> </span>use-context<span class="w"> </span>&lt;context-name&gt;
+</code></pre></div></p>
 </div>
 <p>To fix this, check your current Kubernetes context and switch to the correct one:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>kubectl<span class="w"> </span>config<span class="w"> </span>current-context
+<p><div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>config<span class="w"> </span>current-context
 dev-aks
-
-&gt;<span class="w"> </span>kubectl<span class="w"> </span>config<span class="w"> </span>use-context<span class="w"> </span>prod-aks
-Switched<span class="w"> </span>to<span class="w"> </span>context<span class="w"> </span><span class="s2">&quot;prod-aks&quot;</span>
-
-&gt;<span class="w"> </span>kubectl<span class="w"> </span>config<span class="w"> </span>current-context
-prod-aks
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>config<span class="w"> </span>use-context<span class="w"> </span>prod-aks
+Switched<span class="w"> </span>to<span class="w"> </span>context<span class="w"> </span><span class="s2">&quot;prod-aks&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>config<span class="w"> </span>current-context
+prod-aks
+</code></pre></div></p>
 </div>
 <p>Now you can run the command again, and it should work:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>babylon<span class="w"> </span>api<span class="w"> </span>about
-INFO<span class="w">     </span><span class="m">2025</span>-12-09<span class="w"> </span><span class="m">11</span>:03:29,426:INFO:Babylon.utils.environment:Loading<span class="w"> </span>configuration<span class="w"> </span>from<span class="w"> </span>Kubernetes<span class="w"> </span>secret
-
-Get<span class="w"> </span>the<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>API<span class="w"> </span>service
-
-INFO<span class="w">     </span><span class="m">2025</span>-12-09<span class="w"> </span><span class="m">11</span>:03:30,115:INFO:Babylon.commands.api.meta.about:API<span class="w"> </span>version:<span class="o">{</span><span class="s1">&#39;full&#39;</span>:<span class="w"> </span><span class="s1">&#39;5.0.0-1639f21d&#39;</span>,<span class="w"> </span><span class="s1">&#39;release&#39;</span>:<span class="w"> </span><span class="s1">&#39;5.0.0&#39;</span>,<span class="w"> </span><span class="s1">&#39;major&#39;</span>:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="s1">&#39;minor&#39;</span>:<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="s1">&#39;patch&#39;</span>:<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="s1">&#39;label&#39;</span>:<span class="w"> </span><span class="s1">&#39;rc2&#39;</span>,<span class="w"> </span><span class="s1">&#39;build&#39;</span>:<span class="w"> </span><span class="s1">&#39;1639f21d&#39;</span><span class="o">}</span>
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>about
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>→<span class="w"> </span>Loading<span class="w"> </span>configuration<span class="w"> </span>from<span class="w"> </span>Kubernetes<span class="w"> </span>secret...
+→<span class="w"> </span>Sending<span class="w"> </span>request<span class="w"> </span>to<span class="w"> </span>API...
+✔<span class="w"> </span>API<span class="w"> </span>About<span class="w"> </span>Information:<span class="w"> </span><span class="nv">version</span><span class="o">=</span>AboutInfoVersion<span class="o">(</span><span class="nv">full</span><span class="o">=</span><span class="s1">&#39;5.0.0-rc6-46f7c633&#39;</span>,<span class="w"> </span><span class="nv">release</span><span class="o">=</span><span class="s1">&#39;5.0.0-rc6&#39;</span>,<span class="w"> </span><span class="nv">major</span><span class="o">=</span><span class="m">5</span>,<span class="w"> </span><span class="nv">minor</span><span class="o">=</span><span class="m">0</span>,<span class="w"> </span><span class="nv">patch</span><span class="o">=</span><span class="m">0</span>,<span class="w"> </span><span class="nv">label</span><span class="o">=</span><span class="s1">&#39;rc6&#39;</span>,<span class="w"> </span><span class="nv">build</span><span class="o">=</span><span class="s1">&#39;46f7c633&#39;</span><span class="o">)</span>
+</code></pre></div></p>
 </div>
 <p>Alternatively, if you need CI/CD workflows or want to run quick local tests without loading the Kubernetes secret, you can export the required variables directly in your terminal.</p>
 <div class="admonition example">
@@ -1684,11 +1766,11 @@ uuidgen<span class="w"> </span><span class="p">|</span><span class="w"> </span>c
 If you have already created an organization, you should see its details in the output.</p>
 <div class="admonition example">
 <p class="admonition-title">Example List Organizations</p>
-<p><div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>babylon<span class="w"> </span>api<span class="w"> </span>organizations<span class="w"> </span>list
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>organizations<span class="w"> </span>list
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="w">  </span>→<span class="w"> </span>Loading<span class="w"> </span>configuration<span class="w"> </span>from<span class="w"> </span>Kubernetes<span class="w"> </span>secret...
-<span class="w">  </span>→<span class="w"> </span>Sending<span class="w"> </span>request<span class="w"> </span>to<span class="w"> </span>API...
-<span class="w">  </span>✔<span class="w"> </span><span class="m">93</span><span class="w"> </span>organization<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>retrieved<span class="w"> </span>successfully
+<div class="highlight"><pre><span></span><code>→<span class="w"> </span>Loading<span class="w"> </span>configuration<span class="w"> </span>from<span class="w"> </span>Kubernetes<span class="w"> </span>secret...
+→<span class="w"> </span>Sending<span class="w"> </span>request<span class="w"> </span>to<span class="w"> </span>API...
+✔<span class="w"> </span><span class="m">93</span><span class="w"> </span>organization<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>retrieved<span class="w"> </span>successfully
 </code></pre></div></p>
 </div>
 <p>In Babylon v5, the <strong>state</strong> is now independent of the configuration.<br />
@@ -1777,20 +1859,25 @@ At a high level, you will find three main entries:
 <span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 <span class="nt">id</span><span class="p">:</span><span class="w"> </span>
 <span class="nt">tenant</span><span class="p">:</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">api</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">organization_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">solution_id</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="nt">workspace_id</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">schema_name</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">webapp</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">webapp_name</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">webapp_url</span><span class="p">:</span>
 </code></pre></div></p>
 <h2 id="whats-new-in-babylon-v5">What’s New in Babylon v5<a class="headerlink" href="#whats-new-in-babylon-v5" title="Permanent link">&para;</a></h2>
 <h3 id="new-namespace-commands">New namespace commands<a class="headerlink" href="#new-namespace-commands" title="Permanent link">&para;</a></h3>
 <p>Running the following command displays the updated namespace commands:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>babylon<span class="w"> </span>namespace<span class="w"> </span>--help
-Usage:<span class="w"> </span>babylon<span class="w"> </span>namespace<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>namespace<span class="w"> </span>--help
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Usage:<span class="w"> </span>babylon<span class="w"> </span>namespace<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
 
 <span class="w">  </span>Babylon<span class="w"> </span>namespace
 
@@ -1799,41 +1886,60 @@ Options:
 
 Commands:
 <span class="w">  </span>get-contexts<span class="w">  </span>Display<span class="w"> </span>the<span class="w"> </span>currently<span class="w"> </span>active<span class="w"> </span>namespace
-<span class="w">  </span>get-states<span class="w">    </span>Display<span class="w"> </span>all<span class="w"> </span>states<span class="w"> </span><span class="k">in</span><span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>machine
+<span class="w">  </span>get-states<span class="w">    </span>Display<span class="w"> </span>states<span class="w"> </span>from<span class="w"> </span><span class="nb">local</span><span class="w"> </span>machine<span class="w"> </span>or<span class="w"> </span>remote<span class="w"> </span>storage.
 <span class="w">  </span>use<span class="w">           </span>Switch<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>specific<span class="w"> </span>namespace<span class="w"> </span>or<span class="w"> </span>create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>one
-</code></pre></div>
+</code></pre></div></p>
 </div>
 <p>Using these commands, you can check the currently active namespace. <br>
 Additionally, with <code>get-states</code>, you can list all states available on our local machine. Here are some examples:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>babylon<span class="w"> </span>namespace<span class="w"> </span>get-contexts<span class="w">  </span>
-CURRENT<span class="w">  </span>CONTEXT<span class="w">                            </span>TENANT<span class="w">        </span>STATE<span class="w"> </span>ID<span class="w">                              </span>
-*<span class="w">        </span>project1<span class="w">                           </span>dev<span class="w">           </span>1184d4e3<span class="w"> </span>
-
-<span class="c1"># or use get-states</span>
-
-&gt;<span class="w"> </span>babylon<span class="w"> </span>namespace<span class="w"> </span>get-states<span class="w"> </span>
-INFO<span class="w">   </span><span class="m">2025</span>-10-23<span class="w"> </span><span class="m">22</span>:27:31,230<span class="w"> </span><span class="p">|</span><span class="w">  </span>state.project1.dev.c9b011db.yaml
-INFO<span class="w">   </span><span class="m">2025</span>-10-23<span class="w"> </span><span class="m">22</span>:27:31,232<span class="w"> </span><span class="p">|</span><span class="w">  </span>state.project2.prod.d4ab0004.yaml
-INFO<span class="w">   </span><span class="m">2025</span>-10-23<span class="w"> </span><span class="m">22</span>:27:31,233<span class="w"> </span><span class="p">|</span><span class="w">  </span>state.project3.staging.9646a17d.yaml
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>namespace<span class="w"> </span>get-contexts
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>CURRENT<span class="w">  </span>CONTEXT<span class="w">                            </span>TENANT<span class="w">        </span>STATE<span class="w"> </span>ID<span class="w">                              </span>
+*<span class="w">        </span>project1<span class="w">                           </span>dev<span class="w">           </span>1184d4e3<span class="w"> </span>
+</code></pre></div></p>
+</div>
+<h4 id="viewing-state-files">Viewing State Files<a class="headerlink" href="#viewing-state-files" title="Permanent link">&para;</a></h4>
+<p>You can easily view and manage all available state files, whether they are stored locally or in the cloud. This is particularly useful when you need to select a specific state to update or redeploy your workspace.</p>
+<p>The <code>babylon namespace get-states</code> command provides two options:</p>
+<ul>
+<li><code>remote</code>: Lists all state files stored in the remote (cloud).</li>
+<li><code>local</code>: Lists all state files available on your local machine.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>namespace<span class="w"> </span>get-states<span class="w"> </span>remote
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>☁️<span class="w">  </span>Remote<span class="w"> </span>States
+•<span class="w"> </span>state.project1.dev.d4ab0004.yaml
+•<span class="w"> </span>state.project2.prod.d4ab0005.yaml
+•<span class="w"> </span>state.project3.staging.d4ab0006.yaml
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>namespace<span class="w"> </span>get-states<span class="w"> </span><span class="nb">local</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>📂<span class="w">  </span>Local<span class="w"> </span>States
+•<span class="w"> </span>state.project1.dev.d4ab0004.yaml
+•<span class="w"> </span>state.project2.prod.d4ab0005.yaml
+•<span class="w"> </span>state.project3.staging.d4ab0006.yaml
+</code></pre></div></p>
 </div>
 <h3 id="keycloak-authentication">Keycloak Authentication<a class="headerlink" href="#keycloak-authentication" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Keycloak Auth</p>
 <ul>
-<li>Starting with vesion 5, Babylon uses Keycloak as the authentication system to authenticate with the Cosmotech API and execute commands to create objects.</li>
+<li>Starting with version 5, Babylon uses Keycloak as the authentication system to authenticate with the Cosmotech API and execute commands to create objects.</li>
 <li>A new client, <code>cosmotech-babylon-client</code>, is created in Keycloak for this purpose.</li>
 </ul>
 </div>
-<h3 id="new-babylon-init-commnad">New babylon init commnad<a class="headerlink" href="#new-babylon-init-commnad" title="Permanent link">&para;</a></h3>
+<h3 id="new-babylon-init-command">New babylon init command<a class="headerlink" href="#new-babylon-init-command" title="Permanent link">&para;</a></h3>
 <p>After setting the context with the <code>namespace use</code> command you can now easily initialize your project with a basic structure using the <code>babylon init</code> command.<br />
 Here’s an example:</p>
-<div class="admonition examples">
-<p class="admonition-title">Examples</p>
-<p><div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>babylon<span class="w"> </span>init<span class="w"> </span>--help
-Usage:<span class="w"> </span>babylon<span class="w"> </span>init<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>init<span class="w"> </span>--help
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Usage:<span class="w"> </span>babylon<span class="w"> </span>init<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 
 Create<span class="w"> </span>a<span class="w"> </span>Babylon<span class="w"> </span>project<span class="w"> </span>structure<span class="w"> </span>using<span class="w"> </span>YAML<span class="w"> </span>templates.
 
@@ -1842,30 +1948,48 @@ Options:
 --variables-file<span class="w"> </span>TEXT<span class="w">  </span>Name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>variables<span class="w"> </span>file<span class="w"> </span><span class="o">(</span>default:<span class="s1">&#39;variables.yaml&#39;</span><span class="o">)</span>.
 --help<span class="w">  </span>Show<span class="w"> </span>this<span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span>exit.
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="w"> </span>&gt;<span class="w"> </span>babylon<span class="w"> </span>init
-<span class="w"> </span>INFO<span class="w">     </span><span class="m">2025</span>-10-24<span class="w"> </span><span class="m">09</span>:54:53,853<span class="w"> </span><span class="p">|</span><span class="w"> </span>
-<span class="w">      </span><span class="o">[</span>babylon<span class="o">]</span><span class="w"> </span>Project<span class="w"> </span>successfully<span class="w"> </span>initialized<span class="w"> </span>at:<span class="w"> </span>~/CosmoTech/DevOps/babylon_v5_dir/test-babylon/project
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>init
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="w">  </span>.
-<span class="w">  </span>├──<span class="w"> </span>babylon.error
-<span class="w">  </span>├──<span class="w"> </span>babylon.log
-<span class="w">  </span>├──<span class="w"> </span>project
-<span class="w">  </span>│<span class="w">   </span>├──<span class="w"> </span>Dataset.yaml
-<span class="w">  </span>│<span class="w">   </span>├──<span class="w"> </span>Organization.yaml
-<span class="w">  </span>│<span class="w">   </span>├──<span class="w"> </span>Runner.yaml
-<span class="w">  </span>│<span class="w">   </span>├──<span class="w"> </span>Solution.yaml
-<span class="w">  </span>│<span class="w">   </span>└──<span class="w"> </span>Workspace.yaml
-<span class="w">  </span>├──<span class="w"> </span>customers.csv
-<span class="w">  </span>└──<span class="w"> </span>variables.yaml
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>init<span class="w"> </span>--project-folder<span class="w"> </span>devops<span class="w"> </span>--variables-file<span class="w"> </span>devops.yaml<span class="w"> </span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">   </span>→<span class="w"> </span>Cloning<span class="w"> </span>Terraform<span class="w"> </span>WebApp<span class="w"> </span>module...
+<span class="w">   </span>✔<span class="w"> </span>Terraform<span class="w"> </span>WebApp<span class="w"> </span>module<span class="w"> </span>cloned
+<span class="w">   </span>→<span class="w"> </span>Created<span class="w"> </span>directory:<span class="w"> </span>/home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+<span class="w">   </span>✔<span class="w"> </span>Generated<span class="w"> </span>Organization.yaml
+<span class="w">   </span>✔<span class="w"> </span>Generated<span class="w"> </span>Solution.yaml
+<span class="w">   </span>✔<span class="w"> </span>Generated<span class="w"> </span>Workspace.yaml
+<span class="w">   </span>✔<span class="w"> </span>Generated<span class="w"> </span>Webapp.yaml
+<span class="w">   </span>✔<span class="w"> </span>Generated<span class="w"> </span>postgres/jobs/k8s_job.yaml
+<span class="w">   </span>✔<span class="w"> </span>Generated<span class="w"> </span>devops.yaml
+🚀<span class="w"> </span>Project<span class="w"> </span>successfully<span class="w"> </span>initialized!
+<span class="w">   </span>Path:<span class="w"> </span>/home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+
+Next<span class="w"> </span>steps:
+<span class="w">   </span><span class="m">1</span>.<span class="w"> </span>Edit<span class="w"> </span>your<span class="w"> </span>variables<span class="w"> </span><span class="k">in</span><span class="w"> </span>devops.yaml
+<span class="w">   </span><span class="m">2</span>.<span class="w"> </span>Run<span class="w"> </span>your<span class="w"> </span>first<span class="w"> </span>deployment<span class="w"> </span><span class="nb">command</span>
+</code></pre></div>
+for structure of the generated project, you should see something like this:</p>
+<div class="highlight"><pre><span></span><code>.
+├──<span class="w"> </span>babylon.log
+├──<span class="w"> </span>devops
+│<span class="w">   </span>├──<span class="w"> </span>Organization.yaml
+│<span class="w">   </span>├──<span class="w"> </span>postgres
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span><span class="nb">jobs</span>
+│<span class="w">   </span>│<span class="w">       </span>└──<span class="w"> </span>k8s_job.yaml
+│<span class="w">   </span>├──<span class="w"> </span>Solution.yaml
+│<span class="w">   </span>├──<span class="w"> </span>Webapp.yaml
+│<span class="w">   </span>└──<span class="w"> </span>Workspace.yaml
+├──<span class="w"> </span>terraform-webapp
+└──<span class="w"> </span>devops.yaml
+</code></pre></div>
 </div>
-<p>Now, you can get started with running Babylon commands.<br />
-All the required YAML files for the resources you need to deploy in v5 are provided as templates.<br />
+<p>Now, you can get started with running Babylon commands.
+All the required YAML files for the resources you need to deploy in v5 are provided as templates.
 You can customize and modify them based on your specific needs.</p>
 <h3 id="new-group-for-handling-runner-and-run-objects">New group for handling runner and run objects<a class="headerlink" href="#new-group-for-handling-runner-and-run-objects" title="Permanent link">&para;</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>In v5, there is no longer a <strong>Connector</strong> object, and <strong>Scenario</strong> / <strong>ScenarioRun</strong> have been replaced by <strong>Runner</strong> and <strong>Run</strong>.
+<p>There is no longer a <strong>Connector</strong> object, and <strong>Scenario</strong> / <strong>ScenarioRun</strong> have been replaced by <strong>Runner</strong> and <strong>Run</strong>.
 For more information refer to the Cosmo Tech platform release notes.</p>
 </div>
 <h3 id="meta-about-endpoint">Meta About Endpoint<a class="headerlink" href="#meta-about-endpoint" title="Permanent link">&para;</a></h3>
@@ -1880,7 +2004,7 @@ For more information refer to the Cosmo Tech platform release notes.</p>
 </code></pre></div></p>
 </div>
 <h3 id="output-management">Output Management<a class="headerlink" href="#output-management" title="Permanent link">&para;</a></h3>
-<p>With Babylon v5, you can now handle the output of every single command. This is particularly useful for scripting, filtering data, or integration with other tools.</p>
+<p>You can now handle the output of every single command. This is particularly useful for scripting, filtering data, or integration with other tools.</p>
 <p>You can control the output using two main flags:</p>
 <table>
 <thead>
@@ -1926,6 +2050,16 @@ o-vd0wk30pdxx<span class="w">     </span>Debugging<span class="w"> </span>organi
 <div class="highlight"><pre><span></span><code>babylon<span class="w"> </span>api<span class="w"> </span>organizations<span class="w"> </span>list<span class="w"> </span>-f<span class="w"> </span>organizations.yaml
 </code></pre></div></p>
 </div>
+<h3 id="webapp-deployment">Webapp Deployment<a class="headerlink" href="#webapp-deployment" title="Permanent link">&para;</a></h3>
+<div class="admonition webapp_deployment">
+<p class="admonition-title">Webapp_deployment</p>
+<p>We have introduced a new macro command to handle the deployment of webapps, based on terraform modules <a href="https://github.com/Cosmo-Tech/terraform-webapp"><code>terraform-webapp</code></a>. This command simplifies the deployment process by automating the creation of necessary resources and configurations for web applications in specific Kubernetes clusters.</p>
+</div>
+<h3 id="postgresql-schema-creation">PostgreSQL Schema Creation<a class="headerlink" href="#postgresql-schema-creation" title="Permanent link">&para;</a></h3>
+<div class="admonition workspace_improvements">
+<p class="admonition-title">Workspace_improvements</p>
+<p>The workspaces macro command has been significantly enhanced, especially for creating PostgreSQL schemas. These improvements streamline the setup and management of database schemas within your workspaces, making it faster and easier to define, deploy, and maintain the necessary database structures.</p>
+</div>
 <h3 id="commands-for-testing">Commands for Testing<a class="headerlink" href="#commands-for-testing" title="Permanent link">&para;</a></h3>
 <p>For more details on how to test, see 👉 <a href="../../Examples/Example_Deploy_CosmoTech_workspace/#deploy-cosmo-tech-workspace">Examples</a>.</p>
 <div class="admonition example">
@@ -1946,16 +2080,34 @@ o-vd0wk30pdxx<span class="w">     </span>Debugging<span class="w"> </span>organi
 <span class="w">  </span>→<span class="w"> </span>Loading<span class="w"> </span>configuration<span class="w"> </span>from<span class="w"> </span>Kubernetes<span class="w"> </span>secret...
 <span class="w">  </span>→<span class="w"> </span>No<span class="w"> </span>existing<span class="w"> </span>workspace<span class="w"> </span>ID<span class="w"> </span>found.<span class="w"> </span>Creating...
 <span class="w">  </span>✔<span class="w"> </span>Workspace<span class="w"> </span>w-xxxxxxxxx<span class="w"> </span>created
+<span class="w">  </span>→<span class="w"> </span>Found<span class="w"> </span>PostgreSQL<span class="w"> </span>service<span class="w"> </span>postgresql
+<span class="w">  </span>→<span class="w"> </span>Initializing<span class="w"> </span>PostgreSQL<span class="w"> </span>schema<span class="w"> </span><span class="k">for</span><span class="w"> </span>workspace<span class="w"> </span>w-xxxxxxxxx...
+<span class="w">  </span>→<span class="w"> </span>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>job<span class="w"> </span>postgresql-init-w-xxxxxxxxx<span class="w"> </span>to<span class="w"> </span>complete...
+<span class="w">  </span>→<span class="w"> </span>Checking<span class="w"> </span>job<span class="w"> </span>logs<span class="w"> </span><span class="k">for</span><span class="w"> </span>errors...
+<span class="w">  </span>✔<span class="w"> </span>Schema<span class="w"> </span>creation<span class="w"> </span>w_xxxxxxxxx<span class="w"> </span>completed<span class="w"> </span>successfully
+
+🚀<span class="w"> </span>Deploying<span class="w"> </span>webapp<span class="w"> </span><span class="k">in</span><span class="w"> </span>namespace:<span class="w"> </span>dev
+<span class="w">  </span>→<span class="w"> </span>Running<span class="w"> </span>Terraform<span class="w"> </span>deployment...
+<span class="w">  </span>backend.tf
+<span class="w">  </span>Initializing<span class="w"> </span>the<span class="w"> </span>backend...
+
+<span class="w">  </span>Successfully<span class="w"> </span>configured<span class="w"> </span>the<span class="w"> </span>backend<span class="w"> </span><span class="s2">&quot;azurerm&quot;</span>!<span class="w"> </span>Terraform<span class="w"> </span>will<span class="w"> </span>automatically
+<span class="w">  </span>use<span class="w"> </span>this<span class="w"> </span>backend<span class="w"> </span>unless<span class="w"> </span>the<span class="w"> </span>backend<span class="w"> </span>configuration<span class="w"> </span>changes.
+
+<span class="w">  </span>Apply<span class="w"> </span>complete!<span class="w"> </span>Resources:<span class="w"> </span><span class="m">5</span><span class="w"> </span>added,<span class="w"> </span><span class="m">0</span><span class="w"> </span>changed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>destroyed.
+<span class="w">  </span>✔<span class="w"> </span>WebApp<span class="w"> </span>business<span class="w"> </span>deployed
 
 📋<span class="w"> </span>Deployment<span class="w"> </span>Summary
 <span class="w">  </span>•<span class="w"> </span>Organization<span class="w"> </span>Id<span class="w"> </span>:<span class="w"> </span>o-xxxxxxxxx
 <span class="w">  </span>•<span class="w"> </span>Solution<span class="w"> </span>Id<span class="w">     </span>:<span class="w"> </span>sol-xxxxxxxxx
 <span class="w">  </span>•<span class="w"> </span>Workspace<span class="w"> </span>Id<span class="w">    </span>:<span class="w"> </span>w-xxxxxxxxx
+<span class="w">  </span>•<span class="w"> </span>Webapp<span class="w"> </span>Name<span class="w">     </span>:<span class="w"> </span>webapp-business
+<span class="w">  </span>•<span class="w"> </span>Webapp<span class="w"> </span>Url<span class="w">      </span>:<span class="w"> </span>https://dev.azure.platform.cosmotech.com/dev/webapp-business
 
 ✨<span class="w"> </span>Deployment<span class="w"> </span>process<span class="w"> </span><span class="nb">complete</span>
 </code></pre></div></p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">Using --var-file</p>
 <p>You can use the <code>--var-file</code> option to specify a particular <code>variables.yaml</code> file.
 <div class="highlight"><pre><span></span><code>e.g.<span class="w"> </span>→<span class="w"> </span>babylon<span class="w"> </span>apply<span class="w"> </span>--var-file<span class="w"> </span>devops-test.yaml<span class="w"> </span>devops-test/
 </code></pre></div></p>

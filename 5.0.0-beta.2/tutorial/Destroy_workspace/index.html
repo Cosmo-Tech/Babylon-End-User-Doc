@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
@@ -1026,6 +1026,8 @@ This will automatically delete the following resources:</p>
 <li>Organizations</li>
 <li>Solutions</li>
 <li>Workspaces</li>
+<li>PostgreSQL schemas</li>
+<li>Web App</li>
 </ul>
 <p>By default, it destroys the resources referenced in the current state saved in the namespace file.</p>
 <p>To view the current context and state being used by Babylon, run the following command:</p>
@@ -1039,16 +1041,31 @@ When is the case you run simplement </p>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>🔥<span class="w"> </span>Starting<span class="w"> </span>Destruction<span class="w"> </span>Process<span class="w"> </span><span class="k">in</span><span class="w"> </span>namespace:<span class="w"> </span>dev
 <span class="w">    </span>→<span class="w"> </span>Loading<span class="w"> </span>configuration<span class="w"> </span>from<span class="w"> </span>Kubernetes<span class="w"> </span>secret...
-<span class="w">    </span>→<span class="w"> </span>Existing<span class="w"> </span>ID<span class="w"> </span>sol-6069lgex2xz<span class="w"> </span>found.<span class="w"> </span>Deleting...
-<span class="w">    </span>✔<span class="w"> </span>Solution<span class="w"> </span>sol-6069lgex2xz<span class="w"> </span>deleted
-<span class="w">    </span>⚠<span class="w"> </span>No<span class="w"> </span>Workspace<span class="w"> </span>ID<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>state!<span class="w"> </span>skipping<span class="w"> </span>deletion
-<span class="w">    </span>→<span class="w"> </span>Existing<span class="w"> </span>ID<span class="w"> </span>o-nl8pgn5lpwd<span class="w"> </span>found.<span class="w"> </span>Deleting...
-<span class="w">    </span>✔<span class="w"> </span>Organization<span class="w"> </span>o-nl8pgn5lpwd<span class="w"> </span>deleted<span class="w"> </span>
+<span class="w">    </span>→<span class="w"> </span>Existing<span class="w"> </span>ID<span class="w"> </span>sol-9epr7jxn2ndl<span class="w"> </span>found.<span class="w"> </span>Deleting...
+<span class="w">    </span>✔<span class="w"> </span>Solution<span class="w"> </span>sol-9epr7jxn2ndl<span class="w"> </span>deleted
+<span class="w">    </span>→<span class="w"> </span>Found<span class="w"> </span>PostgreSQL<span class="w"> </span>service<span class="w"> </span>postgresql
+<span class="w">    </span>→<span class="w"> </span>Destroying<span class="w"> </span>postgreSQL<span class="w"> </span>schema<span class="w"> </span><span class="k">for</span><span class="w"> </span>workspace<span class="w"> </span>w-0rnd73k2kyd5...
+<span class="w">    </span>→<span class="w"> </span>Applying<span class="w"> </span>kubernetes<span class="w"> </span>destroy<span class="w"> </span>job...
+<span class="w">    </span>→<span class="w"> </span>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>job<span class="w"> </span>postgresql-destroy-w-0rnd73k2kyd5<span class="w"> </span>to<span class="w"> </span>complete...
+<span class="w">    </span>→<span class="w"> </span>Checking<span class="w"> </span>job<span class="w"> </span>logs<span class="w"> </span><span class="k">for</span><span class="w"> </span>errors...
+<span class="w">    </span>✔<span class="w"> </span>Schema<span class="w"> </span>destruction<span class="w"> </span>w_0rnd73k2kyd5<span class="w"> </span>completed<span class="w"> </span>successfully
+<span class="w">    </span>→<span class="w"> </span>Existing<span class="w"> </span>ID<span class="w"> </span>w-0rnd73k2kyd5<span class="w"> </span>found.<span class="w"> </span>Deleting...
+<span class="w">    </span>✔<span class="w"> </span>Workspace<span class="w"> </span>w-0rnd73k2kyd5<span class="w"> </span>deleted
+<span class="w">    </span>→<span class="w"> </span>Existing<span class="w"> </span>ID<span class="w"> </span>o-841ez282ypmx<span class="w"> </span>found.<span class="w"> </span>Deleting...
+<span class="w">    </span>✔<span class="w"> </span>Organization<span class="w"> </span>o-841ez282ypmx<span class="w"> </span>deleted
+<span class="w">    </span>→<span class="w"> </span>Running<span class="w"> </span>Terraform<span class="w"> </span>destroy<span class="w"> </span><span class="k">for</span><span class="w"> </span>WebApp<span class="w"> </span>resources...
+<span class="w">    </span>Acquiring<span class="w"> </span>state<span class="w"> </span>lock.<span class="w"> </span>This<span class="w"> </span>may<span class="w"> </span>take<span class="w"> </span>a<span class="w"> </span>few<span class="w"> </span>moments...
+<span class="w">    </span>module.chart-keycloak-client.data.kubernetes_secret.keycloak:<span class="w"> </span>Reading...
+<span class="w">    </span>module.chart-cosmotech-webapp.kubernetes_config_map.webapp:<span class="w"> </span>Destruction<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>after<span class="w"> </span>0s
+
+<span class="w">    </span>Destroy<span class="w"> </span>complete!<span class="w"> </span>Resources:<span class="w"> </span><span class="m">5</span><span class="w"> </span>destroyed.
+<span class="w">    </span>✔<span class="w"> </span>WebApp<span class="w"> </span>webapp-business<span class="w"> </span>destroyed<span class="w">  </span>
 
 📋<span class="w"> </span>Destruction<span class="w"> </span>Summary
-<span class="w">    </span>•<span class="w"> </span>Organization<span class="w"> </span>Id<span class="w"> </span>:<span class="w"> </span>DELETED
-<span class="w">    </span>•<span class="w"> </span>Solution<span class="w"> </span>Id<span class="w">     </span>:<span class="w"> </span>DELETED
-<span class="w">    </span>•<span class="w"> </span>Workspace<span class="w"> </span>Id<span class="w">    </span>:<span class="w"> </span>DELETED
+<span class="w">  </span>•<span class="w"> </span>Organization<span class="w"> </span>Id<span class="w"> </span>:<span class="w"> </span>DELETED
+<span class="w">  </span>•<span class="w"> </span>Solution<span class="w"> </span>Id<span class="w">     </span>:<span class="w"> </span>DELETED
+<span class="w">  </span>•<span class="w"> </span>Workspace<span class="w"> </span>Id<span class="w">    </span>:<span class="w"> </span>DELETED
+<span class="w">  </span>•<span class="w"> </span>Webapp<span class="w"> </span>Name<span class="w">     </span>:<span class="w"> </span>DELETED
 
 ✨<span class="w"> </span>Cleanup<span class="w"> </span>process<span class="w"> </span><span class="nb">complete</span>
 </code></pre></div></p>
