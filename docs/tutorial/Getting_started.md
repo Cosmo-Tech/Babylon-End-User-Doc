@@ -405,6 +405,50 @@ Usage Examples:
 !!! Workspace_improvements
     The workspaces macro command has been significantly enhanced, especially for creating PostgreSQL schemas. These improvements streamline the setup and management of database schemas within your workspaces, making it faster and easier to define, deploy, and maintain the necessary database structures.
 
+### Secret Creation
+
+During workspace deployment, Babylon automatically creates a Kubernetes **Secret** named `<organization_id>-<workspace_id>` in the target namespace. This secret contains the PostgreSQL credentials required by the workspace at runtime.
+
+The secret holds the following key:
+
+| Key | Description |
+| :--- | :--- |
+| `POSTGRES_USER_PASSWORD` | The Cosmo Tech writer user password, base64-encoded |
+
+!!! example "Secret created during deployment"
+
+    ```bash
+    🚀 Deploying Workspace in namespace: dev
+      → Creating workspace secret for w-xxxxxxxxx...
+      ✔ Secret o-xxxxxxxxx-w-xxxxxxxxx created
+    ```
+
+!!! note
+    If the secret already exists (e.g., on a re-deployment), Babylon will detect it and skip creation with a warning instead of failing.
+
+### ConfigMap Creation
+
+In addition to the Secret, Babylon also creates a Kubernetes **ConfigMap** named `<organization_id>-<workspace_id>-coal-config` in the target namespace. This ConfigMap contains the **CoAL** configuration in TOML format, which defines the PostgreSQL output connection used by the workspace at execution time.
+
+The ConfigMap holds a single key:
+
+| Key | Description |
+| :--- | :--- |
+| `coal-config.toml` | PostgreSQL output configuration for CoAL runtime |
+
+The `user_password` field in the TOML is intentionally set to `env.POSTGRES_USER_PASSWORD`, which is resolved at runtime from the Kubernetes Secret described above.
+
+!!! example "ConfigMap created during deployment"
+
+    ```bash
+    🚀 Deploying Workspace in namespace: dev
+      → Creating CoAL ConfigMap for w-xxxxxxxxx...
+      ✔ ConfigMap o-xxxxxxxxx-w-xxxxxxxxx-coal-config created
+    ```
+
+!!! note
+    If the ConfigMap already exists, Babylon will skip creation with a warning. Both the Secret and the ConfigMap are automatically deleted when running `babylon destroy`.
+
 ### Commands for Testing
 
 For more details on how to test, see 👉 [Examples](../Examples/Example_Deploy_CosmoTech_workspace.md#deploy-cosmo-tech-workspace).
@@ -434,6 +478,10 @@ For more details on how to test, see 👉 [Examples](../Examples/Example_Deploy_
       → Waiting for job postgresql-init-w-xxxxxxxxx to complete...
       → Checking job logs for errors...
       ✔ Schema creation w_xxxxxxxxx completed successfully
+      → Creating workspace secret for w-xxxxxxxxx...
+      ✔ Secret o-xxxxxxxxx-w-xxxxxxxxx created
+      → Creating CoAL ConfigMap for w-xxxxxxxxx...
+      ✔ ConfigMap o-xxxxxxxxx-w-xxxxxxxxx-coal-config created
 
     🚀 Deploying webapp in namespace: dev
       → Running Terraform deployment...
