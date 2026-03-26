@@ -4,8 +4,10 @@
 
 * 🌱 **Git**
 
-* 📦 **Uv 0.9.13+**
+* ⚡ **Uv 0.9.13+**
 
 * ☁️ **Azure CLI**
 
-* ☸️ **Kubectl** 
+* ☸️ **Kubectl**
+
+* 🏗️ **Terraform 1.14.0+**
