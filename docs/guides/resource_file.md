@@ -7,7 +7,8 @@ If the **state file** does not exist, the first Babylon command you run will **i
 
 ### State Configuration
 
-Babylon now stores the state as a Kubernetes Secret within the cluster. This allows us to support all major managed Kubernetes distributions, including AKS, EKS, and GKE.<br>
+Babylon now stores the state as a Kubernetes Secret within the cluster. This allows us to support all major managed Kubernetes distributions, including AKS, EKS, and GKE.
+
 When you set `remote: true` and execute `babylon apply`, Babylon automatically creates a Secret named `babylon-state-<context_id>-<tenant_id>` in your current namespace to persist the state information.
 
 ### Babylon State Structure
