@@ -12,10 +12,10 @@ Babylon automatically clones the Terraform web app repository and updates the `t
       ```yaml
       kind: Webapp
       namespace:
-         remote: true
+         remote: {{remote}}
       spec:
          payload:
-            cloud_provider: "azure"
+            cloud_provider: "{{cloud_provider}}"
             cluster_name: "{{cluster_name}}"
             cluster_domain: "{{cluster_domain}}"
             tenant: "{{tenant}}"
@@ -23,5 +23,5 @@ Babylon automatically clones the Terraform web app repository and updates the `t
             organization_id: "{{services['api.organization_id']}}"
             azure_subscription_id: "{{azure_subscription_id}}"
             azure_entra_tenant_id: "{{azure_entra_tenant_id}}"
-            powerbi_app_deploy: false
+            powerbi_app_deploy: {{powerbi_app_deploy}}
       ```

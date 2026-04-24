@@ -14,7 +14,6 @@ description: Tutorial for creating or update Cosmo Tech workspace with and exist
     
     * context_id: `test`
     * tenant_id: `dev`
-    * state_id: `8db6069e`
 
 Before going further, you should know that we have two concepts: deploying a solution object within an existing organization, and deploying a workspace object within an existing organization and solution. This is just to give you some quick context for the tutorial.
 
@@ -57,7 +56,7 @@ Below is an example of the solution manifest structure.
     ```yaml
     kind: Solution
     namespace:
-      remote: true   # false by default
+      remote: true
     metadata:
       selector:
         organization_id: "{{organization_id}}" # <---
@@ -103,7 +102,7 @@ To do this, add both `organization_id` and `solution_id` under `metadata.selecto
     ```yaml
     kind: Workspace
     namespace:
-      remote: true   # false by default
+      remote: true
     metadata:
       selector:
         organization_id: "{{organization_id}}" # <--- 
@@ -168,4 +167,4 @@ Now, with this Babylon feature, you can deploy multiple **Workspaces** that:
 !!! note "Important"
     For each workspace deployment, you need a **specific state file**.
 
-    e.g :  `state.<context_id>.<tenant_id>.<state_id>.yaml`
+    e.g :  `state.<context_id>.<tenant_id>.yaml`
