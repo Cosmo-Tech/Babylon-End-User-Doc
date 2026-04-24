@@ -1,7 +1,7 @@
   ```yaml
   kind: Organization
   namespace:
-    remote: true   # false by default
+    remote: true
   ```
 The deployment configuration must define the following keys:
 
@@ -25,7 +25,7 @@ For example, in an **Organization** deployment file:
     ```yaml
     kind: Organization
     namespace:
-      remote: true   # false by default
+      remote: true
     spec:
       payload:
         name: "{{organization_name}}"

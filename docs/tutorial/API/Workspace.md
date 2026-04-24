@@ -15,12 +15,12 @@ When `create` is set to `true`, Babylon will execute the specified Kubernetes jo
     ```yaml
     kind: Workspace
     namespace:
-      remote: true   # false by default
+      remote: true
     spec:
       sidecars:
         postgres:
           schema:
-            create: true # false by default
+            create: true
             jobs:
               - name: k8s_job.yaml
                 path: postgres/jobs

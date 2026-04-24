@@ -130,40 +130,22 @@ If you no longer have access to the cluster, you can export these variables manu
         ```
 ### Configuration
 
-At this point, you need **three variables** to perform Babylon commands.
+At this point, you need **two variables** to perform Babylon commands.
 
 | Variable       | Description                                | Example   |
 |----------------|--------------------------------------------|-----------|
 | `context_id`   | Project name *(string of your choice, no special characters)* | `project1` |
 | `tenant_id`    | Tenant ID *(e.g., dev, staging, prod)*                        | `dev`     |
-| `state_id`     | State name *(string of your choice, no special characters)*   | `state1`  |
 
 !!! important "⚠️ Variable Constraints"
-    - `context_id` and `state_id` can be **any string** of your choice, but **they must not contain special characters**.  
-    - For state_id, you can generate a new UUID with [`uuidgen`](https://man7.org/linux/man-pages/man1/uuidgen.1.html):  
-    === "🐧 Linux"
-        ```bash
-        sudo apt update
-        sudo apt install uuid-runtime -y
-        # Generate a UUID
-        uuidgen | cut -c1-8
-        # Example output:
-        0475231d
-        ```
-    === "🖥️ Windows"
-        ```powershell
-        # Open PowerShell and run:
-        [guid]::NewGuid().ToString().Substring(0,8)
-        # Example output:
-        0475231d
-        ```
+    - `context_id` can be **any string** of your choice, but **they must not contain special characters**.
     - `tenant_id` represents the **namespace kubernetes** (e.g., `dev`, `staging`, ...).  
 
 
 To initialize Babylon namespace with these values, run:
 
 ```bash
-babylon namespace use -c <context_id> -t <tenant_id> -s <state_id>
+babylon namespace use -c <context_id> -t <tenant_id>
 ```
 
 !!! note "Generated Configuration"
@@ -197,7 +179,7 @@ This persisted state is referred to as the **Babylon state**.
     The state is saved in two locations:
 
     1. **Remote backend (cloud)** → storage account `cosmotechstates` → containers `babylon-states`
-    2. **Local backend (YAML file)** → `~/.config/babylon/state.<context_id>.<tenant_id>.<state_id>.yaml`
+    2. **Local backend (YAML file)** → `~/.config/babylon/state.<context_id>.<tenant_id>.yaml`
 
 ## State file specification
 
@@ -241,11 +223,11 @@ Additionally, with `get-states`, you can list all states available on our local 
 
 #### Viewing State Files
 
-You can easily view and manage all available state files, whether they are stored locally or in the cloud. This is particularly useful when you need to select a specific state to update or redeploy your workspace.
+You can easily view and manage all available state files, whether they are stored locally or in the cluster as a secret. This is particularly useful when you need to select a specific state to update or redeploy your workspace.
 
 The `babylon namespace get-states` command provides two options:
 
-- `remote`: Lists all state files stored in the remote (cloud).
+- `remote`: Lists all state files stored in the remote (cluster).
 - `local`: Lists all state files available on your local machine.
 
 !!! example 
@@ -284,9 +266,14 @@ Here’s an example:
     babylon init --help
     ```
     ```bash
-    Usage: babylon init [OPTIONS]
+    Usage: babylon init [OPTIONS] {azure|kob}
 
-    Create a Babylon project structure using YAML templates.
+    Scaffolds a new Babylon project structure using YAML templates.
+
+    arguments:
+
+        cloud_provider: Target cloud provider for webapp deployment (e.g. 'azure',
+        'kob').
 
     Options:
     --project-folder TEXT  Name of the project folder to create (default:'project').
@@ -294,10 +281,10 @@ Here’s an example:
     --help  Show this message and exit.
     ```
     ```bash
-    babylon init
+    babylon init azure
     ```
     ```bash
-    babylon init --project-folder devops --variables-file devops.yaml 
+    babylon init --project-folder devops --variables-file devops.yaml azure
     ```
     ```bash
        → Cloning Terraform WebApp module...

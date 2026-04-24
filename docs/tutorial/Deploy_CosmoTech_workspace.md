@@ -14,7 +14,6 @@ description: Tutorial for creating or update Cosmo Tech workspace
 
     - `context_id`: `test`  
     - `tenant_id`: `dev`  
-    - `state_id`: `8db6069e`
 
 To deploy a complete Cosmo Tech workspace, you can declare its configuration in yaml files corresponding
 to specific deployment type. <br>

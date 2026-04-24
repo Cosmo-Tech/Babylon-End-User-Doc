@@ -31,7 +31,7 @@ Check your current Kubernetes context and switch to the correct one:
     ```
 ##  Set up Babylon Context
 ```bash
-babylon namespace use -c test -t dev -s 73a90433
+babylon namespace use -c test -t dev
 ```
 ## Initialization Babylon project
 
@@ -40,7 +40,7 @@ With Babylon v5, you can now generate a minimal manifest YAML file that can be u
 !!! example
 
     ```bash
-    babylon init --project-folder devops --variables-file devops.yaml 
+    babylon init --project-folder devops --variables-file devops.yaml azure
     ```
     ```bash
        → Cloning Terraform WebApp module...
@@ -103,14 +103,19 @@ Here is an example of `variables.yaml` with detailed explanations:
     simulator_version: to_fill                  # To fill according to your simulator version
     # Webapp
     cloud_provider: azure                       # Cloud provider to use (e.g., azure, aws, gcp)
-    cluster_name: dev-aks                       # Name of the Kubernetes cluster
-    cluster_domain: dev-aks.azure.platform.cosmotech.com  # Domain of the Kubernetes cluster
+    cluster_name: aks-dev-test                  # Name of the Kubernetes cluster
+    cluster_domain: aks-dev-test.azure.platform.cosmotech.com  # Domain of the Kubernetes cluster
     tenant: dev                                 # namespace kubernetes (e.g., dev, prod)
     webapp_name: business                       # Name of the web application
     organization_id: o-xxxxxxxxxxx                         # Organization ID
     azure_subscription_id: xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx # Azure subscription ID
     azure_entra_tenant_id: xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx # Azure Entra (AAD) tenant ID
     powerbi_app_deploy: false                              # Set to true if deploying Power BI app, false otherwise
+
+    # Enabled by default: stores deployment state in a Kubernetes secret.
+    # Set to false for local testing.
+    remote: true
+
     # Security
     # The list below will be used on all API objects.
     # If differents security list are needed for each API objects,
@@ -135,7 +140,7 @@ Now you can launch the `apply` command to deploy the workspace:
     source .venv/bin/activate
     ```
     ```bash
-    babylon namespace use -c test -t dev -s 73a90433
+    babylon namespace use -c test -t dev
     ```
     ```bash
     babylon apply project/

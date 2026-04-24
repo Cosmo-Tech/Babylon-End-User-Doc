@@ -70,7 +70,7 @@ After making the necessary modifications, you can now apply the changes using Ba
     source .venv/bin/activate
     ```
     ```bash
-    babylon namespace use -c test -t dev -s 73a90433
+    babylon namespace use -c test -t dev
     ```
     ```bash
     babylon apply project/

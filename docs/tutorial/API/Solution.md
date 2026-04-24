@@ -5,7 +5,7 @@ This is how the solution deployment file is structured
     ```yaml
     kind: Solution
     namespace:
-      remote: true   # false by default
+      remote: true
     metadata:
       selector:
         organization_id: "{{services['api.organization_id']}}"

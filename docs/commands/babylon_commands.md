@@ -19,7 +19,7 @@ description: "Reference guide for essential Babylon CLI commands"
           \/___/  \/__/\/_/ \/___/   `/___/> \\/____/ \/___/  \/_/\/_/  
                                         /\___/  
                                         \/__/  
-                                                                 v5.1.0
+                                                                 v5.2.0
 
       CLI used for cloud interactions between CosmoTech and multiple cloud
       environment
@@ -57,7 +57,7 @@ description: "Reference guide for essential Babylon CLI commands"
 !!! info "Namespace Use"
 
     ```bash
-    babylon namespace use -c test -t dev -s 4s5de
+    babylon namespace use -c test -t dev
     ```
     ```bash
      ✔ Switched to context test, tenant dev successfully
