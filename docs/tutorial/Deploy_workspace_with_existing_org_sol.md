@@ -107,46 +107,7 @@ To do this, add both `organization_id` and `solution_id` under `metadata.selecto
       selector:
         organization_id: "{{organization_id}}" # <--- 
         solution_id: "{{solution_id}}"         # <---
-    spec:
-      sidecars:
-        cloud:
-      payload:
-        key: "Project1"
-        name: "My Workspace Name"
-        description: "Workspace for solution"
-        solution:
-          solutionId: "{{services['api.solution_id']}}"
-        useDedicatedEventHubNamespace: true
-        sendScenarioMetadataToEventHub: true
-        sendInputToDataWarehouse: true
-        sendScenarioRunToEventHub: true
-        additionalData:
-          webApp:
-            solution:
-              runTemplateFilter:
-              defaultRunTemplateDataset: null
-            charts:
-              workspaceId:
-              logInWithUserCredentials: false
-              scenarioViewIframeDisplayRatio: 4.514285714
-              dashboardsViewIframeDisplayRatio: 1.610062893
-              useWebappTheme: true
-              dashboardsView:
-              scenarioView:
-            menu:
-              supportUrl: 'https://support.cosmotech.com'
-              organizationUrl: 'https://cosmotech.com'
-              documentationUrl: 'https://portal.cosmotech.com/resources/platform-resources/web-app-user-guide'
-            datasetManager:
-        security:
-          default: none
-          accessControlList:
-            - id: user1@email.com
-              role: admin
-            - id: user2@email.com
-              role: editor
-            - id: user3@email.com
-              role: viewer
+    {!tutorial/API/Workspace.md!lines=20-61}
     ```
 
 Make sure to reference the corresponding `organization_id` and `solution_id` values declared in your `variables.yaml` file.
