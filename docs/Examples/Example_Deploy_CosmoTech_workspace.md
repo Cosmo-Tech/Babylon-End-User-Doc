@@ -80,7 +80,7 @@ Now, we can start running the Babylon command to deploy the workspace.
 
 Here is an example of `variables.yaml` with detailed explanations:
 
-!!! example "variable.yam"
+!!! example "variables.yaml"
 
     ```yaml
     # =========================================================
@@ -98,13 +98,13 @@ Here is an example of `variables.yaml` with detailed explanations:
     # Solution
     solution_name: to_fill                      # Should be the name of the project like "project1 solution"
     solution_key: to_fill                       # Unique key to define according to your naming convention, for example: project1solution1
-    solution_description: to_fill                # Quick sentence to explain the purpose of the solution
+    solution_description: to_fill               # Quick sentence to explain the purpose of the solution
     simulator_repository: to_fill               # To fill according to your simulator name
     simulator_version: to_fill                  # To fill according to your simulator version
     # Webapp
     cloud_provider: azure                       # Cloud provider to use (e.g., azure, aws, gcp)
     cluster_name: aks-dev-test                  # Name of the Kubernetes cluster
-    cluster_domain: aks-dev-test.azure.platform.cosmotech.com  # Domain of the Kubernetes cluster
+    domain_zone: azure.platform.cosmotech.com   # Domain of the Kubernetes cluster
     tenant: dev                                 # namespace kubernetes (e.g., dev, prod)
     webapp_name: business                       # Name of the web application
     organization_id: o-xxxxxxxxxxx                         # Organization ID
