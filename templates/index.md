@@ -4,7 +4,7 @@
 
 ## What is Babylon ?
 
-Babylon is a powerful `CLI[^1]` designed to simplify how users interact with the Cosmo Tech AI Simulation Platform.  
+Babylon is a powerful `CLI`[^1] designed to simplify how users interact with the Cosmo Tech AI Simulation Platform.
 Babylon is built for all users who want to manage their projects workspace in a simple, streamlined fashion without switching between multiple complex tools.
 
 Instead of requiring the user to learn how to use numerous software to interact with the systems, Babylon allows you to learn a single format.
@@ -31,7 +31,7 @@ The team behind Babylon is closely tied to the one working on the Cosmo Tech AI 
 ### 🔑 Macro Commands
 
 !!! example "Automation made simple"
-    Babylon introduces `Macro Commands[^2]`:  
+    Babylon introduces `Macro Commands`[^2]:
     combinations of low-level commands bundled into **one simple instruction**.  
 
     👉 With Macro Commands, you can automate complex operations in a **safer** and **faster** way.  
