@@ -43,15 +43,20 @@ With Babylon v5, you can now generate a minimal manifest YAML file that can be u
     babylon init --project-folder devops --variables-file devops.yaml azure
     ```
     ```bash
-       → Cloning Terraform WebApp module...
-       ✔ Terraform WebApp module cloned
        → Created directory: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
        ✔ Generated Organization.yaml
        ✔ Generated Solution.yaml
        ✔ Generated Workspace.yaml
-       ✔ Generated Webapp.yaml
+       ✔ Generated Webapp.yaml (provider: azure)
+       → Created directory: postgres/jobs
        ✔ Generated postgres/jobs/k8s_job.yaml
-       ✔ Generated devops.yaml
+       → Created directory: dashboard/superset
+       → Created directory: dashboard/powerbi
+       ✔ Generated devops.yaml (provider: azure)
+       ! Webapp directory not found
+       → Cloning Terraform WebApp module (version 0.2.0)...
+       ✔ Terraform WebApp module cloned at version 0.2.0
+
     🚀 Project successfully initialized!
        Path: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
 
@@ -64,6 +69,9 @@ With Babylon v5, you can now generate a minimal manifest YAML file that can be u
     .
     ├── babylon.log
     ├── devops
+    │   ├── dashboard
+    │   │   ├── powerbi
+    │   │   └── superset
     │   ├── Organization.yaml
     │   ├── postgres
     │   │   └── jobs
@@ -71,8 +79,8 @@ With Babylon v5, you can now generate a minimal manifest YAML file that can be u
     │   ├── Solution.yaml
     │   ├── Webapp.yaml
     │   └── Workspace.yaml
-    ├── terraform-webapp
-    └── devops.yaml
+    ├── devops.yaml
+    └── terraform-webapp
     ```
 ## Start Deployment
 
@@ -112,9 +120,17 @@ Here is an example of `variables.yaml` with detailed explanations:
     azure_entra_tenant_id: xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx # Azure Entra (AAD) tenant ID
     powerbi_app_deploy: false                              # Set to true if deploying Power BI app, false otherwise
 
+    # Webapp module version pinned to a specific release of terraform-webapp.
+    # Override with --tf-webapp-version on 'babylon init', or edit this value directly.
+    # See available versions: https://github.com/Cosmo-Tech/terraform-webapp/releases
+    tf_webapp_version: "1.0.1"
+
     # Enabled by default: stores deployment state in a Kubernetes secret.
     # Set to false for local testing.
     remote: true
+
+    # Location for the documentation of the workspace
+    documentation_url: 'https://portal.cosmotech.com/resources/platform-resources/web-app-user-guide'
 
     # Security
     # The list below will be used on all API objects.

@@ -58,6 +58,7 @@ nav:
       - "Examples/index.md"
       - "Examples/Example_Deploy_CosmoTech_workspace.md"
       - "Examples/Example_Update_CosmoTech_workspace.md"
+      - "Examples/Example_Deploy_Superset_dashboards.md"
   - Commands:
       - "commands/babylon_commands.md"
 markdown_extensions:

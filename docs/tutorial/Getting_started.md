@@ -383,6 +383,28 @@ Usage Examples:
     ```bash
     babylon api organizations list -f organizations.yaml
     ```
+### Superset integration
+!!! Superset_integration
+    We added the capability to include user-provided (zip) Superset dashboards in workspace deployment through a database connection, a corresponding database schema and the access roles with all permissions needed on the postgresql workspace schema allowing to import Superset assets and add dashboards with embedded UUID feedback.
+
+!!! example "Superset dashboards integration during deployment"
+
+    ```bash
+    🚀 Deploying Workspace in namespace: dev
+      → Deploying 3 dashboard ZIP(s) to Superset...
+      ⚠ Datasource 'tenant-test0' is already configured (id=11) !
+      → Dashboard dashboard_satisfaction' first deployment creating all assets...
+      ✔ Zip dashboard_satisfaction.zip imported into Superset successfully
+      → Dashboard dashboard_scenarioView' first deployment creating all assets...
+      ✔ Zip dashboard_scenarioView.zip imported into Superset successfully
+      → Dashboard dashboard_stock' first deployment creating all assets...
+      ✔ Zip dashboard_stock.zip imported into Superset successfully
+      ✔ Embedding enabled for dashboard 'QA - Dashboard - Stocks' (key='qadashboardstocks', uuid='0f591886-5408-42ca-aa12-a33f9def5170')
+      ✔ Embedding enabled for dashboard 'QA - Dashboard - ScenarioView' (key='qadashboardscenarioview', uuid='8e5bf0bf-843a-4ce8-a4cd-b43d3e7207f1')
+      ✔ Embedding enabled for dashboard 'QA - Dashboard - Satisfaction' (key='qadashboardsatisfaction', uuid='7784e402-cf9e-46b9-bb65-116d246b3370')
+      ✔ Variable file 'variables.yaml' updated with 3 embedded dashboard UUID(s)
+    ```
+
 ### Webapp Deployment
 
 !!! Webapp_deployment

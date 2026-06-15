@@ -15,7 +15,7 @@ When `create` is set to `true`, Babylon will execute the specified Kubernetes jo
     ```yaml
     kind: Workspace
     namespace:
-      remote: true
+      remote: {{remote}}
     spec:
       sidecars:
         postgres:
@@ -24,16 +24,21 @@ When `create` is set to `true`, Babylon will execute the specified Kubernetes jo
             jobs:
               - name: k8s_job.yaml
                 path: postgres/jobs
+        dashboards:
+          provider: superset
+          create: false
+          reports:
       payload:
-        key: "Project1"
-        name: "My Workspace Name"
-        description: "Workspace for solution"
+        key: "{{workspace_key}}"
+        name: "{{workspace_name}}"
+        description: "{{workspace_description}}"
         solution:
           solutionId: "{{services['api.solution_id']}}"
         useDedicatedEventHubNamespace: true
         sendScenarioMetadataToEventHub: true
         sendInputToDataWarehouse: true
         sendScenarioRunToEventHub: true
+        datasetCopy: false
         additionalData:
           webapp:
             solution:
@@ -50,16 +55,8 @@ When `create` is set to `true`, Babylon will execute the specified Kubernetes jo
             menu:
               supportUrl: 'https://support.cosmotech.com'
               organizationUrl: 'https://cosmotech.com'
-              documentationUrl: 'https://portal.cosmotech.com/resources/platform-resources/web-app-user-guide'
+              documentationUrl: '{{documentation_url}}'
             datasetManager: 'removeToDisableDatasetManager'
             datasourceFilter: []
-        security:
-          default: none
-          accessControlList:
-            - id: user1@email.com
-              role: admin
-            - id: user2@email.com
-              role: editor
-            - id: user3@email.com
-              role: viewer
+        security: {{security}}
     ```
