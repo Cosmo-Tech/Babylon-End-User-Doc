@@ -5,7 +5,7 @@ description: Example from scratch for Updating a Cosmo Tech workspace with best 
 # Update Cosmo Tech workspace 
 
 !!! abstract "Remember"
-    we assumed that the workspace already deployed we need just to update some configuration so this guide we show beast practic to do this with all use cases!
+    We assumed that the workspace already deployed we need just to update some configuration so this guide we show beast practic to do this with all use cases!
 
 ## :material-folder: Modifying Access Control Lists in API Objects
 

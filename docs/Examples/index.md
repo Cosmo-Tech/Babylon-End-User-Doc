@@ -40,4 +40,20 @@ This guide explains how to update a Cosmo Tech workspace.
 </div>
 </article>
 
+
+<article markdown>
+<div class="text" markdown>
+:material-roman-numeral-3: __Example: Deploying with Superset dashboards__
+
+---
+This guide provides an example on how to deploy with Superset dashboards (Babylon v5).
+
+---
+<footer markdown>
+[:octicons-arrow-right-24: Deploy](./Example_Deploy_Superset_dashboards.md)
+</footer>
+</div>
+</article>
+
+
 </main>
