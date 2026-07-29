@@ -6,7 +6,7 @@ description: Tutorial for creating or update Cosmo Tech workspace
 
 !!! abstract "Remember"
     This guide focuses on explaining each object individually.  
-    A complete deployment workflow is provided in the [Examples](../Examples/Example_Deploy_CosmoTech_workspace.md) section, where all components are combined in a practical scenario !
+    A complete deployment workflow is provided in the [Examples](/Examples/Example_Deploy_CosmoTech_workspace.md) section, where all components are combined in a practical scenario !
 
     Before proceeding, ensure that you have selected the correct `tenant`.
 
@@ -22,7 +22,7 @@ Each file contains general information about the deployment:
 
 !!! abstract "Important"
     In this tutorial each **Cosmo Tech object**, values defined directly within the corresponding YAML file.  
-    However, in the [Examples](../Examples/Example_Deploy_CosmoTech_workspace.md) section, you will see that we use a centralized `variables.yaml` file, which defines all required variables and is then referenced across the YAML configurations !
+    However, in the [Examples](/Examples/Example_Deploy_CosmoTech_workspace.md) section, you will see that we use a centralized `variables.yaml` file, which defines all required variables and is then referenced across the YAML configurations !
 
 ## :material-folder: API Organization
 

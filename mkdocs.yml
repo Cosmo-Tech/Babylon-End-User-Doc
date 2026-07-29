@@ -61,6 +61,11 @@ nav:
       - "Examples/Example_Deploy_Superset_dashboards.md"
   - Commands:
       - "commands/babylon_commands.md"
+
+validation:
+  links:
+    absolute_links: relative_to_docs
+
 markdown_extensions:
     - admonition
     - attr_list

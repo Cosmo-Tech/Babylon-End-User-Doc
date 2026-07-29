@@ -6,7 +6,7 @@ description: Tutorial for creating or update Cosmo Tech workspace with and exist
 
 !!! abstract "Remember"
     This guide focuses on explaining who we can deploy a wokspace with an existing organization and solution.  
-    A complete deployment workflow is provided in the [Examples](../Examples/Example_Deploy_CosmoTech_workspace.md) section, where all components are combined in a practical scenario !
+    A complete deployment workflow is provided in the [Examples](/Examples/Example_Deploy_CosmoTech_workspace.md) section, where all components are combined in a practical scenario !
 
     Before proceeding, ensure that you have selected the correct `platform` and `project`.  
     If unsure, contact your `Babylon administrator` for the available options.

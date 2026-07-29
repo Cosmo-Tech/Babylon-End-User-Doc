@@ -460,7 +460,7 @@ The `user_password` field in the TOML is intentionally set to `env.POSTGRES_USER
 
 ### Commands for Testing
 
-For more details on how to test, see 👉 [Examples](../Examples/Example_Deploy_CosmoTech_workspace.md#deploy-cosmo-tech-workspace).
+For more details on how to test, see 👉 [Examples](/Examples/Example_Deploy_CosmoTech_workspace.md#deploy-cosmo-tech-workspace).
 
 !!! example "Commands"
 
