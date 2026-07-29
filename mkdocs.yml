@@ -100,8 +100,9 @@ plugins:
         handlers:
           python:
             options:
-              docstring_style: sphinx
-              line_lenth: 120
+              extra:
+                docstring_style: sphinx
+                line_lenth: 120
     - gen-files:
         scripts:
           - src/generate_index.py
