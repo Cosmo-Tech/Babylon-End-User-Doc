@@ -38,6 +38,7 @@ description: "Reference guide for essential Babylon CLI commands"
     destroy    Macro Destroy
     init       Scaffolds a new Babylon project structure using YAML templates.
     namespace  Babylon namespace
+    superset   Group handling communication with the Superset API.
     ```
 
 ## About Command
@@ -112,4 +113,11 @@ description: "Reference guide for essential Babylon CLI commands"
     ```
     ```bash
     babylon destroy --exclude organization
+    ```
+## Superset Macro Command
+
+!!! info "Macro Superset"
+
+    ```bash
+    babylon superset delete-assets --wid w-xxxxxxxxxxxxx
     ```
