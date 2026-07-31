@@ -19,7 +19,7 @@ description: "Reference guide for essential Babylon CLI commands"
           \/___/  \/__/\/_/ \/___/   `/___/> \\/____/ \/___/  \/_/\/_/  
                                         /\___/  
                                         \/__/  
-                                                                 v5.3.0
+                                                                 v5.4.0
 
       CLI used for cloud interactions between CosmoTech and multiple cloud
       environment
@@ -38,6 +38,7 @@ description: "Reference guide for essential Babylon CLI commands"
     destroy    Macro Destroy
     init       Scaffolds a new Babylon project structure using YAML templates.
     namespace  Babylon namespace
+    superset   Group handling communication with the Superset API.
     ```
 
 ## About Command
@@ -112,4 +113,11 @@ description: "Reference guide for essential Babylon CLI commands"
     ```
     ```bash
     babylon destroy --exclude organization
+    ```
+## Superset Macro Command
+
+!!! info "Macro Superset"
+
+    ```bash
+    babylon superset delete-assets --wid w-xxxxxxxxxxxxx
     ```

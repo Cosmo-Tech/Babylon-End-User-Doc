@@ -4,7 +4,7 @@
 Then select the type of compressed folder you want (`.zip` or `.tar.gz`) and download the file.
 
 ???+ info "Download a release"
-    ![Download from release gif](../assets/Download_from_release.gif)
+    ![Download from release gif](/assets/Download_from_release.gif)
 
 Decompress the file you downloaded.
 

@@ -4,7 +4,7 @@ description: Example from scratch for deploying a Cosmo Tech workspace with best
 
 # Deploy Cosmo Tech workspace 
 
-Make sure your Python virtual environment is set up correctly see 👉 [Install](../tutorial/Getting_started.md#Getting started with Babylon).
+Make sure your Python virtual environment is set up correctly see 👉 [Install](/tutorial/Getting_started.md#getting-started-with-babylon).
 
 After that, you need to create a test folder, for example:
 
