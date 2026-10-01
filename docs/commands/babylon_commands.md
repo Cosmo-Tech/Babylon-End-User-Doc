@@ -30,6 +30,8 @@ description: "Reference guide for essential Babylon CLI commands"
     --version             Print version number and return.
     --log-path DIRECTORY  Path to the directory where log files will be stored.
                           If not set, defaults to current working directory.
+    --kube-context TEXT   Name of the kubeconfig context to use instead of the
+                          current context for relevant commands
     --help                Show this message and exit.
 
     Commands:
