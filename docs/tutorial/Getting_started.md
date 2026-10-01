@@ -413,6 +413,17 @@ Usage Examples:
 !!! Webapp
     We have introduced a new macro command to handle the deployment of webapps, based on terraform modules [`terraform-webapp`](https://github.com/Cosmo-Tech/terraform-webapp). This command simplifies the deployment process by automating the creation of necessary resources and configurations for web applications in specific Kubernetes clusters.
 
+### Simulator Building
+!!! ProjectBuild
+    We have integrated a new `ProjectBuild` resource into the `apply` macro command.
+    This makes use of a temporary project in the **Modeling API** to build a simulator and optionnally push the resulting docker image in the tenant registry.
+    <br>
+    The building is configured in the `Build.yaml` file (created by the `init` macro command) and, in particular, it is based on the `project_archive_url` field defined in `variables.yaml`.
+
+!!! warning "Modeling API"
+    The `ProjectBuild` feature requires a tenant with the **Modeling API** deployed.
+    If your tenant does not have the **Modeling API**, you can skip this step with: `babylon apply --exclude build project/`
+
 ### PostgreSQL Schema Creation
 !!! Workspace
     The workspaces macro command has been significantly enhanced, especially for creating PostgreSQL schemas. These improvements streamline the setup and management of database schemas within your workspaces, making it faster and easier to define, deploy, and maintain the necessary database structures.

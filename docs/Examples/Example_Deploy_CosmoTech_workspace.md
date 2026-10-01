@@ -95,6 +95,15 @@ Here is an example of `variables.yaml` with detailed explanations:
     # See available versions: https://github.com/Cosmo-Tech/terraform-webapp/releases
     tf_webapp_version: "1.0.1"
 
+    # Build
+    # CoSML project location supported formats:
+    # - Local folder: file:///home/me/cosml_project
+    # - Local folder archive: file:///home/me/cosmo_project.tar.gz
+    # - Git repository and reference:
+    #   - SSH access: git@github.com:my_name/my_solution.git@branch_or_tag
+    #   - HTTPS access: git+https://vcs.server/my_solution.git@branch_or_tag
+    project_archive_url: git+https://github.com/Cosmo-Tech/xxxxxxxxxxxxxxxxxxxxxxx.git@xxxx
+
     # Enabled by default: stores deployment state in a Kubernetes secret.
     # Set to false for local testing.
     remote: true

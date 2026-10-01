@@ -4,6 +4,7 @@ babylon init --project-folder devops --variables-file devops.yaml azure superset
 
 ```bash
     → Created directory: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+    ✔ Generated Build.yaml
     ✔ Generated Organization.yaml
     ✔ Generated Solution.yaml
     ✔ Generated Workspace_superset.yaml
