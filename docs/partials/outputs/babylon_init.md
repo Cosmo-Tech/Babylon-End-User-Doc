@@ -17,8 +17,8 @@ babylon init --project-folder devops --variables-file devops.yaml azure superset
     → Created directory: dashboard/superset
     ✔ Generated devops.yaml (provider: azure)
     ! Webapp directory not found
-    → Cloning Terraform WebApp module (version 0.2.0)...
-    ✔ Terraform WebApp module cloned at version 0.2.0
+    → Cloning Terraform WebApp module (version 1.2.0)...
+    ✔ Terraform WebApp module cloned at version 1.2.0
 
 🚀 Project successfully initialized!
     Path: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops

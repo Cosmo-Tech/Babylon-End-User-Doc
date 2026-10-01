@@ -80,6 +80,10 @@ Here is an example of `variables.yaml` with detailed explanations:
         type: User
 
     # Webapp
+    # These variables are used to render your Webapp.yaml manifest and can be mapped to the
+    # terraform module variables (terraform.tfvars) used by the terraform-webapp module.
+    # See the module's example tfvars for reference:
+    # https://github.com/Cosmo-Tech/terraform-webapp/blob/main/terraform.tfvars
     cloud_provider: azure                       # Cloud provider to use (e.g., azure, aws, gcp)
     cluster_name: aks-dev-test                  # Name of the Kubernetes cluster
     domain_zone: azure.platform.cosmotech.com   # Domain of the Kubernetes cluster
@@ -93,7 +97,7 @@ Here is an example of `variables.yaml` with detailed explanations:
     # Webapp module version pinned to a specific release of terraform-webapp.
     # Override with --tf-webapp-version on 'babylon init', or edit this value directly.
     # See available versions: https://github.com/Cosmo-Tech/terraform-webapp/releases
-    tf_webapp_version: "1.0.1"
+    tf_webapp_version: "1.2.0"
 
     # Build
     # CoSML project location supported formats:
