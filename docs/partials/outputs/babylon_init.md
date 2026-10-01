@@ -1,0 +1,26 @@
+```bash
+babylon init --project-folder devops --variables-file devops.yaml azure superset
+```
+
+```bash
+    → Created directory: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+    ✔ Generated Organization.yaml
+    ✔ Generated Solution.yaml
+    ✔ Generated Workspace_superset.yaml
+    ✔ Generated Webapp.yaml (provider: azure)
+    → Created directory: postgres/jobs
+    ✔ Generated postgres/jobs/k8s_job.yaml
+    → Created directory: dashboard/powerbi
+    → Created directory: dashboard/superset
+    ✔ Generated devops.yaml (provider: azure)
+    ! Webapp directory not found
+    → Cloning Terraform WebApp module (version 0.2.0)...
+    ✔ Terraform WebApp module cloned at version 0.2.0
+
+🚀 Project successfully initialized!
+    Path: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+
+Next steps:
+    1. Edit your variables in devops.yaml
+    2. Run your first deployment command
+```

@@ -283,42 +283,12 @@ Here’s an example:
     ```bash
     babylon init azure
     ```
-    ```bash
-    babylon init --project-folder devops --variables-file devops.yaml azure
-    ```
-    ```bash
-       → Cloning Terraform WebApp module...
-       ✔ Terraform WebApp module cloned
-       → Created directory: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
-       ✔ Generated Organization.yaml
-       ✔ Generated Solution.yaml
-       ✔ Generated Workspace.yaml
-       ✔ Generated Webapp.yaml
-       ✔ Generated postgres/jobs/k8s_job.yaml
-       ✔ Generated devops.yaml
-    🚀 Project successfully initialized!
-       Path: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+    --8<-- 'docs/partials/outputs/babylon_init.md'
 
-    Next steps:
-       1. Edit your variables in devops.yaml
-       2. Run your first deployment command
-    ```
-    for structure of the generated project, you should see something like this:
+    For structure of the generated project, you should see something like this:
 
-    ```bash
-    .
-    ├── babylon.log
-    ├── devops
-    │   ├── Organization.yaml
-    │   ├── postgres
-    │   │   └── jobs
-    │   │       └── k8s_job.yaml
-    │   ├── Solution.yaml
-    │   ├── Webapp.yaml
-    │   └── Workspace.yaml
-    ├── terraform-webapp
-    └── devops.yaml
-    ```
+    --8<-- 'docs/partials/outputs/project_tree.md'
+
 Now, you can get started with running Babylon commands.
 All the required YAML files for the resources you need to deploy in v5 are provided as templates.
 You can customize and modify them based on your specific needs.

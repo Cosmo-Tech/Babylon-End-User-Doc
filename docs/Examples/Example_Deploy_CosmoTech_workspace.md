@@ -39,49 +39,11 @@ With Babylon v5, you can now generate a minimal manifest YAML file that can be u
 
 !!! example
 
-    ```bash
-    babylon init --project-folder devops --variables-file devops.yaml azure
-    ```
-    ```bash
-       → Created directory: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
-       ✔ Generated Organization.yaml
-       ✔ Generated Solution.yaml
-       ✔ Generated Workspace.yaml
-       ✔ Generated Webapp.yaml (provider: azure)
-       → Created directory: postgres/jobs
-       ✔ Generated postgres/jobs/k8s_job.yaml
-       → Created directory: dashboard/superset
-       → Created directory: dashboard/powerbi
-       ✔ Generated devops.yaml (provider: azure)
-       ! Webapp directory not found
-       → Cloning Terraform WebApp module (version 0.2.0)...
-       ✔ Terraform WebApp module cloned at version 0.2.0
+    --8<-- 'docs/partials/outputs/babylon_init.md'
 
-    🚀 Project successfully initialized!
-       Path: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+    The `init` command creates a project folder with the following structure:
+    --8<-- 'docs/partials/outputs/project_tree.md'
 
-    Next steps:
-       1. Edit your variables in devops.yaml
-       2. Run your first deployment command
-    ```
-    the `init` command creates a project folder with the following structure:
-    ```bash
-    .
-    ├── babylon.log
-    ├── devops
-    │   ├── dashboard
-    │   │   ├── powerbi
-    │   │   └── superset
-    │   ├── Organization.yaml
-    │   ├── postgres
-    │   │   └── jobs
-    │   │       └── k8s_job.yaml
-    │   ├── Solution.yaml
-    │   ├── Webapp.yaml
-    │   └── Workspace.yaml
-    ├── devops.yaml
-    └── terraform-webapp
-    ```
 ## Start Deployment
 
 Now, we can start running the Babylon command to deploy the workspace.
