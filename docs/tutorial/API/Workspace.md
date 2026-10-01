@@ -6,7 +6,7 @@ One of the major changes is the replacement of the `ADX` database with `PostgreS
 
 #### PostgreSQL Schema Creation with Kubernetes Job
 
-With the new workspace configuration, Babylon leverages a Kubernetes job to automate the creation of a PostgreSQL schema for each workspace. This is defined under the `sidecars.postgres.schema.jobs` section:
+With the new workspace configuration, Babylon leverages a Kubernetes job to automate the creation of a PostgreSQL schema for each workspace. This is defined under the `sidecars.postgres.schema.jobs` section.
 
 When `create` is set to `true`, Babylon will execute the specified Kubernetes job (`k8s_job.yaml`) located in the `postgres/jobs` directory. This job is responsible for initializing the PostgreSQL schema required by the workspace. This approach ensures that each workspace has its own isolated schema, improving data management and security.
 

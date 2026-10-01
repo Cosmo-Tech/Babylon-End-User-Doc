@@ -25,7 +25,6 @@ To view the current context and state being used by Babylon, run the following c
 ```bash
 babylon namespace get-contexts
 ```
-
 ```bash
 CURRENT  CONTEXT          TENANT  STATE ID  
 *        test             dev     state 
@@ -64,6 +63,7 @@ When is the case you run simplement
     → Running Terraform destroy for WebApp resources...
     Acquiring state lock. This may take a few moments...
     module.chart-keycloak-client.data.kubernetes_secret.keycloak: Reading...
+    ...
     module.chart-cosmotech-webapp.kubernetes_config_map.webapp: Destruction complete after 0s
    
     Destroy complete! Resources: 5 destroyed.
@@ -77,6 +77,7 @@ When is the case you run simplement
 
 ✨ Cleanup process complete
 ```
+
 ## Selective Destruction
 The same **include/exclude philosophy** applies to resource destruction. This allows you to avoid removing specific objects or to target only a single resource for deletion.
 

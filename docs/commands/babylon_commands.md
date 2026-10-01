@@ -29,7 +29,7 @@ description: "Reference guide for essential Babylon CLI commands"
     -n, --dry-run         Will run commands in dry-run mode.
     --version             Print version number and return.
     --log-path DIRECTORY  Path to the directory where log files will be stored.
-                            If not set, defaults to current working directory.
+                          If not set, defaults to current working directory.
     --help                Show this message and exit.
 
     Commands:

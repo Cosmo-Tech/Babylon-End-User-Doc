@@ -252,7 +252,7 @@ The `babylon namespace get-states` command provides two options:
     ```
 
 ### Keycloak Authentication
-!!! note "Keycloak Auth"
+!!! note "Keycloak"
     - Starting with version 5, Babylon uses Keycloak as the authentication system to authenticate with the Cosmotech API and execute commands to create objects.
     - A new client, `cosmotech-babylon-client`, is created in Keycloak for this purpose.
 
@@ -383,14 +383,16 @@ Usage Examples:
     ```bash
     babylon api organizations list -f organizations.yaml
     ```
+
 ### Superset integration
-!!! Superset_integration
+!!! Superset
     We added the capability to include user-provided (zip) Superset dashboards in workspace deployment through a database connection, a corresponding database schema and the access roles with all permissions needed on the postgresql workspace schema allowing to import Superset assets and add dashboards with embedded UUID feedback.
 
 !!! example "Superset dashboards integration during deployment"
 
     ```bash
     🚀 Deploying Workspace in namespace: dev
+      ...
       → Deploying 3 dashboard ZIP(s) to Superset...
       ⚠ Datasource 'tenant-test0' is already configured (id=11) !
       → Dashboard dashboard_satisfaction' first deployment creating all assets...
@@ -403,15 +405,15 @@ Usage Examples:
       ✔ Embedding enabled for dashboard 'QA - Dashboard - ScenarioView' (key='qadashboardscenarioview', uuid='8e5bf0bf-843a-4ce8-a4cd-b43d3e7207f1')
       ✔ Embedding enabled for dashboard 'QA - Dashboard - Satisfaction' (key='qadashboardsatisfaction', uuid='7784e402-cf9e-46b9-bb65-116d246b3370')
       ✔ Variable file 'variables.yaml' updated with 3 embedded dashboard UUID(s)
+      ...
     ```
 
 ### Webapp Deployment
-
-!!! Webapp_deployment
+!!! Webapp
     We have introduced a new macro command to handle the deployment of webapps, based on terraform modules [`terraform-webapp`](https://github.com/Cosmo-Tech/terraform-webapp). This command simplifies the deployment process by automating the creation of necessary resources and configurations for web applications in specific Kubernetes clusters.
 
 ### PostgreSQL Schema Creation
-!!! Workspace_improvements
+!!! Workspace
     The workspaces macro command has been significantly enhanced, especially for creating PostgreSQL schemas. These improvements streamline the setup and management of database schemas within your workspaces, making it faster and easier to define, deploy, and maintain the necessary database structures.
 
 ### Secret Creation

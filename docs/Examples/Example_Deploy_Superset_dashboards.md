@@ -9,7 +9,7 @@ description: Example for setting up a Cosmo Tech workspace with Superset dashboa
 
 ## :material-folder: Including the dahsboard files in the project tree
 
-Assuming you have retreieved configured Superset dahsboards from a working cluster, you will have just to put the zipped files, one per dashboards, in the `dashboard/superset` folder of your project folder:
+Assuming you have retreieved configured Superset dahsboards from a working cluster, you will have just to put the zipped files, one per dashboard, in the `dashboard/superset` folder of your project folder:
 
 !!! example "Project tree example"
 
@@ -34,7 +34,7 @@ Assuming you have retreieved configured Superset dahsboards from a working clust
     ```
 
 
-## :material-file-edit: Applying Babylon Commands
+## :material-file-edit: Babylon workspace configuration
 
 Having included the zipped dashboards, the Workspace needs to be configured manually to include the dashboards in the Solution after deployment:
 
