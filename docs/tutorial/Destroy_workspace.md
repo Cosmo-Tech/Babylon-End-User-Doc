@@ -29,13 +29,47 @@ babylon namespace get-contexts
 CURRENT  CONTEXT          TENANT  STATE ID  
 *        test             dev     state 
 ```
-When is the case you run simplement 
+
+In the case of the current context not being the expected one, run the following to switch contexts:
 
 ```bash
-> babylon destroy
+babylon namespace use -c my_expected_context -t my_tenant_name
 ```
+
+Once Babylon points to the case the expected context, run simply:
+
 ```bash
-🔥 Starting Destruction Process in namespace: dev
+babylon destroy
+```
+
+First, this will display the interactive confirmation prompt before destroying resources (with `-yes` flag to skip):
+
+```bash
+  ✔ State loaded from secret babylon-state-test-tenant-dev in namespace tenant-dev
+
+  ╭─────────────────────────────────────────────────────────────╮
+  │  ⚠  DESTRUCTIVE ACTION                                      │
+  ╰─────────────────────────────────────────────────────────────╯
+
+  State        state-test-tenant-dev
+
+  Resources to be destroyed:
+    • Organization: o-841ez282ypmx
+    • Solution:     sol-9epr7jxn2ndl
+    • Workspace:    w-0rnd73k2kyd5
+        ↳ Note: This will also destroy all sidecar resources (PowerBI, Superset, Secrets, ConfigMap...)
+    • Web App:      webapp-business
+
+  All resources in this environment will be destroyed.
+  This action cannot be undone.
+
+  Continue with destruction? [y/N]:
+```
+
+When validated, Babylon will proceed to the removal of all the corresponding resources:
+
+```bash
+🔥 Starting Destruction Process in namespace: tenant-dev
     → Loading configuration from Kubernetes secret...
     → Existing ID sol-9epr7jxn2ndl found. Deleting...
     ✔ Solution sol-9epr7jxn2ndl deleted
@@ -66,8 +100,12 @@ When is the case you run simplement
     ...
     module.chart-cosmotech-webapp.kubernetes_config_map.webapp: Destruction complete after 0s
    
-    Destroy complete! Resources: 5 destroyed.
-    ✔ WebApp webapp-business destroyed  
+    Destroy complete! Resources: 6 destroyed.
+    ✔ WebApp webapp-business destroyed
+    🗑 All resources cleared ! removing local state file...
+    ✔ Local state file state.test.tenant-dev.yaml deleted
+    ☁ All resources cleared ! removing remote state secret from Kubernetes...
+    ✔ State secret babylon-state-test-tenant-dev deleted from namespace tenant-dev
 
 📋 Destruction Summary
   • Organization Id : DELETED
