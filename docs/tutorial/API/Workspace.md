@@ -14,14 +14,14 @@ When `create` is set to `true`, Babylon will execute the specified Kubernetes jo
 
 With the new workspace configuration, Babylon provides the possibility to run PostgreSQL scripts via Kubernetes jobs (with scaffolding PostgreSQL scripts on the `init` macro command). This is defined under the `sidecars.postgres.schema.scripts` section.
 
-When `run` is set to `true`, Babylon will execute existing PostgreSQL scripts located in the `postgres/scripts` directory allowing to conduct custom SQL operations on the specifc tables when deploying a workspace.
+When `run` is set to `true`, Babylon will execute existing PostgreSQL scripts located in the `postgres/scripts` directory allowing to conduct custom SQL operations on the specific tables when deploying a workspace.
 
 
 !!! info "Script run order"
 
     Scripts are run in a deterministic filename order.
     <br>
-    Script paths are resolved relative to the specified root folder and a ``*.sql`` mathcing pattern.
+    Script paths are resolved relative to the specified root folder and a ``*.sql`` matching pattern.
     <br>
     To specify an in-folder run order, the scripts' names need to follow an alphanumeric convention like:
     <br>

@@ -58,7 +58,7 @@ This guide provides an example on how to deploy with Power BI dashboards (Babylo
 
 <article markdown>
 <div class="text" markdown>
-:material-roman-numeral-3: __Example: Deploying with Superset dashboards__
+:material-roman-numeral-4: __Example: Deploying with Superset dashboards__
 
 ---
 This guide provides an example on how to deploy with Superset dashboards (Babylon v5).

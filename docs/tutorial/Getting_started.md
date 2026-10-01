@@ -266,22 +266,24 @@ Here’s an example:
     babylon init --help
     ```
     ```bash
-    Usage: babylon init [OPTIONS] {azure|kob}
+    Usage: babylon init [OPTIONS] {azure|kob} {powerbi|superset}
 
     Scaffolds a new Babylon project structure using YAML templates.
 
     arguments:
 
-        cloud_provider: Target cloud provider for webapp deployment (e.g. 'azure',
-        'kob').
+        cloud_provider: Target cloud provider for webapp deployment (e.g. 'azure', 'kob').
+        bi_provider:    Target BI/Dashboard provider ('powerbi', 'superset'). Default: 'superset'.
 
     Options:
     --project-folder TEXT  Name of the project folder to create (default:'project').
     --variables-file TEXT  Name of the variables file (default:'variables.yaml').
+    --tf-webapp-version TEXT  Version (tag) of the terraform-webapp module to
+                              clone/checkout. Default: 1.2.0.  [default: 1.2.0]
     --help  Show this message and exit.
     ```
     ```bash
-    babylon init azure
+    babylon init azure superset
     ```
     --8<-- 'docs/partials/outputs/babylon_init.md'
 
@@ -416,7 +418,7 @@ Usage Examples:
 ### Simulator Building
 !!! ProjectBuild
     We have integrated a new `ProjectBuild` resource into the `apply` macro command.
-    This makes use of a temporary project in the **Modeling API** to build a simulator and optionnally push the resulting docker image in the tenant registry.
+    This makes use of a temporary project in the **Modeling API** to build a simulator and optionally push the resulting docker image in the tenant registry.
     <br>
     The building is configured in the `Build.yaml` file (created by the `init` macro command) and, in particular, it is based on the `project_archive_url` field defined in `variables.yaml`.
 

@@ -4,7 +4,6 @@
 ├── devops
 │   ├── Build.yaml
 │   ├── dashboard
-│   │   ├── powerbi
 │   │   └── superset
 │   ├── Organization.yaml
 │   ├── postgres
@@ -15,7 +14,7 @@
 │   │       └── 02_seed_test_data.sql
 │   ├── Solution.yaml
 │   ├── Webapp.yaml
-│   └── Workspace.yaml
+│   └── Workspace_superset.yaml
 ├── devops.yaml
 └── terraform-webapp
 ```

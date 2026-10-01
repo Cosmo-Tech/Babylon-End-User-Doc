@@ -36,13 +36,13 @@ In the case of the current context not being the expected one, run the following
 babylon namespace use -c my_expected_context -t my_tenant_name
 ```
 
-Once Babylon points to the case the expected context, run simply:
+Once Babylon points to the expected context, run simply:
 
 ```bash
 babylon destroy
 ```
 
-First, this will display the interactive confirmation prompt before destroying resources (with `-yes` flag to skip):
+First, this will display the interactive confirmation prompt before destroying resources (with `--yes` or `-y` flag to skip):
 
 ```bash
   ✔ State loaded from secret babylon-state-test-tenant-dev in namespace tenant-dev

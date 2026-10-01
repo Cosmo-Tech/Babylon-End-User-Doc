@@ -74,7 +74,7 @@ Here is an example of `variables.yaml` with detailed explanations:
 
     # Power BI (if applicable)
     powerbi_workspace_name:     # Should be the name of the project like "project1 powerbi workspace"
-    powerbi_permissions:        # ACL security specific to the PowerBi workspace
+    powerbi_permissions:        # ACL security specific to the PowerBI workspace
       - identifier: "user.1@cosmotech.com"
         rights: Admin
         type: User

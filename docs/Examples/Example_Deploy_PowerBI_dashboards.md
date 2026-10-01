@@ -7,9 +7,9 @@ description: Example for setting up a Cosmo Tech workspace with Power BI dashboa
 !!! info "Init tree with Babylon v5"
     From Babylon v5 onwards, the `init` command will create a sub-folder `dashboard/<bi_provider>` under the project folder (by default, `project` if not otherwise indicated with the `--project-folder` option).
 
-## :material-folder: Including the dahsboard files in the project tree
+## :material-folder: Including the dashboard files in the project tree
 
-Assuming you have retreieved configured Power BI dahsboards from a working Power BI workspace, you will have just to put the .pbix files, one per dashboard, in the `dashboard/powerbi` folder of your project folder:
+Assuming you have retrieved configured Power BI dashboards from a working Power BI workspace, you will have just to put the .pbix files, one per dashboard, in the `dashboard/powerbi` folder of your project folder:
 
 !!! example "Project tree example"
 
@@ -22,11 +22,14 @@ Assuming you have retreieved configured Power BI dahsboards from a working Power
     │   │       └── brewery_dashboard.pbix
     │   ├── Organization.yaml
     │   ├── postgres
-    │   │   └── jobs
-    │   │       └── k8s_job.yaml
+    │   │   ├── jobs
+    │   │   │   └── k8s_job.yaml
+    │   │   └── scripts
+    │   │       ├── 01_create_test_table.sql
+    │   │       └── 02_seed_test_data.sql
     │   ├── Solution.yaml
     │   ├── Webapp.yaml
-    │   └── Workspace.yaml
+    │   └── Workspace_powerbi.yaml
     ├── devops.yaml
     └── terraform-webapp
     ```
@@ -36,7 +39,7 @@ Assuming you have retreieved configured Power BI dahsboards from a working Power
 
 Having included the .pbix dashboards, the Workspace needs to be configured manually to include the dashboards in the Solution after deployment:
 
-!!! example "Workspace yaml 'charts' field"
+!!! example "Workspace_powerbi yaml 'charts' field"
 
     ```bash
       charts:
@@ -98,7 +101,7 @@ Having included the .pbix dashboards, the Workspace needs to be configured manua
                 values: lastRunId
     ```
 
-!!! info "Power Bi workspace ACL"
+!!! info "Power BI workspace ACL"
     Azure app registration for the WebApp is configured with the ACL (Access Control List) defined in the Power BI configurations in the `powerbi_permissions` field in [variables.yaml](/Examples/Example_Deploy_CosmoTech_workspace.md#start-deployment)
 
 !!! warning "Azure permissions"
