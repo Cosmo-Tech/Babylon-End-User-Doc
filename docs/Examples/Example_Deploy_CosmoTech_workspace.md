@@ -71,6 +71,14 @@ Here is an example of `variables.yaml` with detailed explanations:
     solution_description: to_fill               # Quick sentence to explain the purpose of the solution
     simulator_repository: to_fill               # To fill according to your simulator name
     simulator_version: to_fill                  # To fill according to your simulator version
+
+    # Power BI (if applicable)
+    powerbi_workspace_name:     # Should be the name of the project like "project1 powerbi workspace"
+    powerbi_permissions:        # ACL security specific to the PowerBi workspace
+      - identifier: "user.1@cosmotech.com"
+        rights: Admin
+        type: User
+
     # Webapp
     cloud_provider: azure                       # Cloud provider to use (e.g., azure, aws, gcp)
     cluster_name: aks-dev-test                  # Name of the Kubernetes cluster

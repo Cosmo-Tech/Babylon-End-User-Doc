@@ -59,6 +59,7 @@ nav:
       - "Examples/Example_Deploy_CosmoTech_workspace.md"
       - "Examples/Example_Update_CosmoTech_workspace.md"
       - "Examples/Example_Deploy_Superset_dashboards.md"
+      - "Examples/Example_Deploy_PowerBI_dashboards.md"
   - Commands:
       - "commands/babylon_commands.md"
 

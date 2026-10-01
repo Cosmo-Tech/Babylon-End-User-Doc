@@ -378,6 +378,37 @@ Usage Examples:
       ...
     ```
 
+### Power BI integration
+!!! PowerBI
+    We added full Power BI workspace deployment support to the `init` and `apply` macro commands,
+    as well as Power BI resource destruction to the macro `destroy` command with a refactored destroy logic,
+    and Azure app registration for the WebApp via an ACL specific to the Power BI workspace with a refactored sync logic.
+
+!!! example "Power BI dashboards integration during deployment"
+
+    ```bash
+    🚀 Deploying Workspace in namespace: dev
+      ...
+      → Creating Power BI workspace 'Babylon v5 Power BI Brewery workspace dev'...
+      → Deploying 1 dashboard report(s) to Power BI workspace '2fe8dac3-12fa-409a-ad1b-faffee6e6f54'...
+      → waiting for import of file brewery_dashboard.pbix to end ...
+      ✔ Report brewery_dashboard uploaded to Power BI
+      ✔ Report id c35f90e9-0140-4329-af5b-c6964050935c saved in the Babylon state
+      ✔ Successfully took ownership of dataset 41fa97dc-d2f4-4899-9c1e-8d7ff7e767c0
+      ✔ Parameters successfully updated
+      ✔ Successfully updated credentials for datasource 7eab6cf6-3419-401c-a7c7-71ff77276b7c
+      ✔ Report brewery_dashboard successfully imported
+      → Detected WebApp Power BI App Registration object_id: e423f450-40ff-4941-801f-347f3ed7a042 will grant it 'Member' access to the workspace Power BI
+      ⚠ Skipping 'user.1@cosmotech.com' Power BI doesn't allow a user to update their own workspace permissions via the API
+      → Adding Power BI permissions for 'user.2@cosmotech.com'...
+      ✔ User user.2@cosmotech.com successfully added to Power BI workspace
+      → Adding Power BI permissions for 'user.3@cosmotech.com'...
+      ✔ User user.3@cosmotech.com successfully added to Power BI workspace
+      → Adding Power BI permissions for 'e423f450-40ff-4941-801f-347f3ed7a042'...
+      ✔ App e423f450-40ff-4941-801f-347f3ed7a042 successfully added to Power BI workspace
+      ...
+    ```
+
 ### Webapp Deployment
 !!! Webapp
     We have introduced a new macro command to handle the deployment of webapps, based on terraform modules [`terraform-webapp`](https://github.com/Cosmo-Tech/terraform-webapp). This command simplifies the deployment process by automating the creation of necessary resources and configurations for web applications in specific Kubernetes clusters.
