@@ -10,6 +10,8 @@ babylon init --project-folder devops --variables-file devops.yaml azure superset
     ✔ Generated Webapp.yaml (provider: azure)
     → Created directory: postgres/jobs
     ✔ Generated postgres/jobs/k8s_job.yaml
+    ✔ Generated postgres/scripts/01_create_test_table.sql
+    ✔ Generated postgres/scripts/02_seed_test_data.sql
     → Created directory: dashboard/powerbi
     → Created directory: dashboard/superset
     ✔ Generated devops.yaml (provider: azure)
