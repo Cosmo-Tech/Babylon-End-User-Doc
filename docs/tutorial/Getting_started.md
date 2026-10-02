@@ -205,6 +205,7 @@ Running the following command displays the updated namespace commands:
     Commands:
       get-contexts  Display the currently active namespace
       get-states    Display states from local machine or remote storage.
+      show-state    Display the content of the local or remote state.
       use           Switch to a specific namespace or create a new one
 
     ```
@@ -220,6 +221,8 @@ Additionally, with `get-states`, you can list all states available on our local 
     CURRENT  CONTEXT                            TENANT        STATE ID                              
     *        project1                           dev           1184d4e3 
     ```
+
+`show-state`
 
 #### Viewing State Files
 
