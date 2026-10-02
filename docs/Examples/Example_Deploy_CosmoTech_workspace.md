@@ -39,49 +39,11 @@ With Babylon v5, you can now generate a minimal manifest YAML file that can be u
 
 !!! example
 
-    ```bash
-    babylon init --project-folder devops --variables-file devops.yaml azure
-    ```
-    ```bash
-       → Created directory: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
-       ✔ Generated Organization.yaml
-       ✔ Generated Solution.yaml
-       ✔ Generated Workspace.yaml
-       ✔ Generated Webapp.yaml (provider: azure)
-       → Created directory: postgres/jobs
-       ✔ Generated postgres/jobs/k8s_job.yaml
-       → Created directory: dashboard/superset
-       → Created directory: dashboard/powerbi
-       ✔ Generated devops.yaml (provider: azure)
-       ! Webapp directory not found
-       → Cloning Terraform WebApp module (version 0.2.0)...
-       ✔ Terraform WebApp module cloned at version 0.2.0
+    --8<-- 'docs/partials/outputs/babylon_init.md'
 
-    🚀 Project successfully initialized!
-       Path: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+    The `init` command creates a project folder with the following structure:
+    --8<-- 'docs/partials/outputs/project_tree.md'
 
-    Next steps:
-       1. Edit your variables in devops.yaml
-       2. Run your first deployment command
-    ```
-    the `init` command creates a project folder with the following structure:
-    ```bash
-    .
-    ├── babylon.log
-    ├── devops
-    │   ├── dashboard
-    │   │   ├── powerbi
-    │   │   └── superset
-    │   ├── Organization.yaml
-    │   ├── postgres
-    │   │   └── jobs
-    │   │       └── k8s_job.yaml
-    │   ├── Solution.yaml
-    │   ├── Webapp.yaml
-    │   └── Workspace.yaml
-    ├── devops.yaml
-    └── terraform-webapp
-    ```
 ## Start Deployment
 
 Now, we can start running the Babylon command to deploy the workspace.
@@ -109,7 +71,19 @@ Here is an example of `variables.yaml` with detailed explanations:
     solution_description: to_fill               # Quick sentence to explain the purpose of the solution
     simulator_repository: to_fill               # To fill according to your simulator name
     simulator_version: to_fill                  # To fill according to your simulator version
+
+    # Power BI (if applicable)
+    powerbi_workspace_name:     # Should be the name of the project like "project1 powerbi workspace"
+    powerbi_permissions:        # ACL security specific to the PowerBI workspace
+      - identifier: "user.1@cosmotech.com"
+        rights: Admin
+        type: User
+
     # Webapp
+    # These variables are used to render your Webapp.yaml manifest and can be mapped to the
+    # terraform module variables (terraform.tfvars) used by the terraform-webapp module.
+    # See the module's example tfvars for reference:
+    # https://github.com/Cosmo-Tech/terraform-webapp/blob/main/terraform.tfvars
     cloud_provider: azure                       # Cloud provider to use (e.g., azure, aws, gcp)
     cluster_name: aks-dev-test                  # Name of the Kubernetes cluster
     domain_zone: azure.platform.cosmotech.com   # Domain of the Kubernetes cluster
@@ -123,7 +97,16 @@ Here is an example of `variables.yaml` with detailed explanations:
     # Webapp module version pinned to a specific release of terraform-webapp.
     # Override with --tf-webapp-version on 'babylon init', or edit this value directly.
     # See available versions: https://github.com/Cosmo-Tech/terraform-webapp/releases
-    tf_webapp_version: "1.0.1"
+    tf_webapp_version: "1.2.0"
+
+    # Build
+    # CoSML project location supported formats:
+    # - Local folder: file:///home/me/cosml_project
+    # - Local folder archive: file:///home/me/cosmo_project.tar.gz
+    # - Git repository and reference:
+    #   - SSH access: git@github.com:my_name/my_solution.git@branch_or_tag
+    #   - HTTPS access: git+https://vcs.server/my_solution.git@branch_or_tag
+    project_archive_url: git+https://github.com/Cosmo-Tech/xxxxxxxxxxxxxxxxxxxxxxx.git@xxxx
 
     # Enabled by default: stores deployment state in a Kubernetes secret.
     # Set to false for local testing.

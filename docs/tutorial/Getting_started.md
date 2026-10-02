@@ -252,7 +252,7 @@ The `babylon namespace get-states` command provides two options:
     ```
 
 ### Keycloak Authentication
-!!! note "Keycloak Auth"
+!!! note "Keycloak"
     - Starting with version 5, Babylon uses Keycloak as the authentication system to authenticate with the Cosmotech API and execute commands to create objects.
     - A new client, `cosmotech-babylon-client`, is created in Keycloak for this purpose.
 
@@ -266,59 +266,31 @@ Here’s an example:
     babylon init --help
     ```
     ```bash
-    Usage: babylon init [OPTIONS] {azure|kob}
+    Usage: babylon init [OPTIONS] {azure|kob} {powerbi|superset}
 
     Scaffolds a new Babylon project structure using YAML templates.
 
     arguments:
 
-        cloud_provider: Target cloud provider for webapp deployment (e.g. 'azure',
-        'kob').
+        cloud_provider: Target cloud provider for webapp deployment (e.g. 'azure', 'kob').
+        bi_provider:    Target BI/Dashboard provider ('powerbi', 'superset'). Default: 'superset'.
 
     Options:
     --project-folder TEXT  Name of the project folder to create (default:'project').
     --variables-file TEXT  Name of the variables file (default:'variables.yaml').
+    --tf-webapp-version TEXT  Version (tag) of the terraform-webapp module to
+                              clone/checkout. Default: 1.2.0.  [default: 1.2.0]
     --help  Show this message and exit.
     ```
     ```bash
-    babylon init azure
+    babylon init azure superset
     ```
-    ```bash
-    babylon init --project-folder devops --variables-file devops.yaml azure
-    ```
-    ```bash
-       → Cloning Terraform WebApp module...
-       ✔ Terraform WebApp module cloned
-       → Created directory: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
-       ✔ Generated Organization.yaml
-       ✔ Generated Solution.yaml
-       ✔ Generated Workspace.yaml
-       ✔ Generated Webapp.yaml
-       ✔ Generated postgres/jobs/k8s_job.yaml
-       ✔ Generated devops.yaml
-    🚀 Project successfully initialized!
-       Path: /home/user/CosmoTech/DevOps/babylon_v5_dir/devops
+    --8<-- 'docs/partials/outputs/babylon_init.md'
 
-    Next steps:
-       1. Edit your variables in devops.yaml
-       2. Run your first deployment command
-    ```
-    for structure of the generated project, you should see something like this:
+    For structure of the generated project, you should see something like this:
 
-    ```bash
-    .
-    ├── babylon.log
-    ├── devops
-    │   ├── Organization.yaml
-    │   ├── postgres
-    │   │   └── jobs
-    │   │       └── k8s_job.yaml
-    │   ├── Solution.yaml
-    │   ├── Webapp.yaml
-    │   └── Workspace.yaml
-    ├── terraform-webapp
-    └── devops.yaml
-    ```
+    --8<-- 'docs/partials/outputs/project_tree.md'
+
 Now, you can get started with running Babylon commands.
 All the required YAML files for the resources you need to deploy in v5 are provided as templates.
 You can customize and modify them based on your specific needs.
@@ -383,14 +355,16 @@ Usage Examples:
     ```bash
     babylon api organizations list -f organizations.yaml
     ```
+
 ### Superset integration
-!!! Superset_integration
+!!! Superset
     We added the capability to include user-provided (zip) Superset dashboards in workspace deployment through a database connection, a corresponding database schema and the access roles with all permissions needed on the postgresql workspace schema allowing to import Superset assets and add dashboards with embedded UUID feedback.
 
 !!! example "Superset dashboards integration during deployment"
 
     ```bash
     🚀 Deploying Workspace in namespace: dev
+      ...
       → Deploying 3 dashboard ZIP(s) to Superset...
       ⚠ Datasource 'tenant-test0' is already configured (id=11) !
       → Dashboard dashboard_satisfaction' first deployment creating all assets...
@@ -403,15 +377,57 @@ Usage Examples:
       ✔ Embedding enabled for dashboard 'QA - Dashboard - ScenarioView' (key='qadashboardscenarioview', uuid='8e5bf0bf-843a-4ce8-a4cd-b43d3e7207f1')
       ✔ Embedding enabled for dashboard 'QA - Dashboard - Satisfaction' (key='qadashboardsatisfaction', uuid='7784e402-cf9e-46b9-bb65-116d246b3370')
       ✔ Variable file 'variables.yaml' updated with 3 embedded dashboard UUID(s)
+      ...
+    ```
+
+### Power BI integration
+!!! PowerBI
+    We added full Power BI workspace deployment support to the `init` and `apply` macro commands,
+    as well as Power BI resource destruction to the macro `destroy` command with a refactored destroy logic,
+    and Azure app registration for the WebApp via an ACL specific to the Power BI workspace with a refactored sync logic.
+
+!!! example "Power BI dashboards integration during deployment"
+
+    ```bash
+    🚀 Deploying Workspace in namespace: dev
+      ...
+      → Creating Power BI workspace 'Babylon v5 Power BI Brewery workspace dev'...
+      → Deploying 1 dashboard report(s) to Power BI workspace '2fe8dac3-12fa-409a-ad1b-faffee6e6f54'...
+      → waiting for import of file brewery_dashboard.pbix to end ...
+      ✔ Report brewery_dashboard uploaded to Power BI
+      ✔ Report id c35f90e9-0140-4329-af5b-c6964050935c saved in the Babylon state
+      ✔ Successfully took ownership of dataset 41fa97dc-d2f4-4899-9c1e-8d7ff7e767c0
+      ✔ Parameters successfully updated
+      ✔ Successfully updated credentials for datasource 7eab6cf6-3419-401c-a7c7-71ff77276b7c
+      ✔ Report brewery_dashboard successfully imported
+      → Detected WebApp Power BI App Registration object_id: e423f450-40ff-4941-801f-347f3ed7a042 will grant it 'Member' access to the workspace Power BI
+      ⚠ Skipping 'user.1@cosmotech.com' Power BI doesn't allow a user to update their own workspace permissions via the API
+      → Adding Power BI permissions for 'user.2@cosmotech.com'...
+      ✔ User user.2@cosmotech.com successfully added to Power BI workspace
+      → Adding Power BI permissions for 'user.3@cosmotech.com'...
+      ✔ User user.3@cosmotech.com successfully added to Power BI workspace
+      → Adding Power BI permissions for 'e423f450-40ff-4941-801f-347f3ed7a042'...
+      ✔ App e423f450-40ff-4941-801f-347f3ed7a042 successfully added to Power BI workspace
+      ...
     ```
 
 ### Webapp Deployment
-
-!!! Webapp_deployment
+!!! Webapp
     We have introduced a new macro command to handle the deployment of webapps, based on terraform modules [`terraform-webapp`](https://github.com/Cosmo-Tech/terraform-webapp). This command simplifies the deployment process by automating the creation of necessary resources and configurations for web applications in specific Kubernetes clusters.
 
+### Simulator Building
+!!! ProjectBuild
+    We have integrated a new `ProjectBuild` resource into the `apply` macro command.
+    This makes use of a temporary project in the **Modeling API** to build a simulator and optionally push the resulting docker image in the tenant registry.
+    <br>
+    The building is configured in the `Build.yaml` file (created by the `init` macro command) and, in particular, it is based on the `project_archive_url` field defined in `variables.yaml`.
+
+!!! warning "Modeling API"
+    The `ProjectBuild` feature requires a tenant with the **Modeling API** deployed.
+    If your tenant does not have the **Modeling API**, you can skip this step with: `babylon apply --exclude build project/`
+
 ### PostgreSQL Schema Creation
-!!! Workspace_improvements
+!!! Workspace
     The workspaces macro command has been significantly enhanced, especially for creating PostgreSQL schemas. These improvements streamline the setup and management of database schemas within your workspaces, making it faster and easier to define, deploy, and maintain the necessary database structures.
 
 ### Secret Creation

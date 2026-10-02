@@ -7,9 +7,9 @@ description: Example for setting up a Cosmo Tech workspace with Superset dashboa
 !!! info "Init tree with Babylon v5"
     From Babylon v5 onwards, the `init` command will create a sub-folder `dashboard/<bi_provider>` under the project folder (by default, `project` if not otherwise indicated with the `--project-folder` option).
 
-## :material-folder: Including the dahsboard files in the project tree
+## :material-folder: Including the dashboard files in the project tree
 
-Assuming you have retreieved configured Superset dahsboards from a working cluster, you will have just to put the zipped files, one per dashboards, in the `dashboard/superset` folder of your project folder:
+Assuming you have retrieved configured Superset dashboards from a working cluster, you will have just to put the zipped files, one per dashboard, in the `dashboard/superset` folder of your project folder:
 
 !!! example "Project tree example"
 
@@ -24,17 +24,20 @@ Assuming you have retreieved configured Superset dahsboards from a working clust
     │   │       └── dashboard_stock.zip
     │   ├── Organization.yaml
     │   ├── postgres
-    │   │   └── jobs
-    │   │       └── k8s_job.yaml
+    │   │   ├── jobs
+    │   │   │   └── k8s_job.yaml
+    │   │   └── scripts
+    │   │       ├── 01_create_test_table.sql
+    │   │       └── 02_seed_test_data.sql
     │   ├── Solution.yaml
     │   ├── Webapp.yaml
-    │   └── Workspace.yaml
+    │   └── Workspace_superset.yaml
     ├── devops.yaml
     └── terraform-webapp
     ```
 
 
-## :material-file-edit: Applying Babylon Commands
+## :material-file-edit: Babylon workspace configuration
 
 Having included the zipped dashboards, the Workspace needs to be configured manually to include the dashboards in the Solution after deployment:
 

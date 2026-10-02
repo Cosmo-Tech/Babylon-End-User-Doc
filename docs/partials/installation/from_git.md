@@ -10,15 +10,10 @@ You can download the latest version of Babylon using git clone command
 
 **Get the specific version from git**
 
-If you want a specific version of Babylon (e.g. v5.4.0)
+If you want a specific version of Babylon (e.g. 5.5.0)
 
 !!! example "Specific Version"
     ```bash
-    git clone -b v5.4.0 git@github.com:Cosmo-Tech/Babylon.git babylon
+    git clone -b 5.5.0 git@github.com:Cosmo-Tech/Babylon.git babylon
     cd babylon
     ```
-
-
-
-
-

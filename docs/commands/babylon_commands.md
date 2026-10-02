@@ -19,7 +19,7 @@ description: "Reference guide for essential Babylon CLI commands"
           \/___/  \/__/\/_/ \/___/   `/___/> \\/____/ \/___/  \/_/\/_/  
                                         /\___/  
                                         \/__/  
-                                                                 v5.4.0
+                                                                 v5.5.0
 
       CLI used for cloud interactions between CosmoTech and multiple cloud
       environment
@@ -29,7 +29,9 @@ description: "Reference guide for essential Babylon CLI commands"
     -n, --dry-run         Will run commands in dry-run mode.
     --version             Print version number and return.
     --log-path DIRECTORY  Path to the directory where log files will be stored.
-                            If not set, defaults to current working directory.
+                          If not set, defaults to current working directory.
+    --kube-context TEXT   Name of the kubeconfig context to use instead of the
+                          current context for relevant commands
     --help                Show this message and exit.
 
     Commands:

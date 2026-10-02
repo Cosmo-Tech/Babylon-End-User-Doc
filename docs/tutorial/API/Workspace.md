@@ -6,9 +6,28 @@ One of the major changes is the replacement of the `ADX` database with `PostgreS
 
 #### PostgreSQL Schema Creation with Kubernetes Job
 
-With the new workspace configuration, Babylon leverages a Kubernetes job to automate the creation of a PostgreSQL schema for each workspace. This is defined under the `sidecars.postgres.schema.jobs` section:
+With the new workspace configuration, Babylon leverages a Kubernetes job to automate the creation of a PostgreSQL schema for each workspace. This is defined under the `sidecars.postgres.schema.jobs` section.
 
 When `create` is set to `true`, Babylon will execute the specified Kubernetes job (`k8s_job.yaml`) located in the `postgres/jobs` directory. This job is responsible for initializing the PostgreSQL schema required by the workspace. This approach ensures that each workspace has its own isolated schema, improving data management and security.
+
+#### PostgreSQL Scripts Support via Kubernetes Jobs
+
+With the new workspace configuration, Babylon provides the possibility to run PostgreSQL scripts via Kubernetes jobs (with scaffolding PostgreSQL scripts on the `init` macro command). This is defined under the `sidecars.postgres.schema.scripts` section.
+
+When `run` is set to `true`, Babylon will execute existing PostgreSQL scripts located in the `postgres/scripts` directory allowing to conduct custom SQL operations on the specific tables when deploying a workspace.
+
+
+!!! info "Script run order"
+
+    Scripts are run in a deterministic filename order.
+    <br>
+    Script paths are resolved relative to the specified root folder and a ``*.sql`` matching pattern.
+    <br>
+    To specify an in-folder run order, the scripts' names need to follow an alphanumeric convention like:
+    <br>
+    `01_xxx.sql`, `02_xxx.sql`, ..., `99_xxx.sql`
+
+#### Example
 
 !!! example "Workspace.yaml"
 
@@ -24,6 +43,9 @@ When `create` is set to `true`, Babylon will execute the specified Kubernetes jo
             jobs:
               - name: k8s_job.yaml
                 path: postgres/jobs
+            scripts:
+              - run: true
+                path: postgres/scripts
         dashboards:
           provider: superset
           create: false

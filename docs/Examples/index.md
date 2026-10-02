@@ -43,7 +43,22 @@ This guide explains how to update a Cosmo Tech workspace.
 
 <article markdown>
 <div class="text" markdown>
-:material-roman-numeral-3: __Example: Deploying with Superset dashboards__
+:material-roman-numeral-3: __Example: Deploying with Power BI dashboards__
+
+---
+This guide provides an example on how to deploy with Power BI dashboards (Babylon v5).
+
+---
+<footer markdown>
+[:octicons-arrow-right-24: Deploy](./Example_Deploy_PowerBI_dashboards.md)
+</footer>
+</div>
+</article>
+
+
+<article markdown>
+<div class="text" markdown>
+:material-roman-numeral-4: __Example: Deploying with Superset dashboards__
 
 ---
 This guide provides an example on how to deploy with Superset dashboards (Babylon v5).
