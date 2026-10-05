@@ -76,7 +76,7 @@ This guide provides an example on how to deploy with Superset dashboards (Babylo
 :material-roman-numeral-5: __Example: Delivery Brewery__
 
 ---
-This presentes the Delivery Brewery repository, a dedicated git repository base example for deploying standard projects (Babylon v5).
+This presents the Delivery Brewery repository, a dedicated git repository base example for deploying standard projects (Babylon v5).
 
 ---
 <footer markdown>
