@@ -17,16 +17,33 @@ The **Babylon state** is a structured YAML file composed of multiple sections.
 At a high level, you will find three main entries:
 ```yaml
 context:
-tenant:
 remote: true
 services:
   api:
     organization_id: 
     solution_id: 
     workspace_id: 
+  dashboards:
+    superset:
+      reports:
+      workspace_id: 
   postgres:
     schema_name: 
   webapp:
     webapp_name: 
     webapp_url:
+tenant:
 ```
+
+### State Synchronization
+
+Local and remote states are automatically synchronized (since version 5.5.0).
+
+### State Destruction
+
+Local and remote states files are automatically removed after successful resource cleanup with the `destroy` macro command (since version 5.5.0).
+
+### Dashboard IDs & Babylon State
+During the first deployment, Babylon creates the required dashboards and store their IDs in the Babylon state.
+For subsequent deployments, Babylon retrieves the existing dashboard IDs from the state.
+This allows to have one single source of truth across multiple deployments, with each workspace (instance) referencing the same common configuration and with dashboard IDs being automatically managed through the Babylon state.

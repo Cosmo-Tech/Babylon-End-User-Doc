@@ -87,9 +87,10 @@ Having included the zipped dashboards, the Workspace needs to be configured manu
     During deployment, Babylon patches every Superset asset's display name in the ZIP export to prepend `workspace_id` (e.g. `w-abc123 My Dashboard`).
     This prefix is idempotent — if the title already starts with the prefix it is not re-applied. This is how assets become workspace-scoped: the prefix makes assets from different workspaces sharing the same Superset instance distinguishable and independently manageable.
 
-!!! important "Dashboards ids"
-    You need to fill the ids of the dashboards in between curly brackets as here above by converting the dahsboard name as appearing in the Superset UI to a lowercase string with all its original special characters removed (for instance, "QA - Dashboard - Scenario View" becomes "qadashboardscenarioview").
-    <br>Similarly, for now the filter ids have to be configured manually from the dashboard information found in the Superset IU.
+!!! important "Dashboards IDs"
+    You need to fill the IDs of the dashboards in between curly brackets as here above by converting the dahsboard name as appearing in the Superset UI to a lowercase string with all its original special characters removed (for instance, "QA - Dashboard - Scenario View" becomes "qadashboardscenarioview").
+    <br>Similarly, for now the filter IDs have to be configured manually from the dashboard information found in the Superset UI.
+    <br>Once dashboards are configured, Babylon will manage the dashboard IDs automatically across deployments, cf. [Dashboard IDs & Babylon state](/tutorial/Getting_started.md/#dashboard-ids-babylon-state).
 
 !!! warning "Access rights"
     As currently, in order to be able to see the deployed dashboards in your Solution, you will need to have "Platform admin" assigned as a role in the Keycloak configuration.
