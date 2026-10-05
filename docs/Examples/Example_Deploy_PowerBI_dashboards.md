@@ -101,8 +101,14 @@ Having included the .pbix dashboards, the Workspace needs to be configured manua
                 values: lastRunId
     ```
 
+!!! important "Dashboards IDs"
+    You need to fill the IDs of the dashboards in between curly brackets as here above by copying the names as they appear in the Power BI workspace UI.
+
 !!! info "Power BI workspace ACL"
-    Azure app registration for the WebApp is configured with the ACL (Access Control List) defined in the Power BI configurations in the `powerbi_permissions` field in [variables.yaml](/Examples/Example_Deploy_CosmoTech_workspace.md#start-deployment)
+    Azure app registration for the WebApp is configured with the ACL (Access Control List) defined in the Power BI configurations in the `powerbi_permissions` field in the [variables.yaml](/Examples/Example_Deploy_CosmoTech_workspace.md#start-deployment) file.
+    <br>
+    To do this, when Babylon detects a new Azure app registration, Babylon automatically retrieves its UUID and adds it for you in the ACL.
+    However, you can still add multiple apps manually in the `variables.yaml` file.
 
 !!! warning "Azure permissions"
     The user running `babylon macro apply` must have the **Application Administrator** role in Azure AD. This is required to allow creation of App Registrations and Enterprise Applications needed for Power BI workspace setup.
