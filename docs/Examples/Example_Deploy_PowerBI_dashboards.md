@@ -110,6 +110,9 @@ Having included the .pbix dashboards, the Workspace needs to be configured manua
     To do this, when Babylon detects a new Azure app registration, Babylon automatically retrieves its UUID and adds it for you in the ACL.
     However, you can still add multiple apps manually in the `variables.yaml` file.
 
+!!! info "Groups in the ACL"
+    The ACL can resolve identifiers of type `Group` (Azure AD display name) as well as individual users. Make sure to define the appropriate rights for each group in `powerbi_permissions` in the [variables.yaml](/Examples/Example_Deploy_CosmoTech_workspace.md#start-deployment) file.
+
 !!! warning "Azure permissions"
     The user running `babylon macro apply` must have the **Application Administrator** role in Azure AD. This is required to allow creation of App Registrations and Enterprise Applications needed for Power BI workspace setup.
 
