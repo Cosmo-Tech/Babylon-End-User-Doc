@@ -205,13 +205,14 @@ Running the following command displays the updated namespace commands:
     Commands:
       get-contexts  Display the currently active namespace
       get-states    Display states from local machine or remote storage.
+      show-state    Display the content of the local or remote state.
       use           Switch to a specific namespace or create a new one
 
     ```
 Using these commands, you can check the currently active namespace. <br>
 Additionally, with `get-states`, you can list all states available on our local machine. Here are some examples:
 
-!!! example 
+!!! example
 
     ```bash
     babylon namespace get-contexts
@@ -219,6 +220,37 @@ Additionally, with `get-states`, you can list all states available on our local 
     ```bash
     CURRENT  CONTEXT                            TENANT        STATE ID                              
     *        project1                           dev           1184d4e3 
+    ```
+
+And, with `show-state` you can view the content of a specific state file:
+
+!!! example
+
+    ```bash
+    babylon namespace show-state remote
+    ```
+    ```bash
+    ✔ State loaded from secret babylon-state-test-tenant-dev in namespace
+    tenant-dev
+       context: test
+       remote: true
+       services:
+         api:
+           organization_id: o-311renxvj0m4
+           solution_id: sol-jlln5veowod1
+           workspace_id: w-49981l5om80g
+         dashboards:
+           powerbi:
+             reports:
+               brewery_dashboard: c35f90e9-0140-4329-af5b-c6964050935c
+             workspace_id: 2fe8dac3-12fa-409a-ad1b-faffee6e6f54
+         postgres:
+           provider: powerbi
+           schema_name: w_49981l5om80g
+         webapp:
+           webapp_name: webapp-business
+           webapp_url: https://aks-dev-joy.azure.platform.cosmotech.com/tenant-dev/webapp-business
+       tenant: tenant-dev
     ```
 
 #### Viewing State Files
@@ -250,6 +282,11 @@ The `babylon namespace get-states` command provides two options:
     • state.project2.prod.d4ab0005.yaml
     • state.project3.staging.d4ab0006.yaml
     ```
+
+!!! example "show-state"
+    The `babylon namespace show-state` command allows the same two options: `remote` and `local`.
+    <br>
+    In addition, it allows to output the state in either `json`, `yaml` or `wide` format, with an output file saving option.
 
 ### Keycloak Authentication
 !!! note "Keycloak"
