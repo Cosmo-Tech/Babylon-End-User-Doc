@@ -90,7 +90,7 @@ Having included the zipped dashboards, the Workspace needs to be configured manu
 !!! important "Dashboard IDs"
     You need to fill the IDs of the dashboards in between curly brackets as here above by converting the dashboard name as appearing in the Superset UI to a lowercase string with all its original special characters removed (for instance, "QA - Dashboard - Scenario View" becomes "qadashboardscenarioview").
     <br>Similarly, for now the filter IDs have to be configured manually from the dashboard information found in the Superset UI.
-    <br>Once dashboards are configured, Babylon will manage the dashboard IDs automatically across deployments, cf. [Dashboard IDs & Babylon state](/tutorial/Getting_started.md#dashboard-ids-babylon-state).
+    <br>Once dashboards are configured and from the first deployment onwards, Babylon will manage the dashboard IDs automatically across deployments, cf. [Dashboard IDs & Babylon state](/tutorial/Getting_started.md#dashboard-ids-babylon-state).
 
 !!! warning "Access rights"
     As currently, in order to be able to see the deployed dashboards in your Solution, you will need to have "Platform admin" assigned as a role in the Keycloak configuration.

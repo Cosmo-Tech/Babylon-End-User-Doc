@@ -49,5 +49,5 @@ Local and remote state files are automatically removed after successful resource
 
 ### Dashboard IDs & Babylon State
 During the first deployment, Babylon creates the required dashboards and stores their IDs in the Babylon state.
-For subsequent deployments, Babylon retrieves the existing dashboard IDs from the state.
+For subsequent deployments, Babylon retrieves the existing dashboard IDs from the state, with the manually entered IDs having been automatically replaced by the ones generated during the first deployment.
 This allows to have one single source of truth across multiple deployments, with each workspace (instance) referencing the same common configuration and with dashboard IDs being automatically managed through the Babylon state.
