@@ -101,11 +101,25 @@ Having included the .pbix dashboards, the Workspace needs to be configured manua
                 values: lastRunId
     ```
 
+!!! important "Dashboard IDs"
+    You need to fill the IDs of the dashboards in between curly brackets as here above by copying the names as they are in the PBIX report file basename.
+    <br>Once dashboards are configured and from the first deployment onwards, Babylon will manage the dashboard IDs automatically across deployments, cf. [Dashboard IDs & Babylon state](/tutorial/Getting_started.md#dashboard-ids-babylon-state).
+
 !!! info "Power BI workspace ACL"
-    Azure app registration for the WebApp is configured with the ACL (Access Control List) defined in the Power BI configurations in the `powerbi_permissions` field in [variables.yaml](/Examples/Example_Deploy_CosmoTech_workspace.md#start-deployment)
+    Azure app registration for the WebApp is configured with the ACL (Access Control List) defined in the Power BI configurations in the `powerbi_permissions` field in the [variables.yaml](/Examples/Example_Deploy_CosmoTech_workspace.md#start-deployment) file.
+    <br>
+    To do this, when Babylon detects a new Azure app registration, Babylon automatically retrieves its UUID and adds it for you in the ACL.
+    However, you can still add multiple apps manually in the `variables.yaml` file.
+
+!!! info "Groups in the ACL"
+    The ACL can resolve identifiers of type `Group` (Azure AD display name) as well as individual users. Make sure to define the appropriate rights for each group in `powerbi_permissions` in the [variables.yaml](/Examples/Example_Deploy_CosmoTech_workspace.md#start-deployment) file.
 
 !!! warning "Azure permissions"
-    The user running `babylon macro apply` must have the **Application Administrator** role in Azure AD. This is required to allow creation of App Registrations and Enterprise Applications needed for Power BI workspace setup.
+    The user running `babylon apply` must have the **Application Administrator** role in Azure AD. This is required to allow creation of App Registrations and Enterprise Applications needed for Power BI workspace setup.
 
 !!! warning "Power BI license"
     A **valid Power BI license** is required for the workspace to allow Power BI workspace creation and report publishing.
+
+!!! warning "Power BI group ownership"
+    When running `babylon apply` with Power BI, the web app creates an App Registration and adds its ID to the Power BI group.
+    Therefore, the user running `babylon apply` must be an owner of the Power BI group.

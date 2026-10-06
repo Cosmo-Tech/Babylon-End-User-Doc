@@ -78,6 +78,9 @@ Here is an example of `variables.yaml` with detailed explanations:
       - identifier: "user.1@cosmotech.com"
         rights: Admin
         type: User
+      - identifier: "DevOps Team"
+        rights: Admin
+        type: Group
 
     # Webapp
     # These variables are used to render your Webapp.yaml manifest and can be mapped to the

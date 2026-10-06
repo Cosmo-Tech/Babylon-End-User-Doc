@@ -69,7 +69,10 @@ description: "Reference guide for essential Babylon CLI commands"
     babylon namespace get-contexts
     ```
     ```bash
-    babylon namespace get-states local/remote
+    babylon namespace get-states <local|remote>
+    ```
+    ```bash
+    babylon namespace show-state <local|remote>
     ```
 ## Apply Macro Command
 
